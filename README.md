@@ -1,3 +1,3 @@
 # Glowing Barn
 
-Ensemble de différentes visualisations interactives de différents phénomènes physiques.
+Platformer de réflexion basé sur l'effet magnétique.
