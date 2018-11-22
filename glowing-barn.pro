@@ -28,9 +28,11 @@ SOURCES += \
     src/main.cpp \
     src/game.cpp \
     src/scenes/gamescene.cpp \
-    src/scenes/menuscene.cpp
+    src/scenes/menuscene.cpp \
+    src/scenes/scene.cpp
 
 HEADERS += \
     include/game.h \
     include/gamescene.h \
-    include/menuscene.h
+    include/menuscene.h \
+    include/scene.h

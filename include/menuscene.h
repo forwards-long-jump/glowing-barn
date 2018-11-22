@@ -1,14 +1,20 @@
 #ifndef MENUSCENE_H
 #define MENUSCENE_H
 
-#include <QGraphicsScene>
+#include <QPushButton>
 
-class MenuScene : public QGraphicsScene
+#include "scene.h"
+
+class MenuScene : public Scene
 {
     Q_OBJECT
 
 public:
-    MenuScene();
+    MenuScene(QString name = "default", Game *game = 0);
+    ~MenuScene();
+
+private:
+    QPushButton *btnLaunch;
 };
 
 #endif // MENUSCENE_H
