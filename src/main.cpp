@@ -1,8 +1,6 @@
 #include <QApplication>
 
 #include "include/game.h"
-#include "include/rectanglecomponent.h"
-#include "include/entity.h"
 
 int main(int argc, char *argv[])
 {
@@ -10,7 +8,6 @@ int main(int argc, char *argv[])
 
     Game game;
     game.resize(1280, 720);
-
     game.show();
 
     return a.exec();
