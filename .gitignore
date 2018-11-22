@@ -1,3 +1,7 @@
+# Build & Release
+debug
+release
+
 # C++ objects and libs
 *.slo
 *.lo
