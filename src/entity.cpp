@@ -1,5 +1,4 @@
 #include "include/entity.h"
-#include <QDebug>
 
 Entity::Entity(QGraphicsScene *scene):
     QGraphicsItem()
@@ -9,13 +8,12 @@ Entity::Entity(QGraphicsScene *scene):
 
 void Entity::addComponent(Component* c)
 {
-    c->AssignParent(this);
+    c->assignParent(this);
     components.push_back(c);
 }
 
 void Entity::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-    qDebug() << "lel";
     for (auto c : components)
     {
         // Determining whether this component is a graphical one

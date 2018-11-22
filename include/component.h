@@ -1,8 +1,6 @@
 #ifndef COMPONENT_H
 #define COMPONENT_H
 
-#include <QWidget>
-
 class Entity;
 
 class Component
@@ -11,7 +9,7 @@ public:
     Component();
     ~Component();
 
-    void AssignParent(Entity* parent) {entity = parent;}
+    void assignParent(Entity* parent) {entity = parent;}
 
     virtual void update() = 0;
 
