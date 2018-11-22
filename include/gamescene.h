@@ -1,14 +1,16 @@
 #ifndef GAMESCENE_H
 #define GAMESCENE_H
 
-#include <QGraphicsScene>
+#include "scene.h"
 
-class GameScene : public QGraphicsScene
+class GameScene : public Scene
 {
     Q_OBJECT
 
 public:
-    GameScene();
+    GameScene(QString name = "default", Game *game = 0);
+    ~GameScene();
+
 };
 
 #endif // GAMESCENE_H

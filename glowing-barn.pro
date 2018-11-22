@@ -27,14 +27,20 @@ INCLUDEPATH += $$PWD/include
 SOURCES += \
     src/main.cpp \
     src/game.cpp \
-    src/components/component.cpp \
     src/entity.cpp \
+    src/scenes/gamescene.cpp \
+    src/scenes/menuscene.cpp \
+    src/scenes/scene.cpp \
+    src/components/component.cpp \
     src/components/graphicscomponent.cpp \
     src/components/rectanglecomponent.cpp
 
 HEADERS += \
     include/game.h \
-    include/component.h \
     include/entity.h \
+    include/gamescene.h \
+    include/menuscene.h \
+    include/scene.h \
+    include/component.h \
     include/graphicscomponent.h \
     include/rectanglecomponent.h
