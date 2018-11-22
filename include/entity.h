@@ -10,7 +10,7 @@ class Entity : public QGraphicsItem
 {
 public:
     Entity(QGraphicsScene* parent);
-    virtual ~Entity() {}
+    virtual ~Entity();
 
     void addComponent(Component* c);
 

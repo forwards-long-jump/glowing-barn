@@ -6,6 +6,14 @@ Entity::Entity(QGraphicsScene *scene):
     scene->addItem(this);
 }
 
+Entity::~Entity()
+{
+    for (auto c : components)
+    {
+        delete c;
+    }
+}
+
 void Entity::addComponent(Component* c)
 {
     c->assignParent(this);
