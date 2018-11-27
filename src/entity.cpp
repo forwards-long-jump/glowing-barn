@@ -18,7 +18,7 @@ Entity::~Entity()
 
 QRectF Entity::boundingRect() const
 {
-    return QRectF(x(), y(), x() + size.width(), y() + size.height());
+    return QRectF(x(), y(), size.width(), size.height());
 }
 
 void Entity::addComponent(Component* c)
