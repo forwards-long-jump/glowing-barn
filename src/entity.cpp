@@ -1,8 +1,10 @@
 #include "include/entity.h"
 
-Entity::Entity(QGraphicsScene *scene):
-    QGraphicsItem()
+Entity::Entity(QGraphicsScene *scene, float width, float height)
+    : QGraphicsItem()
 {
+    size.setWidth(width);
+    size.setHeight(height);
     scene->addItem(this);
 }
 
@@ -12,6 +14,11 @@ Entity::~Entity()
     {
         delete c;
     }
+}
+
+QRectF Entity::boundingRect() const
+{
+    return QRectF(x(), y(), x() + size.width(), y() + size.height());
 }
 
 void Entity::addComponent(Component* c)
