@@ -10,6 +10,14 @@ Game::Game(QWidget *parent)
     currentScene = menuScene;
 
     this->setScene(currentScene);
+
+    // Connections
+    connect(this, &Game::keyPressEvent,
+            [=](QKeyEvent* event) {input.handleKeyDown(event);}
+            );
+    connect(this, &Game::keyReleaseEvent,
+            [=](QKeyEvent* event) {input.handleKeyUp(event);}
+            );
 }
 
 Game::~Game()
