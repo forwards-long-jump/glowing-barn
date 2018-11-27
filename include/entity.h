@@ -14,8 +14,10 @@ public:
 
     void addComponent(Component* c);
 
-    QRectF boundingRect() const {return QRectF(pos(), QPointF(10,10));}
+    QRectF boundingRect() const {return QRectF(pos(), QPointF(10,10));} // TODO: Allow a component to change that
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+
+    void update();
 
 private:
     QVector<Component*> components;
