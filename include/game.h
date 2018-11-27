@@ -4,6 +4,8 @@
 #include <QGraphicsView>
 #include <QGraphicsScene>
 #include <QMap>
+#include <QTime>
+#include <QTimer>
 
 #include <gamescene.h>
 #include <menuscene.h>
@@ -24,6 +26,14 @@ public:
 private:
     QMap<QString, QGraphicsScene *> scenes;
     QGraphicsScene *currentScene;
+
+    const int MS_PER_UPDATE = 1000 / 60;
+    QTimer *updateTimer;
+    QTime *lastUpdateTime;
+    int lag;
+
+private slots:
+    void update();
 
 };
 
