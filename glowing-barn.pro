@@ -33,7 +33,7 @@ SOURCES += \
     src/scenes/scene.cpp \
     src/components/component.cpp \
     src/components/graphicscomponent.cpp \
-    src/components/rectanglecomponent.cpp
+    src/components/debugcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -43,4 +43,4 @@ HEADERS += \
     include/scene.h \
     include/component.h \
     include/graphicscomponent.h \
-    include/rectanglecomponent.h
+    include/debugcomponent.h
