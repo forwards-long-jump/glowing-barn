@@ -19,6 +19,8 @@ public:
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    void update();
+
 private:
     QVector<Component*> components;
     QSizeF size;

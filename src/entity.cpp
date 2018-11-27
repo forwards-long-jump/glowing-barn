@@ -27,6 +27,14 @@ void Entity::addComponent(Component* c)
     components.push_back(c);
 }
 
+void Entity::update()
+{
+    for (auto c : components)
+    {
+        c->update();
+    }
+}
+
 void Entity::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     for (auto c : components)

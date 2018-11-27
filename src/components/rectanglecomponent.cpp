@@ -9,3 +9,8 @@ void RectangleComponent::render(QPainter *painter)
 {
     painter->fillRect(entity->boundingRect(), Qt::blue);
 }
+
+void RectangleComponent::update()
+{
+    entity->setX(entity->pos().x() + 2);
+}

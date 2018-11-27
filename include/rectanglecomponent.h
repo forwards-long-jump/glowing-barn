@@ -9,7 +9,7 @@ public:
     RectangleComponent();
 
     void render(QPainter* painter) override;
-    void update(){}
+    void update() override;
 };
 
 #endif // RECTANGLECOMPONENT_H
