@@ -6,8 +6,3 @@ Scene::Scene(QString name, Game *game)
     this->game = game;
     game->addScene(name, this);
 }
-
-Scene::~Scene()
-{
-
-}
