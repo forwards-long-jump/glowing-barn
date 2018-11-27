@@ -3,6 +3,8 @@
 
 #include <QGraphicsScene>
 
+#include "entity.h"
+
 class Game;
 
 class Scene : public QGraphicsScene
