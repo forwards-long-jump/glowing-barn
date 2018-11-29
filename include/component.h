@@ -7,7 +7,7 @@ class Component
 {
 public:
     Component();
-    ~Component();
+    virtual ~Component();
 
     void assignParent(Entity* parent) {entity = parent;}
 

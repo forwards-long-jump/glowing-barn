@@ -10,10 +10,7 @@ Entity::Entity(QGraphicsScene *scene, float width, float height)
 
 Entity::~Entity()
 {
-    for (auto c : components)
-    {
-        delete c;
-    }
+    qDeleteAll(components);
 }
 
 QRectF Entity::boundingRect() const
