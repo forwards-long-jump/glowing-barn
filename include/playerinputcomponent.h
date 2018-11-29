@@ -8,15 +8,10 @@ class PlayerInputComponent : public Component
 {
 public:
     PlayerInputComponent();
+    virtual ~PlayerInputComponent(){}
 
     void update() override;
-    void handleInput();
-    void setState(PlayerState* _state) {state = _state; state->init();}
-
-    StandingState standing;
-    RunningState running;
-    JumpingState jumping;
-    ZippingState zipping;
+    void setState(PlayerState* _state) {state = _state; state->enter(this);}
 
 private:
     PlayerState* state;

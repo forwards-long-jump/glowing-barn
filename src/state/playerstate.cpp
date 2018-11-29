@@ -1,49 +1,56 @@
 #include "include/playerstate.h"
 
-#include <QDebug>
+StandingState PlayerState::standing;
+RunningState PlayerState::running;
+JumpingState PlayerState::jumping;
+ZippingState PlayerState::zipping;
 
 void RunningState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
 {
-    qDebug() << "à l'écoute";
     if (game->isKeyDown(Qt::Key_Up))
     {
-        qDebug() << "saut";
-        playerInputComponent->setState(&playerInputComponent->jumping);
+        playerInputComponent->setState(&PlayerState::jumping);
     }
-}
-
-void RunningState::update(PlayerInputComponent* playerInputComponent, Game* game)
-{
-    if (game->isKeyDown(Qt::Key_Left))
+    else
     {
-        dx -= 1;
-        if (dx < - maxDx) dx = - maxDx;
+        if (game->isKeyDown(Qt::Key_Left))
+        {
+            playerInputComponent->getEntity()->addDdx(- ddx);
+        }
+        else if (game->isKeyDown(Qt::Key_Right))
+        {
+            playerInputComponent->getEntity()->addDdx(ddx);
+        }
+        else
+        {
+            playerInputComponent->setState(&PlayerState::standing);
+        }
     }
-    if (game->isKeyDown(Qt::Key_Right))
-    {
-        dx += 1;
-        if (dx > maxDx) dx = maxDx;
-    }
-
-    playerInputComponent->getEntity()->setX(playerInputComponent->getEntity()->x() + dx);
 }
 
 void StandingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
 {
-    qDebug() << "à l'écoute";
     if (game->isKeyDown(Qt::Key_Up))
     {
-        qDebug() << "saut";
-        playerInputComponent->setState(&playerInputComponent->jumping);
+        playerInputComponent->setState(&PlayerState::jumping);
+    }
+    else
+    {
+        float dx = playerInputComponent->getEntity()->getDx();
+        // these are the brakes
+        playerInputComponent->getEntity()->addDdx( - dx / 2);
+
+        if (game->isKeyDown(Qt::Key_Left) || game->isKeyDown(Qt::Key_Right))
+        {
+            playerInputComponent->setState(&PlayerState::running);
+        }
     }
 }
 
-void StandingState::update(PlayerInputComponent* playerInputComponent, Game* game)
+void JumpingState::enter(PlayerInputComponent* playerInputComponent)
 {
-    if      (dx > 0) dx --;
-    else if (dx < 0) dx ++;
-
-    playerInputComponent->getEntity()->setX(playerInputComponent->getEntity()->x() + dx);
+    PlayerState::enter(playerInputComponent);
+    playerInputComponent->getEntity()->addDdy(jumpSpeed);
 }
 
 void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
@@ -53,35 +60,23 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game*
         // if (in zipper range)
         // playerInputComponent->setState(&PlayerState::zipping);
     }
-}
-
-void JumpingState::update(PlayerInputComponent* playerInputComponent, Game* game)
-{
-    dy = 2 * maxHeight / (timeToMaxHeight * timeToMaxHeight) * (timeToMaxHeight - timer);
-    if      (dy > maxDy) dy = maxDy;
-    else if (dy < - maxDy) dy = - maxDy;
-
     if (game->isKeyDown(Qt::Key_Left))
     {
-        dx -= 1;
-        if (dx < - maxDx) dx = - maxDx;
+        playerInputComponent->getEntity()->addDdx(- ddx);
     }
-    if (game->isKeyDown(Qt::Key_Right))
+    else if (game->isKeyDown(Qt::Key_Right))
     {
-        dx += 1;
-        if (dx > maxDx) dx = maxDx;
+        playerInputComponent->getEntity()->addDdx(ddx);
     }
-
-    playerInputComponent->getEntity()->setX(playerInputComponent->getEntity()->x() + dx);
-    playerInputComponent->getEntity()->setY(playerInputComponent->getEntity()->y() + dy);
+    else
+    {
+        // gently decelerate
+        float dx = playerInputComponent->getEntity()->getDx();
+        playerInputComponent->getEntity()->addDdx( - dx / 1.5);
+    }
 }
 
 void ZippingState::handleInput(PlayerInputComponent* playerInputComponent, Game *game)
-{
-
-}
-
-void ZippingState::update(PlayerInputComponent* playerInputComponent, Game* game)
 {
 
 }

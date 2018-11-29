@@ -19,8 +19,16 @@ public:
 
     void update();
 
+    void addDdx(float dx_) {dx += dx_;}
+    void addDdy(float dy_) {dy += dy_;}
+    float getDx() const {return dx;}
+    float getDy() const {return dy;}
+
 private:
     QVector<Component*> components;
+
+    float dx;
+    float dy;
 };
 
 #endif // ENTITY_H

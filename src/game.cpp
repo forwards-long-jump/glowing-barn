@@ -32,8 +32,8 @@ Game::Game(QWidget *parent)
 
 Game::~Game()
 {
-    qDeleteAll(scenes.begin(), scenes.end());
-    scenes.clear();
+    //qDeleteAll(scenes.begin(), scenes.end());
+    //scenes.clear();
 }
 
 /**

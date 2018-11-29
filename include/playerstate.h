@@ -12,12 +12,13 @@ class ZippingState;
 class PlayerState
 {
 public:
-    PlayerState(){}
+    PlayerState(float ddx_ = 0, float ddy_ = 0)
+        :ddx(ddx_), ddy(ddy_) {}
+    virtual ~PlayerState() {}
 
     virtual void handleInput(PlayerInputComponent* playerInputComponent, Game* game) = 0;
-    virtual void update(PlayerInputComponent* playerInputComponent, Game* game) = 0;
 
-    void init() {timer = dx = dy = 0;}
+    virtual void enter(PlayerInputComponent* playerInputComponent) {}
 
     static StandingState standing;
     static RunningState running;
@@ -25,53 +26,49 @@ public:
     static ZippingState zipping;
 
 protected:
-    int dx;
-    int dy;
-
-    int timer;
-
-    const int maxDx = 10;
-    const int maxDy = 10;
+    float ddx;
+    float ddy;
 };
 
 class RunningState : public PlayerState
 {
 public:
-    RunningState(){}
+    RunningState()
+        :PlayerState(1, 0) {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
-    void update(PlayerInputComponent* playerInputComponent, Game* game);
 };
 
 class StandingState : public PlayerState
 {
 public:
-    StandingState(){}
+    StandingState()
+        :PlayerState(0, 0) {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
-    void update(PlayerInputComponent* playerInputComponent, Game* game);
 };
 
 class JumpingState : public PlayerState
 {
 public:
-    JumpingState(){}
+    JumpingState()
+        :PlayerState(1, 0) {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
-    void update(PlayerInputComponent* playerInputComponent, Game* game);
+
+    void enter(PlayerInputComponent* playerInputComponent) override;
 
 private:
-    const int timeToMaxHeight = 60;
-    const int maxHeight = 100;
+    const float jumpSpeed = -30;
 };
 
 class ZippingState : public PlayerState
 {
 public:
-    ZippingState(){}
+    ZippingState()
+        :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
-    void update(PlayerInputComponent* playerInputComponent, Game* game);
 };
 
 #include <playerinputcomponent.h>

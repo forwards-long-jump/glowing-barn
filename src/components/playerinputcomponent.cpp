@@ -1,17 +1,12 @@
 #include "include/playerinputcomponent.h"
+#include "scene.h"
 
 PlayerInputComponent::PlayerInputComponent()
 {
-    setState(&standing);
-}
-
-void PlayerInputComponent::handleInput()
-{
-    state->handleInput(this, static_cast<Scene*>(entity->scene())->getGame());
+    setState(&PlayerState::standing);
 }
 
 void PlayerInputComponent::update()
 {
-    handleInput();
-    state->update(this, static_cast<Scene*>(entity->scene())->getGame());
+    state->handleInput(this, static_cast<Scene*>(entity->scene())->getGame());
 }
