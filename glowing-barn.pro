@@ -22,6 +22,12 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+!win {
+    LIBS += -lz
+}
+
+include($$PWD/lib/libtiled/libtiled-static.pri)
+
 INCLUDEPATH += $$PWD/include
 
 SOURCES += \
@@ -33,7 +39,11 @@ SOURCES += \
     src/scenes/scene.cpp \
     src/components/component.cpp \
     src/components/graphicscomponent.cpp \
-    src/components/rectanglecomponent.cpp
+    src/components/rectanglecomponent.cpp \
+    src/tilemap/mapitem.cpp \
+    src/tilemap/tilelayeritem.cpp \
+    src/tilemap/objectgroupitem.cpp \
+    src/tilemap/mapobjectitem.cpp
 
 HEADERS += \
     include/game.h \
@@ -43,4 +53,11 @@ HEADERS += \
     include/scene.h \
     include/component.h \
     include/graphicscomponent.h \
-    include/rectanglecomponent.h
+    include/rectanglecomponent.h \
+    include/mapitem.h \
+    include/tilelayeritem.h \
+    include/objectgroupitem.h \
+    include/mapobjectitem.h
+
+RESOURCES += \
+    assets/assets.qrc
