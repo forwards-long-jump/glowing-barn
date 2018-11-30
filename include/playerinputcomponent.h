@@ -11,6 +11,8 @@ public:
     virtual ~PlayerInputComponent(){}
 
     void update() override;
+
+    PlayerState* getState() const {return state;}
     void setState(PlayerState* _state) {state = _state; state->enter(this);}
 
 private:

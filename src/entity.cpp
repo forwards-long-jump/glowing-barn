@@ -4,7 +4,6 @@ Entity::Entity(QGraphicsScene *scene):
     QGraphicsItem()
 {
     scene->addItem(this);
-    dx = dy = 0;
 }
 
 Entity::~Entity()
@@ -28,8 +27,6 @@ void Entity::update()
     {
         c->update();
     }
-    this->setPos(this->pos().x() + dx, this->pos().y() + dy);
-    qDebug() << "speed : " << dx << " " << dy;
 }
 
 void Entity::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

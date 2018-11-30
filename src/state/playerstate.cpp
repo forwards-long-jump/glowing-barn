@@ -5,6 +5,24 @@ RunningState PlayerState::running;
 JumpingState PlayerState::jumping;
 ZippingState PlayerState::zipping;
 
+bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComponent, Game *game) const
+{
+    if (game->isKeyDown(Qt::Key_Left))
+    {
+        // TODO : move entity left
+
+    }
+    else if (game->isKeyDown(Qt::Key_Right))
+    {
+        // TODO : move entity right
+    }
+    else
+    {
+        return true;
+    }
+    return false;
+}
+
 void RunningState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
 {
     if (game->isKeyDown(Qt::Key_Up))
@@ -13,15 +31,7 @@ void RunningState::handleInput(PlayerInputComponent* playerInputComponent, Game*
     }
     else
     {
-        if (game->isKeyDown(Qt::Key_Left))
-        {
-            playerInputComponent->getEntity()->addDdx(- ddx);
-        }
-        else if (game->isKeyDown(Qt::Key_Right))
-        {
-            playerInputComponent->getEntity()->addDdx(ddx);
-        }
-        else
+        if (!handleHorizontalMovement(playerInputComponent, game))
         {
             playerInputComponent->setState(&PlayerState::standing);
         }
@@ -36,9 +46,7 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent, Game
     }
     else
     {
-        float dx = playerInputComponent->getEntity()->getDx();
-        // these are the brakes
-        playerInputComponent->getEntity()->addDdx( - dx / 2);
+        // TODO : decelerate entity
 
         if (game->isKeyDown(Qt::Key_Left) || game->isKeyDown(Qt::Key_Right))
         {
@@ -50,7 +58,7 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent, Game
 void JumpingState::enter(PlayerInputComponent* playerInputComponent)
 {
     PlayerState::enter(playerInputComponent);
-    playerInputComponent->getEntity()->addDdy(jumpSpeed);
+    // TODO : give entitiy vertical speed
 }
 
 void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
@@ -60,19 +68,9 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game*
         // if (in zipper range)
         // playerInputComponent->setState(&PlayerState::zipping);
     }
-    if (game->isKeyDown(Qt::Key_Left))
+    if (!handleHorizontalMovement(playerInputComponent, game))
     {
-        playerInputComponent->getEntity()->addDdx(- ddx);
-    }
-    else if (game->isKeyDown(Qt::Key_Right))
-    {
-        playerInputComponent->getEntity()->addDdx(ddx);
-    }
-    else
-    {
-        // gently decelerate
-        float dx = playerInputComponent->getEntity()->getDx();
-        playerInputComponent->getEntity()->addDdx( - dx / 1.5);
+        // TODO : decelerate entity
     }
 }
 

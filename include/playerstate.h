@@ -17,6 +17,8 @@ public:
     virtual ~PlayerState() {}
 
     virtual void handleInput(PlayerInputComponent* playerInputComponent, Game* game) = 0;
+    bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent, Game* game) const;
+    void decelerate(PlayerInputComponent* playerInputComponent, Game* game);
 
     virtual void enter(PlayerInputComponent* playerInputComponent) {}
 
