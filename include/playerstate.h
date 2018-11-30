@@ -6,14 +6,15 @@
 class PlayerInputComponent;
 class StandingState;
 class RunningState;
+class SkiddingState;
 class JumpingState;
 class ZippingState;
 
 class PlayerState
 {
 public:
-    PlayerState(float ddx_ = 0, float ddy_ = 0)
-        :ddx(ddx_), ddy(ddy_) {}
+    PlayerState(float xAcceleration_ = 0)
+        :xAcceleration(xAcceleration_) {}
     virtual ~PlayerState() {}
 
     virtual void handleInput(PlayerInputComponent* playerInputComponent, Game* game) = 0;
@@ -24,19 +25,28 @@ public:
 
     static StandingState standing;
     static RunningState running;
+    static SkiddingState skidding;
     static JumpingState jumping;
     static ZippingState zipping;
 
 protected:
-    float ddx;
-    float ddy;
+    float xAcceleration;
 };
 
 class RunningState : public PlayerState
 {
 public:
     RunningState()
-        :PlayerState(1, 0) {}
+        :PlayerState(1) {}
+
+    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+};
+
+class SkiddingState : public PlayerState
+{
+public:
+    SkiddingState()
+        :PlayerState(0) {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
 };
@@ -45,7 +55,7 @@ class StandingState : public PlayerState
 {
 public:
     StandingState()
-        :PlayerState(0, 0) {}
+        :PlayerState(0) {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
 };
@@ -54,7 +64,7 @@ class JumpingState : public PlayerState
 {
 public:
     JumpingState()
-        :PlayerState(1, 0) {}
+        :PlayerState(1) {}
 
     void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
 

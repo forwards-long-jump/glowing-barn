@@ -36,7 +36,11 @@ SOURCES += \
     src/components/rectanglecomponent.cpp \
     src/input.cpp \
     src/components/playerinputcomponent.cpp \
-    src/state/playerstate.cpp
+    src/state/playerstate.cpp \
+    src/state/runningstate.cpp \
+    src/state/standingstate.cpp \
+    src/state/jumpingstate.cpp \
+    src/state/skiddingstate.cpp
 
 HEADERS += \
     include/game.h \

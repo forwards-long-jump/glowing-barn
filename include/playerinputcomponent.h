@@ -12,8 +12,8 @@ public:
 
     void update() override;
 
-    PlayerState* getState() const {return state;}
-    void setState(PlayerState* _state) {state = _state; state->enter(this);}
+    PlayerState* getState() const;
+    void setState(PlayerState* _state);
 
 private:
     PlayerState* state;
