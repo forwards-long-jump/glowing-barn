@@ -40,7 +40,8 @@ SOURCES += \
     src/state/runningstate.cpp \
     src/state/standingstate.cpp \
     src/state/jumpingstate.cpp \
-    src/state/skiddingstate.cpp
+    src/state/skiddingstate.cpp \
+    src/state/fallingstate.cpp
 
 HEADERS += \
     include/game.h \

@@ -8,6 +8,7 @@ class StandingState;
 class RunningState;
 class SkiddingState;
 class JumpingState;
+class FallingState;
 class ZippingState;
 
 class PlayerState
@@ -27,6 +28,7 @@ public:
     static RunningState running;
     static SkiddingState skidding;
     static JumpingState jumping;
+    static FallingState falling;
     static ZippingState zipping;
 
 protected:
@@ -72,6 +74,15 @@ public:
 
 private:
     const float jumpSpeed = -30;
+};
+
+class FallingState : public PlayerState
+{
+public:
+    FallingState()
+        :PlayerState(1) {}
+
+    void handleInput(PlayerInputComponent *playerInputComponent, Game *game);
 };
 
 class ZippingState : public PlayerState

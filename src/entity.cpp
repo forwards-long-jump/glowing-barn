@@ -20,7 +20,6 @@ void Entity::addComponent(Component* c)
     components.push_back(c);
 }
 
-#include <QDebug>
 void Entity::update()
 {
     for (auto c : components)
