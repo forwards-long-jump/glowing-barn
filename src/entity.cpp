@@ -1,11 +1,10 @@
 #include "include/entity.h"
 
-Entity::Entity(QGraphicsScene *scene, float width, float height)
-    : QGraphicsItem()
+Entity::Entity(QGraphicsItem *parent, float width, float height)
+    : QGraphicsItem(parent)
 {
     size.setWidth(width);
     size.setHeight(height);
-    scene->addItem(this);
 }
 
 Entity::~Entity()

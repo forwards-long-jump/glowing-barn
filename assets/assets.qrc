@@ -1,0 +1,7 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>maps/tilemap.png</file>
+    <file>maps/tilemap.tsx</file>
+    <file>maps/map-test.tmx</file>
+</qresource>
+</RCC>
