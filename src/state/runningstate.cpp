@@ -11,5 +11,4 @@ void RunningState::handleInput(PlayerInputComponent* playerInputComponent, Game*
     {
         playerInputComponent->setState(&PlayerState::skidding);
     }
-
 }
