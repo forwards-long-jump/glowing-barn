@@ -7,6 +7,10 @@ Game::Game(QWidget *parent)
     MenuScene *menuScene = new MenuScene("menu", this);
     GameScene *gameScene = new GameScene("game", this);
 
+    // A proof that the QGraphics framework wasn't made with making games in mind
+    this->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+
     currentScene = menuScene;
 
     this->setScene(currentScene);
@@ -52,6 +56,8 @@ void Game::update() {
                 entity->update();
             }
         }
+
+        static_cast<Scene*>(scene())->updateCamera();
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();
     }
