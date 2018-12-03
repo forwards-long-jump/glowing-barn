@@ -3,13 +3,17 @@
 
 #include "include/graphicscomponent.h"
 
-class RectangleComponent : public GraphicsComponent
+class DebugComponent : public GraphicsComponent
 {
 public:
-    RectangleComponent();
+    DebugComponent(QString debugText = "", QColor color = QColor(0, 255, 255, 127));
 
     void render(QPainter* painter) override;
     void update() override;
+private:
+    const int LINE_HEIGHT = 12;
+    QColor color;
+    QString debugText;
 };
 
 #endif // RECTANGLECOMPONENT_H
