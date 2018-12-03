@@ -5,7 +5,7 @@
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
-    loadMap(":maps/map-test.tmx");
+
 }
 
 GameScene::~GameScene()
