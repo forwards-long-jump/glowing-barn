@@ -1,7 +1,7 @@
 #include "include/tilelayeritem.h"
 
 TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
-    : QGraphicsItem(parent)
+    : Entity(parent)
     , mTileLayer(tileLayer)
     , mRenderer(renderer)
 {

@@ -1,7 +1,7 @@
 #include "include/mapitem.h"
 
 MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
-    : QGraphicsItem(parent)
+    : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
 

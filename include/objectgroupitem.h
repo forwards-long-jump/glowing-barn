@@ -5,13 +5,12 @@
 #include "maprenderer.h"
 #include "mapobject.h"
 #include "mapobjectitem.h"
-
-#include <QGraphicsItem>
+#include "entity.h"
 
 /**
  * Item that represents an object group.
  */
-class ObjectGroupItem : public QGraphicsItem
+class ObjectGroupItem : public Entity
 {
 public:
     ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);

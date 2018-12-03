@@ -4,13 +4,12 @@
 #include "mapobject.h"
 #include "maprenderer.h"
 #include "objectgroup.h"
-
-#include <QGraphicsItem>
+#include "entity.h"
 
 /**
  * Item that represents a map object.
  */
-class MapObjectItem : public QGraphicsItem
+class MapObjectItem : public Entity
 {
 public:
     MapObjectItem(Tiled::MapObject *mapObject, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);

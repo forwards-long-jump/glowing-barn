@@ -1,7 +1,7 @@
 #include "include/objectgroupitem.h"
 
 ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
-    : QGraphicsItem(parent)
+    : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
     setPos(objectGroup->offset());

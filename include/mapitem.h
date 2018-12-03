@@ -7,10 +7,9 @@
 #include "tilelayeritem.h"
 #include "objectgroup.h"
 #include "objectgroupitem.h"
+#include <entity.h>
 
-#include <QGraphicsItem>
-
-class MapItem : public QGraphicsItem
+class MapItem : public Entity
 {
 public:
     MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);

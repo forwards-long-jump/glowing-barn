@@ -3,14 +3,14 @@
 
 #include "tilelayer.h"
 #include "maprenderer.h"
+#include "entity.h"
 
-#include <QGraphicsItem>
 #include <QStyleOptionGraphicsItem>
 
 /**
  * Item that represents a tile layer.
  */
-class TileLayerItem : public QGraphicsItem
+class TileLayerItem : public Entity
 {
 public:
     TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);

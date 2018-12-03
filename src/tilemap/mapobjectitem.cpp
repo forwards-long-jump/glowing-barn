@@ -1,7 +1,7 @@
 #include "include/mapobjectitem.h"
 
 MapObjectItem::MapObjectItem(Tiled::MapObject *mapObject, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
-    : QGraphicsItem(parent)
+    : Entity(parent)
     , mMapObject(mapObject)
     , mRenderer(renderer)
 {
