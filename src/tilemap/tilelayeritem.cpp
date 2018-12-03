@@ -14,7 +14,8 @@ QRectF TileLayerItem::boundingRect() const
     return mRenderer->boundingRect(mTileLayer->bounds());
 }
 
-void TileLayerItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *)
+void TileLayerItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Entity::paint(p, option, widget);
     mRenderer->drawTileLayer(p, mTileLayer, option->rect);
 }

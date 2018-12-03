@@ -1,4 +1,5 @@
 #include "include/mapitem.h"
+#include "debugcomponent.h"
 
 MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
@@ -23,7 +24,7 @@ QRectF MapItem::boundingRect() const
     return QRectF();
 }
 
-void MapItem::paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *)
+void MapItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
-
+    Entity::paint(p, option, widget);
 }

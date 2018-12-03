@@ -15,7 +15,7 @@ public:
     MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);
 
     QRectF boundingRect() const override;
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
+    void paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *) override;
 };
 
 #endif // MAPITEM_H

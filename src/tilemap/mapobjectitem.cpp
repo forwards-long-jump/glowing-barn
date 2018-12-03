@@ -21,8 +21,10 @@ QRectF MapObjectItem::boundingRect() const
     return mBoundingRect;
 }
 
-void MapObjectItem::paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *)
+void MapObjectItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
+    Entity::paint(p, option, widget);
+
     const QColor &color = mMapObject->objectGroup()->color();
     p->translate(-pos());
     mRenderer->drawMapObject(p, mMapObject, color.isValid() ? color : Qt::darkGray);

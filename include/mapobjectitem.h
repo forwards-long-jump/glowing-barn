@@ -16,7 +16,7 @@ public:
 
     QRectF boundingRect() const override;
 
-    void paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *) override;
+    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
 private:
     Tiled::MapObject *mMapObject;

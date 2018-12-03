@@ -16,7 +16,7 @@ public:
     ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);
 
     QRectF boundingRect() const override;
-    void paint(QPainter *, const QStyleOptionGraphicsItem *, QWidget *) override;
+    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *) override;
 };
 
 #endif // OBJECTGROUPITEM_H
