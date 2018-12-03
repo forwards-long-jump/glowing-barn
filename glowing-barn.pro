@@ -34,16 +34,25 @@ SOURCES += \
     src/main.cpp \
     src/game.cpp \
     src/entity.cpp \
+    src/input.cpp \
     src/scenes/gamescene.cpp \
     src/scenes/menuscene.cpp \
     src/scenes/scene.cpp \
     src/components/component.cpp \
     src/components/graphicscomponent.cpp \
-    src/components/rectanglecomponent.cpp \
+    src/components/playerinputcomponent.cpp \
+    src/components/debugcomponent.cpp \
     src/tilemap/mapitem.cpp \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
-    src/tilemap/mapobjectitem.cpp
+    src/tilemap/mapobjectitem.cpp \
+    src/state/playerstate.cpp \
+    src/state/runningstate.cpp \
+    src/state/standingstate.cpp \
+    src/state/jumpingstate.cpp \
+    src/state/skiddingstate.cpp \
+    src/state/fallingstate.cpp
+    
 
 HEADERS += \
     include/game.h \
@@ -53,11 +62,14 @@ HEADERS += \
     include/scene.h \
     include/component.h \
     include/graphicscomponent.h \
-    include/rectanglecomponent.h \
     include/mapitem.h \
     include/tilelayeritem.h \
     include/objectgroupitem.h \
-    include/mapobjectitem.h
+    include/mapobjectitem.h \
+    include/input.h \
+    include/playerinputcomponent.h \
+    include/playerstate.h \
+    include/debugcomponent.h
 
 RESOURCES += \
     assets/assets.qrc

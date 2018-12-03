@@ -7,9 +7,10 @@ class Component
 {
 public:
     Component();
-    ~Component();
+    virtual ~Component();
 
     void assignParent(Entity* parent) {entity = parent;}
+    Entity* getEntity() const {return entity;}
 
     virtual void update() = 0;
 
