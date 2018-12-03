@@ -33,7 +33,15 @@ SOURCES += \
     src/scenes/scene.cpp \
     src/components/component.cpp \
     src/components/graphicscomponent.cpp \
-    src/components/rectanglecomponent.cpp
+    src/components/rectanglecomponent.cpp \
+    src/input.cpp \
+    src/components/playerinputcomponent.cpp \
+    src/state/playerstate.cpp \
+    src/state/runningstate.cpp \
+    src/state/standingstate.cpp \
+    src/state/jumpingstate.cpp \
+    src/state/skiddingstate.cpp \
+    src/state/fallingstate.cpp
 
 HEADERS += \
     include/game.h \
@@ -43,4 +51,7 @@ HEADERS += \
     include/scene.h \
     include/component.h \
     include/graphicscomponent.h \
-    include/rectanglecomponent.h
+    include/rectanglecomponent.h \
+    include/input.h \
+    include/playerinputcomponent.h \
+    include/playerstate.h

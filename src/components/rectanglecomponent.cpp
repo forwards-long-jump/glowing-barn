@@ -12,5 +12,5 @@ void RectangleComponent::render(QPainter *painter)
 
 void RectangleComponent::update()
 {
-    entity->setX(entity->pos().x() + 2);
+
 }

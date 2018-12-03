@@ -11,6 +11,14 @@ Game::Game(QWidget *parent)
 
     this->setScene(currentScene);
 
+    // Connections
+    connect(this, &Game::keyPressEvent,
+            [=](QKeyEvent* event) {input.handleKeyDown(event);}
+            );
+    connect(this, &Game::keyReleaseEvent,
+            [=](QKeyEvent* event) {input.handleKeyUp(event);}
+            );
+
     // Update "loop"
     lastUpdateTime = new QTime(QTime::currentTime());
     lag = 0;
@@ -24,8 +32,8 @@ Game::Game(QWidget *parent)
 
 Game::~Game()
 {
-    qDeleteAll(scenes.begin(), scenes.end());
-    scenes.clear();
+    //qDeleteAll(scenes.begin(), scenes.end());
+    //scenes.clear();
 }
 
 /**
