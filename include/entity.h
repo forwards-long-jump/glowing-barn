@@ -3,6 +3,7 @@
 
 #include <QGraphicsItem>
 #include <QGraphicsScene>
+#include <QMap>
 #include "include/component.h"
 #include "include/graphicscomponent.h"
 
@@ -10,11 +11,13 @@ class Entity : public QGraphicsItem
 {
 public:
     Entity(QGraphicsScene *parent, float width = 0.0, float height = 0.0);
-    Entity(QGraphicsScene *parent, QSizeF size) : Entity(parent, size.width(), size.height()) {}
+    Entity(QGraphicsScene *parent, QSizeF size)
+        :Entity(parent, size.width(), size.height()) {}
 
     virtual ~Entity();
 
     void addComponent(Component* c);
+    Component* getComponent(QString name) const;
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
@@ -22,7 +25,7 @@ public:
     void update();
 
 private:
-    QVector<Component*> components;
+    QMap<QString, Component*>* components;
     QSizeF size;
 };
 

@@ -41,7 +41,8 @@ SOURCES += \
     src/state/jumpingstate.cpp \
     src/state/skiddingstate.cpp \
     src/state/fallingstate.cpp \
-    src/components/debugcomponent.cpp
+    src/components/debugcomponent.cpp \
+    src/components/physicscomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -54,4 +55,5 @@ HEADERS += \
     include/input.h \
     include/playerinputcomponent.h \
     include/playerstate.h \
-    include/debugcomponent.h
+    include/debugcomponent.h \
+    include/physicscomponent.h

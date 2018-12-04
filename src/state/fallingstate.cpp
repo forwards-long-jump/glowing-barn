@@ -12,3 +12,8 @@ void FallingState::handleInput(PlayerInputComponent* playerInputComponent, Game*
 
     handleHorizontalMovement(playerInputComponent, game);
 }
+
+void FallingState::enter(PlayerInputComponent *playerInputComponent) const
+{
+    PlayerState::enter(playerInputComponent);
+}

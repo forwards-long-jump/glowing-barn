@@ -2,13 +2,20 @@
 
 void StandingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
 {
-    if (game->isKeyDown(Qt::Key_Up))
+    if (!checkFalling(playerInputComponent))
     {
-        playerInputComponent->setState(&PlayerState::jumping);
+        if (game->isKeyDown(Qt::Key_Up))
+        {
+            playerInputComponent->setState(&PlayerState::jumping);
+        }
+        else if (handleHorizontalMovement(playerInputComponent, game))
+        {
+            playerInputComponent->setState(&PlayerState::running);
+        }
     }
+}
 
-    if (handleHorizontalMovement(playerInputComponent, game))
-    {
-        playerInputComponent->setState(&PlayerState::running);
-    }
+void StandingState::enter(PlayerInputComponent *playerInputComponent) const
+{
+    PlayerState::enter(playerInputComponent);
 }

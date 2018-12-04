@@ -6,7 +6,7 @@
 class DebugComponent : public GraphicsComponent
 {
 public:
-    DebugComponent(QString debugText = "", QColor color = QColor(0, 255, 255, 127));
+    DebugComponent(QString name = "DebugComponent", QString debugText = "", QColor color = QColor(0, 255, 255, 127));
 
     void render(QPainter* painter) override;
     void update() override;
