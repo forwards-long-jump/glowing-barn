@@ -52,7 +52,8 @@ SOURCES += \
     src/state/standingstate.cpp \
     src/state/jumpingstate.cpp \
     src/state/skiddingstate.cpp \
-    src/state/fallingstate.cpp 
+    src/state/fallingstate.cpp \
+    src/camera.cpp
 
 HEADERS += \
     include/game.h \
@@ -70,7 +71,9 @@ HEADERS += \
     include/playerinputcomponent.h \
     include/playerstate.h \
     include/debugcomponent.h \
+    include/camera.h \
     include/physicscomponent.h
+
 
 RESOURCES += \
     assets/assets.qrc

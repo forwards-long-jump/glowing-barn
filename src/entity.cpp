@@ -16,7 +16,7 @@ Entity::~Entity()
 
 QRectF Entity::boundingRect() const
 {
-    return QRectF(x(), y(), size.width(), size.height());
+    return QRectF(0, 0, size.width(), size.height());
 }
 
 void Entity::addComponent(Component* c)
@@ -45,6 +45,11 @@ void Entity::update()
     {
         c->update();
     }
+}
+
+QSizeF Entity::getSize()
+{
+    return size;
 }
 
 void Entity::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)

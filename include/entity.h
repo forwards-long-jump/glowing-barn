@@ -23,6 +23,7 @@ public:
 
     void update();
 
+    QSizeF getSize();
 private:
     QMap<QString, Component*>* components;
     QSizeF size;

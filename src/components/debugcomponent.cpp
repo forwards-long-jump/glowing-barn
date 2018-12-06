@@ -9,20 +9,26 @@ DebugComponent::DebugComponent(QString name_, QString str, QColor c)
 
 void DebugComponent::render(QPainter *painter)
 {
-    painter->fillRect(entity->boundingRect(), color);
+    painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(), color);
     int currentLineHeight = 0;
 
-    if(debugText.length() > 0) {
-        painter->drawText(entity->pos() + QPoint(0, currentLineHeight += LINE_HEIGHT), QString("%0").arg(debugText));
+    // Custom text
+    if(debugText.length() > 0)
+    {
+        painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT), QString("%0").arg(debugText));
     }
 
-    painter->drawText(entity->pos() + QPoint(0, currentLineHeight += LINE_HEIGHT),
+    // Position
+    painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT),
                       QString("(%0, %1) - %2x%3")
-                        .arg(entity->boundingRect().x())
-                        .arg(entity->boundingRect().y())
+                        .arg(entity->x())
+                        .arg(entity->y())
                         .arg(entity->boundingRect().width())
                         .arg(entity->boundingRect().height())
                      );
 }
 
-void DebugComponent::update() {}
+void DebugComponent::update()
+{
+
+}
