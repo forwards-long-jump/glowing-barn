@@ -10,9 +10,8 @@
 class Entity : public QGraphicsItem
 {
 public:
-    Entity(QGraphicsScene *parent, float width = 0.0, float height = 0.0);
-    Entity(QGraphicsScene *parent, QSizeF size)
-        :Entity(parent, size.width(), size.height()) {}
+    Entity(QGraphicsItem *parent = nullptr, float width = 0.0, float height = 0.0);
+    Entity(QGraphicsItem *parent, QSizeF size) : Entity(parent, size.width(), size.height()) {}
 
     virtual ~Entity();
 
