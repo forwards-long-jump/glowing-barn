@@ -31,6 +31,11 @@ void Entity::update()
     }
 }
 
+QSizeF Entity::getSize()
+{
+    return size;
+}
+
 void Entity::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     for (auto c : components)
