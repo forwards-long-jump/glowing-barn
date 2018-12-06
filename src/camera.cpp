@@ -20,11 +20,11 @@ void Camera::update(QGraphicsView *v)
         targetPosition.setX(entity->pos().x());
         targetPosition.setY(entity->pos().y());
     }
-    //position += (targetPosition - position) * speed;
-    position = targetPosition;
-   /* v->resetTransform();
+    position += (targetPosition - position) * speed;
+
+    v->resetTransform();
     v->scale(scaling, scaling);
-    v->setSceneRect(-position.x(), -position.y(), v->width() / scaling, v->height() / scaling);*/
+    v->setSceneRect(-position.x(), -position.y(), v->width() / scaling, v->height() / scaling);
 }
 
 void Camera::centerOn(QPointF pos, bool noSmoothing)
