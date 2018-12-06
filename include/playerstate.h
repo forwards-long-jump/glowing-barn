@@ -2,8 +2,13 @@
 #define PLAYERSTATE_H
 
 #include "game.h"
+#include "physicscomponent.h"
+
+const float groundFriction = 0.7;
+const float airFriction = 0.9;
 
 class PlayerInputComponent;
+
 class StandingState;
 class RunningState;
 class SkiddingState;
@@ -14,15 +19,15 @@ class ZippingState;
 class PlayerState
 {
 public:
-    PlayerState(float xAcceleration_ = 0)
-        :xAcceleration(xAcceleration_) {}
+    PlayerState(float friction_)
+        :friction(friction_) {}
     virtual ~PlayerState() {}
 
-    virtual void handleInput(PlayerInputComponent* playerInputComponent, Game* game) = 0;
-    bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent, Game* game) const;
-    void decelerate(PlayerInputComponent* playerInputComponent, Game* game);
+    virtual void handleInput(PlayerInputComponent* playerInputComponent) = 0;
+    bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent);
+    bool checkFalling(PlayerInputComponent*) const;
 
-    virtual void enter(PlayerInputComponent* playerInputComponent) {}
+    virtual void enter(PlayerInputComponent* playerInputComponent) const;
 
     static StandingState standing;
     static RunningState running;
@@ -32,66 +37,81 @@ public:
     static ZippingState zipping;
 
 protected:
-    float xAcceleration;
+    float friction;
+
+    static bool headingRight;
 };
+
 
 class RunningState : public PlayerState
 {
 public:
     RunningState()
-        :PlayerState(1) {}
+        :PlayerState(groundFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
+
+    void enter(PlayerInputComponent *playerInputComponent) const override;
 };
+
 
 class SkiddingState : public PlayerState
 {
 public:
     SkiddingState()
-        :PlayerState(0) {}
+        :PlayerState(groundFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
+
+    void enter(PlayerInputComponent *playerInputComponent) const override;
 };
+
 
 class StandingState : public PlayerState
 {
 public:
     StandingState()
-        :PlayerState(0) {}
+        :PlayerState(groundFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
+
+    void enter(PlayerInputComponent *playerInputComponent) const override;
 };
+
 
 class JumpingState : public PlayerState
 {
 public:
     JumpingState()
-        :PlayerState(1) {}
+        :PlayerState(airFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent* playerInputComponent) override;
-
-private:
-    const float jumpSpeed = -30;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
+
 
 class FallingState : public PlayerState
 {
 public:
     FallingState()
-        :PlayerState(1) {}
+        :PlayerState(airFriction) {}
 
-    void handleInput(PlayerInputComponent *playerInputComponent, Game *game);
+    void handleInput(PlayerInputComponent *playerInputComponent) override;
+
+    void enter(PlayerInputComponent *playerInputComponent) const override;
 };
+
 
 class ZippingState : public PlayerState
 {
 public:
     ZippingState()
-        :PlayerState() {}
+        :PlayerState(airFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
+
+    void enter(PlayerInputComponent *playerInputComponent) const override {}
 };
 
 #include <playerinputcomponent.h>

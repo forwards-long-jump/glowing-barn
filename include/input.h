@@ -10,7 +10,15 @@ class Input
 public:
     Input();
 
-    bool isKeyDown(int key);
+    enum Key
+    {
+        LEFT,
+        RIGHT,
+        JUMP,
+        ZIP
+    };
+
+    bool isKeyDown(Key key);
 
 public slots:
     void handleKeyDown(QKeyEvent* event);
@@ -18,6 +26,7 @@ public slots:
 
 private:
     QHash<int, bool> keys;
+    QHash<Key, int> bindings;
 };
 
 #endif // INPUT_H

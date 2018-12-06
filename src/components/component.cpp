@@ -1,6 +1,7 @@
 #include "component.h"
 
-Component::Component()
+Component::Component(QString name_)
+    :name(name_)
 {
 
 }

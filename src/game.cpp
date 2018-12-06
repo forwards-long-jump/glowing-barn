@@ -34,6 +34,8 @@ Game::Game(QWidget *parent)
     updateTimer->start();
 }
 
+Input Game::input;
+
 Game::~Game()
 {
     //qDeleteAll(scenes.begin(), scenes.end());
