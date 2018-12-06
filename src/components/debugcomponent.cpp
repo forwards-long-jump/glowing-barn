@@ -13,7 +13,8 @@ void DebugComponent::render(QPainter *painter)
     int currentLineHeight = 0;
 
     // Custom text
-    if(debugText.length() > 0) {
+    if(debugText.length() > 0)
+    {
         painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT), QString("%0").arg(debugText));
     }
 
@@ -27,7 +28,7 @@ void DebugComponent::render(QPainter *painter)
                      );
 }
 
-void DebugComponent::update() {
-    //entity->setPos(entity->x() + 1, entity->y());
-    //entity->moveBy(1, 0);
+void DebugComponent::update()
+{
+
 }
