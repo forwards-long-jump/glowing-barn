@@ -2,13 +2,21 @@
 
 void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent, Game *game)
 {
-    if (handleHorizontalMovement(playerInputComponent, game))
+    if (!checkFalling(playerInputComponent))
     {
-        playerInputComponent->setState(&PlayerState::running);
-    }
+        if (handleHorizontalMovement(playerInputComponent, game))
+        {
+            playerInputComponent->setState(&PlayerState::running);
+        }
 
-    if (game->isKeyDown(Qt::Key_Up))
-    {
-        playerInputComponent->setState(&PlayerState::jumping);
+        if (game->isKeyDown(Qt::Key_Up))
+        {
+            playerInputComponent->setState(&PlayerState::jumping);
+        }
     }
+}
+
+void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
+{
+    PlayerState::enter(playerInputComponent);
 }
