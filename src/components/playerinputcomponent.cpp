@@ -3,7 +3,7 @@
 
 void PlayerInputComponent::update()
 {
-    state->handleInput(this, static_cast<Scene*>(entity->scene())->getGame());
+    state->handleInput(this);
 }
 
 void PlayerInputComponent::init()

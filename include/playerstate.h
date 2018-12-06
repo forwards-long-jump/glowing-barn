@@ -23,8 +23,8 @@ public:
         :friction(friction_) {}
     virtual ~PlayerState() {}
 
-    virtual void handleInput(PlayerInputComponent* playerInputComponent, Game* game) = 0;
-    bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent, Game* game);
+    virtual void handleInput(PlayerInputComponent* playerInputComponent) = 0;
+    bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent);
     bool checkFalling(PlayerInputComponent*) const;
 
     virtual void enter(PlayerInputComponent* playerInputComponent) const;
@@ -49,7 +49,7 @@ public:
     RunningState()
         :PlayerState(groundFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -61,7 +61,7 @@ public:
     SkiddingState()
         :PlayerState(groundFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -73,7 +73,7 @@ public:
     StandingState()
         :PlayerState(groundFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -85,7 +85,7 @@ public:
     JumpingState()
         :PlayerState(airFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -97,7 +97,7 @@ public:
     FallingState()
         :PlayerState(airFriction) {}
 
-    void handleInput(PlayerInputComponent *playerInputComponent, Game *game);
+    void handleInput(PlayerInputComponent *playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -109,7 +109,7 @@ public:
     ZippingState()
         :PlayerState(airFriction) {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent, Game* game);
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override {}
 };

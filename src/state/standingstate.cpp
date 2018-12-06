@@ -1,14 +1,14 @@
 #include "playerstate.h"
 
-void StandingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
+void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     if (!checkFalling(playerInputComponent))
     {
-        if (game->isKeyDown(Qt::Key_Up))
+        if (Game::input.isKeyDown(Input::JUMP))
         {
             playerInputComponent->setState(&PlayerState::jumping);
         }
-        else if (handleHorizontalMovement(playerInputComponent, game))
+        else if (handleHorizontalMovement(playerInputComponent))
         {
             playerInputComponent->setState(&PlayerState::running);
         }
