@@ -21,6 +21,7 @@ public:
 
     void update();
 
+    QSizeF getSize();
 private:
     QVector<Component*> components;
     QSizeF size;
