@@ -1,9 +1,9 @@
 #ifndef CAMERA_H
 #define CAMERA_H
 
-#include "QPointF"
+#include <QPointF>
+#include <QGraphicsView>
 #include "entity.h"
-#include "QGraphicsView";
 
 // Manages what is displayed in screen per scene
 class Camera
