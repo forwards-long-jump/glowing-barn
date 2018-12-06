@@ -4,18 +4,27 @@ StandingState PlayerState::standing;
 RunningState PlayerState::running;
 SkiddingState PlayerState::skidding;
 JumpingState PlayerState::jumping;
+FallingState PlayerState::falling;
 ZippingState PlayerState::zipping;
+bool PlayerState::headingRight = true;
 
-bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComponent, Game *game) const
+
+bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComponent)
 {
-    if (game->isKeyDown(Qt::Key_Left))
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr)
     {
-        // TODO : move entity left
-
+        physicsComponent->setLeft(Game::input.isKeyDown(Input::LEFT));
+        physicsComponent->setRight(Game::input.isKeyDown(Input::RIGHT));
     }
-    else if (game->isKeyDown(Qt::Key_Right))
+
+    if (Game::input.isKeyDown(Input::LEFT))
     {
-        // TODO : move entity right
+        headingRight = false;
+    }
+    else if (Game::input.isKeyDown(Input::RIGHT))
+    {
+        headingRight = true;
     }
     else
     {
@@ -24,7 +33,25 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
     return false;
 }
 
-void ZippingState::handleInput(PlayerInputComponent* playerInputComponent, Game *game)
+bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
+{
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr && physicsComponent->isFalling())
+    {
+        playerInputComponent->setState(&PlayerState::falling);
+    }
+}
+
+void PlayerState::enter(PlayerInputComponent *playerInputComponent) const
+{
+    Component* physicsComponent = (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr)
+    {
+        dynamic_cast<PhysicsComponent*> (physicsComponent)->setFriction(friction);
+    }
+}
+
+void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     // nothing yet
 }

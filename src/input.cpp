@@ -2,19 +2,15 @@
 
 Input::Input()
 {
-
+    bindings[LEFT]  = Qt::Key_Left;
+    bindings[RIGHT] = Qt::Key_Right;
+    bindings[JUMP]  = Qt::Key_Up;
+    bindings[ZIP]   = Qt::Key_Space;
 }
 
-bool Input::isKeyDown(int key)
+bool Input::isKeyDown(Key key)
 {
-    if (keys.contains(key))
-    {
-        return keys.value(key);
-    }
-    else
-    {
-        return false;
-    }
+    return keys.value(bindings[key], false);
 }
 
 void Input::handleKeyDown(QKeyEvent* event)

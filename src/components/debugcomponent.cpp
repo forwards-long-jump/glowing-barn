@@ -1,6 +1,7 @@
 #include "include/debugcomponent.h"
 
-DebugComponent::DebugComponent(QString str, QColor c)
+DebugComponent::DebugComponent(QString name_, QString str, QColor c)
+    :GraphicsComponent(name_)
 {
     debugText = str;
     color = c;

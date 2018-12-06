@@ -7,7 +7,7 @@
 class GraphicsComponent : public Component
 {
 public:
-    GraphicsComponent();
+    GraphicsComponent(QString name_ = "GraphicsComponent");
 
     virtual void render(QPainter* painter) = 0;
 };
