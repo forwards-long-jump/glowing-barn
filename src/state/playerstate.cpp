@@ -9,20 +9,20 @@ ZippingState PlayerState::zipping;
 bool PlayerState::headingRight = true;
 
 
-bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComponent, Game *game)
+bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComponent)
 {
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
     {
-        physicsComponent->setLeft(game->isKeyDown(Qt::Key_Left));
-        physicsComponent->setRight(game->isKeyDown(Qt::Key_Right));
+        physicsComponent->setLeft(Game::input.isKeyDown(Input::LEFT));
+        physicsComponent->setRight(Game::input.isKeyDown(Input::RIGHT));
     }
 
-    if (game->isKeyDown(Qt::Key_Left))
+    if (Game::input.isKeyDown(Input::LEFT))
     {
         headingRight = false;
     }
-    else if (game->isKeyDown(Qt::Key_Right))
+    else if (Game::input.isKeyDown(Input::RIGHT))
     {
         headingRight = true;
     }
@@ -51,7 +51,7 @@ void PlayerState::enter(PlayerInputComponent *playerInputComponent) const
     }
 }
 
-void ZippingState::handleInput(PlayerInputComponent* playerInputComponent, Game *game)
+void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     // nothing yet
 }

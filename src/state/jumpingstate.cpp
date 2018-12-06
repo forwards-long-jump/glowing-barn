@@ -11,11 +11,11 @@ void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
     }
 }
 
-void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
+void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     checkFalling(playerInputComponent);
 
-    if (game->isKeyDown(Qt::Key_Space))
+    if (Game::input.isKeyDown(Input::ZIP))
     {
         // In prevision for later
 
@@ -23,5 +23,5 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game*
         // playerInputComponent->setState(&PlayerState::zipping);
     }
 
-    handleHorizontalMovement(playerInputComponent, game);
+    handleHorizontalMovement(playerInputComponent);
 }
