@@ -7,9 +7,8 @@ Game::Game(QWidget *parent)
     MenuScene *menuScene = new MenuScene("menu", this);
     GameScene *gameScene = new GameScene("game", this);
 
-    // A proof that the QGraphics framework wasn't made with making games in mind
-    this->setHorizontalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
-    this->setVerticalScrollBarPolicy( Qt::ScrollBarAlwaysOff );
+    this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
     currentScene = menuScene;
 
