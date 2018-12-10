@@ -53,7 +53,9 @@ SOURCES += \
     src/state/jumpingstate.cpp \
     src/state/skiddingstate.cpp \
     src/state/fallingstate.cpp \
-    src/camera.cpp
+    src/camera.cpp \
+    src/components/magneticfieldreactorcomponent.cpp \
+    src/components/zippermagnetcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -72,7 +74,9 @@ HEADERS += \
     include/playerstate.h \
     include/debugcomponent.h \
     include/camera.h \
-    include/physicscomponent.h
+    include/physicscomponent.h \
+    include/magneticfieldreactorcomponent.h \
+    include/zippermagnetcomponent.h
 
 
 RESOURCES += \
