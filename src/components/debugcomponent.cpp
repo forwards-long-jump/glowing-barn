@@ -19,13 +19,13 @@ void DebugComponent::render(QPainter *painter)
     }
 
     // Position
-//    painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT),
-//                      QString("(%0, %1) - %2x%3")
-//                        .arg(entity->x())
-//                        .arg(entity->y())
-//                        .arg(entity->boundingRect().width())
-//                        .arg(entity->boundingRect().height())
-//                     );
+    painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT),
+                      QString("(%0, %1) - %2x%3")
+                        .arg(entity->x())
+                        .arg(entity->y())
+                        .arg(entity->boundingRect().width())
+                        .arg(entity->boundingRect().height())
+                     );
 }
 
 void DebugComponent::update()
