@@ -4,8 +4,8 @@
 #include "game.h"
 #include "physicscomponent.h"
 
-const float groundFriction = 0.7;
-const float airFriction = 0.9;
+const float groundFriction = 0.75;
+const float airFriction = 0.8;
 
 class PlayerInputComponent;
 
@@ -26,6 +26,8 @@ public:
     virtual void handleInput(PlayerInputComponent* playerInputComponent) = 0;
     bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent);
     bool checkFalling(PlayerInputComponent*) const;
+    bool checkOnGround(PlayerInputComponent*) const;
+    bool checkNoSpeed(PlayerInputComponent*) const;
 
     virtual void enter(PlayerInputComponent* playerInputComponent) const;
 

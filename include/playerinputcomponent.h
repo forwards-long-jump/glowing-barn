@@ -12,7 +12,7 @@ public:
     virtual ~PlayerInputComponent(){}
 
     void update() override;
-    void init();
+    void init() override;
 
     PlayerState* getState() const;
     void setState(PlayerState* _state);

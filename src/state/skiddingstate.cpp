@@ -9,6 +9,11 @@ void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
             playerInputComponent->setState(&PlayerState::running);
         }
 
+        if (checkNoSpeed(playerInputComponent))
+        {
+            playerInputComponent->setState(&PlayerState::standing);
+        }
+
         if (Game::input.isKeyDown(Input::JUMP))
         {
             playerInputComponent->setState(&PlayerState::jumping);
