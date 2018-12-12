@@ -24,7 +24,7 @@ public:
     void addScene(QString nameScene, QGraphicsScene *scene);
     void switchScene(QString nameScene);
 
-    bool isKeyDown(int key) {return input.isKeyDown(key);}
+    static Input input;
 
 signals:
     void keyPressEvent(QKeyEvent* event);
@@ -33,8 +33,6 @@ signals:
 private:
     QMap<QString, QGraphicsScene *> scenes;
     QGraphicsScene *currentScene;
-
-    Input input;
 
     const int MS_PER_UPDATE = 1000 / 60;
     QTimer *updateTimer;

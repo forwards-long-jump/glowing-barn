@@ -7,6 +7,9 @@ Game::Game(QWidget *parent)
     MenuScene *menuScene = new MenuScene("menu", this);
     GameScene *gameScene = new GameScene("game", this);
 
+    this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+    this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
     currentScene = menuScene;
 
     this->setScene(currentScene);
@@ -30,6 +33,8 @@ Game::Game(QWidget *parent)
     updateTimer->start();
 }
 
+Input Game::input;
+
 Game::~Game()
 {
     //qDeleteAll(scenes.begin(), scenes.end());
@@ -52,6 +57,8 @@ void Game::update() {
                 entity->update();
             }
         }
+
+        static_cast<Scene*>(scene())->updateCamera();
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();
     }

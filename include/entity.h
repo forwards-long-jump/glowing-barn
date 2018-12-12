@@ -3,6 +3,7 @@
 
 #include <QGraphicsItem>
 #include <QGraphicsScene>
+#include <QMap>
 #include "include/component.h"
 #include "include/graphicscomponent.h"
 
@@ -15,14 +16,16 @@ public:
     virtual ~Entity();
 
     void addComponent(Component* c);
+    Component* getComponent(QString name) const;
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
     void update();
 
+    QSizeF getSize();
 private:
-    QVector<Component*> components;
+    QMap<QString, Component*>* components;
     QSizeF size;
 };
 

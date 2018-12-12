@@ -1,15 +1,21 @@
 #include "playerstate.h"
 
-void JumpingState::enter(PlayerInputComponent* playerInputComponent)
+void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
 {
     PlayerState::enter(playerInputComponent);
 
-    // TODO : give entitiy vertical speed
+    PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr)
+    {
+        physicsComponent->jump();
+    }
 }
 
-void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game* game)
+void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
-    if (game->isKeyDown(Qt::Key_Space))
+    checkFalling(playerInputComponent);
+
+    if (Game::input.isKeyDown(Input::ZIP))
     {
         // In prevision for later
 
@@ -17,5 +23,10 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent, Game*
         // playerInputComponent->setState(&PlayerState::zipping);
     }
 
-    handleHorizontalMovement(playerInputComponent, game);
+    handleHorizontalMovement(playerInputComponent);
+
+    if (checkOnGround(playerInputComponent))
+    {
+        playerInputComponent->setState(&PlayerState::standing);
+    }
 }

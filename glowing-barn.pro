@@ -42,6 +42,7 @@ SOURCES += \
     src/components/graphicscomponent.cpp \
     src/components/playerinputcomponent.cpp \
     src/components/debugcomponent.cpp \
+    src/components/physicscomponent.cpp \
     src/tilemap/mapitem.cpp \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
@@ -51,8 +52,9 @@ SOURCES += \
     src/state/standingstate.cpp \
     src/state/jumpingstate.cpp \
     src/state/skiddingstate.cpp \
-    src/state/fallingstate.cpp
-    
+    src/state/fallingstate.cpp \
+    src/camera.cpp \
+    src/components/hitboxcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -69,7 +71,11 @@ HEADERS += \
     include/input.h \
     include/playerinputcomponent.h \
     include/playerstate.h \
-    include/debugcomponent.h
+    include/debugcomponent.h \
+    include/camera.h \
+    include/physicscomponent.h \
+    include/hitboxcomponent.h
+
 
 RESOURCES += \
     assets/assets.qrc
