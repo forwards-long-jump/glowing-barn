@@ -1,11 +1,5 @@
 #include "gamescene.h"
 
-#include "entity.h"
-#include "playerinputcomponent.h"
-#include "debugcomponent.h"
-#include "physicscomponent.h"
-#include "hitboxcomponent.h"
-
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
