@@ -28,9 +28,9 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
     }
     else
     {
-        return true;
+        return false;
     }
-    return false;
+    return true;
 }
 
 bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
@@ -40,6 +40,20 @@ bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
     {
         playerInputComponent->setState(&PlayerState::falling);
     }
+}
+
+bool PlayerState::checkOnGround(PlayerInputComponent *playerInputComponent) const
+{
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr)
+        return physicsComponent->isOnGround();
+}
+
+bool PlayerState::checkNoSpeed(PlayerInputComponent *playerInputComponent) const
+{
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr)
+        return physicsComponent->hasZeroSpeed();
 }
 
 void PlayerState::enter(PlayerInputComponent *playerInputComponent) const

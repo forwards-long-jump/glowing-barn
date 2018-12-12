@@ -23,6 +23,7 @@ void Entity::addComponent(Component* c)
 {
     c->assignParent(this);
     components->insert(c->getName(), c);
+    c->init();
 }
 
 Component* Entity::getComponent(QString name) const
