@@ -1,6 +1,7 @@
 #include "include/tilelayeritem.h"
 #include <QDebug>
-#include <debugcomponent.h>
+#include "debugcomponent.h"
+#include "hitboxcomponent.h"
 
 TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
@@ -33,6 +34,7 @@ QVector<Entity*> TileLayerItem::createCollisions() const
                 Entity *entity = new Entity(nullptr, 16, 16);
                 entity->setPos(x*16, y*16);
                 entity->addComponent(new DebugComponent());
+                entity->addComponent(new HitboxComponent("WallComponent"));
 
                 entities.push_back(entity);
             }
