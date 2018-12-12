@@ -35,5 +35,10 @@ bool GameScene::loadMap(QString filename)
     mapItem = new MapItem(map, mapRenderer);
     this->addItem(mapItem);
 
+    for(auto elem : mapItem->getLayer("middle")->createCollisions())
+    {
+        this->addItem(elem);
+    }
+
     return true;
 }

@@ -6,6 +6,8 @@
 #include "entity.h"
 
 #include <QStyleOptionGraphicsItem>
+#include <QVector>
+#include <QRectF>
 
 /**
  * Item that represents a tile layer.
@@ -19,9 +21,13 @@ public:
 
     void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
+    QVector<Entity *> createCollisions() const;
+
 private:
     Tiled::TileLayer *mTileLayer;
     Tiled::MapRenderer *mRenderer;
+
+    QRect findBoundsRect(int, int, int, QVector<bool>*) const;
 };
 
 #endif // TILELAYERITEM_H
