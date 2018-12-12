@@ -12,10 +12,10 @@ void DebugComponent::render(QPainter *painter)
     int currentLineHeight = 0;
 
     if(debugText.length() > 0) {
-        painter->drawText(entity->pos() + QPoint(0, currentLineHeight += LINE_HEIGHT), QString("%0").arg(debugText));
+        painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT), QString("%0").arg(debugText));
     }
 
-    painter->drawText(entity->pos() + QPoint(0, currentLineHeight += LINE_HEIGHT),
+    painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT),
                       QString("(%0, %1) - %2x%3")
                         .arg(entity->boundingRect().x())
                         .arg(entity->boundingRect().y())

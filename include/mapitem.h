@@ -7,7 +7,9 @@
 #include "tilelayeritem.h"
 #include "objectgroup.h"
 #include "objectgroupitem.h"
-#include <entity.h>
+#include "entity.h"
+
+#include <QMap>
 
 class MapItem : public Entity
 {
@@ -16,6 +18,11 @@ public:
 
     QRectF boundingRect() const override;
     void paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *) override;
+
+    TileLayerItem* getLayer(QString name) const;
+
+private:
+    QMap<QString, TileLayerItem *> layers;
 };
 
 #endif // MAPITEM_H
