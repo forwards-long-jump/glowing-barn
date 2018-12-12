@@ -16,6 +16,7 @@ public:
     QString getName() const {return name;}
 
     virtual void update() = 0;
+    virtual void init() {}
 
 protected:
     Entity* entity;

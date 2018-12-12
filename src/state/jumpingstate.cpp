@@ -24,4 +24,9 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 
     handleHorizontalMovement(playerInputComponent);
+
+    if (checkOnGround(playerInputComponent))
+    {
+        playerInputComponent->setState(&PlayerState::standing);
+    }
 }
