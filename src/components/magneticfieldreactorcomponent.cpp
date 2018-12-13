@@ -1,47 +1,63 @@
 #include "../../include/magneticfieldreactorcomponent.h"
 
-MagneticFieldReactorComponent::MagneticFieldReactorComponent()
-{
+MagneticFieldReactorComponent::MagneticFieldReactorComponent() {}
 
-}
-
+/**
+ * @brief Looks for all HitBoxes that generate "magnetic fields" and call the right function to handle it
+ */
 void MagneticFieldReactorComponent::update()
 {
-    // TODO: for each HitboxComponent::getByName(ZipperMagnetComponent::HITBOX_NAME)
-    //          handleZipperMagnet(HitboxComponent...);
-    handleZipperMagnet();
+    // Zipper magnet
+    for(HitboxComponent* hitboxComponent : HitboxComponent::getInstancesOf(ZipperMagnetComponent::HITBOX_NAME))
+    {
+        handleZipperMagnet(hitboxComponent);
+    }
+
+    // TODO: GravityMagnet, GrapplinMagnet, ...
 }
 
-void MagneticFieldReactorComponent::handleZipperMagnet(/*TODO: HitboxComponent &hitboxComponent*/)
+/**
+* @brief MagneticFieldReactorComponent::handleZipperMagnet
+* @param hitboxComponent
+*/
+void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxComponent)
 {
-    // TODO: Remove this debug line
-    ZipperMagnetComponent *zipperMagnet = new ZipperMagnetComponent(ZipperMagnetComponent::DIRECTION::UP, QSizeF(-1, -1), 5);
-    // TODO: zipperMagnet =  hitboxComponent.getEntity()->getComponent("ZipperMagnetComponent");
-    if(true) // Is in hitbox
+    // Check if the entity is in the magnetic "field"
+    if(hitboxComponent->getHitbox().intersects(QRectF(entity->pos(), entity->getSize())))
     {
-        PhysicsComponent *p = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
-        if(p) {
+        // Get the associated ZipperMagnetComponent
+        ZipperMagnetComponent *zipperMagnet = static_cast<ZipperMagnetComponent*>(hitboxComponent->getEntity()->getComponent("ZipperMagnetComponent"));
+        assert(zipperMagnet);
 
-            p->disableGravityForTick();
+        // Disable gravity if entity has a physic component
+        PhysicsComponent *physicsComponent = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
+        if(physicsComponent)
+        {
+            physicsComponent->disableGravityForTick();
         }
-        else {
-            qDebug() << "Cannot get physicsComponent";
+
+        // Set player state to zipping if it has a playerInput
+        PlayerInputComponent *playerInput = dynamic_cast<PlayerInputComponent*>(getEntity()->getComponent("PlayerInputComponent"));
+        if(playerInput)
+        {
+            playerInput->setState(&PlayerState::zipping);
         }
+
+        // Move player
         switch(zipperMagnet->getDirection())
         {
         case ZipperMagnetComponent::DIRECTION::DOWN:
-            getEntity()->setPos(getEntity()->x(), getEntity()->y() + zipperMagnet->getSpeed());
+            getEntity()->setY(getEntity()->y() + zipperMagnet->getSpeed());
             break;
         case ZipperMagnetComponent::DIRECTION::UP:
-            getEntity()->setPos(getEntity()->x(), getEntity()->y() - zipperMagnet->getSpeed());
+             getEntity()->setY(getEntity()->y() - zipperMagnet->getSpeed());
             break;
         case ZipperMagnetComponent::DIRECTION::LEFT:
-            getEntity()->setPos(getEntity()->x() + zipperMagnet->getSpeed(), getEntity()->y());
+            getEntity()->setX(getEntity()->x() + zipperMagnet->getSpeed());
             break;
         case ZipperMagnetComponent::DIRECTION::RIGHT:
-            getEntity()->setPos(getEntity()->x() - zipperMagnet->getSpeed(), getEntity()->y());
+            getEntity()->setX(getEntity()->x() - zipperMagnet->getSpeed());
             break;
         }
     }
-    delete zipperMagnet;
 }
