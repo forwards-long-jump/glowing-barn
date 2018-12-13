@@ -9,7 +9,6 @@ Game::Game(QWidget *parent)
 
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
-    this->setSceneRect(-width()/2,-height()/2,width(),height());
     this->setRenderHint(QPainter::Antialiasing, false);
     this->resize( width(), height() );
     this->setOptimizationFlags(QGraphicsView::DontSavePainterState);
