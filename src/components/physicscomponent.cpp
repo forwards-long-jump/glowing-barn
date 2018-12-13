@@ -10,11 +10,9 @@ PhysicsComponent::PhysicsComponent(QString name_, float accSpeed_, float jumpSpe
       g(g_),
       friction(friction_)
 {
-    g = 0.4;
-    accSpeed = 2;
-    jumpSpeed = -10;
     dx = dy = 0;
     left = right = false;
+    ignoreGravityForTick = false;
 }
 
 void PhysicsComponent::update()
@@ -23,8 +21,13 @@ void PhysicsComponent::update()
     if (right)  dx += accSpeed;
     dx *= friction;
 
-    dy += g;
-    dy *= friction;
+    if(!ignoreGravityForTick) {
+        dy += g;
+        dy *= friction;
+    }
+    else {
+        ignoreGravityForTick = false;
+    }
 
     QPointF pos = getEntity()->pos();
     getEntity()->setPos(pos.x() + dx, pos.y() + dy);
@@ -82,4 +85,10 @@ void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
             dx *= - 0.2;
         }
     }
+}
+
+void PhysicsComponent::disableGravityForTick()
+{
+    dy = 0;
+    ignoreGravityForTick = true;
 }
