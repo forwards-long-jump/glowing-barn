@@ -1,20 +1,37 @@
 #include "zippermagnetcomponent.h"
 #include <QDebug>
 
-// TODO: Add hitbox component on attach
-// #include "hitboxcomponent.h"
+/**
+ * @brief The name that will be used everywhere to identify the associated HitboxComponent
+ */
+const QString ZipperMagnetComponent::HITBOX_NAME = "ZipperMagnetHitbox";
 
-ZipperMagnetComponent::ZipperMagnetComponent(DIRECTION direction_, QSizeF hitboxSize, float speed_) : Component("ZipperMagnetComponent")
+/**
+ * @brief ZipperMagnetComponent::ZipperMagnetComponent
+ * @param direction
+ * @param hitboxSize
+ * @param speed
+ */
+ZipperMagnetComponent::ZipperMagnetComponent(DIRECTION direction_, QSizeF hitboxSize_, float speed_) : Component("ZipperMagnetComponent")
 {
-    // TODO HitboxComponent *hc = new HitboxComponent();
-    // TODO getEntity()->addComponent(hc);
-    // TODO: Do this on compononent init and use entity instead
+    hitboxSize = hitboxSize_;
+    direction = direction_;
+    speed = speed_;
+}
 
-   // QPointF entityCenter(getEntity()->x() + getEntity()->getSize().width() / 2, getEntity()->y() + getEntity()->getSize().height() / 2);
-    QPointF entityCenter(100 + 15, 700 + 15);
+/**
+ * @brief Create an HitboxComponent, attach it to the current entity and set its size
+ */
+void ZipperMagnetComponent::init()
+{
+    HitboxComponent *hc = new HitboxComponent(HITBOX_NAME);
+    getEntity()->addComponent(hc);
+
+    QPointF entityCenter(getEntity()->x() + getEntity()->getSize().width() / 2, getEntity()->y() + getEntity()->getSize().height() / 2);
     QRectF hitboxRect;
-
-    switch(direction_)
+    // TODO: Fix hitbox position
+/*
+    switch(direction)
     {
     case DIRECTION::RIGHT:
         hitboxRect.setCoords(entityCenter.x(), entityCenter.y() - hitboxSize.height() / 2,
@@ -34,25 +51,28 @@ ZipperMagnetComponent::ZipperMagnetComponent(DIRECTION direction_, QSizeF hitbox
         break;
     }
 
-    // TODO hc->setRectangle(hitboxRect);
-    DEBUGRectangle = hitboxRect;
-    direction = direction_;
-    speed = speed_;
+    hc->setOffset(hitboxRect.width() -getEntity()->pos().x(), hitboxRect.height() - getEntity()->pos().y());
+    hc->setSize(hitboxRect.width(), hitboxRect.height());*/
 }
 
+/**
+ * @brief ZipperMagnetComponent::getSpeed
+ * @return
+ */
 float ZipperMagnetComponent::getSpeed() const
 {
     return speed;
 }
 
+/**
+ * @brief ZipperMagnetComponent::getDirection
+ * @return
+ */
 ZipperMagnetComponent::DIRECTION ZipperMagnetComponent::getDirection() const
 {
     return direction;
 }
 
-void ZipperMagnetComponent::update()
-{
-
-}
+void ZipperMagnetComponent::update() {}
 
 // TODO: Remove hitbox component on detach
