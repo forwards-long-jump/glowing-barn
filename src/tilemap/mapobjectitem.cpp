@@ -1,4 +1,4 @@
-#include "include/mapobjectitem.h"
+#include "mapobjectitem.h"
 
 MapObjectItem::MapObjectItem(Tiled::MapObject *mapObject, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)

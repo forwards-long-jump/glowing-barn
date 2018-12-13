@@ -1,9 +1,24 @@
 #include "gamescene.h"
 
+#include "debugcomponent.h"
+#include "playerinputcomponent.h"
+#include "physicscomponent.h"
+#include "hitboxcomponent.h"
+
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
+    Entity* player = new Entity(nullptr, 16, 16);
+    player->setPos(32, 32);
+    player->addComponent(new DebugComponent("", "", Qt::red));
+    player->addComponent(new PlayerInputComponent());
+    player->addComponent(new PhysicsComponent());
+    player->addComponent(new HitboxComponent());
+    addItem(player);
 
+    loadMap(":maps/map-test.tmx");
+
+    camera->attachTo(player);
 }
 
 GameScene::~GameScene()
@@ -14,6 +29,8 @@ GameScene::~GameScene()
 bool GameScene::loadMap(QString filename)
 {
     Tiled::MapReader reader;
+    MapItem *mapItem;
+
     map = reader.readMap(filename);
 
     if (!map) {
@@ -22,11 +39,14 @@ bool GameScene::loadMap(QString filename)
     }
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
+    mapItem = new MapItem(map, mapRenderer);
 
-    for(Tiled::Layer *l : map->layers())
+    this->addItem(mapItem);
+
+    for(auto elem : mapItem->getLayer("middle")->createCollisions())
     {
-        qInfo() << "Info:" << l->name();
+        this->addItem(elem);
     }
 
-    this->addItem(new MapItem(map, mapRenderer));
+    return true;
 }
