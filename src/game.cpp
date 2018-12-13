@@ -10,7 +10,7 @@ Game::Game(QWidget *parent)
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
-    currentScene = menuScene;
+    currentScene = gameScene;
 
     this->setScene(currentScene);
 
