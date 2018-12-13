@@ -8,7 +8,6 @@
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
-
     Entity* player = new Entity(nullptr, 16, 16);
     player->setPos(32, 32);
     player->addComponent(new DebugComponent("", "", Qt::red));
@@ -20,7 +19,6 @@ GameScene::GameScene(QString name, Game *game)
     loadMap(":maps/map-test.tmx");
 
     camera->attachTo(player);
-    //camera->setScaling(1);
 }
 
 GameScene::~GameScene()
@@ -41,13 +39,8 @@ bool GameScene::loadMap(QString filename)
     }
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
-
-    for(Tiled::Layer *l : map->layers())
-    {
-        qInfo() << "Info:" << l->name();
-    }
-
     mapItem = new MapItem(map, mapRenderer);
+
     this->addItem(mapItem);
 
     for(auto elem : mapItem->getLayer("middle")->createCollisions())

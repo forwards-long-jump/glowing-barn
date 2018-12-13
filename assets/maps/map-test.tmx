@@ -18,6 +18,5 @@
  </layer>
  <objectgroup id="5" name="object">
   <object id="1" gid="249" x="16" y="48" width="16" height="16"/>
-  <object id="2" x="96" y="53" width="39" height="31"/>
  </objectgroup>
 </map>

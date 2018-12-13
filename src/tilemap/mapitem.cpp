@@ -1,4 +1,4 @@
-#include "include/mapitem.h"
+#include "mapitem.h"
 
 MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)

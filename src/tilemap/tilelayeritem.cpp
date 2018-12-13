@@ -1,7 +1,4 @@
-#include "include/tilelayeritem.h"
-#include <QDebug>
-#include "debugcomponent.h"
-#include "hitboxcomponent.h"
+#include "tilelayeritem.h"
 
 TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
@@ -27,7 +24,6 @@ QVector<Entity*> TileLayerItem::createCollisions() const
         for(int x = 0; x < width; x++)
         {
             Tiled::Cell cell = mTileLayer->cellAt(x, y);
-            qDebug() << cell.tileId() << "\n";
 
             if(cell.tileId() != -1)
             {
@@ -43,64 +39,6 @@ QVector<Entity*> TileLayerItem::createCollisions() const
 
     return entities;
 }
-
-//WIP optimized method
-/*{
-    int startCol = -1;
-    int index = -1;
-    int tileID = -1;
-    int width = mTileLayer->width();
-    int height = mTileLayer->height();
-
-    QVector<bool> checked(width * height, false);
-    QVector<QRect> rectangles;
-    QVector<Entity*> entities;
-
-    for(int y = 0; y < height; y++)
-    {
-        for(int x = 0; x < width; x++)
-        {
-
-            index = y * width + x;
-            tileID = mTileLayer->cellAt(x, y).tileId();
-
-            if(tileID > 0 && (checked[index] == false)) {
-
-                if(startCol == -1) {
-                    startCol = x;
-                }
-
-                checked[index] = true;
-
-            } else if(tileID == 0 || checked[index] == true) {
-
-                if(startCol != -1) {
-                    rectangles.push_back(findBoundsRect(y, startCol, x, &checked));
-                    startCol = -1;
-                }
-
-            }
-
-        } //x in 0...width
-
-        if(startCol != -1) {
-            rectangles.push_back(findBoundsRect(y, startCol, width, &checked));
-            startCol = -1;
-        }
-
-    } //each row
-
-    for(QRect rect : rectangles)
-    {
-        Entity *entity = new Entity(nullptr, rect.width() * 16, rect.height() * 16);
-        entity->setPos(rect.x() * 16, rect.y() * 16);
-        entity->addComponent(new DebugComponent());
-
-        entities.push_back(entity);
-    }
-
-    return entities;
-}*/
 
 /**
  * @brief TileLayerItem::findBoundsRect
