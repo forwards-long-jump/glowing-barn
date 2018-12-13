@@ -4,22 +4,26 @@
 #include <QRectF>
 #include <QSizeF>
 #include <QString>
-#include "component.h"
+
+#include "hitboxcomponent.h"
 
 class ZipperMagnetComponent : public Component
 {
 public:
-    const QString HITBOX_NAME = "ZipperMagnetHitbox";
     enum DIRECTION { LEFT, RIGHT, UP, DOWN };
+    const static QString HITBOX_NAME;
+
     ZipperMagnetComponent(DIRECTION direction, QSizeF hitboxSize, float speed = 5);
+
     float getSpeed() const;
     DIRECTION getDirection() const;
 
-    QRectF DEBUGRectangle;
     void update() override;
+    void init() override;
 
 private:
     float speed;
+    QSizeF hitboxSize;
     DIRECTION direction;
 };
 
