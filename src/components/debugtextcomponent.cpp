@@ -14,7 +14,7 @@ DebugTextComponent::DebugTextComponent(QString str)
 
 void DebugTextComponent::render(QPainter *painter)
 {
-    int currentLineHeight = 0;
+    int currentLineHeight = LINE_HEIGHT;
 
     // Entity position
     QRectF rect(entity->x(), entity->y(), entity->boundingRect().width(), entity->boundingRect().height());
