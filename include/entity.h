@@ -17,6 +17,7 @@ public:
 
     void addComponent(Component* c);
     Component* getComponent(QString name) const;
+    QMap<QString, Component*>* getComponents();
 
     QRectF boundingRect() const;
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
