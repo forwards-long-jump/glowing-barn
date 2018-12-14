@@ -1,6 +1,6 @@
 #include "../../include/magneticfieldreactorcomponent.h"
 
-MagneticFieldReactorComponent::MagneticFieldReactorComponent() {}
+MagneticFieldReactorComponent::MagneticFieldReactorComponent() : Component("MagneticFieldReactorComponent"){}
 
 /**
  * @brief Looks for all HitBoxes that generate "magnetic fields" and call the right function to handle it
