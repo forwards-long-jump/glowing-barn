@@ -56,7 +56,9 @@ SOURCES += \
     src/camera.cpp \
     src/components/magneticfieldreactorcomponent.cpp \
     src/components/zippermagnetcomponent.cpp \
-    src/components/hitboxcomponent.cpp
+    src/components/hitboxcomponent.cpp \
+    src/components/debugtextcomponent.cpp \
+    src/components/debughitboxcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -78,7 +80,9 @@ HEADERS += \
     include/physicscomponent.h \
     include/magneticfieldreactorcomponent.h \
     include/zippermagnetcomponent.h \
-    include/hitboxcomponent.h
+    include/hitboxcomponent.h \
+    include/debugtextcomponent.h \
+    include/debughitboxcomponent.h
 
 
 RESOURCES += \
