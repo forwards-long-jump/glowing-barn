@@ -1,17 +1,11 @@
 #include "include/debugcomponent.h"
 
-DebugComponent::DebugComponent(QString name_, QString str, QColor c)
-    :GraphicsComponent(name_)
+DebugComponent::DebugComponent(const QColor &color_, bool hasHitboxComponent_, bool hasTextComponent_, const QString &debugText_, const QString &name_) : GraphicsComponent(name_)
 {
-    debugText = str;
-    color = c;
-}
-
-DebugComponent::DebugComponent(QString str, QColor c)
-    : GraphicsComponent("DebugComponent")
-{
-    debugText = str;
-    color = c;
+    color = color_;
+    hasHitboxComponent = hasHitboxComponent_;
+    hasTextComponent = hasTextComponent_;
+    debugText = debugText_;
 }
 
 void DebugComponent::render(QPainter *painter)
@@ -26,6 +20,15 @@ void DebugComponent::update()
 
 void DebugComponent::init()
 {
-    Entity *e = new Entity(this->getEntity(), 1000, 50);
-    e->addComponent(new DebugTextComponent("DebugTextComponent", debugText));
+    if(hasTextComponent || hasHitboxComponent) {
+        Entity *e = new Entity(this->getEntity(), 1920, 1080);
+        if(hasTextComponent)
+        {
+            e->addComponent(new DebugTextComponent("DebugTextComponent", debugText));
+        }
+        if(hasHitboxComponent)
+        {
+            e->addComponent(new DebugHitboxComponent);
+        }
+    }
 }
