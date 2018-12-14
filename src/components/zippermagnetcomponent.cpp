@@ -27,32 +27,37 @@ void ZipperMagnetComponent::init()
     HitboxComponent *hc = new HitboxComponent(HITBOX_NAME);
     getEntity()->addComponent(hc);
 
-    QPointF entityCenter(getEntity()->x() + getEntity()->getSize().width() / 2, getEntity()->y() + getEntity()->getSize().height() / 2);
+    QPointF entityCenter(getEntity()->getSize().width() / 2, getEntity()->getSize().height() / 2);
     QRectF hitboxRect;
+    //hc->setOffset(-500, -500);
     // TODO: Fix hitbox position
-/*
+
     switch(direction)
     {
     case DIRECTION::RIGHT:
-        hitboxRect.setCoords(entityCenter.x(), entityCenter.y() - hitboxSize.height() / 2,
-                             entityCenter.x() + hitboxSize.width(), entityCenter.y() + hitboxSize.height() / 2);
+        hitboxRect.setCoords(
+                    entityCenter.x(), entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2,
+                    hitboxSize.width(), hitboxSize.height());
         break;
     case DIRECTION::LEFT:
-        hitboxRect.setCoords(entityCenter.x() - hitboxSize.width(), entityCenter.y() - hitboxSize.height() / 2,
-                             entityCenter.x(), entityCenter.y() + hitboxSize.height() / 2);
-        break;
-    case DIRECTION::UP:
-        hitboxRect.setCoords(entityCenter.x() - hitboxSize.width() / 2, entityCenter.y() - hitboxSize.height(),
-                             entityCenter.x() + hitboxSize.width() / 2, entityCenter.y());
+        hitboxRect.setCoords(
+                    entityCenter.x() - hitboxSize.width(), entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2,
+                    entityCenter.x(), hitboxSize.height());
         break;
     case DIRECTION::DOWN:
-        hitboxRect.setCoords(entityCenter.x() - hitboxSize.width() / 2, entityCenter.y(),
-                             entityCenter.x() + hitboxSize.width() / 2, entityCenter.y() + hitboxSize.height());
+        hitboxRect.setCoords(
+                    entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2, entityCenter.x(),
+                    hitboxSize.height(), hitboxSize.width());
+        break;
+    case DIRECTION::UP:
+        hitboxRect.setCoords(
+                    entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2, entityCenter.x() - hitboxSize.width(),
+                    hitboxSize.height(), entityCenter.x());
         break;
     }
 
-    hc->setOffset(hitboxRect.width() -getEntity()->pos().x(), hitboxRect.height() - getEntity()->pos().y());
-    hc->setSize(hitboxRect.width(), hitboxRect.height());*/
+    hc->setOffset(hitboxRect.x(), hitboxRect.y());
+    hc->setSize(hitboxRect.width(), hitboxRect.height());
 }
 
 /**
