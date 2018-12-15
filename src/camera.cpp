@@ -11,6 +11,7 @@ Camera::Camera()
     springConstant = QPointF(DEFAULT_SPRING_CONSTANT_X, DEFAULT_SPRING_CONSTANT_Y);
     springEffectEnabled = DEFAULT_SPRING_EFFECT_ENABLED;
     entity = nullptr;
+    shakeIntensity = 0;
 }
 
 Camera::~Camera()
@@ -62,18 +63,23 @@ void Camera::update(QGraphicsView *v)
         }
     }
 
-
     if(springEffectEnabled)
     {
         cameraForce += (targetPosition - position - QPointF(v->width() / scaling / 2, v->height() / scaling / 2)) * speed;
         cameraForce.setX(cameraForce.x() / springConstant.x());
         cameraForce.setY(cameraForce.y() / springConstant.y());
-       // cameraForce /= 1.78;
         position += cameraForce;
     }
     else
     {
         position += (targetPosition - position - QPointF(v->width() / scaling / 2, v->height() / scaling / 2)) * speed;
+    }
+
+
+    if(shakeIntensity != 0)
+    {
+        position.setX(position.x() + QRandomGenerator::global()->generateDouble() * shakeIntensity);
+        position.setY(position.y() + QRandomGenerator::global()->generateDouble() * shakeIntensity);
     }
 
     v->resetTransform();
@@ -124,4 +130,9 @@ void Camera::setSpringEffectEnabled(bool enabled)
 void Camera::setBoundingRect(const QRectF rect)
 {
     cameraBoundingRect = rect;
+}
+
+void Camera::setShakingIntensity(float f)
+{
+    shakeIntensity = f;
 }

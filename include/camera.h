@@ -3,6 +3,7 @@
 
 #include <QPointF>
 #include <QGraphicsView>
+#include <QRandomGenerator>
 #include "entity.h"
 
 // Manages what is displayed in screen per scene
@@ -33,6 +34,7 @@ public:
     void setScaling(float scaling_);
     void setSpringEffectEnabled(bool enabled);
     void setBoundingRect(const QRectF rect);
+    void setShakingIntensity(float f);
 
 private:
     Entity *entity;
@@ -44,6 +46,7 @@ private:
     bool springEffectEnabled;
     float scaling;
     float speed;
+    float shakeIntensity;
 
 
 };
