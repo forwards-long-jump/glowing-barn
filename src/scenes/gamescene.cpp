@@ -4,32 +4,25 @@
 #include "physicscomponent.h"
 #include "magneticfieldreactorcomponent.h"
 
+#include "debugcomponent.h"
+#include "playerinputcomponent.h"
+#include "physicscomponent.h"
+#include "hitboxcomponent.h"
+
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
-    Entity *debugGround = new Entity(nullptr, 1000, 300);
-    Entity *debugPlayer = new Entity(nullptr, 50, 50);
-    Entity *debugMagnet = new Entity(nullptr, 30, 30);
+    Entity* player = new Entity(nullptr, 16, 16);
+    player->setPos(32, 32);
+    player->addComponent(new DebugComponent("", "", Qt::red));
+    player->addComponent(new PlayerInputComponent());
+    player->addComponent(new PhysicsComponent());
+    player->addComponent(new HitboxComponent());
+    addItem(player);
 
-    debugGround->setPos(-500, 1000);
-    debugMagnet->setPos(100, 700);
+    loadMap(":maps/map-test.tmx");
 
-    debugGround->addComponent(new DebugComponent("", "", Qt::black));
-    debugMagnet->addComponent(new DebugComponent("", "", Qt::yellow));
-
-    PlayerInputComponent *p = new PlayerInputComponent;
-    debugPlayer->addComponent(new DebugComponent("", "", Qt::blue));
-    debugPlayer->addComponent(p);
-    p->init();
-    debugPlayer->addComponent(new PhysicsComponent);
-    debugPlayer->addComponent(new MagneticFieldReactorComponent);
-
-    addItem(debugGround);
-    addItem(debugPlayer);
-    addItem(debugMagnet);
-
-    camera->attachTo(debugPlayer);
-    camera->setScaling(1);
+    camera->attachTo(player);
 }
 
 GameScene::~GameScene()
@@ -40,6 +33,8 @@ GameScene::~GameScene()
 bool GameScene::loadMap(QString filename)
 {
     Tiled::MapReader reader;
+    MapItem *mapItem;
+
     map = reader.readMap(filename);
 
     if (!map) {
@@ -48,11 +43,14 @@ bool GameScene::loadMap(QString filename)
     }
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
+    mapItem = new MapItem(map, mapRenderer);
 
-    for(Tiled::Layer *l : map->layers())
+    this->addItem(mapItem);
+
+    for(auto elem : mapItem->getLayer("middle")->createCollisions())
     {
-        qInfo() << "Info:" << l->name();
+        this->addItem(elem);
     }
 
-    this->addItem(new MapItem(map, mapRenderer));
+    return true;
 }

@@ -1,5 +1,4 @@
-#include "include/mapitem.h"
-#include "debugcomponent.h"
+#include "mapitem.h"
 
 MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
@@ -10,12 +9,12 @@ MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *p
     for (Tiled::Layer *layer : map->layers()) {
         if (Tiled::TileLayer *tileLayer = layer->asTileLayer())
         {
-            new TileLayerItem(tileLayer, renderer, this);
+            layers.insert(layer->name(), new TileLayerItem(tileLayer, renderer, this));
         }
-        /*else if (Tiled::ObjectGroup *objectGroup = layer->asObjectGroup())
+        else if (Tiled::ObjectGroup *objectGroup = layer->asObjectGroup())
         {
             new ObjectGroupItem(objectGroup, renderer, this);
-        }*/
+        }
     }
 }
 
@@ -27,4 +26,9 @@ QRectF MapItem::boundingRect() const
 void MapItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
 {
     Entity::paint(p, option, widget);
+}
+
+TileLayerItem* MapItem::getLayer(QString name) const
+{
+    return layers.value(name);
 }

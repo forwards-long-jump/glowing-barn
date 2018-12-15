@@ -1,4 +1,4 @@
-#include "include/objectgroupitem.h"
+#include "objectgroupitem.h"
 
 ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
