@@ -1,5 +1,4 @@
 #include "zippermagnetcomponent.h"
-#include <QDebug>
 
 /**
  * @brief The name that will be used everywhere to identify the associated HitboxComponent
@@ -29,8 +28,6 @@ void ZipperMagnetComponent::init()
 
     QPointF entityCenter(getEntity()->getSize().width() / 2, getEntity()->getSize().height() / 2);
     QRectF hitboxRect;
-    //hc->setOffset(-500, -500);
-    // TODO: Fix hitbox position
 
     switch(direction)
     {

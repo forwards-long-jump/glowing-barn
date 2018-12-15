@@ -1,4 +1,4 @@
-#include "../../include/magneticfieldreactorcomponent.h"
+#include "magneticfieldreactorcomponent.h"
 
 MagneticFieldReactorComponent::MagneticFieldReactorComponent() : Component("MagneticFieldReactorComponent"){}
 

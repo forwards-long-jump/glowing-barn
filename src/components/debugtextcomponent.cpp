@@ -1,13 +1,11 @@
-#include "include/debugtextcomponent.h"
+#include "debugtextcomponent.h"
 
-DebugTextComponent::DebugTextComponent(QString name_, QString str)
-    :GraphicsComponent(name_)
+DebugTextComponent::DebugTextComponent(QString name_, QString str) : GraphicsComponent(name_)
 {
     debugText = str;
 }
 
-DebugTextComponent::DebugTextComponent(QString str)
-    : GraphicsComponent("DebugTextComponent")
+DebugTextComponent::DebugTextComponent(QString str) : GraphicsComponent("DebugTextComponent")
 {
     debugText = str;
 }

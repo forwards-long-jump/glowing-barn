@@ -1,7 +1,7 @@
 #ifndef DEBUGTEXTCOMPONENT_H
 #define DEBUGTEXTCOMPONENT_H
 
-#include "include/graphicscomponent.h"
+#include "graphicscomponent.h"
 
 class DebugTextComponent : public GraphicsComponent
 {

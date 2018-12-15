@@ -2,7 +2,6 @@
 #define PHYSICSCOMPONENT_H
 
 #include "component.h"
-#include <QDebug>
 #include "hitboxcomponent.h"
 
 class PhysicsComponent : public Component
@@ -20,7 +19,7 @@ public:
     void setAccSpeed(float accSpeed_) {accSpeed = accSpeed_;}
     void setFriction(float friction_) {friction = friction_;}
     void disableGravityForTick();
-   // void setJumpSpeed(float jumpSpeed_) {jumpSpeed = jumpSpeed_;}
+    void setJumpSpeed(float jumpSpeed_) {jumpSpeed = jumpSpeed_;}
     void setG(float g_) {g = g_;}
 
     bool isFalling() const {return dy > 0;}

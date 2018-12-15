@@ -1,8 +1,7 @@
 #include "debughitboxcomponent.h"
 
 
-DebugHitboxComponent ::DebugHitboxComponent (QString name_, QColor c)
-    :GraphicsComponent(name_)
+DebugHitboxComponent::DebugHitboxComponent (QString name_, QColor c) : GraphicsComponent(name_)
 {
     color = c;
 }

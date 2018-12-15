@@ -1,4 +1,4 @@
-#include "include/debugcomponent.h"
+#include "debugcomponent.h"
 
 DebugComponent::DebugComponent(const QColor &color_, bool hasHitboxComponent_, bool hasTextComponent_, const QString &debugText_, const QString &name_) : GraphicsComponent(name_)
 {
@@ -21,7 +21,7 @@ void DebugComponent::update()
 void DebugComponent::init()
 {
     if(hasTextComponent || hasHitboxComponent) {
-        Entity *e = new Entity(this->getEntity(), 1920, 1080);
+        Entity *e = new Entity(this->getEntity(), DEBUG_ENTITY_WIDTH, DEBUG_ENTITY_HEIGHT);
         if(hasTextComponent)
         {
             e->addComponent(new DebugTextComponent("DebugTextComponent", debugText));
