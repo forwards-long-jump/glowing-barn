@@ -14,7 +14,7 @@ public:
 
     void setLeft(bool left_) {left = left_;}
     void setRight(bool right_) {right = right_;}
-    void jump() {dy a= jumpSpeed; onGround = false;}
+    void jump() {dy = jumpSpeed; onGround = false;}
 
     void setAccSpeed(float accSpeed_) {accSpeed = accSpeed_;}
     void setFriction(float friction_) {friction = friction_;}
