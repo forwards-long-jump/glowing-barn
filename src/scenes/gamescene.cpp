@@ -1,4 +1,8 @@
 #include "gamescene.h"
+#include "debugcomponent.h"
+#include "playerinputcomponent.h"
+#include "physicscomponent.h"
+#include "magneticfieldreactorcomponent.h"
 
 #include "debugcomponent.h"
 #include "playerinputcomponent.h"

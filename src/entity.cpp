@@ -40,6 +40,11 @@ Component* Entity::getComponent(QString name) const
     }
 }
 
+QMap<QString, Component *> *Entity::getComponents()
+{
+    return components;
+}
+
 void Entity::update()
 {
     for (auto c : components->values())

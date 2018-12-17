@@ -4,8 +4,8 @@
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QMap>
-#include "include/component.h"
-#include "include/graphicscomponent.h"
+#include "component.h"
+#include "graphicscomponent.h"
 
 class Entity : public QGraphicsItem
 {
@@ -15,15 +15,15 @@ public:
 
     virtual ~Entity();
 
-    void addComponent(Component* c);
-    Component* getComponent(QString name) const;
-
-    QRectF boundingRect() const;
+    void update();
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    void update();
+    void addComponent(Component* c);
+    Component* getComponent(QString name) const;
+    QMap<QString, Component*>* getComponents();
 
     QSizeF getSize();
+    QRectF boundingRect() const;
 private:
     QMap<QString, Component*>* components;
     QSizeF size;

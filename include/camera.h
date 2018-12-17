@@ -3,6 +3,7 @@
 
 #include <QPointF>
 #include <QGraphicsView>
+#include <QRandomGenerator>
 #include "entity.h"
 
 // Manages what is displayed in screen per scene
@@ -10,6 +11,9 @@ class Camera
 {
     const float DEFAULT_SCALING = 5;
     const float DEFAULT_SPEED = 0.2;
+    const float DEFAULT_SPRING_CONSTANT_X = 1.8;
+    const float DEFAULT_SPRING_CONSTANT_Y = 1.7;
+    const bool DEFAULT_SPRING_EFFECT_ENABLED = true;
 
 public:
     Camera();
@@ -26,15 +30,23 @@ public:
     void detachEntity();
     // Update the speed coeff used when the camera moves
     void setSpeed(float speed_);
-    // Changes the camera scaling
+    // Changes the camera scaling instantly
     void setScaling(float scaling_);
+    void setSpringEffectEnabled(bool enabled);
+    void setBoundingRect(const QRectF rect);
+    void setShakingIntensity(float f);
 
 private:
     Entity *entity;
     QPointF targetPosition;
     QPointF position;
+    QPointF springConstant;
+    QPointF cameraForce;
+    QRectF cameraBoundingRect;
+    bool springEffectEnabled;
     float scaling;
     float speed;
+    float shakeIntensity;
 
 
 };

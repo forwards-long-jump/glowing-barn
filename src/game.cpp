@@ -17,7 +17,7 @@ Game::Game(QWidget *parent)
     this->setCacheMode(QGraphicsView::CacheBackground);
     this->setViewportUpdateMode( QGraphicsView::FullViewportUpdate);
 
-    currentScene = menuScene;
+    currentScene = gameScene;
 
     this->setScene(currentScene);
 

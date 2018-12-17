@@ -67,5 +67,11 @@ void PlayerState::enter(PlayerInputComponent *playerInputComponent) const
 
 void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
-    // nothing yet
+    Component* physicsComponent = (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    if (physicsComponent != nullptr)
+    {
+        dynamic_cast<PhysicsComponent*> (physicsComponent)->setLeft(false);
+        dynamic_cast<PhysicsComponent*> (physicsComponent)->setRight(false);
+    }
+    playerInputComponent->setState(&PlayerState::falling);
 }

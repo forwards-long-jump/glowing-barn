@@ -1,34 +1,34 @@
-#include "include/debugcomponent.h"
+#include "debugcomponent.h"
 
-DebugComponent::DebugComponent(QString name_, QString str, QColor c)
-    :GraphicsComponent(name_)
+DebugComponent::DebugComponent(const QColor &color_, bool hasHitboxComponent_, bool hasTextComponent_, const QString &debugText_, const QString &name_) : GraphicsComponent(name_)
 {
-    debugText = str;
-    color = c;
+    color = color_;
+    hasHitboxComponent = hasHitboxComponent_;
+    hasTextComponent = hasTextComponent_;
+    debugText = debugText_;
 }
 
 void DebugComponent::render(QPainter *painter)
 {
     painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(), color);
-    int currentLineHeight = 0;
-
-    // Custom text
-    if(debugText.length() > 0)
-    {
-        painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT), QString("%0").arg(debugText));
-    }
-
-    // Position
-    painter->drawText(QPoint(0, currentLineHeight += LINE_HEIGHT),
-                      QString("(%0, %1) - %2x%3")
-                        .arg(entity->x())
-                        .arg(entity->y())
-                        .arg(entity->boundingRect().width())
-                        .arg(entity->boundingRect().height())
-                     );
 }
 
 void DebugComponent::update()
 {
 
+}
+
+void DebugComponent::init()
+{
+    if(hasTextComponent || hasHitboxComponent) {
+        Entity *e = new Entity(this->getEntity(), DEBUG_ENTITY_WIDTH, DEBUG_ENTITY_HEIGHT);
+        if(hasTextComponent)
+        {
+            e->addComponent(new DebugTextComponent("DebugTextComponent", debugText));
+        }
+        if(hasHitboxComponent)
+        {
+            e->addComponent(new DebugHitboxComponent);
+        }
+    }
 }
