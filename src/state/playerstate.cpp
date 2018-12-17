@@ -56,15 +56,6 @@ bool PlayerState::checkNoSpeed(PlayerInputComponent *playerInputComponent) const
         return physicsComponent->hasZeroSpeed();
 }
 
-void PlayerState::enter(PlayerInputComponent *playerInputComponent) const
-{
-    Component* physicsComponent = (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
-    if (physicsComponent != nullptr)
-    {
-        dynamic_cast<PhysicsComponent*> (physicsComponent)->setFriction(friction);
-    }
-}
-
 void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     Component* physicsComponent = (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));

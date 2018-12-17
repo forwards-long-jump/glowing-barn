@@ -20,5 +20,5 @@ void FallingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void FallingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    PlayerState::enter(playerInputComponent);
+
 }
