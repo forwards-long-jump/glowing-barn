@@ -7,19 +7,15 @@ void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
     {
         physicsComponent->jump();
     }
+
+    // TODO
+    // change player sprite
+    // play sound ...
 }
 
 void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     checkFalling(playerInputComponent);
-
-    if (Game::input.isKeyDown(Input::ZIP))
-    {
-        // In prevision for later
-
-        // if (in zipper range)
-        // playerInputComponent->setState(&PlayerState::zipping);
-    }
 
     handleHorizontalMovement(playerInputComponent);
 

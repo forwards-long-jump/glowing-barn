@@ -23,5 +23,7 @@ void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
 
 void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-
+    // TODO
+    // change player sprite
+    // play sound ...
 }

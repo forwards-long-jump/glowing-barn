@@ -17,5 +17,6 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void StandingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-
+    // TODO
+    // change player sprite
 }
