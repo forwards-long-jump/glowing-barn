@@ -11,10 +11,17 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
     // Create a child item for each object
     for (Tiled::MapObject *object : objectGroup->objects())
     {
-        MapObjectItem *item = new MapObjectItem(object, renderer, this);
-        if (drawOrder == Tiled::ObjectGroup::TopDownOrder)
-        {
-            item->setZValue(item->y());
+        switch (object->cell().tileId()) {
+        case 240: {
+            Entity *e = new Entity(this, object->width(), object->height());
+            e->setPos(object->x(), object->y() - 16);
+            e->addComponent(new ZipperMagnetComponent(ZipperMagnetComponent::DIRECTION::UP, QSizeF(object->propertyAsString("w").toInt(), (int)object->propertyAsString("h").toInt())));
+            e->addComponent(new DebugComponent(QColor("chartreuse"), true));
+        }
+            break;
+        default:
+            qWarning() << "unknown object";
+            break;
         }
     }
 }

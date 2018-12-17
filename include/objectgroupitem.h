@@ -6,6 +6,7 @@
 #include "mapobject.h"
 #include "mapobjectitem.h"
 #include "entity.h"
+#include "zippermagnetcomponent.h"
 
 /**
  * Item that represents an object group.
