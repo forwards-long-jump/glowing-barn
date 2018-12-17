@@ -8,7 +8,7 @@ class PlayerInputComponent : public Component
 {
 public:
     PlayerInputComponent(QString name_ = "PlayerInputComponent")
-        :Component(name_) {}
+        :Component(name_) {jumpLeniencyStart.start();}
     virtual ~PlayerInputComponent(){}
 
     void update() override;
@@ -17,9 +17,15 @@ public:
     PlayerState* getState() const;
     void setState(PlayerState* _state);
 
+    void resetJumpLeniency() {jumpLeniencyStart.restart();}
+    bool isJumpLenient() const {return jumpLeniencyStart.elapsed() < jumpLeniencyInMSec;}
+
 private:
     bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;
+
+    QTime jumpLeniencyStart;
+    const int jumpLeniencyInMSec = 100;
 };
 
 #endif // INPUTCOMPONENT_H

@@ -8,6 +8,11 @@ void FallingState::handleInput(PlayerInputComponent* playerInputComponent)
     {
         playerInputComponent->setState(&PlayerState::standing);
     }
+
+    if (Game::input.isKeyDown(Input::JUMP) && playerInputComponent->isJumpLenient())
+    {
+        playerInputComponent->setState(&PlayerState::jumping);
+    }
 }
 
 void FallingState::enter(PlayerInputComponent *playerInputComponent) const

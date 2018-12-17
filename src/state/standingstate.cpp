@@ -2,6 +2,7 @@
 
 void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
+    playerInputComponent->resetJumpLeniency();
     if (!checkFalling(playerInputComponent))
     {
         if (Game::input.isKeyDown(Input::JUMP))
