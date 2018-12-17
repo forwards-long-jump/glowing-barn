@@ -23,5 +23,5 @@ void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
 
 void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    PlayerState::enter(playerInputComponent);
+
 }

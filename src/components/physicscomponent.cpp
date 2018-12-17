@@ -3,12 +3,13 @@
 #include "playerstate.h"
 #include "hitboxcomponent.h"
 
-PhysicsComponent::PhysicsComponent(QString name_, float accSpeed_, float jumpSpeed_, float g_, float friction_)
+PhysicsComponent::PhysicsComponent(QString name_, float accSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_)
     :Component(name_),
       accSpeed(accSpeed_),
+      friction(friction_),
       jumpSpeed(jumpSpeed_),
       g(g_),
-      friction(friction_)
+      maxVSpeed(maxVSpeed_)
 {
     dx = dy = 0;
     left = right = false;
@@ -23,20 +24,23 @@ void PhysicsComponent::update()
 
     if(!ignoreGravityForTick) {
         dy += g;
-        dy *= friction;
+        if (dy > maxVSpeed)
+            dy = maxVSpeed;
+        else if (dy < - maxVSpeed)
+            dy = -maxVSpeed;
     }
     else {
         ignoreGravityForTick = false;
     }
 
-    QPointF pos = getEntity()->pos();
-    getEntity()->setPos(pos.x() + dx, pos.y() + dy);
-
     // Collisions
     for (HitboxComponent* hitbox : HitboxComponent::getInstancesOf("WallComponent"))
     {
         handleCollision(hitbox);
-    }
+    } 
+
+    QPointF pos = getEntity()->pos();
+    getEntity()->setPos(pos.x() + dx, pos.y() + dy);
 }
 
 void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
@@ -55,34 +59,42 @@ void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
         ourHB = QRectF(entity->pos(), entity->getSize());
     }
 
-    if (ourHB.intersects(theirHB))
+    if (ourHB.y() + ourHB.height() > theirHB.y() + 2 &&
+        ourHB.y() < theirHB.y() + theirHB.height() - 2)
     {
-        QRectF inter = ourHB & theirHB;
-        if (inter.height() <= inter.width())
+        if (ourHB.x() + ourHB.width() + dx > theirHB.x() &&
+            ourHB.x() < theirHB.x() + theirHB.width())
         {
-            if (dy >= 0)
-            {
-                getEntity()->setY(getEntity()->pos().y() - inter.height());
-                dy = 0;
-                onGround = true;
-            }
-            else
-            {
-                getEntity()->setY(getEntity()->pos().y() + inter.height());
-                dy *= - 0.2;
-            }
+            // RIGHT WALL
+            getEntity()->setX(theirHB.x() - ourHB.width());
+            dx = 0;
         }
-        else
+        if (ourHB.x() + dx < theirHB.x() + theirHB.width() &&
+            ourHB.x() + ourHB.width() > theirHB.x() + theirHB.width())
         {
-            if (dx > 0)
-            {
-                getEntity()->setX(getEntity()->pos().x() - inter.width());
-            }
-            else
-            {
-                getEntity()->setX(getEntity()->pos().x() + inter.width());
-            }
-            dx *= - 0.2;
+            // LEFT WALL
+            getEntity()->setX(theirHB.x() + theirHB.width());
+            dx = 0;
+        }
+
+    }
+    else if (ourHB.x() + ourHB.width() > theirHB.x() &&
+             ourHB.x() < theirHB.x() + theirHB.width())
+    {
+        if (ourHB.y() + ourHB.height() + dy > theirHB.y() &&
+            ourHB.y() < theirHB.y() + theirHB.height())
+        {
+            // FLOOR
+            getEntity()->setY(theirHB.y() - ourHB.height());
+            dy = 0;
+            onGround = true;
+        }
+        if (ourHB.y() + dy < theirHB.y() + theirHB.height() &&
+            ourHB.y() + ourHB.height() > theirHB.y() + theirHB.height())
+        {
+            // CEILING
+            getEntity()->setY(theirHB.y() + theirHB.height());
+            dy *= - 0.2;
         }
     }
 }

@@ -17,5 +17,5 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void StandingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    PlayerState::enter(playerInputComponent);
+
 }

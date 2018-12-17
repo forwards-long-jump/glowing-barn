@@ -12,17 +12,18 @@
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
-    Entity* player = new Entity(nullptr, 16, 16);
+    Entity* player = new Entity(nullptr, 8, 16);
     player->setPos(32, 32);
-    player->addComponent(new DebugComponent("", "", Qt::red));
+    player->addComponent(new DebugComponent(Qt::red));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
-    player->addComponent(new HitboxComponent());
     addItem(player);
 
     loadMap(":maps/map-test.tmx");
 
     camera->attachTo(player);
+    //camera->setScaling(5);
+    camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
 }
 
 GameScene::~GameScene()

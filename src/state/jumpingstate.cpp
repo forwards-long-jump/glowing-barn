@@ -2,8 +2,6 @@
 
 void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    PlayerState::enter(playerInputComponent);
-
     PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
     {
