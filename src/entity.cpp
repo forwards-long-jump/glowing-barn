@@ -6,6 +6,7 @@ Entity::Entity(QGraphicsItem *parent, float width, float height)
     size.setWidth(width);
     size.setHeight(height);
     components = new QMap<QString, Component*>();
+    disabledComponents = new QMap<QString, Component*>();
 }
 
 Entity::~Entity()
@@ -24,6 +25,30 @@ void Entity::addComponent(Component* c)
     c->assignParent(this);
     components->insert(c->getName(), c);
     c->init();
+}
+
+bool Entity::disableComponent(QString name)
+{
+    if (components->contains(name))
+    {
+        Component* c = components->value(name);
+        disabledComponents->insert(c->getName(), c);
+        components->remove(name);
+        return true;
+    }
+    return false;
+}
+
+bool Entity::enableComponent(QString name)
+{
+    if (disabledComponents->contains(name))
+    {
+        Component* c = disabledComponents->value(name);
+        components->insert(c->getName(), c);
+        disabledComponents->remove(name);
+        return true;
+    }
+    return false;
 }
 
 Component* Entity::getComponent(QString name) const

@@ -18,6 +18,7 @@ public:
     void setState(PlayerState* _state);
 
 private:
+    bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;
 };
 
