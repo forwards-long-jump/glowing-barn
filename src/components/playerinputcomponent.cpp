@@ -3,6 +3,27 @@
 
 void PlayerInputComponent::update()
 {
+    if (state == &PlayerState::standing)
+    {
+        qDebug() << "standing";
+    }
+    if (state == &PlayerState::running)
+    {
+        qDebug() << "running";
+    }
+    if (state == &PlayerState::skidding)
+    {
+        qDebug() << "skidding";
+    }
+    if (state == &PlayerState::jumping)
+    {
+        qDebug() << "jumping";
+    }
+    if (state == &PlayerState::falling)
+    {
+        qDebug() << "falling";
+    }
+
     // Handle magnet activation
     if(Game::input.isKeyDown(Input::ZIP))
     {

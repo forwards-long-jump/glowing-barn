@@ -6,9 +6,9 @@
 PhysicsComponent::PhysicsComponent(QString name_, float accSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_)
     :Component(name_),
       accSpeed(accSpeed_),
-      friction(friction_),
       jumpSpeed(jumpSpeed_),
       g(g_),
+      friction(friction_),
       maxVSpeed(maxVSpeed_)
 {
     dx = dy = 0;
@@ -34,6 +34,7 @@ void PhysicsComponent::update()
     }
 
     // Collisions
+    onGround = false;
     for (HitboxComponent* hitbox : HitboxComponent::getInstancesOf("WallComponent"))
     {
         handleCollision(hitbox);
