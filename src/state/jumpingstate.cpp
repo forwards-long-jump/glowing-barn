@@ -24,3 +24,10 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
         playerInputComponent->setState(&PlayerState::standing);
     }
 }
+
+void JumpingState::setHeadingRight(bool headingRight_)
+{
+    PlayerState::setHeadingRight(headingRight_);
+    // TODO
+    // change player sprite
+}

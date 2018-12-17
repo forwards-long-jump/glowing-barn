@@ -20,17 +20,22 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
 
     if (Game::input.isKeyDown(Input::LEFT))
     {
-        headingRight = false;
+        setHeadingRight(false);
     }
     else if (Game::input.isKeyDown(Input::RIGHT))
     {
-        headingRight = true;
+        setHeadingRight(true);
     }
     else
     {
         return false;
     }
     return true;
+}
+
+void PlayerState::setHeadingRight(bool headingRight_)
+{
+    headingRight = headingRight_;
 }
 
 bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const

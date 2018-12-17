@@ -27,3 +27,10 @@ void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
     // change player sprite
     // play sound ...
 }
+
+void SkiddingState::setHeadingRight(bool headingRight_)
+{
+    PlayerState::setHeadingRight(headingRight_);
+    // TODO
+    // change player sprite
+}

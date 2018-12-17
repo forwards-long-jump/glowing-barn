@@ -20,3 +20,10 @@ void StandingState::enter(PlayerInputComponent *playerInputComponent) const
     // TODO
     // change player sprite
 }
+
+void StandingState::setHeadingRight(bool headingRight_)
+{
+    PlayerState::setHeadingRight(headingRight_);
+    // TODO
+    // change player sprite
+}
