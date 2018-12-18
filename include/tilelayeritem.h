@@ -4,7 +4,6 @@
 #include "tilelayer.h"
 #include "maprenderer.h"
 #include "entity.h"
-#include "debugcomponent.h"
 #include "hitboxcomponent.h"
 
 #include <QStyleOptionGraphicsItem>
