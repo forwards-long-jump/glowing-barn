@@ -15,7 +15,7 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
         case 240: {
             Entity *e = new Entity(this, object->width(), object->height());
             e->setPos(object->x(), object->y() - 16);
-            e->addComponent(new ZipperMagnetComponent(ZipperMagnetComponent::DIRECTION::UP, QSizeF(object->propertyAsString("w").toInt(), (int)object->propertyAsString("h").toInt())));
+            e->addComponent(new ZipperMagnetComponent(convertToDirection(object->propertyAsString("direction")), QSizeF(object->propertyAsString("w").toInt(), (int)object->propertyAsString("h").toInt())));
             e->addComponent(new DebugComponent(QColor("chartreuse"), true)); // TODO : Add graphics
         }
             break;
@@ -24,6 +24,16 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
             break;
         }
     }
+}
+
+ZipperMagnetComponent::DIRECTION ObjectGroupItem::convertToDirection(const QString& str)
+{
+    QString testStr(str.toUpper());
+
+    if(testStr == "UP") return ZipperMagnetComponent::DIRECTION::UP;
+    else if(testStr == "DOWN") return ZipperMagnetComponent::DIRECTION::DOWN;
+    else if(testStr == "LEFT") return ZipperMagnetComponent::DIRECTION::LEFT;
+    else if(testStr == "RIGHT") return ZipperMagnetComponent::DIRECTION::RIGHT;
 }
 
 QRectF ObjectGroupItem::boundingRect() const
