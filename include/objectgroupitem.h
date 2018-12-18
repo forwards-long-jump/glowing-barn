@@ -9,6 +9,8 @@
 #include "zippermagnetcomponent.h"
 #include "debugcomponent.h"
 
+#include <QDebug>
+
 /**
  * Item that represents an object group.
  */
