@@ -1,18 +1,28 @@
 #include "debugtextcomponent.h"
 
-DebugTextComponent::DebugTextComponent(QString name_, QString str) : GraphicsComponent(name_)
+DebugTextComponent::DebugTextComponent(QString name_, QString str, bool hasHitboxComponent) : GraphicsComponent(name_)
 {
     debugText = str;
+    parentHasHitboxComponent = hasHitboxComponent;
 }
 
-DebugTextComponent::DebugTextComponent(QString str) : GraphicsComponent("DebugTextComponent")
+DebugTextComponent::DebugTextComponent(QString str,  bool hasHitboxComponent) : DebugTextComponent("DebugTextComponent", str, hasHitboxComponent)
 {
-    debugText = str;
+
+}
+
+void DebugTextComponent::setText(const QString &text_)
+{
+    debugText = text_;
 }
 
 void DebugTextComponent::render(QPainter *painter)
 {
-    int currentLineHeight = LINE_HEIGHT;
+    int currentLineHeight = 0;
+
+    if(parentHasHitboxComponent) {
+        currentLineHeight += LINE_HEIGHT;
+    }
 
     // Entity position
     QRectF rect(entity->x(), entity->y(), entity->boundingRect().width(), entity->boundingRect().height());

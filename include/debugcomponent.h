@@ -11,6 +11,8 @@ public:
     DebugComponent(const QColor& color = QColor(0, 255, 255, 127), bool hasHitboxComponent = false, bool hasTextComponent = true,
                    const QString& debugText = "", const QString& name = "DebugComponent");
 
+    void setColor(const QColor& color_);
+    void setDebugText(const QString& text_);
     void render(QPainter* painter) override;
     void update() override;
     void init() override;
@@ -22,6 +24,7 @@ private:
     bool hasTextComponent;
     QColor color;
     QString debugText;
+    Entity *childDebugEntity;
 };
 
 #endif // RECTANGLECOMPONENT_H
