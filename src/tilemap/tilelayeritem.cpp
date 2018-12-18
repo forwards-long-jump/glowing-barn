@@ -19,70 +19,56 @@ QVector<Entity*> TileLayerItem::createCollisions() const
     int width = mTileLayer->width();
     int height = mTileLayer->height();
 
-    for(int y = 0; y < height; y++)
+    for(int x = 0; x < width; x++)
     {
-        for(int x = 0; x < width; x++)
+        bool firstTile = false;
+        int posX = 0;
+        int posY = 0;
+        int heightTile = 0;
+
+        for(int y = 0; y < height; y++)
         {
             Tiled::Cell cell = mTileLayer->cellAt(x, y);
 
-            if(cell.tileId() != -1)
+            if(cell.tileId() != -1 && y != height - 1 )
             {
-                Entity *entity = new Entity(nullptr, 16, 16);
-                entity->setPos(x*16, y*16);
-                //entity->addComponent(new DebugComponent());
+                if(!firstTile)
+                {
+                    posX = x;
+                    posY = y;
+                    firstTile = true;
+                }
+                heightTile++;
+            }
+            else if (heightTile > 0 || (y == height - 1 && cell.tileId() != -1))
+            {
+                // For specific case
+                // If the cell is the last one and alone
+                if(heightTile == 0)
+                {
+                    posX = x;
+                    posY = y;
+                }
+                // To create the last height of the collision
+                if(y == height - 1 && cell.tileId() != -1)
+                    heightTile++;
+
+                // Create the entity for the collision
+                Entity *entity = new Entity(nullptr, 16, 16 * heightTile);
+                entity->setPos(posX*16, posY*16);
                 entity->addComponent(new HitboxComponent("WallComponent"));
 
                 entities.push_back(entity);
+
+                posX = 0;
+                posY = 0;
+                heightTile = 0;
+                firstTile = false;
             }
         }
     }
 
     return entities;
-}
-
-/**
- * @brief TileLayerItem::findBoundsRect
- * @param start_y
- * @param start_x
- * @param end_x
- * @param checked
- * @return
- */
-QRect TileLayerItem::findBoundsRect(int start_y, int start_x, int end_x, QVector<bool> *checked) const
-{
-    int index = -1;
-    int tileID = -1;
-    int width = mTileLayer->width();
-    int height = mTileLayer->height();
-
-    for(int y = start_y + 1; y < height; y++)
-    {
-        for(int x = start_x; x < end_x; x++)
-        {
-
-            index = y * width + x;
-
-            tileID =  mTileLayer->cellAt(x, y).tileId();
-
-            if(tileID == 0 || (*checked)[index] == true){
-
-                //Set everything we've visited so far in this row to false again because it won't be included in the rectangle and should be checked again
-                for(int _x = start_x; _x < x; _x++) {
-                    index = y * width + _x;
-                    (*checked)[index] = false;
-                }
-
-                return QRect(start_x, start_y, end_x - start_x, y - start_y);
-
-            }
-
-            (*checked)[index] = true;
-
-        } //each x
-    } //each y
-
-    return QRect(start_x, start_y, end_x - start_x, height - start_y);
-
 }
 
 QRectF TileLayerItem::boundingRect() const

@@ -17,6 +17,7 @@ GameScene::GameScene(QString name, Game *game)
     player->addComponent(new DebugComponent(Qt::red));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
+    player->addComponent(new MagneticFieldReactorComponent());
     addItem(player);
 
     loadMap(":maps/map-test.tmx");
