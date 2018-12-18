@@ -52,12 +52,12 @@ void Camera::update(QGraphicsView *v)
         }
 
         // If the scene is too small for the defined boundingRect, center it on it
-        if(v->width() > cameraBoundingRect.width())
+        if(v->width() / scaling > cameraBoundingRect.width())
         {
              targetPosition.setX(cameraBoundingRect.center().x());
         }
 
-        if(v->height() > cameraBoundingRect.height())
+        if(v->height() / scaling  > cameraBoundingRect.height())
         {
              targetPosition.setY(cameraBoundingRect.center().y());
         }

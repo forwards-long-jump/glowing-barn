@@ -58,7 +58,8 @@ SOURCES += \
     src/components/zippermagnetcomponent.cpp \
     src/components/hitboxcomponent.cpp \
     src/components/debugtextcomponent.cpp \
-    src/components/debughitboxcomponent.cpp
+    src/components/debughitboxcomponent.cpp \
+    src/state/zippingstate.cpp
 
 HEADERS += \
     include/game.h \
