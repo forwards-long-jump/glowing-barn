@@ -31,6 +31,9 @@ signals:
     void keyReleaseEvent(QKeyEvent* event);
 
 private:
+    // Prevent scrolling the view
+    void scrollContentsBy(int, int) override {};
+
     QMap<QString, QGraphicsScene *> scenes;
     QGraphicsScene *currentScene;
 

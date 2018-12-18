@@ -13,7 +13,6 @@ Game::Game(QWidget *parent)
     this->resize( width(), height() );
     this->setOptimizationFlags(QGraphicsView::DontSavePainterState);
     this->setViewportUpdateMode( QGraphicsView::SmartViewportUpdate);
-    this->setTransformationAnchor(QGraphicsView::AnchorUnderMouse);
     this->setCacheMode(QGraphicsView::CacheBackground);
     this->setViewportUpdateMode( QGraphicsView::FullViewportUpdate);
 
