@@ -7,7 +7,7 @@
 class PhysicsComponent : public Component
 {
 public:
-    PhysicsComponent(QString name_ = "PhysicsComponent", float accSpeed_ = 1., float friction_ = 0.9, float jumpSpeed_ = -10., float g_ = 0.5, float maxVSpeed_ = 10.);
+    PhysicsComponent(float accSpeed_ = 1.0, float maxHSpeed_ = 4.5, float friction_ = 0.8, float jumpSpeed_ = -10., float g_ = 0.5, float maxVSpeed_ = 10., QString name_ = "PhysicsComponent");
 
     void update() override;
     void handleCollision(HitboxComponent *hitbox);
@@ -18,7 +18,7 @@ public:
 
     void setAccSpeed(float accSpeed_) {accSpeed = accSpeed_;}
     void setFriction(float friction_) {friction = friction_;}
-    void disableGravityForTick();
+    void zipPhysicsForTick(float dx_, float dy_);
     void setJumpSpeed(float jumpSpeed_) {jumpSpeed = jumpSpeed_;}
     void setG(float g_) {g = g_;}
 
@@ -29,17 +29,19 @@ public:
 private:
     float dx;
     float dy;
+
     float accSpeed;
+    float maxHSpeed;
+    float friction;
     float jumpSpeed;
     float g;
-    float friction;
     float maxVSpeed;
 
     bool onGround = true;
 
     bool left;
     bool right;
-    bool ignoreGravityForTick;
+    bool ignorePhysicsForTick;
 };
 
 #endif // PHYSICSCOMPONENT_H

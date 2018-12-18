@@ -25,6 +25,10 @@ void PlayerInputComponent::update()
         {
             d->setDebugText("falling");
         }
+        if (state == &PlayerState::zipping)
+        {
+            d->setDebugText("zipping");
+        }
     }
     // Handle magnet activation
     if(Game::input.isKeyDown(Input::ZIP))
