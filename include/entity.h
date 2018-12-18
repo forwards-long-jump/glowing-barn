@@ -19,6 +19,8 @@ public:
     void paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
     void addComponent(Component* c);
+    bool disableComponent(QString name);
+    bool enableComponent(QString name);
     Component* getComponent(QString name) const;
     QMap<QString, Component*>* getComponents();
 
@@ -26,6 +28,7 @@ public:
     QRectF boundingRect() const;
 private:
     QMap<QString, Component*>* components;
+    QMap<QString, Component*>* disabledComponents;
     QSizeF size;
 };
 
