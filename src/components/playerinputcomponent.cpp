@@ -31,12 +31,18 @@ void PlayerInputComponent::update()
     {
         if(releasedKeyAfterTogglingMagnet)
         {
+            DebugComponent* d = dynamic_cast<DebugComponent*>(entity->getComponent("DebugComponent"));
             releasedKeyAfterTogglingMagnet = false;
             // Toggle component,
             if(!entity->disableComponent("MagneticFieldReactorComponent"))
             {
+                if(d) d->setColor(QColor(255, 0, 0, 127));
                 entity->enableComponent("MagneticFieldReactorComponent");
             }
+            else {
+                if(d) d->setColor(QColor(50, 120, 255, 127));
+            }
+
         }
     }
     else
