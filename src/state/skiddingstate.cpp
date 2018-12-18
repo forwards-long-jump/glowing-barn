@@ -2,6 +2,7 @@
 
 void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
 {
+    playerInputComponent->resetJumpLeniency();
     if (!checkFalling(playerInputComponent))
     {
         if (handleHorizontalMovement(playerInputComponent))
@@ -23,5 +24,14 @@ void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
 
 void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
 {
+    // TODO
+    // change player sprite
+    // play sound ...
+}
 
+void SkiddingState::setHeadingRight(bool headingRight_)
+{
+    PlayerState::setHeadingRight(headingRight_);
+    // TODO
+    // change player sprite
 }

@@ -20,17 +20,22 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
 
     if (Game::input.isKeyDown(Input::LEFT))
     {
-        headingRight = false;
+        setHeadingRight(false);
     }
     else if (Game::input.isKeyDown(Input::RIGHT))
     {
-        headingRight = true;
+        setHeadingRight(true);
     }
     else
     {
         return false;
     }
     return true;
+}
+
+void PlayerState::setHeadingRight(bool headingRight_)
+{
+    headingRight = headingRight_;
 }
 
 bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
@@ -54,15 +59,4 @@ bool PlayerState::checkNoSpeed(PlayerInputComponent *playerInputComponent) const
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
         return physicsComponent->hasZeroSpeed();
-}
-
-void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
-{
-    Component* physicsComponent = (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
-    if (physicsComponent != nullptr)
-    {
-        dynamic_cast<PhysicsComponent*> (physicsComponent)->setLeft(false);
-        dynamic_cast<PhysicsComponent*> (physicsComponent)->setRight(false);
-    }
-    playerInputComponent->setState(&PlayerState::falling);
 }

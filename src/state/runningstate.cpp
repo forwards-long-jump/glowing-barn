@@ -2,6 +2,7 @@
 
 void RunningState::handleInput(PlayerInputComponent* playerInputComponent)
 {
+    playerInputComponent->resetJumpLeniency();
     if (!checkFalling(playerInputComponent))
     {
         if (Game::input.isKeyDown(Input::JUMP))
@@ -18,5 +19,13 @@ void RunningState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void RunningState::enter(PlayerInputComponent *playerInputComponent) const
 {
+    // TODO
+    // change player sprite
+}
 
+void RunningState::setHeadingRight(bool headingRight_)
+{
+    PlayerState::setHeadingRight(headingRight_);
+    // TODO
+    // change player sprite
 }

@@ -21,6 +21,7 @@ public:
 
     virtual void handleInput(PlayerInputComponent* playerInputComponent) = 0;
     bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent);
+    virtual void setHeadingRight(bool headingRight_);
     bool checkFalling(PlayerInputComponent*) const;
     bool checkOnGround(PlayerInputComponent*) const;
     bool checkNoSpeed(PlayerInputComponent*) const;
@@ -46,6 +47,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
+    void setHeadingRight(bool headingRight_) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -58,6 +60,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
+    void setHeadingRight(bool headingRight_) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -70,6 +73,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
+    void setHeadingRight(bool headingRight_) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -82,6 +86,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
+    void setHeadingRight(bool headingRight_) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -94,6 +99,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent *playerInputComponent) override;
+    void setHeadingRight(bool headingRight_) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -106,8 +112,9 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
+    void setHeadingRight(bool headingRight_) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override {}
+    void enter(PlayerInputComponent *playerInputComponent) const override;
 };
 
 #include <playerinputcomponent.h>
