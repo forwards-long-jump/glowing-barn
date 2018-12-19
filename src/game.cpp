@@ -7,6 +7,7 @@ Game::Game(QWidget *parent)
     MenuScene *menuScene = new MenuScene("menu", this);
     GameScene *gameScene = new GameScene("game", this);
 
+    this->setFrameStyle(QFrame::NoFrame);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     this->setRenderHint(QPainter::Antialiasing, false);
