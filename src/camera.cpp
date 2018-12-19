@@ -68,6 +68,10 @@ void Camera::update(QGraphicsView *v)
         cameraForce += (targetPosition - position - QPointF(v->width() / scaling / 2, v->height() / scaling / 2)) * speed;
         cameraForce.setX(cameraForce.x() / springConstant.x());
         cameraForce.setY(cameraForce.y() / springConstant.y());
+
+        if(qAbs(cameraForce.x()) < MINIMUM_SPRING_FORCE_REQUIRED) cameraForce.setX(0);
+        if(qAbs(cameraForce.y()) < MINIMUM_SPRING_FORCE_REQUIRED) cameraForce.setY(0);
+
         position += cameraForce;
     }
     else
@@ -76,25 +80,30 @@ void Camera::update(QGraphicsView *v)
     }
 
     if(cameraBoundingRect.width() + cameraBoundingRect.height() != 0) {
-        if(position.x() < cameraBoundingRect.left())
-        {
-            position.setX(cameraBoundingRect.left());
+        if(v->width() / scaling < cameraBoundingRect.width()) {
+            if(position.x() < cameraBoundingRect.left())
+            {
+                position.setX(cameraBoundingRect.left());
+            }
+
+            if(position.x() + v->width() / scaling > cameraBoundingRect.right())
+            {
+                position.setX(cameraBoundingRect.right() - v->width() / scaling);
+            }
         }
 
-        if(position.y() < cameraBoundingRect.top())
-        {
-            position.setY(cameraBoundingRect.top());
+        if(v->height() / scaling  < cameraBoundingRect.height()) {
+            if(position.y() < cameraBoundingRect.top())
+            {
+                position.setY(cameraBoundingRect.top());
+            }
+
+            if(position.y() + v->height() / scaling > cameraBoundingRect.bottom())
+            {
+                position.setY(cameraBoundingRect.bottom() - v->height() / scaling);
+            }
         }
 
-        if(position.y() + v->height() / scaling > cameraBoundingRect.bottom())
-        {
-            position.setY(cameraBoundingRect.bottom() - v->height() / scaling);
-        }
-
-        if(position.x() + v->width() / scaling > cameraBoundingRect.right())
-        {
-            position.setX(cameraBoundingRect.right() - v->width() / scaling);
-        }
     }
 
     if(shakeIntensity != 0)
