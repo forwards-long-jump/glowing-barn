@@ -49,7 +49,8 @@ void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxCo
                 dx = - zipperMagnet->getSpeed();
                 break;
             }
-            physicsComponent->zipPhysicsForTick(dx, dy);
+            physicsComponent->setSpeed(dx, dy);
+            physicsComponent->disablePhysicsForTick();
         }
 
         // Set player state to zipping if it has a playerInput

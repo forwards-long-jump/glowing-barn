@@ -109,9 +109,7 @@ void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
     }
 }
 
-void PhysicsComponent::zipPhysicsForTick(float dx_, float dy_)
+void PhysicsComponent::disablePhysicsForTick()
 {
-    dx = dx_;
-    dy = dy_;
     ignorePhysicsForTick = true;
 }
