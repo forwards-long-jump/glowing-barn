@@ -33,7 +33,24 @@ void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxCo
         PhysicsComponent *physicsComponent = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
         if(physicsComponent)
         {
-            physicsComponent->disableGravityForTick();
+            float dx, dy = 0;
+            switch(zipperMagnet->getDirection())
+            {
+            case ZipperMagnetComponent::DIRECTION::DOWN:
+                dy = zipperMagnet->getSpeed();
+                break;
+            case ZipperMagnetComponent::DIRECTION::UP:
+                dy = - zipperMagnet->getSpeed();
+                break;
+            case ZipperMagnetComponent::DIRECTION::LEFT:
+                dx = zipperMagnet->getSpeed();
+                break;
+            case ZipperMagnetComponent::DIRECTION::RIGHT:
+                dx = - zipperMagnet->getSpeed();
+                break;
+            }
+            physicsComponent->setSpeed(dx, dy);
+            physicsComponent->disablePhysicsForTick();
         }
 
         // Set player state to zipping if it has a playerInput

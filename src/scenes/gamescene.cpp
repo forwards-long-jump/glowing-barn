@@ -23,7 +23,7 @@ GameScene::GameScene(QString name, Game *game)
     loadMap(":maps/map-test.tmx");
 
     camera->attachTo(player);
-    //camera->setScaling(5);
+    camera->setScaling(3);
     camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
 }
 

@@ -3,34 +3,36 @@
 #include "playerstate.h"
 #include "hitboxcomponent.h"
 
-PhysicsComponent::PhysicsComponent(QString name_, float accSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_)
+PhysicsComponent::PhysicsComponent(float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, QString name_)
     :Component(name_),
       accSpeed(accSpeed_),
+      maxHSpeed(maxHSpeed_),
+      friction(friction_),
       jumpSpeed(jumpSpeed_),
       g(g_),
-      friction(friction_),
       maxVSpeed(maxVSpeed_)
 {
     dx = dy = 0;
     left = right = false;
-    ignoreGravityForTick = false;
+    ignorePhysicsForTick = false;
 }
 
 void PhysicsComponent::update()
 {
-    if (left)   dx -= accSpeed;
-    if (right)  dx += accSpeed;
-    dx *= friction;
+    if (!ignorePhysicsForTick)
+    {
+        if (left)       dx -= accSpeed;
+        else if (right) dx += accSpeed;
+        else            dx *= friction;
 
-    if(!ignoreGravityForTick) {
+        if (dx > maxHSpeed)         dx = maxHSpeed;
+        else if (dx < - maxHSpeed)  dx = - maxHSpeed;
+
         dy += g;
         if (dy > maxVSpeed)
             dy = maxVSpeed;
         else if (dy < - maxVSpeed)
             dy = -maxVSpeed;
-    }
-    else {
-        ignoreGravityForTick = false;
     }
 
     // Collisions
@@ -40,8 +42,15 @@ void PhysicsComponent::update()
         handleCollision(hitbox);
     } 
 
-    QPointF pos = getEntity()->pos();
-    getEntity()->setPos(pos.x() + dx, pos.y() + dy);
+    if (!ignorePhysicsForTick)
+    {
+        QPointF pos = getEntity()->pos();
+        getEntity()->setPos(pos.x() + dx, pos.y() + dy);
+    }
+    else
+    {
+        ignorePhysicsForTick = false;
+    }
 }
 
 void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
@@ -100,8 +109,7 @@ void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
     }
 }
 
-void PhysicsComponent::disableGravityForTick()
+void PhysicsComponent::disablePhysicsForTick()
 {
-    dy = 0;
-    ignoreGravityForTick = true;
+    ignorePhysicsForTick = true;
 }
