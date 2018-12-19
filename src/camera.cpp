@@ -75,6 +75,27 @@ void Camera::update(QGraphicsView *v)
         position += (targetPosition - position - QPointF(v->width() / scaling / 2, v->height() / scaling / 2)) * speed;
     }
 
+    if(cameraBoundingRect.width() + cameraBoundingRect.height() != 0) {
+        if(position.x() < cameraBoundingRect.left())
+        {
+            position.setX(cameraBoundingRect.left());
+        }
+
+        if(position.y() < cameraBoundingRect.top())
+        {
+            position.setY(cameraBoundingRect.top());
+        }
+
+        if(position.y() + v->height() / scaling > cameraBoundingRect.bottom())
+        {
+            position.setY(cameraBoundingRect.bottom() - v->height() / scaling);
+        }
+
+        if(position.x() + v->width() / scaling > cameraBoundingRect.right())
+        {
+            position.setX(cameraBoundingRect.right() - v->width() / scaling);
+        }
+    }
 
     if(shakeIntensity != 0)
     {
