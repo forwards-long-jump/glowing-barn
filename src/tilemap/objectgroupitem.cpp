@@ -15,7 +15,9 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
         case 240: {
             Entity *e = new Entity(this, object->width(), object->height());
             e->setPos(object->x(), object->y() - 16);
-            e->addComponent(new ZipperMagnetComponent(convertToDirection(object->propertyAsString("direction")), QSizeF(object->propertyAsString("w").toInt(), (int)object->propertyAsString("h").toInt())));
+            e->addComponent(new ZipperMagnetComponent(convertToDirection(object->propertyAsString("direction")), QSizeF(object->propertyAsString("w").toFloat(),
+                                                            (int)object->propertyAsString("h").toFloat()), object->propertyAsString("speed").toFloat()));
+
             e->addComponent(new DebugComponent(QColor("chartreuse"), true)); // TODO : Add graphics
         }
             break;
