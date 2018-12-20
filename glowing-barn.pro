@@ -60,7 +60,8 @@ SOURCES += \
     src/components/hitboxcomponent.cpp \
     src/components/debugtextcomponent.cpp \
     src/components/debughitboxcomponent.cpp \
-    src/state/zippingstate.cpp
+    src/state/zippingstate.cpp \
+    src/tilemap/entityfactory.cpp
 
 HEADERS += \
     include/game.h \
@@ -84,7 +85,8 @@ HEADERS += \
     include/zippermagnetcomponent.h \
     include/hitboxcomponent.h \
     include/debugtextcomponent.h \
-    include/debughitboxcomponent.h
+    include/debughitboxcomponent.h \
+    include/entityfactory.h
 
 
 RESOURCES += \

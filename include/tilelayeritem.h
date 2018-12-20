@@ -5,6 +5,7 @@
 #include "maprenderer.h"
 #include "entity.h"
 #include "hitboxcomponent.h"
+#include "entityfactory.h"
 
 #include <QStyleOptionGraphicsItem>
 #include <QVector>

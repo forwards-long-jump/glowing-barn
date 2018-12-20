@@ -1,5 +1,4 @@
 #include "tilelayeritem.h"
-#include "debugcomponent.h"
 
 TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
@@ -55,10 +54,7 @@ void TileLayerItem::createCollisions()
                     heightTile++;
 
                 // Create the entity for the collision
-                Entity *entity = new Entity(this, 16, 16 * heightTile);
-                entity->setPos(posX*16, posY*16);
-                entity->addComponent(new HitboxComponent("WallComponent"));
-
+                Entity* entity = EntityFactory::collision(QPointF(posX*16, posY*16), QSizeF(16, 16 * heightTile), this);
                 collisions.push_back(entity);
 
                 posX = 0;

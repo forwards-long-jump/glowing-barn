@@ -5,9 +5,8 @@
 #include "maprenderer.h"
 #include "mapobject.h"
 #include "mapobjectitem.h"
+#include "entityfactory.h"
 #include "entity.h"
-#include "zippermagnetcomponent.h"
-#include "debugcomponent.h"
 
 #include <QDebug>
 
