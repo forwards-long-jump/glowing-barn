@@ -1,4 +1,5 @@
 #include "tilelayeritem.h"
+#include "debugcomponent.h"
 
 TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
     : Entity(parent)
@@ -13,9 +14,9 @@ TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *re
  * @brief createCollisions
  * @return an entity vector of collisions
  */
-QVector<Entity*> TileLayerItem::createCollisions() const
+void TileLayerItem::createCollisions()
 {
-    QVector<Entity*> entities;
+    QVector<Entity*> collisions;
     int width = mTileLayer->width();
     int height = mTileLayer->height();
 
@@ -54,11 +55,11 @@ QVector<Entity*> TileLayerItem::createCollisions() const
                     heightTile++;
 
                 // Create the entity for the collision
-                Entity *entity = new Entity(nullptr, 16, 16 * heightTile);
+                Entity *entity = new Entity(this, 16, 16 * heightTile);
                 entity->setPos(posX*16, posY*16);
                 entity->addComponent(new HitboxComponent("WallComponent"));
 
-                entities.push_back(entity);
+                collisions.push_back(entity);
 
                 posX = 0;
                 posY = 0;
@@ -67,8 +68,6 @@ QVector<Entity*> TileLayerItem::createCollisions() const
             }
         }
     }
-
-    return entities;
 }
 
 QRectF TileLayerItem::boundingRect() const

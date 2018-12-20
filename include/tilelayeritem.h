@@ -22,11 +22,12 @@ public:
 
     void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
 
-    QVector<Entity *> createCollisions() const;
+    void createCollisions();
 
 private:
     Tiled::TileLayer *mTileLayer;
     Tiled::MapRenderer *mRenderer;
+    QVector<Entity*> collisions;
 
     QRect findBoundsRect(int, int, int, QVector<bool>*) const;
 };

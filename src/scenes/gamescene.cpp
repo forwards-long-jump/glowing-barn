@@ -46,13 +46,9 @@ bool GameScene::loadMap(QString filename)
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
     mapItem = new MapItem(map, mapRenderer);
+    mapItem->getLayer("middle")->createCollisions();
 
     this->addItem(mapItem);
-
-    for(auto elem : mapItem->getLayer("middle")->createCollisions())
-    {
-        this->addItem(elem);
-    }
 
     return true;
 }
