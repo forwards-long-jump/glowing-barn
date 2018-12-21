@@ -1,5 +1,22 @@
 #include "entityfactory.h"
 
+Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
+{
+    return EntityFactory::player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
+}
+
+Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
+{
+    Entity* player = new Entity(parent, size);
+    player->setPos(pos);
+    player->addComponent(new DebugComponent(Qt::red));
+    player->addComponent(new PlayerInputComponent());
+    player->addComponent(new PhysicsComponent());
+    player->addComponent(new MagneticFieldReactorComponent());
+
+    return player;
+}
+
 Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity *e = new Entity(parent, size);
