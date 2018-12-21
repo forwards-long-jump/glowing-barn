@@ -36,6 +36,10 @@ bool GameScene::loadMap(QString filename)
     mapItem = new MapItem(map, mapRenderer);
     mapItem->getLayer("middle")->createCollisions();
 
+    mapItem->getLayer("front")->setZValue(1);
+    mapItem->getPlayer()->setZValue(0);
+    mapItem->getLayer("back")->setZValue(-1);
+
     camera->attachTo(mapItem->getPlayer());
     camera->setScaling(3);
     camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
