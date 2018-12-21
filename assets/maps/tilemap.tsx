@@ -9,4 +9,10 @@
    <property name="w" type="float" value="0"/>
   </properties>
  </tile>
+ <tile id="248">
+  <properties>
+   <property name="h" type="float" value="16"/>
+   <property name="w" type="float" value="8"/>
+  </properties>
+ </tile>
 </tileset>
