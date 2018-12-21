@@ -9,7 +9,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, size);
     player->setPos(pos);
-    player->addComponent(new DebugComponent(Qt::red));
+    player->addComponent(new DebugComponent(Qt::red, false, false));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
     player->addComponent(new MagneticFieldReactorComponent());
