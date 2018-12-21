@@ -76,5 +76,9 @@ void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxCo
             getEntity()->setX(getEntity()->x() - zipperMagnet->getSpeed());
             break;
         }
+
+        if(!hitboxComponent->getHitbox().intersects(QRectF(entity->pos(), entity->getSize()))) {
+            playerInput->setState(&PlayerState::falling);
+        }
     }
 }
