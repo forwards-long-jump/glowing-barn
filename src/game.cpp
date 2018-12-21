@@ -3,6 +3,9 @@
 Game::Game(QWidget *parent)
     : QGraphicsView(parent)
 {
+    // Set OpenGL
+    this->setViewport(new QGLWidget());
+
     // Basic Scene
     MenuScene *menuScene = new MenuScene("menu", this);
     GameScene *gameScene = new GameScene("game", this);

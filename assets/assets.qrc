@@ -1,7 +1,13 @@
 <!DOCTYPE RCC><RCC version="1.0">
-<qresource>
-    <file>maps/tilemap.png</file>
-    <file>maps/tilemap.tsx</file>
-    <file>maps/map-test.tmx</file>
+<qresource prefix="/maps">
+    <file alias="tilemap.png" >maps/tilemap.png</file>
+    <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
+    <file alias="map-test.tmx" >maps/map-test.tmx</file>
+</qresource>
+<qresource prefix="/entities">
+    <file alias="player.png" >graphics/entities/player.png</file>
+</qresource>
+<qresource prefix="/interface">
+    <file alias="tilemap.png" >graphics/interface/input.png</file>
 </qresource>
 </RCC>

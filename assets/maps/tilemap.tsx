@@ -3,9 +3,16 @@
  <image source="tilemap.png" width="256" height="256"/>
  <tile id="240">
   <properties>
-   <property name="direction" value=""/>
-   <property name="h" type="int" value="0"/>
-   <property name="w" type="int" value="0"/>
+   <property name="direction" value="up"/>
+   <property name="h" type="float" value="0"/>
+   <property name="speed" type="float" value="5"/>
+   <property name="w" type="float" value="0"/>
+  </properties>
+ </tile>
+ <tile id="248">
+  <properties>
+   <property name="h" type="float" value="16"/>
+   <property name="w" type="float" value="8"/>
   </properties>
  </tile>
 </tileset>

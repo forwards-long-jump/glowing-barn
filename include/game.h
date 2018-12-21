@@ -6,10 +6,11 @@
 #include <QMap>
 #include <QTime>
 #include <QTimer>
+#include <QGLWidget>
 
-#include <gamescene.h>
-#include <menuscene.h>
-#include <input.h>
+#include "gamescene.h"
+#include "menuscene.h"
+#include "input.h"
 
 class GameScene;
 

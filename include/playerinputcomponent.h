@@ -2,7 +2,10 @@
 #define INPUTCOMPONENT_H
 
 #include "component.h"
-#include "playerstate.h"
+
+#include <QTime>
+
+class PlayerState;
 
 class PlayerInputComponent : public Component
 {
@@ -27,5 +30,7 @@ private:
     QTime jumpLeniencyStart;
     const int jumpLeniencyInMSec = 100;
 };
+
+#include "playerstate.h"
 
 #endif // INPUTCOMPONENT_H

@@ -1,6 +1,6 @@
 #include "objectgroupitem.h"
 
-ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
+ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -12,28 +12,17 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
     for (Tiled::MapObject *object : objectGroup->objects())
     {
         switch (object->cell().tileId()) {
-        case 240: {
-            Entity *e = new Entity(this, object->width(), object->height());
-            e->setPos(object->x(), object->y() - 16);
-            e->addComponent(new ZipperMagnetComponent(convertToDirection(object->propertyAsString("direction")), QSizeF(object->propertyAsString("w").toInt(), (int)object->propertyAsString("h").toInt())));
-            e->addComponent(new DebugComponent(QColor("chartreuse"), true)); // TODO : Add graphics
-        }
+        case 240:
+            EntityFactory::magnetZipper(object, this);
+            break;
+        case 248:
+            static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
             break;
         default:
             qWarning() << "unknown object";
             break;
         }
     }
-}
-
-ZipperMagnetComponent::DIRECTION ObjectGroupItem::convertToDirection(const QString& str)
-{
-    QString testStr(str.toUpper());
-
-    if(testStr == "UP") return ZipperMagnetComponent::DIRECTION::UP;
-    else if(testStr == "DOWN") return ZipperMagnetComponent::DIRECTION::DOWN;
-    else if(testStr == "LEFT") return ZipperMagnetComponent::DIRECTION::LEFT;
-    else if(testStr == "RIGHT") return ZipperMagnetComponent::DIRECTION::RIGHT;
 }
 
 QRectF ObjectGroupItem::boundingRect() const
