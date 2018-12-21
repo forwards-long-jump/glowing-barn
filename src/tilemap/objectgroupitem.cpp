@@ -1,6 +1,5 @@
 #include "objectgroupitem.h"
 
-ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
 ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent)
     : Entity(parent)
 {
@@ -15,6 +14,9 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
         switch (object->cell().tileId()) {
         case 240:
             EntityFactory::magnetZipper(object, this);
+            break;
+        case 248:
+            static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
             break;
         default:
             qWarning() << "unknown object";
