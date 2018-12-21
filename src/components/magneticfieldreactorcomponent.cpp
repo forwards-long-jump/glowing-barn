@@ -37,10 +37,10 @@ void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxCo
             switch(zipperMagnet->getDirection())
             {
             case ZipperMagnetComponent::DIRECTION::DOWN:
-                dy = zipperMagnet->getSpeed();
+                dy = - zipperMagnet->getSpeed();
                 break;
             case ZipperMagnetComponent::DIRECTION::UP:
-                dy = - zipperMagnet->getSpeed();
+                dy = zipperMagnet->getSpeed();
                 break;
             case ZipperMagnetComponent::DIRECTION::LEFT:
                 dx = zipperMagnet->getSpeed();
@@ -64,10 +64,10 @@ void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxCo
         switch(zipperMagnet->getDirection())
         {
         case ZipperMagnetComponent::DIRECTION::DOWN:
-            getEntity()->setY(getEntity()->y() + zipperMagnet->getSpeed());
+            getEntity()->setY(getEntity()->y() - zipperMagnet->getSpeed());
             break;
         case ZipperMagnetComponent::DIRECTION::UP:
-             getEntity()->setY(getEntity()->y() - zipperMagnet->getSpeed());
+             getEntity()->setY(getEntity()->y() + zipperMagnet->getSpeed());
             break;
         case ZipperMagnetComponent::DIRECTION::LEFT:
             getEntity()->setX(getEntity()->x() + zipperMagnet->getSpeed());
