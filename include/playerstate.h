@@ -117,6 +117,6 @@ public:
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
 
-#include <playerinputcomponent.h>
+#include "playerinputcomponent.h"
 
 #endif // PLAYERSTATE_H
