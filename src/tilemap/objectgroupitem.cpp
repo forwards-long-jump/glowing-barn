@@ -1,6 +1,7 @@
 #include "objectgroupitem.h"
 
 ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
+ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);

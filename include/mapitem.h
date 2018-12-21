@@ -11,6 +11,9 @@
 
 #include <QMap>
 
+class TileLayerItem;
+class ObjectGroupItem;
+
 class MapItem : public Entity
 {
 public:
@@ -24,5 +27,8 @@ public:
 private:
     QMap<QString, TileLayerItem *> layers;
 };
+
+#include "objectgroupitem.h"
+#include "tilelayeritem.h"
 
 #endif // MAPITEM_H

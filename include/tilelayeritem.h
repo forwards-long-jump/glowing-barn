@@ -6,6 +6,7 @@
 #include "entity.h"
 #include "hitboxcomponent.h"
 #include "entityfactory.h"
+#include "mapitem.h"
 
 #include <QStyleOptionGraphicsItem>
 #include <QVector>
@@ -17,7 +18,7 @@
 class TileLayerItem : public Entity
 {
 public:
-    TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);
+    TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, MapItem *parent);
 
     QRectF boundingRect() const override;
 

@@ -1,6 +1,6 @@
 #include "tilelayeritem.h"
 
-TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
+TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, MapItem *parent)
     : Entity(parent)
     , mTileLayer(tileLayer)
     , mRenderer(renderer)
