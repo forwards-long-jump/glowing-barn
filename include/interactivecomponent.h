@@ -3,7 +3,6 @@
 
 #include "hitboxreactorcomponent.h"
 #include "interactivehitboxcomponent.h"
-//#include "graphicscomponent.h"
 #include "debugcomponent.h"
 #include "input.h"
 
@@ -25,7 +24,7 @@ protected:
     bool readyToInteract;
     bool removePromptOnNextTick;
 
-    Component* commandPrompt;
+    Entity* commandPrompt;
 };
 
 #endif // INTERACTIVECOMPONENT_H

@@ -26,8 +26,8 @@ GameScene::GameScene(QString name, Game *game)
 
     Entity* door = new Entity(nullptr, 16, 32);
     door->setPos(352, 48);
-    door->addComponent(new DoorComponent());
     addItem(door);
+    door->addComponent(new DoorComponent());
 
     camera->attachTo(player);
     camera->setScaling(2);

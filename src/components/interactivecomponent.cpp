@@ -7,15 +7,19 @@ InteractiveComponent::InteractiveComponent(Input::Key key_, QString name_)
     readyToInteract = false;
     removePromptOnNextTick = false;
 
-    //commandPrompt = new GraphicsComponent("CommandPromptComponent");
-    commandPrompt = new DebugComponent(Qt::white);
 }
 
 void InteractiveComponent::init()
 {
     HitboxReactorComponent::init();
-    entity->addComponent(commandPrompt);
-    entity->disableComponent("DebugComponent");
+
+    commandPrompt = new Entity(nullptr, 8, 8);
+    entity->scene()->addItem(commandPrompt);
+    commandPrompt->addComponent(new DebugComponent(Qt::blue));
+    commandPrompt->setPos(
+        entity->pos().x() + (entity->getSize().width() - commandPrompt->getSize().width()) / 2,
+        entity->pos().y() - (entity->getSize().height() - commandPrompt->getSize().height()) / 2);
+    commandPrompt->disableComponent("DebugComponent");
 }
 
 void InteractiveComponent::update()
@@ -23,7 +27,7 @@ void InteractiveComponent::update()
     HitboxReactorComponent::update();
     if (removePromptOnNextTick)
     {
-        entity->disableComponent("DebugComponent");
+        commandPrompt->disableComponent("DebugComponent");
     }
     removePromptOnNextTick = true;
 }
@@ -48,5 +52,5 @@ void InteractiveComponent::onIntersect(HitboxComponent *hb)
 
 void InteractiveComponent::showPrompt() const
 {
-    entity->enableComponent("DebugComponent");
+    commandPrompt->enableComponent("DebugComponent");
 }
