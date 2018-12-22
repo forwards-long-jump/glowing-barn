@@ -18,7 +18,7 @@ void InteractiveComponent::init()
     commandPrompt->addComponent(new DebugComponent(Qt::blue));
     commandPrompt->setPos(
         entity->pos().x() + (entity->getSize().width() - commandPrompt->getSize().width()) / 2,
-        entity->pos().y() - (entity->getSize().height() - commandPrompt->getSize().height()) / 2);
+        entity->pos().y() - 1.5 * commandPrompt->getSize().height());
     commandPrompt->disableComponent("DebugComponent");
 }
 
