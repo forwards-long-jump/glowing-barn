@@ -59,12 +59,14 @@ void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
     QRectF theirHB = hitbox->getHitbox();
 
     QRectF ourHB;
-    HitboxComponent* ours = static_cast<HitboxComponent*> (entity->getComponent("HitboxComponent"));
-    if (ours)
+    for (auto physicsHitbox : HitboxComponent::getInstancesOf("PhysicsHitboxComponent"))
     {
-        ourHB = ours->getHitbox();
+        if (physicsHitbox->getEntity() == entity)
+        {
+            ourHB = physicsHitbox->getHitbox();
+        }
     }
-    else
+    if (ourHB.isNull())
     {
         ourHB = QRectF(entity->pos(), entity->getSize());
     }

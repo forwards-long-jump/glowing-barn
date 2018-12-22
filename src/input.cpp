@@ -2,10 +2,11 @@
 
 Input::Input()
 {
-    bindings[LEFT]  = Qt::Key_Left;
-    bindings[RIGHT] = Qt::Key_Right;
-    bindings[JUMP]  = Qt::Key_Up;
-    bindings[ZIP]   = Qt::Key_Space;
+    bindings[LEFT]      = Qt::Key_Left;
+    bindings[RIGHT]     = Qt::Key_Right;
+    bindings[JUMP]      = Qt::Key_Up;
+    bindings[INTERACT]  = Qt::Key_Down;
+    bindings[ZIP]       = Qt::Key_Space;
 }
 
 bool Input::isKeyDown(Key key)

@@ -59,7 +59,11 @@ SOURCES += \
     src/components/hitboxcomponent.cpp \
     src/components/debugtextcomponent.cpp \
     src/components/debughitboxcomponent.cpp \
-    src/state/zippingstate.cpp
+    src/state/zippingstate.cpp \
+    src/components/interactivecomponent.cpp \
+    src/components/hitboxreactorcomponent.cpp \
+    src/components/interactivehitboxcomponent.cpp \
+    src/components/doorcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -83,7 +87,11 @@ HEADERS += \
     include/zippermagnetcomponent.h \
     include/hitboxcomponent.h \
     include/debugtextcomponent.h \
-    include/debughitboxcomponent.h
+    include/debughitboxcomponent.h \
+    include/interactivecomponent.h \
+    include/hitboxreactorcomponent.h \
+    include/interactivehitboxcomponent.h \
+    include/doorcomponent.h
 
 
 RESOURCES += \

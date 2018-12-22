@@ -9,6 +9,8 @@
 #include "physicscomponent.h"
 #include "hitboxcomponent.h"
 
+#include "doorcomponent.h"
+
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
@@ -22,9 +24,13 @@ GameScene::GameScene(QString name, Game *game)
 
     loadMap(":maps/map-test.tmx");
 
+    Entity* door = new Entity(nullptr, 16, 32);
+    door->setPos(352, 48);
+    door->addComponent(new DoorComponent());
+    addItem(door);
+
     camera->attachTo(player);
-    camera->setScaling(3);
-    camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
+    camera->setScaling(2);
 }
 
 GameScene::~GameScene()
