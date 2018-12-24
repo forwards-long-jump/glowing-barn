@@ -5,6 +5,7 @@
 #-------------------------------------------------
 
 QT       += core gui
+QT       += opengl
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -63,7 +64,8 @@ SOURCES += \
     src/components/interactivecomponent.cpp \
     src/components/hitboxreactorcomponent.cpp \
     src/components/interactivehitboxcomponent.cpp \
-    src/components/doorcomponent.cpp
+    src/components/doorcomponent.cpp \
+    src/tilemap/entityfactory.cpp
 
 HEADERS += \
     include/game.h \
@@ -91,7 +93,8 @@ HEADERS += \
     include/interactivecomponent.h \
     include/hitboxreactorcomponent.h \
     include/interactivehitboxcomponent.h \
-    include/doorcomponent.h
+    include/doorcomponent.h \
+    include/entityfactory.h
 
 
 RESOURCES += \

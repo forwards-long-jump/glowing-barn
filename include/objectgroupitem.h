@@ -5,9 +5,9 @@
 #include "maprenderer.h"
 #include "mapobject.h"
 #include "mapobjectitem.h"
+#include "entityfactory.h"
 #include "entity.h"
-#include "zippermagnetcomponent.h"
-#include "debugcomponent.h"
+#include "mapitem.h"
 
 #include <QDebug>
 
@@ -17,7 +17,7 @@
 class ObjectGroupItem : public Entity
 {
 public:
-    ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);
+    ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent);
 
     ZipperMagnetComponent::DIRECTION convertToDirection(const QString& str);
 
