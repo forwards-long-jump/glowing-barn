@@ -2,6 +2,7 @@
 #define INPUTCOMPONENT_H
 
 #include "component.h"
+#include "interactivehitboxcomponent.h"
 
 #include <QTime>
 
@@ -12,7 +13,7 @@ class PlayerInputComponent : public Component
 public:
     PlayerInputComponent(QString name_ = "PlayerInputComponent")
         :Component(name_) {jumpLeniencyStart.start();}
-    virtual ~PlayerInputComponent(){}
+    virtual ~PlayerInputComponent() {}
 
     void update() override;
     void init() override;
@@ -26,6 +27,8 @@ public:
 private:
     bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;
+
+    InteractiveHitboxComponent interactiveHitbox;
 
     QTime jumpLeniencyStart;
     const int jumpLeniencyInMSec = 100;

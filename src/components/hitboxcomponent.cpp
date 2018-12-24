@@ -48,6 +48,11 @@ QRectF HitboxComponent::getHitbox() const
     return QRectF(entity->pos() + offset, size);
 }
 
+bool HitboxComponent::intersects(const HitboxComponent *hitbox) const
+{
+    return getHitbox().intersects(hitbox->getHitbox());
+}
+
 QList<HitboxComponent*> HitboxComponent::getInstancesOf(QString name)
 {
     return instances[name];

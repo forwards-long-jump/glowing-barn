@@ -15,6 +15,7 @@ public:
         LEFT,
         RIGHT,
         JUMP,
+        INTERACT,
         ZIP
     };
 

@@ -23,6 +23,8 @@ public:
 
     QRectF getHitbox() const;
 
+    bool intersects(const HitboxComponent* hitbox) const;
+
     static QList<HitboxComponent*> getInstancesOf(QString name);
 
 protected:

@@ -61,6 +61,10 @@ SOURCES += \
     src/components/debugtextcomponent.cpp \
     src/components/debughitboxcomponent.cpp \
     src/state/zippingstate.cpp \
+    src/components/interactivecomponent.cpp \
+    src/components/hitboxreactorcomponent.cpp \
+    src/components/interactivehitboxcomponent.cpp \
+    src/components/doorcomponent.cpp \
     src/tilemap/entityfactory.cpp
 
 HEADERS += \
@@ -86,6 +90,10 @@ HEADERS += \
     include/hitboxcomponent.h \
     include/debugtextcomponent.h \
     include/debughitboxcomponent.h \
+    include/interactivecomponent.h \
+    include/hitboxreactorcomponent.h \
+    include/interactivehitboxcomponent.h \
+    include/doorcomponent.h \
     include/entityfactory.h
 
 

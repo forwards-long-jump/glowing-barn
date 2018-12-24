@@ -30,6 +30,7 @@ void PlayerInputComponent::update()
             d->setDebugText("zipping");
         }
     }
+
     // Handle magnet activation
     if(Game::input.isKeyDown(Input::ZIP))
     {
@@ -54,12 +55,17 @@ void PlayerInputComponent::update()
         releasedKeyAfterTogglingMagnet = true;
     }
 
+    // Handle contextual interactions
+    interactiveHitbox.setActive(Game::input.isKeyDown(interactiveHitbox.getAskedKey()));
+
     // Handle states input
     state->handleInput(this);
 }
 
 void PlayerInputComponent::init()
 {
+    interactiveHitbox.assignParent(entity);
+    interactiveHitbox.init();
     setState(&PlayerState::standing);
 }
 

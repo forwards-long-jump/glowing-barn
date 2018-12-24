@@ -9,10 +9,17 @@
 #include "physicscomponent.h"
 #include "hitboxcomponent.h"
 
+#include "doorcomponent.h"
+
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
     loadMap(":maps/map-test.tmx");
+
+    Entity* door = new Entity(nullptr, 16, 32);
+    door->setPos(352, 48);
+    addItem(door);
+    door->addComponent(new DoorComponent());
 }
 
 GameScene::~GameScene()
