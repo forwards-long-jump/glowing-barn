@@ -14,14 +14,6 @@
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
-    Entity* player = new Entity(nullptr, 8, 16);
-    player->setPos(32, 32);
-    player->addComponent(new DebugComponent(Qt::red));
-    player->addComponent(new PlayerInputComponent());
-    player->addComponent(new PhysicsComponent());
-    player->addComponent(new MagneticFieldReactorComponent());
-    addItem(player);
-
     loadMap(":maps/map-test.tmx");
 
     Entity* door = new Entity(nullptr, 16, 32);
@@ -52,13 +44,17 @@ bool GameScene::loadMap(QString filename)
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
     mapItem = new MapItem(map, mapRenderer);
+    mapItem->getLayer("middle")->createCollisions();
+
+    mapItem->getLayer("front")->setZValue(1);
+    mapItem->getPlayer()->setZValue(0);
+    mapItem->getLayer("back")->setZValue(-1);
+
+    camera->attachTo(mapItem->getPlayer());
+    camera->setScaling(3);
+    camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
 
     this->addItem(mapItem);
-
-    for(auto elem : mapItem->getLayer("middle")->createCollisions())
-    {
-        this->addItem(elem);
-    }
 
     return true;
 }

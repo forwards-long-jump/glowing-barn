@@ -14,6 +14,7 @@ class Camera
     const float DEFAULT_SPRING_CONSTANT_X = 1.8;
     const float DEFAULT_SPRING_CONSTANT_Y = 1.7;
     const bool DEFAULT_SPRING_EFFECT_ENABLED = true;
+    const float MINIMUM_SPRING_FORCE_REQUIRED = 0.001;
 
 public:
     Camera();

@@ -4,12 +4,13 @@
 #include "map.h"
 #include "tilelayer.h"
 #include "maprenderer.h"
-#include "tilelayeritem.h"
 #include "objectgroup.h"
-#include "objectgroupitem.h"
 #include "entity.h"
 
 #include <QMap>
+
+class TileLayerItem;
+class ObjectGroupItem;
 
 class MapItem : public Entity
 {
@@ -21,8 +22,15 @@ public:
 
     TileLayerItem* getLayer(QString name) const;
 
+    void setPlayer(Entity* _player) {this->player = _player;}
+    Entity* getPlayer() const {return this->player;}
+
 private:
-    QMap<QString, TileLayerItem *> layers;
+    QMap<QString, TileLayerItem*> layers;
+    Entity* player = nullptr;
 };
+
+#include "objectgroupitem.h"
+#include "tilelayeritem.h"
 
 #endif // MAPITEM_H
