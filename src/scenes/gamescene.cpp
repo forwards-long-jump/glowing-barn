@@ -30,7 +30,7 @@ GameScene::GameScene(QString name, Game *game)
     door->addComponent(new DoorComponent());
 
     camera->attachTo(player);
-    camera->setScaling(2);
+    camera->setScaling(5);
 }
 
 GameScene::~GameScene()
