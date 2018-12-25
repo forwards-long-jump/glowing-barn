@@ -113,3 +113,8 @@ void PhysicsComponent::disablePhysicsForTick()
 {
     ignorePhysicsForTick = true;
 }
+
+QPointF PhysicsComponent::getSpeed() const
+{
+    return QPointF(dx, dy);
+}
