@@ -12,8 +12,14 @@ class MagneticFieldReactorComponent : public Component
 public:
     MagneticFieldReactorComponent();
     void update() override;
+    void onEnable() override;
+
 private:
+    const float ZIPPER_FRICTION = 0.7;
+    const float ZIPPER_DISTANCE_ACCELERATION = 0.1;
     void handleZipperMagnet(HitboxComponent *hitboxComponent);
+    float zipperDx, zipperDy;
+    bool zipperFirstEntrance;
 
 };
 
