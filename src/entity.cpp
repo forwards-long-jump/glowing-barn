@@ -33,6 +33,7 @@ bool Entity::disableComponent(QString name)
     {
         Component* c = components->value(name);
         disabledComponents->insert(c->getName(), c);
+        c->onDisable();
         components->remove(name);
         return true;
     }
@@ -45,6 +46,7 @@ bool Entity::enableComponent(QString name)
     {
         Component* c = disabledComponents->value(name);
         components->insert(c->getName(), c);
+        c->onEnable();
         disabledComponents->remove(name);
         return true;
     }

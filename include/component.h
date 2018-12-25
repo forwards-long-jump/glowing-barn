@@ -17,6 +17,8 @@ public:
 
     virtual void update() = 0;
     virtual void init() {}
+    virtual void onEnable() {}
+    virtual void onDisable() {}
 
 protected:
     Entity* entity;
