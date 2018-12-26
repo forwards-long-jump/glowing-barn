@@ -25,6 +25,8 @@ public:
     void addScene(QString nameScene, QGraphicsScene *scene);
     void switchScene(QString nameScene);
 
+    unsigned int getTick() const;
+
     static Input input;
 
 signals:
@@ -42,6 +44,7 @@ private:
     QTimer *updateTimer;
     QTime *lastUpdateTime;
     int lag;
+    unsigned int tick;
 
 private slots:
     void update();
