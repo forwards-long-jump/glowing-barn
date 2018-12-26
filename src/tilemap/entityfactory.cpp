@@ -21,7 +21,7 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity *e = new Entity(parent, size);
     e->setPos(pos);
-    e->addComponent(new HitboxComponent("WallComponent"));
+    e->addComponent(new SquareHitboxComponent("WallComponent"));
 
     return e;
 }

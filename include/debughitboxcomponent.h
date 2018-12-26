@@ -2,7 +2,7 @@
 #define DEBUGHITBOXCOMPONENT_H
 
 #include "graphicscomponent.h"
-#include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 
 class DebugHitboxComponent : public GraphicsComponent
 {

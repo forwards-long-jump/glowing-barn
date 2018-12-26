@@ -12,45 +12,24 @@ HitboxComponent::HitboxComponent(QString name_)
     instances[name_].append(this);
 }
 
-void HitboxComponent::update()
+QPointF HitboxComponent::getCenter() const
 {
-
+    return entity->pos() + offset;
 }
 
-void HitboxComponent::init()
-{
-    setOffset(0, 0);
-    setSize(entity->getSize());
-}
-
-void HitboxComponent::setSize(const QSizeF &hitbox_)
-{
-    size = hitbox_;
-}
-
-void HitboxComponent::setSize(float w, float h)
-{
-    setSize(QSizeF(w, h));
-}
-
-void HitboxComponent::setOffset(const QPointF &offset_)
+void HitboxComponent::setOffset(const QPointF& offset_)
 {
     offset = offset_;
 }
 
 void HitboxComponent::setOffset(float dx, float dy)
 {
-    setOffset(QPointF(dx, dy));
+    offset = QPointF(dx, dy);
 }
 
-QRectF HitboxComponent::getHitbox() const
+QPointF& HitboxComponent::getOffset()
 {
-    return QRectF(entity->pos() + offset, size);
-}
-
-bool HitboxComponent::intersects(const HitboxComponent *hitbox) const
-{
-    return getHitbox().intersects(hitbox->getHitbox());
+    return offset;
 }
 
 QList<HitboxComponent*> HitboxComponent::getInstancesOf(QString name)

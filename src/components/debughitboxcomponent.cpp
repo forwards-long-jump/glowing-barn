@@ -23,7 +23,7 @@ void DebugHitboxComponent::render(QPainter *painter)
     painter->setPen(Qt::black);
     while (i != dhc->constEnd())
     {
-        HitboxComponent* hc = dynamic_cast<HitboxComponent*>(i.value());
+        SquareHitboxComponent* hc = dynamic_cast<SquareHitboxComponent*>(i.value());
         if(hc)
         {
              painter->fillRect(hc->getOffset().x(), hc->getOffset().y(), hc->getSize().width(), hc->getSize().height(), color);

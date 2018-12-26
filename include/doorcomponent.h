@@ -2,6 +2,7 @@
 #define DOORCOMPONENT_H
 
 #include "interactivecomponent.h"
+#include "squarehitboxcomponent.h"
 
 class DoorComponent : public InteractiveComponent
 {
@@ -10,6 +11,7 @@ public:
         :InteractiveComponent(key_, name_) {}
 
     //void update() override {}
+    void init() override;
     void action(Entity *target) const override;
 };
 

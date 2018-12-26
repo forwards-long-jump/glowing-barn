@@ -2,7 +2,7 @@
 #define MAGNETREACTORCOMPONENT_H
 
 #include "component.h"
-#include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 #include "physicscomponent.h"
 #include "zippermagnetcomponent.h"
 #include "playerinputcomponent.h"
@@ -13,7 +13,7 @@ public:
     MagneticFieldReactorComponent();
     void update() override;
 private:
-    void handleZipperMagnet(HitboxComponent *hitboxComponent);
+    void handleZipperMagnet(SquareHitboxComponent *hitboxComponent);
 
 };
 

@@ -5,7 +5,7 @@
 #include <QSizeF>
 #include <QString>
 
-#include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 
 class ZipperMagnetComponent : public Component
 {

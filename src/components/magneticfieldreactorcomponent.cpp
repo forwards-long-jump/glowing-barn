@@ -10,7 +10,7 @@ void MagneticFieldReactorComponent::update()
     // Zipper magnet
     for(HitboxComponent* hitboxComponent : HitboxComponent::getInstancesOf(ZipperMagnetComponent::HITBOX_NAME))
     {
-        handleZipperMagnet(hitboxComponent);
+        handleZipperMagnet(static_cast<SquareHitboxComponent*>(hitboxComponent));
     }
 
     // TODO: GravityMagnet, GrapplinMagnet, ...
@@ -20,7 +20,7 @@ void MagneticFieldReactorComponent::update()
 * @brief MagneticFieldReactorComponent::handleZipperMagnet
 * @param hitboxComponent
 */
-void MagneticFieldReactorComponent::handleZipperMagnet(HitboxComponent *hitboxComponent)
+void MagneticFieldReactorComponent::handleZipperMagnet(SquareHitboxComponent *hitboxComponent)
 {
     // Check if the entity is in the magnetic "field"
     if(hitboxComponent->getHitbox().intersects(QRectF(entity->pos(), entity->getSize())))

@@ -65,7 +65,9 @@ SOURCES += \
     src/components/hitboxreactorcomponent.cpp \
     src/components/interactivehitboxcomponent.cpp \
     src/components/doorcomponent.cpp \
-    src/tilemap/entityfactory.cpp
+    src/tilemap/entityfactory.cpp \
+    src/components/squarehitboxcomponent.cpp \
+    src/components/circlehitboxcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -94,7 +96,9 @@ HEADERS += \
     include/hitboxreactorcomponent.h \
     include/interactivehitboxcomponent.h \
     include/doorcomponent.h \
-    include/entityfactory.h
+    include/entityfactory.h \
+    include/squarehitboxcomponent.h \
+    include/circlehitboxcomponent.h
 
 
 RESOURCES += \

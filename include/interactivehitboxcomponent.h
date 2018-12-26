@@ -1,11 +1,11 @@
 #ifndef INTERACTIVEHITBOXCOMPONENT_H
 #define INTERACTIVEHITBOXCOMPONENT_H
 
-#include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 #include "input.h"
 
 //belongs to a player
-class InteractiveHitboxComponent : public HitboxComponent
+class InteractiveHitboxComponent : public SquareHitboxComponent
 {
 public:
     InteractiveHitboxComponent(QString name_ = "InteractiveHitboxComponent");

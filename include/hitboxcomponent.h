@@ -10,26 +10,19 @@ class HitboxComponent : public Component
 public:
     HitboxComponent(QString name_ = "HitboxComponent");
 
-    void update() override;
-    void init() override;
+    void update() override {}
+    virtual bool intersects(HitboxComponent* hitbox) const = 0;
 
-    void setSize(const QSizeF& hitbox_);
-    void setSize(float w, float h);
-    QSizeF& getSize() {return size;}
+    QPointF getCenter() const;
 
     void setOffset(const QPointF& offset_);
     void setOffset(float dx, float dy);
-    QPointF& getOffset() {return offset;}
-
-    QRectF getHitbox() const;
-
-    bool intersects(const HitboxComponent* hitbox) const;
+    QPointF& getOffset();
 
     static QList<HitboxComponent*> getInstancesOf(QString name);
 
 protected:
     QPointF offset;
-    QSizeF size;
 
     static QMap<QString,QList<HitboxComponent*>> instances;
 };
