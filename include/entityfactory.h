@@ -9,6 +9,7 @@
 #include "parallaxcomponent.h"
 #include "debugcomponent.h"
 #include "mapobject.h"
+#include "imagecomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity
