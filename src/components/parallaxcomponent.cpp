@@ -13,7 +13,12 @@ void ParallaxComponent::init()
 {
     anchorPos = getEntity()->pos();
     float averageXYCoeff = (coeff.x() + coeff.y()) / 2;
-    getEntity()->setZValue((averageXYCoeff < 0 ? 10 : -10) + averageXYCoeff);
+    if(averageXYCoeff > 0) {
+        getEntity()->setZValue(-(10 + averageXYCoeff));
+    }
+    else {
+        getEntity()->setZValue(10 - averageXYCoeff);
+    }
 }
 
 void ParallaxComponent::setAnchor(QPointF p)
