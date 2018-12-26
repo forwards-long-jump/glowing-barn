@@ -37,6 +37,8 @@ public:
     void setBoundingRect(const QRectF rect);
     void setShakingIntensity(float f);
 
+    QPointF getPosition() const;
+
 private:
     Entity *entity;
     QPointF targetPosition;
