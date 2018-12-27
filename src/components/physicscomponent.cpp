@@ -1,7 +1,7 @@
 #include "include/physicscomponent.h"
 #include "playerinputcomponent.h"
 #include "playerstate.h"
-#include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 
 PhysicsComponent::PhysicsComponent(float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, QString name_)
     :Component(name_),
@@ -39,7 +39,7 @@ void PhysicsComponent::update()
     onGround = false;
     for (HitboxComponent* hitbox : HitboxComponent::getInstancesOf("WallComponent"))
     {
-        handleCollision(hitbox);
+        handleCollision(static_cast<SquareHitboxComponent*>(hitbox));
     } 
 
     if (!ignorePhysicsForTick)
@@ -53,7 +53,7 @@ void PhysicsComponent::update()
     }
 }
 
-void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
+void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
 {
     if (!hitbox) return;
     QRectF theirHB = hitbox->getHitbox();
@@ -63,7 +63,7 @@ void PhysicsComponent::handleCollision(HitboxComponent *hitbox)
     {
         if (physicsHitbox->getEntity() == entity)
         {
-            ourHB = physicsHitbox->getHitbox();
+            ourHB = static_cast<SquareHitboxComponent*>(physicsHitbox)->getHitbox();
         }
     }
     if (ourHB.isNull())

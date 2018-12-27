@@ -14,14 +14,13 @@ public:
     void update() override;
     void init() override;
 
-    void setHitboxOffset(float dx, float dy);
-    void setHitboxSize(float w, float h);
+    void setHitbox(HitboxComponent* hb);
 
     virtual void onIntersect(HitboxComponent* hb) = 0;
 
 protected:
     QString targetName;
-    HitboxComponent hitbox;
+    HitboxComponent* hitbox;
 };
 
 #endif // HITBOXREACTORCOMPONENT_H

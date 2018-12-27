@@ -2,7 +2,7 @@
 #define MAGNETREACTORCOMPONENT_H
 
 #include "component.h"
-#include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 #include "physicscomponent.h"
 #include "zippermagnetcomponent.h"
 #include "playerinputcomponent.h"
@@ -15,6 +15,7 @@ public:
     void onEnable() override;
 
 private:
+    void handleZipperMagnet(SquareHitboxComponent *hitboxComponent);
     const float ZIPPER_FRICTION = 0.7;
     const float ZIPPER_DISTANCE_ACCELERATION = 0.1;
     void handleZipperMagnet(HitboxComponent *hitboxComponent);

@@ -1,7 +1,7 @@
 #include "include/interactivehitboxcomponent.h"
 
 InteractiveHitboxComponent::InteractiveHitboxComponent(QString name_)
-    :HitboxComponent(name_)
+    :SquareHitboxComponent(name_)
 {
     isKeyActive = false;
 }

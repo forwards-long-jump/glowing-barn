@@ -23,7 +23,7 @@ ZipperMagnetComponent::ZipperMagnetComponent(DIRECTION direction_, QSizeF hitbox
  */
 void ZipperMagnetComponent::init()
 {
-    HitboxComponent *hc = new HitboxComponent(HITBOX_NAME);
+    SquareHitboxComponent *hc = new SquareHitboxComponent(HITBOX_NAME);
     getEntity()->addComponent(hc);
 
     QPointF entityCenter(getEntity()->getSize().width() / 2, getEntity()->getSize().height() / 2);

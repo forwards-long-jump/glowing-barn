@@ -4,7 +4,7 @@ void HitboxReactorComponent::update()
 {
     for (auto hb : HitboxComponent::getInstancesOf(targetName))
     {
-        if (hitbox.intersects(hb))
+        if (hitbox->intersects(hb))
         {
             onIntersect(hb);
         }
@@ -13,16 +13,12 @@ void HitboxReactorComponent::update()
 
 void HitboxReactorComponent::init()
 {
-    hitbox.assignParent(entity);
-    hitbox.init();
+
 }
 
-void HitboxReactorComponent::setHitboxOffset(float dx, float dy)
+void HitboxReactorComponent::setHitbox(HitboxComponent *hb)
 {
-    hitbox.setOffset(dx, dy);
-}
-
-void HitboxReactorComponent::setHitboxSize(float w, float h)
-{
-    hitbox.setSize(w, h);
+    hitbox = hb;
+    hitbox->assignParent(entity);
+    hitbox->init();
 }
