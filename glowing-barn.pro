@@ -67,7 +67,8 @@ SOURCES += \
     src/components/doorcomponent.cpp \
     src/tilemap/entityfactory.cpp \
     src/components/parallaxcomponent.cpp \
-    src/components/imagecomponent.cpp
+    src/components/imagecomponent.cpp \
+    src/components/animationcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -98,7 +99,8 @@ HEADERS += \
     include/doorcomponent.h \
     include/entityfactory.h \
     include/parallaxcomponent.h \
-    include/imagecomponent.h
+    include/imagecomponent.h \
+    include/animationcomponent.h
 
 
 RESOURCES += \
