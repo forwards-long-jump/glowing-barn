@@ -8,7 +8,7 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
-    player->addComponent(new DebugComponent(Qt::red, false, false));
+   // player->addComponent(new DebugComponent(Qt::red, false, false));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
     player->addComponent(new MagneticFieldReactorComponent());
@@ -27,7 +27,7 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 Entity* EntityFactory::parallaxRectangle(Tiled::MapObject* object, Entity* parent)
 {
     Entity *e = new Entity(parent, object->position(), object->size());
-    e->addComponent(new DebugComponent);
+    e->addComponent(new ImageComponent(object->propertyAsString("texture")));
     e->addComponent(new ParallaxComponent(object->propertyAsString("parallax").toFloat()));
     return e;
 }

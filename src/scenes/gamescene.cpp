@@ -8,6 +8,7 @@
 #include "playerinputcomponent.h"
 #include "physicscomponent.h"
 #include "hitboxcomponent.h"
+#include "imagecomponent.h"
 
 #include "doorcomponent.h"
 
@@ -45,6 +46,7 @@ bool GameScene::loadMap(QString filename)
     mapItem->getLayer("front")->setZValue(1);
     mapItem->getPlayer()->setZValue(0);
     mapItem->getLayer("back")->setZValue(-1);
+    mapItem->getPlayer()->addComponent(new ImageComponent("/entities/player-static.png"));
 
     camera->attachTo(mapItem->getPlayer());
     camera->setScaling(3);
