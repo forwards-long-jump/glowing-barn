@@ -18,13 +18,14 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void StandingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    // TODO
-    // change player sprite
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setCurrentAnimation("standing");
+    }
 }
 
-void StandingState::setHeadingRight(bool headingRight_)
+void StandingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
-    PlayerState::setHeadingRight(headingRight_);
-    // TODO
-    // change player sprite
+    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }

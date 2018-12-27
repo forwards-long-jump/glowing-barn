@@ -21,9 +21,9 @@ void FallingState::enter(PlayerInputComponent *playerInputComponent) const
     // change player sprite
 }
 
-void FallingState::setHeadingRight(bool headingRight_)
+void FallingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
-    PlayerState::setHeadingRight(headingRight_);
+    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
     // TODO
     // change player sprite
 }

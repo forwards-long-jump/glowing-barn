@@ -8,9 +8,11 @@ void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
         physicsComponent->jump();
     }
 
-    // TODO
-    // change player sprite
-    // play sound ...
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setCurrentAnimation("jumping");
+    }
 }
 
 void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
@@ -25,9 +27,9 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
-void JumpingState::setHeadingRight(bool headingRight_)
+void JumpingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
-    PlayerState::setHeadingRight(headingRight_);
+    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
     // TODO
     // change player sprite
 }

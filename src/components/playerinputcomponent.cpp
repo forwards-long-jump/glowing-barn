@@ -76,6 +76,9 @@ PlayerState* PlayerInputComponent::getState() const
 
 void PlayerInputComponent::setState(PlayerState* _state)
 {
-    state = _state;
-    state->enter(this);
+    if(state != _state)
+    {
+        state = _state;
+        state->enter(this);
+    }
 }

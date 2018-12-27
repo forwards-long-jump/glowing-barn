@@ -69,7 +69,8 @@ SOURCES += \
     src/components/squarehitboxcomponent.cpp \
     src/components/circlehitboxcomponent.cpp \
     src/components/parallaxcomponent.cpp \
-    src/components/imagecomponent.cpp
+    src/components/imagecomponent.cpp \
+    src/components/animationcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -102,7 +103,8 @@ HEADERS += \
     include/squarehitboxcomponent.h \
     include/circlehitboxcomponent.h \
     include/parallaxcomponent.h \
-    include/imagecomponent.h
+    include/imagecomponent.h \
+    include/animationcomponent.h
 
 RESOURCES += \
     assets/assets.qrc

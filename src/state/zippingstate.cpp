@@ -9,25 +9,25 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 
     if (Game::input.isKeyDown(Input::LEFT))
     {
-        setHeadingRight(false);
+        setHeadingRight(false, playerInputComponent);
     }
 
     if (Game::input.isKeyDown(Input::RIGHT))
     {
-        setHeadingRight(true);
+        setHeadingRight(true, playerInputComponent);
     }
 }
 
 void ZippingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    // TODO
-    // change player sprite
-    // play sound ...
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setCurrentAnimation("zipping");
+    }
 }
 
-void ZippingState::setHeadingRight(bool headingRight_)
+void ZippingState::setHeadingRight(bool headingRight_, PlayerInputComponent *playerInputComponent)
 {
-    PlayerState::setHeadingRight(headingRight_);
-    // TODO
-    // change player sprite
+    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }
