@@ -23,6 +23,8 @@ public:
     void setJumpSpeed(float jumpSpeed_) {jumpSpeed = jumpSpeed_;}
     void setG(float g_) {g = g_;}
 
+    QPointF getSpeed() const;
+
     bool isFalling() const {return dy > 0;}
     bool isOnGround() const {return onGround;}
     bool hasZeroSpeed() const {return dx > - 0.5 && dx < 0.5;}
