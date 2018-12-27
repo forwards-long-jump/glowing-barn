@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="parallax-rect" width="82.5" height="74">
+  <properties>
+   <property name="parallax" type="float" value="0.3"/>
+   <property name="texture" value="parallax-tree"/>
+  </properties>
+ </object>
+</template>

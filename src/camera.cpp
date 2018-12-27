@@ -166,3 +166,8 @@ void Camera::setShakingIntensity(float f)
 {
     shakeIntensity = f;
 }
+
+QPointF Camera::getPosition() const
+{
+    return position / scaling;
+}

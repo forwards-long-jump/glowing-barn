@@ -16,6 +16,7 @@ public:
 
     void updateCamera();
     Game* getGame() {return game;}
+    Camera* getCamera() {return camera;}
 protected:
     Game *game;
     Camera *camera;

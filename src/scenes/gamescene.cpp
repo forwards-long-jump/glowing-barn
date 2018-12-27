@@ -8,6 +8,7 @@
 #include "playerinputcomponent.h"
 #include "physicscomponent.h"
 #include "hitboxcomponent.h"
+#include "imagecomponent.h"
 
 #include "doorcomponent.h"
 
@@ -16,8 +17,7 @@ GameScene::GameScene(QString name, Game *game)
 {
     loadMap(":maps/map-test.tmx");
 
-    Entity* door = new Entity(nullptr, 16, 32);
-    door->setPos(352, 48);
+    Entity* door = new Entity(nullptr, 352, 48, 16, 32);
     addItem(door);
     door->addComponent(new DoorComponent());
 }
@@ -46,6 +46,7 @@ bool GameScene::loadMap(QString filename)
     mapItem->getLayer("front")->setZValue(1);
     mapItem->getPlayer()->setZValue(0);
     mapItem->getLayer("back")->setZValue(-1);
+    mapItem->getPlayer()->addComponent(new ImageComponent("/entities/player-static.png"));
 
     camera->attachTo(mapItem->getPlayer());
     camera->setScaling(3);

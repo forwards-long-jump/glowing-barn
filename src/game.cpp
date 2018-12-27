@@ -35,6 +35,7 @@ Game::Game(QWidget *parent)
     // Update "loop"
     lastUpdateTime = new QTime(QTime::currentTime());
     lag = 0;
+    tick = 0;
 
     updateTimer = new QTimer(this);
     updateTimer->setInterval(MS_PER_UPDATE);
@@ -57,6 +58,7 @@ Game::~Game()
 void Game::update() {
     // Add lag due to timer
     lag = lastUpdateTime->elapsed();
+    tick++;
 
     while(lag > MS_PER_UPDATE) {
         // Make sure to only update Entities
@@ -92,4 +94,9 @@ void Game::switchScene(QString nameScene)
 {
     this->currentScene = scenes[nameScene];
     this->setScene(currentScene);
+}
+
+unsigned int Game::getTick() const
+{
+    return tick;
 }

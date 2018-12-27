@@ -33,7 +33,7 @@ void DebugComponent::update()
 void DebugComponent::init()
 {
     if(hasTextComponent || hasHitboxComponent) {
-        childDebugEntity = new Entity(this->getEntity(), DEBUG_ENTITY_WIDTH, DEBUG_ENTITY_HEIGHT);
+        childDebugEntity = new Entity(this->getEntity(), QSizeF(DEBUG_ENTITY_WIDTH, DEBUG_ENTITY_HEIGHT));
         if(hasTextComponent)
         {
             childDebugEntity->setZValue(9999);

@@ -19,8 +19,12 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
             static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
             break;
         default:
-            qWarning() << "unknown object";
+            qWarning() << "unknown object " << object->name();
             break;
+        }
+
+        if(object->name() == "parallax-rect") {
+            EntityFactory::parallaxRectangle(object, parent);
         }
     }
 }

@@ -13,7 +13,7 @@ void InteractiveComponent::init()
 {
     HitboxReactorComponent::init();
 
-    commandPrompt = new Entity(nullptr, 8, 8);
+    commandPrompt = new Entity(nullptr, QSizeF(8, 8));
     entity->scene()->addItem(commandPrompt);
     commandPrompt->addComponent(new DebugComponent(Qt::blue));
     commandPrompt->setPos(

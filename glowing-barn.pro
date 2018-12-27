@@ -67,7 +67,9 @@ SOURCES += \
     src/components/doorcomponent.cpp \
     src/tilemap/entityfactory.cpp \
     src/components/squarehitboxcomponent.cpp \
-    src/components/circlehitboxcomponent.cpp
+    src/components/circlehitboxcomponent.cpp \
+    src/components/parallaxcomponent.cpp \
+    src/components/imagecomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -98,8 +100,9 @@ HEADERS += \
     include/doorcomponent.h \
     include/entityfactory.h \
     include/squarehitboxcomponent.h \
-    include/circlehitboxcomponent.h
-
+    include/circlehitboxcomponent.h \
+    include/parallaxcomponent.h \
+    include/imagecomponent.h
 
 RESOURCES += \
     assets/assets.qrc

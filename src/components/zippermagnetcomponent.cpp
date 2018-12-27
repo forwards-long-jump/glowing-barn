@@ -33,23 +33,23 @@ void ZipperMagnetComponent::init()
     {
     case DIRECTION::RIGHT:
         hitboxRect.setCoords(
-                    entityCenter.x(), entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2,
-                    hitboxSize.width(), hitboxSize.height());
+                    entityCenter.x(),  entityCenter.y() - hitboxSize.height() / 2,
+                    hitboxSize.width(),  entityCenter.y() - hitboxSize.height() / 2 + hitboxSize.height());
         break;
     case DIRECTION::LEFT:
         hitboxRect.setCoords(
-                    entityCenter.x() - hitboxSize.width(), entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2,
-                    entityCenter.x(), hitboxSize.height());
+                    entityCenter.x() - hitboxSize.width(),  entityCenter.y() - hitboxSize.height() / 2,
+                    entityCenter.x(),  entityCenter.y() - hitboxSize.height() / 2 + hitboxSize.height());
         break;
     case DIRECTION::DOWN:
         hitboxRect.setCoords(
-                    entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2, entityCenter.x(),
-                    hitboxSize.height(), hitboxSize.width());
+                    entityCenter.y() - hitboxSize.height() / 2, entityCenter.x(),
+                    entityCenter.y() - hitboxSize.height() / 2 + hitboxSize.height(), hitboxSize.width());
         break;
     case DIRECTION::UP:
         hitboxRect.setCoords(
-                    entityCenter.y() - (getEntity()->getSize().height() + hitboxSize.height()) / 2, entityCenter.x() - hitboxSize.width(),
-                    hitboxSize.height(), entityCenter.x());
+                    entityCenter.y() - hitboxSize.height() / 2, entityCenter.x() - hitboxSize.width(),
+                    entityCenter.y() - hitboxSize.height() / 2 + hitboxSize.height(), entityCenter.x());
         break;
     }
 
