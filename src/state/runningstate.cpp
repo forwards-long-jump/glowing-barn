@@ -19,13 +19,16 @@ void RunningState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void RunningState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    // TODO
-    // change player sprite
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setCurrentAnimation("running");
+    }
 }
 
-void RunningState::setHeadingRight(bool headingRight_)
+void RunningState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
-    PlayerState::setHeadingRight(headingRight_);
+    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
     // TODO
     // change player sprite
 }

@@ -24,14 +24,14 @@ void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
 
 void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    // TODO
-    // change player sprite
-    // play sound ...
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setCurrentAnimation("skidding");
+    }
 }
 
-void SkiddingState::setHeadingRight(bool headingRight_)
+void SkiddingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
-    PlayerState::setHeadingRight(headingRight_);
-    // TODO
-    // change player sprite
+    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }

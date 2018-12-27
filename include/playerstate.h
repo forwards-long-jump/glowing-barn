@@ -3,6 +3,7 @@
 
 #include "game.h"
 #include "physicscomponent.h"
+#include "animationcomponent.h"
 
 class PlayerInputComponent;
 
@@ -21,7 +22,7 @@ public:
 
     virtual void handleInput(PlayerInputComponent* playerInputComponent) = 0;
     bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent);
-    virtual void setHeadingRight(bool headingRight_);
+    virtual void setHeadingRight(bool headingRight_, PlayerInputComponent *playerInputComponent);
     bool checkFalling(PlayerInputComponent*) const;
     bool checkOnGround(PlayerInputComponent*) const;
     bool checkNoSpeed(PlayerInputComponent*) const;
@@ -47,7 +48,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -60,7 +61,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -73,7 +74,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -86,7 +87,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -99,7 +100,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent *playerInputComponent) override;
-    void setHeadingRight(bool headingRight_) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };
@@ -112,7 +113,7 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent *playerInputComponent) const override;
 };

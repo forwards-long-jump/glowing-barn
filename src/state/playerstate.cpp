@@ -20,11 +20,11 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
 
     if (Game::input.isKeyDown(Input::LEFT))
     {
-        setHeadingRight(false);
+        setHeadingRight(false, playerInputComponent);
     }
     else if (Game::input.isKeyDown(Input::RIGHT))
     {
-        setHeadingRight(true);
+        setHeadingRight(true, playerInputComponent);
     }
     else
     {
@@ -33,9 +33,14 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
     return true;
 }
 
-void PlayerState::setHeadingRight(bool headingRight_)
+void PlayerState::setHeadingRight(bool headingRight_, PlayerInputComponent *playerInputComponent)
 {
     headingRight = headingRight_;
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setMirrored(!headingRight_);
+    }
 }
 
 bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
