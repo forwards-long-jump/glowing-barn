@@ -16,8 +16,7 @@ GameScene::GameScene(QString name, Game *game)
 {
     loadMap(":maps/map-test.tmx");
 
-    Entity* door = new Entity(nullptr, 16, 32);
-    door->setPos(352, 48);
+    Entity* door = new Entity(nullptr, 352, 48, 16, 32);
     addItem(door);
     door->addComponent(new DoorComponent());
 }

@@ -7,8 +7,7 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 {
-    Entity* player = new Entity(parent, size);
-    player->setPos(pos);
+    Entity* player = new Entity(parent, pos, size);
     player->addComponent(new DebugComponent(Qt::red, false, false));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
@@ -19,8 +18,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 
 Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
-    Entity *e = new Entity(parent, size);
-    e->setPos(pos);
+    Entity *e = new Entity(parent, pos, size);
     e->addComponent(new HitboxComponent("WallComponent"));
 
     return e;
@@ -35,8 +33,8 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, Entity* parent)
 {
-    Entity *e = new Entity(parent, size);
-    e->setPos(pos.x(), pos.y() - 16);
+    pos.setY(pos.y() - 16);
+    Entity *e = new Entity(parent, pos, size);
     e->addComponent(new ZipperMagnetComponent(convertToDirection(direction), fieldSize, speed));
     e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
