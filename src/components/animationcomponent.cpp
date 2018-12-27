@@ -30,6 +30,7 @@ void AnimationComponent::setCurrentAnimation(QString animation)
     currentAnimationStartingIndex = 0;
     currentFrameIndex = 0;
 
+    // Find which animation to play and track its starting index
     for(int i = 0; i < animationProperties.length(); ++i)
     {
         if(animationProperties[i].first != animation)
@@ -39,6 +40,7 @@ void AnimationComponent::setCurrentAnimation(QString animation)
         else
         {
             currentAnimationVectorIndex = i;
+            break;
         }
     }
 
@@ -78,9 +80,11 @@ void AnimationComponent::render(QPainter *painter)
 void AnimationComponent::update()
 {
     ticksBeforeNextFrame--;
+    // Next animation frame
     if(ticksBeforeNextFrame < 0)
     {
         currentFrameIndex++;
+        // Restart to first frame
         if(currentFrameIndex >= animationProperties[currentAnimationVectorIndex].second.size())
         {
             if(loopingDisabled)
