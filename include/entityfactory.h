@@ -6,6 +6,7 @@
 #include "physicscomponent.h"
 #include "magneticfieldreactorcomponent.h"
 #include "hitboxcomponent.h"
+#include "parallaxcomponent.h"
 #include "debugcomponent.h"
 #include "mapobject.h"
 
@@ -22,6 +23,8 @@ public:
 
     static Entity* magnetZipper(Tiled::MapObject*, Entity* = nullptr);
     static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, Entity* = nullptr);
+
+    static Entity* parallaxRectangle(Tiled::MapObject*, Entity* = nullptr);
 
     static ZipperMagnetComponent::DIRECTION convertToDirection(const QString &);
 };

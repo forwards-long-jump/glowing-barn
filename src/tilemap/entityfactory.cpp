@@ -24,6 +24,14 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
     return e;
 }
 
+Entity* EntityFactory::parallaxRectangle(Tiled::MapObject* object, Entity* parent)
+{
+    Entity *e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new DebugComponent);
+    e->addComponent(new ParallaxComponent(object->propertyAsString("parallax").toFloat()));
+    return e;
+}
+
 Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),
