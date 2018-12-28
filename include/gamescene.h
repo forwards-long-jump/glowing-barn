@@ -13,12 +13,14 @@
 class GameScene : public Scene
 {
     Q_OBJECT
-
 public:
     GameScene(QString name = "default", Game *game = 0);
     ~GameScene();
 
 private:
+    // Note: set using absolute path to allow live map-reloading with F11
+    const QString DEV_MAP_PATH = "";
+
     void onKeyChange(Input &input) override;
 
     bool loadMap(QString filename);

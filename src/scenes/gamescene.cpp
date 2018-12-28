@@ -12,8 +12,6 @@
 
 #include "doorcomponent.h"
 
-const QString DEV_MAP_PATH = "C:/Users/Lockj/Desktop/glowing-barn/assets/maps/map-test.tmx";
-
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
