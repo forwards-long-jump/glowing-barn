@@ -58,13 +58,6 @@ bool GameScene::loadMap(QString filename)
     mapItem->getLayer("front")->setZValue(1);
     mapItem->getPlayer()->setZValue(0);
     mapItem->getLayer("back")->setZValue(-1);
-    QVector<QPair<QString, QVector<float>>> animations;
-    AnimationComponent::addAnimationToVector("running", 8, 5, animations);
-    AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
-    AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
-    AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
-    AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
-    mapItem->getPlayer()->addComponent(new AnimationComponent("/entities/player.png", 16, animations));
 
     camera->attachTo(mapItem->getPlayer());
     camera->setScaling(6);

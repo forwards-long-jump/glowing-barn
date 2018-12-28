@@ -9,9 +9,19 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
    // player->addComponent(new DebugComponent(Qt::red, false, false));
+    QVector<QPair<QString, QVector<float>>> animations;
+    AnimationComponent::addAnimationToVector("running", 8, 5, animations);
+    AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
+    AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
+    AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
+    AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
+    AnimationComponent* animationComponent = new AnimationComponent(":/entities/player.png", 16, animations);
+    animationComponent->setCurrentAnimation("standing");
+
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
     player->addComponent(new MagneticFieldReactorComponent());
+    player->addComponent(animationComponent);
 
     return player;
 }
