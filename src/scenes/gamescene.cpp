@@ -17,10 +17,13 @@ GameScene::GameScene(QString name, Game *game)
 {
     loadMap(":maps/map-test.tmx");
 
-    Entity* door = new Entity(nullptr, 352, 48, 16, 32);
-    addItem(door);
-    door->addComponent(new DoorComponent());
-    map = nullptr;
+    // If a dev map is set, adds a file watcher to reload the map every time its changed
+    if(DEV_MAP_PATH != "") {
+        mapReloadWatcher.addPath(DEV_MAP_PATH);
+        connect(&mapReloadWatcher, &QFileSystemWatcher::fileChanged, this, [=] () {
+            loadMap(DEV_MAP_PATH);
+        });
+    }
 }
 
 GameScene::~GameScene()
@@ -30,17 +33,7 @@ GameScene::~GameScene()
 
 void GameScene::onKeyChange(Input &input)
 {
-    if(DEV_MAP_PATH != "" && input.isDebugKeyDown(Qt::Key_F11)) {
-        if(mapReloadWatcher.files().length() == 0)
-        {
-            mapReloadWatcher.addPath(DEV_MAP_PATH);
-            connect(&mapReloadWatcher, &QFileSystemWatcher::fileChanged, this, [=] () {
-                loadMap(DEV_MAP_PATH);
-            });
-        }
 
-        loadMap(DEV_MAP_PATH);
-    }
 }
 
 bool GameScene::loadMap(QString filename)
