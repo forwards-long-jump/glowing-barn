@@ -20,6 +20,7 @@ public:
     };
 
     bool isKeyDown(Key key);
+    bool isDebugKeyDown(Qt::Key key);
 
 public slots:
     void handleKeyDown(QKeyEvent* event);

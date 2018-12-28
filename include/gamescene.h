@@ -18,6 +18,8 @@ public:
     ~GameScene();
 
 private:
+    void onKeyChange(Input &input) override;
+
     bool loadMap(QString filename);
 
     // Tiled

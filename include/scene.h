@@ -3,6 +3,7 @@
 
 #include <QGraphicsScene>
 
+#include "input.h"
 #include "entity.h"
 #include "camera.h"
 
@@ -15,6 +16,7 @@ public:
     ~Scene();
 
     void updateCamera();
+    virtual void onKeyChange(Input &input) {}
     Game* getGame() {return game;}
     Camera* getCamera() {return camera;}
 protected:
