@@ -37,3 +37,8 @@ QList<HitboxComponent*> HitboxComponent::getInstancesOf(QString name)
     return instances[name];
 }
 
+void HitboxComponent::removeAll()
+{
+    instances.clear();
+}
+

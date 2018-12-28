@@ -20,6 +20,7 @@ public:
     QPointF& getOffset();
 
     static QList<HitboxComponent*> getInstancesOf(QString name);
+    static void removeAll();
 
 protected:
     QPointF offset;
