@@ -18,7 +18,7 @@ public:
     ~GameScene();
 
 private:
-    // Note: set using absolute path to allow live map-reloading with F11
+    // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
     const QString DEV_MAP_PATH = "";
 
     void onKeyChange(Input &input) override;
@@ -29,7 +29,7 @@ private:
     Tiled::Map *map;
     Tiled::MapRenderer *mapRenderer;
 
-    // Dev
+    // Development related
     QFileSystemWatcher mapReloadWatcher;
 
 };
