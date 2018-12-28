@@ -10,7 +10,7 @@
 class AnimationComponent : public GraphicsComponent
 {
 public:
-    AnimationComponent(const QString resourceName, float frameWidth, QVector<QPair<QString, QVector<float>>> animationProperties,
+    AnimationComponent(const QString resourcePath, float frameWidth, QVector<QPair<QString, QVector<float>>> animationProperties,
                        const QString name = "AnimationComponent");
 
     static void addAnimationToVector(QString animationName, int frameCount, int framesDuration, QVector<QPair<QString, QVector<float>>> &animationVector);

@@ -1,8 +1,8 @@
 #include "imagecomponent.h"
 
-ImageComponent::ImageComponent(const QString resourceName, const QString name) : GraphicsComponent(name)
+ImageComponent::ImageComponent(const QString resourcePath, const QString name) : GraphicsComponent(name)
 {
-    image = QPixmap("://" + resourceName);
+    image = QPixmap(resourcePath);
 }
 
 void ImageComponent::render(QPainter *painter)
