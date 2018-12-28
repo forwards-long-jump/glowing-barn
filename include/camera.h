@@ -38,6 +38,8 @@ public:
     void setShakingIntensity(float f);
 
     QPointF getPosition() const;
+    QRectF getBoundingRect() const;
+    float getScaling() const;
 
 private:
     Entity *entity;
