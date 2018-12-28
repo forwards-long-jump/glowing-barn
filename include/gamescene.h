@@ -8,6 +8,7 @@
 #include "mapitem.h"
 
 #include <QDebug>
+#include <QFileSystemWatcher>
 
 class GameScene : public Scene
 {
@@ -25,6 +26,9 @@ private:
     // Tiled
     Tiled::Map *map;
     Tiled::MapRenderer *mapRenderer;
+
+    // Dev
+    QFileSystemWatcher mapReloadWatcher;
 
 };
 

@@ -12,6 +12,8 @@
 
 #include "doorcomponent.h"
 
+const QString DEV_MAP_PATH = "C:/Users/Lockj/Desktop/glowing-barn/assets/maps/map-test.tmx";
+
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
@@ -20,6 +22,7 @@ GameScene::GameScene(QString name, Game *game)
     Entity* door = new Entity(nullptr, 352, 48, 16, 32);
     addItem(door);
     door->addComponent(new DoorComponent());
+    map = nullptr;
 }
 
 GameScene::~GameScene()
@@ -27,8 +30,26 @@ GameScene::~GameScene()
 
 }
 
+void GameScene::onKeyChange(Input &input)
+{
+    if(DEV_MAP_PATH != "" && input.isDebugKeyDown(Qt::Key_F11)) {
+        if(mapReloadWatcher.files().length() == 0)
+        {
+            mapReloadWatcher.addPath(DEV_MAP_PATH);
+            connect(&mapReloadWatcher, &QFileSystemWatcher::fileChanged, this, [=] () {
+                loadMap(DEV_MAP_PATH);
+            });
+        }
+
+        loadMap(DEV_MAP_PATH);
+    }
+}
+
 bool GameScene::loadMap(QString filename)
 {
+    HitboxComponent::removeAll();
+    clear();
+
     Tiled::MapReader reader;
     MapItem *mapItem;
 
