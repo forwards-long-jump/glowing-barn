@@ -17,7 +17,7 @@
 class ObjectGroupItem : public Entity
 {
 public:
-    ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent);
+    ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent, QString spawnName);
 
     MagnetZipperComponent::DIRECTION convertToDirection(const QString& str);
 

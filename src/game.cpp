@@ -79,6 +79,8 @@ void Game::update() {
         }
 
         static_cast<Scene*>(scene())->updateCamera();
+        static_cast<Scene*>(scene())->update();
+
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();
     }

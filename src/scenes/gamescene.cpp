@@ -2,7 +2,6 @@
 #include "debugcomponent.h"
 #include "playerinputcomponent.h"
 #include "physicscomponent.h"
-#include "magneticfieldreactorcomponent.h"
 
 #include "debugcomponent.h"
 #include "playerinputcomponent.h"
@@ -15,6 +14,7 @@
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
+    changeMapScheduled = false;
     loadMap(":maps/map-test.tmx");
 
     // If a dev map is set, adds a file watcher to reload the map every time its changed
@@ -31,12 +31,29 @@ GameScene::~GameScene()
 
 }
 
+void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
+{
+    changeMapScheduled = true;
+    newMapPath = mapPath;
+    newMapSpawn = spawnName;
+}
+
+
+void GameScene::update()
+{
+    if(changeMapScheduled)
+    {
+        changeMapScheduled = false;
+        loadMap(newMapPath, newMapSpawn);
+    }
+}
+
 void GameScene::onKeyChange(Input &input)
 {
 
 }
 
-bool GameScene::loadMap(QString filename)
+bool GameScene::loadMap(QString filename, QString spawnName)
 {
     HitboxComponent::removeAll();
     clear();
@@ -52,7 +69,7 @@ bool GameScene::loadMap(QString filename)
     }
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
-    mapItem = new MapItem(map, mapRenderer);
+    mapItem = new MapItem(map, mapRenderer, nullptr, spawnName);
     mapItem->getLayer("middle")->createCollisions();
 
     mapItem->getLayer("front")->setZValue(1);

@@ -41,6 +41,13 @@ Entity* EntityFactory::parallaxRectangle(Tiled::MapObject* object, Entity* paren
     return e;
 }
 
+Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
+{
+    Entity *e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn")));
+    return e;
+}
+
 Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),

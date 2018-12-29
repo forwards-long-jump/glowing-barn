@@ -1,6 +1,6 @@
 #include "objectgroupitem.h"
 
-ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent)
+ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -16,15 +16,21 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
             EntityFactory::magnetZipper(object, this);
             break;
         case 248:
-            static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
+            if(object->propertyAsString("spawnName") == spawnName) {
+                static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
+            }
             break;
         default:
-            qWarning() << "unknown object " << object->name();
+            if(object->name() == "parallax-rect") {
+                EntityFactory::parallaxRectangle(object, parent);
+            }
+            else if(object->name() == "door") {
+                EntityFactory::door(object, parent);
+            }
+            else {
+                qWarning() << "unknown object " << object->name();
+            }
             break;
-        }
-
-        if(object->name() == "parallax-rect") {
-            EntityFactory::parallaxRectangle(object, parent);
         }
     }
 }

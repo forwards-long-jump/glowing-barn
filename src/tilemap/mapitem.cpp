@@ -1,6 +1,6 @@
 #include "mapitem.h"
 
-MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
+MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -13,7 +13,7 @@ MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *p
         }
         else if (Tiled::ObjectGroup *objectGroup = layer->asObjectGroup())
         {
-            new ObjectGroupItem(objectGroup, renderer, this);
+            new ObjectGroupItem(objectGroup, renderer, this, spawnName);
         }
     }
 }

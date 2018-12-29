@@ -17,6 +17,8 @@ public:
 
     void updateCamera();
     virtual void onKeyChange(Input &input) {}
+    virtual void update() {}
+
     Game* getGame() {return game;}
     Camera* getCamera() {return camera;}
 protected:
