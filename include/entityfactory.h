@@ -1,10 +1,10 @@
 #ifndef ENTITYFACTORY_H
 #define ENTITYFACTORY_H
 
-#include "zippermagnetcomponent.h"
+#include "magnetzippercomponent.h"
 #include "playerinputcomponent.h"
 #include "physicscomponent.h"
-#include "magneticfieldreactorcomponent.h"
+#include "magnetzipperreactorcomponent.h"
 #include "hitboxcomponent.h"
 #include "parallaxcomponent.h"
 #include "debugcomponent.h"
@@ -27,7 +27,7 @@ public:
 
     static Entity* parallaxRectangle(Tiled::MapObject*, Entity* = nullptr);
 
-    static ZipperMagnetComponent::DIRECTION convertToDirection(const QString &);
+    static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);
 };
 
 #endif // ENTITYFACTORY_H
