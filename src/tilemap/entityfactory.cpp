@@ -17,6 +17,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
     AnimationComponent* animationComponent = new AnimationComponent(":/entities/player.png", 16, animations);
     animationComponent->setCurrentAnimation("standing");
 
+    player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
     player->addComponent(new MagnetZipperReactorComponent());

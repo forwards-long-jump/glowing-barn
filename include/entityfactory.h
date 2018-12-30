@@ -11,6 +11,7 @@
 #include "mapobject.h"
 #include "imagecomponent.h"
 #include "doorcomponent.h"
+#include "gamebuttoncomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity

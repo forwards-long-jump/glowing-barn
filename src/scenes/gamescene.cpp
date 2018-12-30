@@ -8,6 +8,7 @@
 #include "physicscomponent.h"
 #include "hitboxcomponent.h"
 #include "animationcomponent.h"
+#include "gamebuttoncomponent.h"
 
 #include "doorcomponent.h"
 
@@ -17,6 +18,10 @@ GameScene::GameScene(QString name, Game *game)
     changeMapScheduled = false;
     loadMap(":maps/map-test.tmx");
 
+    Entity* e = new Entity(nullptr, 100, 100, 50, 50);
+    e->addComponent(new DebugComponent(Qt::gray, true, true));
+    e->addComponent(new GameButtonComponent("test"));
+    addItem(e);
     // If a dev map is set, adds a file watcher to reload the map every time its changed
     if(DEV_MAP_PATH != "") {
         mapReloadWatcher.addPath(DEV_MAP_PATH);
