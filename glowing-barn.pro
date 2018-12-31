@@ -108,3 +108,5 @@ HEADERS += \
 
 RESOURCES += \
     assets/assets.qrc
+
+DISTFILES +=
