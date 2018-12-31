@@ -1,21 +1,19 @@
-<RCC>
-    <qresource prefix="/maps">
-        <file alias="tilemap.png">maps/tilemap.png</file>
-        <file alias="tilemap.tsx">maps/tilemap.tsx</file>
-        <file alias="map-test.tmx">maps/map-test.tmx</file>
-    </qresource>
-    <qresource prefix="/entities">
-        <file alias="player.png">graphics/entities/player.png</file>
-        <file alias="player-static.png">graphics/entities/player-static.png</file>
-    </qresource>
-    <qresource prefix="/decorations">
-        <file alias="sky.png">graphics/decorations/sky.png</file>
-        <file alias="sun.png">graphics/decorations/sun.png</file>
-    </qresource>
-    <qresource prefix="/interface">
-        <file alias="tilemap.png">graphics/interface/input.png</file>
-        <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
-        <file alias="spacebar.png">graphics/interface/spacebar.png</file>
-    </qresource>
-    <qresource prefix="/"/>
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource prefix="/maps">
+    <file alias="tilemap.png" >maps/tilemap.png</file>
+    <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
+    <file alias="map-test.tmx" >maps/map-test.tmx</file>
+</qresource>
+<qresource prefix="/entities">
+    <file alias="player.png" >graphics/entities/player.png</file>
+    <file alias="player-static.png" >graphics/entities/player-static.png</file>
+</qresource>
+<qresource prefix="/decorations">
+    <file alias="sky.png" >graphics/decorations/sky.png</file>
+    <file alias="sun.png" >graphics/decorations/sun.png</file>
+</qresource>
+<qresource prefix="/interface">
+    <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
+    <file alias="spacebar.png">graphics/interface/spacebar.png</file>
+</qresource>
 </RCC>
