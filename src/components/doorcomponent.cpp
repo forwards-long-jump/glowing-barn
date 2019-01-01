@@ -1,6 +1,6 @@
 #include "include/doorcomponent.h"
 
-void DoorComponent::action(Entity *target) const
+void DoorComponent::action(Entity *target)
 {
     static_cast<GameScene*>(target->scene())->scheduleMapChange(targetMap, targetDoor);
 }

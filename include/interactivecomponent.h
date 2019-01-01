@@ -10,14 +10,14 @@
 class InteractiveComponent : public HitboxReactorComponent
 {
 public:
-    InteractiveComponent(Input::Key key_, QString name_ = "InteractiveComponent");
+    InteractiveComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = "InteractiveHitboxComponent");
 
     void update() override;
     void init() override;
     void onIntersect(HitboxComponent* hb) override;
 
     void showPrompt() const;
-    virtual void action(Entity* target) const = 0;
+    virtual void action(Entity* target) = 0;
 
 protected:
     Input::Key key;
