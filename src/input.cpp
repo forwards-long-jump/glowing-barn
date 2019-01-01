@@ -16,7 +16,7 @@ bool Input::isDebugKeyDown(Qt::Key key)
 
 bool Input::isKeyDown(Key key)
 {
-    return keys.value(bindings[key], false);
+    return key == Input::Key::NONE || keys.value(bindings[key], false);
 }
 
 void Input::handleKeyDown(QKeyEvent* event)
