@@ -3,12 +3,48 @@
 QVector<GameButtonComponent *> GameButtonComponent::instances;
 const QString GameButtonComponent::HITBOX_REACTOR_NAME = "GameButtonPresser";
 
-GameButtonComponent::GameButtonComponent(QString buttonName, QString name) : HitboxReactorComponent(HITBOX_REACTOR_NAME, name)
+/**
+ * @brief GameButtonComponent::GameButtonComponent
+ * WARNING: This one will only work if the intersecting HitboxName is "InteractiveHitboxComponent" and is an IHC!
+ * @param buttonName
+ * @param key
+ * @param name
+ */
+GameButtonComponent::GameButtonComponent(QString buttonName_, Input::Key key, bool stayPressed_,
+                                         bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString name)
+    : InteractiveComponent(key, name),
+      buttonName(buttonName_),
+      pressed(false),
+      stayPressed(stayPressed_),
+      invertOnOff(invertOnOff_),
+      pressedDurationInTick(pressedDurationInTick_),
+      pressedTicksLeft(0),
+      isTogglable(isTogglable_)
 {
-    buttonName = name;
     instances.append(this);
 }
 
+/**
+ * @brief GameButtonComponent::GameButtonComponent
+ * This constructor allows any Hitbox named "GameButtonPresser" to trigger the button
+ * @param buttonName
+ * @param name
+ */
+GameButtonComponent::GameButtonComponent(QString buttonName_, bool stayPressed_,
+                                         bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString name)
+    : InteractiveComponent(Input::Key::NONE, name, GameButtonComponent::HITBOX_REACTOR_NAME),
+      buttonName(buttonName_),
+      pressed(false),
+      stayPressed(stayPressed_),
+      invertOnOff(invertOnOff_),
+      pressedDurationInTick(pressedDurationInTick_),
+      pressedTicksLeft(0),
+      isTogglable(isTogglable_)
+{
+    instances.append(this);
+}
+
+//
 GameButtonComponent::~GameButtonComponent()
 {
     instances.removeOne(this);
@@ -20,7 +56,7 @@ GameButtonComponent::~GameButtonComponent()
  */
 bool GameButtonComponent::isPressed()
 {
-    return pressed;
+    return pressed == !invertOnOff;
 }
 
 /**
@@ -54,8 +90,14 @@ bool GameButtonComponent::areButtonsPressed(QVector<QString> buttons)
     return false;
 }
 
+QVector<QString> GameButtonComponent::getButtonVectorFromString(QString buttons)
+{
+    return buttons.split(" ", QString::SkipEmptyParts).toVector();
+}
+
 void GameButtonComponent::init()
 {
+    InteractiveComponent::init();
     setHitbox(new SquareHitboxComponent());
 }
 
@@ -69,7 +111,31 @@ void GameButtonComponent::onEnable()
     instances.append(this);
 }
 
-void GameButtonComponent::onIntersect(HitboxComponent *hb)
+void GameButtonComponent::update()
 {
-    qDebug() << "Pressed button";
+    InteractiveComponent::update();
+    if(pressedTicksLeft > 0)
+    {
+        pressedTicksLeft--;
+    }
+    else
+    {
+        if(!stayPressed && !isTogglable)
+        {
+            pressed = false;
+        }
+    }
+}
+
+void GameButtonComponent::action(Entity *target)
+{
+    if(isTogglable)
+    {
+        pressed = !pressed;
+    }
+    else
+    {
+        pressed = true;
+        pressedTicksLeft = pressedDurationInTick;
+    }
 }

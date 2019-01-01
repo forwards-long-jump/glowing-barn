@@ -27,6 +27,9 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
             else if(object->name() == "door") {
                 EntityFactory::door(object, parent);
             }
+            else if(object->name() == "button") {
+                EntityFactory::gameButton(object, parent);
+            }
             else {
                 qWarning() << "unknown object " << object->name();
             }

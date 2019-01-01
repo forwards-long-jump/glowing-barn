@@ -42,6 +42,35 @@ Entity* EntityFactory::parallaxRectangle(Tiled::MapObject* object, Entity* paren
     return e;
 }
 
+Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
+{
+    Entity *e = new Entity(parent, object->position(), object->size());
+     e->addComponent(new DebugComponent);
+    if(object->propertyAsString("requiredKey") != "")
+    {
+        e->addComponent(new GameButtonComponent(
+                            object->propertyAsString("name"),
+                            convertToKey(object->propertyAsString("requiredKey")),
+                            object->property("stayPressed").toBool(),
+                            object->property("invertOnOff").toBool(),
+                            object->propertyAsString("pressedDurationInTick").toInt(),
+                            object->property("isTogglable").toBool()
+                        ));
+    }
+    else
+    {
+         e->addComponent(new GameButtonComponent(
+                             object->propertyAsString("name"),
+                             object->property("stayPressed").toBool(),
+                             object->property("invertOnOff").toBool(),
+                             object->propertyAsString("pressedDurationInTick").toInt(),
+                             object->property("isTogglable").toBool()
+                         ));
+    }
+
+    return e;
+}
+
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     Entity *e = new Entity(parent, object->position(), object->size());
@@ -53,14 +82,14 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),
                                             QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()),
-                                            object->propertyAsString("speed").toFloat(), parent);
+                                            object->propertyAsString("speed").toFloat(), object->propertyAsString("buttons"), parent);
 }
 
-Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, Entity* parent)
+Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
 {
     pos.setY(pos.y() - 16);
     Entity *e = new Entity(parent, pos, size);
-    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed));
+    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed, buttons));
     e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
     return e;
@@ -74,4 +103,17 @@ MagnetZipperComponent::DIRECTION EntityFactory::convertToDirection(const QString
     else if(testStr == "DOWN") return MagnetZipperComponent::DIRECTION::DOWN;
     else if(testStr == "LEFT") return MagnetZipperComponent::DIRECTION::LEFT;
     else return MagnetZipperComponent::DIRECTION::RIGHT;
+}
+
+
+Input::Key EntityFactory::convertToKey(const QString& str)
+{
+    QString testStr(str.toUpper());
+
+    if(testStr == "LEFT") return Input::Key::LEFT;
+    else if(testStr == "RIGHT") return Input::Key::RIGHT;
+    else if(testStr == "JUMP") return Input::Key::JUMP;
+    else if(testStr == "INTERACT") return Input::Key::INTERACT;
+    else if(testStr == "ZIP") return Input::Key::ZIP;
+    else if(testStr == "NONE") return Input::Key::NONE;
 }

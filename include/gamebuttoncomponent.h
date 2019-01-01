@@ -3,36 +3,42 @@
 
 #include "hitboxreactorcomponent.h"
 #include "squarehitboxcomponent.h"
-#include <QDebug>
+#include "interactivecomponent.h"
+#include "input.h"
 
-class GameButtonComponent : public HitboxReactorComponent
+class GameButtonComponent : public InteractiveComponent
 {
 public:
+    GameButtonComponent(QString buttonName, Input::Key key, bool stayPressed = false,
+                        bool invertOnOff = false, int pressedDurationInTick = 1, bool isTogglable = false, QString name = "GameButtonComponent");
+    GameButtonComponent(QString buttonName, bool stayPressed = false, bool invertOnOff = false,
+                        int pressedDurationInTick = 1, bool isTogglable = false, QString name = "GameButtonComponent");
+    ~GameButtonComponent();
+
     const static QString HITBOX_REACTOR_NAME;
     const static QString HITBOX_NAME;
-     static bool areButtonsPressed(QVector<QString> buttons);
-
-    GameButtonComponent(QString buttonName, QString name = "GameButtonComponent");
-    ~GameButtonComponent();
+    static bool areButtonsPressed(QVector<QString> buttons);
+    static QVector<QString> getButtonVectorFromString(QString buttons);
 
     bool isPressed();
 
     void init() override;
     void onDisable() override;
     void onEnable() override;
-    void onIntersect(HitboxComponent* hb) override;
+    void update() override;
 
+    void action(Entity* target) override;
 
 private:
     static QVector<GameButtonComponent *> instances;
 
     QString buttonName;
+    bool stayPressed;
+    bool invertOnOff;
     bool pressed;
-    // invertOnOff
-    // stayPressed
-    // requiresKey? // => InteractiveHBC
-    // TODO: TEST BY USING INTERACTIVE COMPONENT FIRST, make the tooltip optionnal and check if can still use onIntersect
-
+    int pressedDurationInTick;
+    int pressedTicksLeft;
+    bool isTogglable;
 };
 
 #endif // GAMEBUTTON_H
