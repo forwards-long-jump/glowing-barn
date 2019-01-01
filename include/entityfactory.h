@@ -25,12 +25,15 @@ public:
     static Entity* collision(QPointF, QSizeF, Entity* = nullptr);
 
     static Entity* magnetZipper(Tiled::MapObject*, Entity * = nullptr);
-    static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, Entity* = nullptr);
+    static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, QString, Entity*);
 
     static Entity* parallaxRectangle(Tiled::MapObject*, Entity* = nullptr);
     static Entity* door(Tiled::MapObject*, Entity * = nullptr);
 
     static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);
+    static Entity *gameButton(Tiled::MapObject *object, Entity *parent);
+
+    static Input::Key convertToKey(const QString &str);
 };
 
 #endif // ENTITYFACTORY_H

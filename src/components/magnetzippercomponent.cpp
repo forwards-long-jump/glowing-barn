@@ -11,10 +11,13 @@ const QString MagnetZipperComponent::HITBOX_NAME = "MagnetZipperHitbox";
  * @param hitboxSize
  * @param speed
  */
-MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction_, QSizeF hitboxSize_, float speed_) : Component("MagnetZipperComponent")
+MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction_, QSizeF hitboxSize_, float speed_, QString requiredButtons_) : Component("MagnetZipperComponent")
 {
     hitboxSize = hitboxSize_;
     direction = direction_;
+
+    requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
+
     speed = speed_;
 }
 
@@ -75,6 +78,18 @@ MagnetZipperComponent::DIRECTION MagnetZipperComponent::getDirection() const
     return direction;
 }
 
-void MagnetZipperComponent::update() {}
+void MagnetZipperComponent::update() {
+    if(requiredButtons.length() > 0)
+    {
+        if(GameButtonComponent::areButtonsPressed(requiredButtons))
+        {
+            getEntity()->enableComponent(HITBOX_NAME);
+        }
+        else
+        {
+            getEntity()->disableComponent(HITBOX_NAME);
+        }
+    }
+}
 
 // TODO: Remove hitbox component on detach
