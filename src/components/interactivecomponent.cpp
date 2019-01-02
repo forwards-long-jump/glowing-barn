@@ -14,14 +14,13 @@ void InteractiveComponent::init()
 {
     HitboxReactorComponent::init();
 
-    commandPrompt = new Entity(nullptr, QSizeF(8, 8));
-    entity->scene()->addItem(commandPrompt);
+    commandPrompt = new Entity(entity->parentItem(), QSizeF(8, 8));
     QVector<QPair<QString, QVector<float>>> animations;
     AnimationComponent::addAnimationToVector("down", 2, 10, animations);
     AnimationComponent::addAnimationToVector("left", 2, 10, animations);
     AnimationComponent::addAnimationToVector("right", 2, 10, animations);
     AnimationComponent::addAnimationToVector("up", 2, 10, animations);
-    commandPrompt->addComponent(new AnimationComponent("/interface/arrowkeys.png", 16, animations));
+    commandPrompt->addComponent(new AnimationComponent(":/interface/arrowkeys.png", 16, animations));
     commandPrompt->setPos(
         entity->pos().x() + (entity->getSize().width() - commandPrompt->getSize().width()) / 2,
         entity->pos().y() - 1.5 * commandPrompt->getSize().height());
