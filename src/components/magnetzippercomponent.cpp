@@ -81,6 +81,7 @@ void MagnetZipperComponent::addAnimations()
             AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
             ac->setButtons(requiredButtons);
             ac->setMirrored(true);
+            ac->setSpeedMultiplier(speed / 3);
             e->addComponent(ac);
         }
         break;
@@ -91,6 +92,7 @@ void MagnetZipperComponent::addAnimations()
             Entity* e = new Entity(entity->parentItem(), entity->x() - i * WAVE_ANIMATION_SIZE, entity->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
             AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
             ac->setButtons(requiredButtons);
+            ac->setSpeedMultiplier(speed / 3);
             e->addComponent(ac);
         }
         break;
@@ -102,6 +104,7 @@ void MagnetZipperComponent::addAnimations()
             AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
             ac->setRotation(90);
             ac->setButtons(requiredButtons);
+            ac->setSpeedMultiplier(speed / 3);
             e->addComponent(ac);
         }
         break;
@@ -113,6 +116,7 @@ void MagnetZipperComponent::addAnimations()
             AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
             ac->setRotation(-90);
             ac->setButtons(requiredButtons);
+            ac->setSpeedMultiplier(speed / 3);
             e->addComponent(ac);
         }
         break;
