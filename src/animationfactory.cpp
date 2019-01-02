@@ -1,0 +1,30 @@
+#include "animationfactory.h"
+
+AnimationComponent* AnimationFactory::getAnimationComponent(QString animationName)
+{
+    QVector<QPair<QString, QVector<float>>> animations;
+
+    if(animationName == "player")
+    {
+        AnimationComponent::addAnimationToVector("running", 8, 5, animations);
+        AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
+        AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
+        return new AnimationComponent(":/entities/player.png", 16, animations);
+    }
+    else if(animationName == "lever")
+    {
+        AnimationComponent::addAnimationToVector("start", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        return new AnimationComponent(":/entities/lever.png", 16, animations);
+    }
+
+    // Missing / invalid animation
+    assert(false);
+    return nullptr;
+}
+
+AnimationFactory::AnimationFactory() {}
