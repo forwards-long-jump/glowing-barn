@@ -1,8 +1,8 @@
 #include "interactivecomponent.h"
 #include "animationcomponent.h"
 
-InteractiveComponent::InteractiveComponent(Input::Key key_, QString name_)
-    :HitboxReactorComponent("InteractiveHitboxComponent", name_),
+InteractiveComponent::InteractiveComponent(Input::Key key_, QString name_, QString targetHitboxName)
+    : HitboxReactorComponent(targetHitboxName, name_),
     key(key_)
 {
     readyToInteract = false;
@@ -43,7 +43,7 @@ void InteractiveComponent::onIntersect(HitboxComponent *hb)
     InteractiveHitboxComponent* ihb = static_cast<InteractiveHitboxComponent*> (hb);
     showPrompt();
     ihb->askKey(key);
-    if (readyToInteract && ihb->isActive())
+    if ((readyToInteract && ihb->isActive()) || key == Input::Key::NONE)
     {
         this->action(hb->getEntity());
         readyToInteract = false;

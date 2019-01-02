@@ -21,11 +21,14 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
             }
             break;
         default:
-            if(object->name() == "parallax-rect") {
-                EntityFactory::parallaxRectangle(object, parent);
+            if(object->name() == "graphic") {
+                EntityFactory::graphic(object, parent);
             }
             else if(object->name() == "door") {
                 EntityFactory::door(object, parent);
+            }
+            else if(object->name() == "button") {
+                EntityFactory::gameButton(object, parent);
             }
             else {
                 qWarning() << "unknown object " << object->name();

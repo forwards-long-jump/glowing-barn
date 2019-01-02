@@ -14,6 +14,7 @@ public:
     void init() override;
     void onIntersect(HitboxComponent* hitboxComponent) override;
     void onEnable() override;
+    void update() override;
 
 
 private:
@@ -24,6 +25,7 @@ private:
 
     float zipperDx, zipperDy;
     bool zipperFirstEntrance;
+    bool isInAnyField;
 
 };
 

@@ -12,6 +12,8 @@ void MagnetZipperReactorComponent::init()
 
 void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
 {
+    isInAnyField = true;
+
     // Zipper magnets should only have square hitboxes
     SquareHitboxComponent* magneticFieldHitboxComponent = static_cast<SquareHitboxComponent*>(hb);
 
@@ -107,4 +109,23 @@ void MagnetZipperReactorComponent::onEnable()
     zipperDx = 0;
     zipperDy = 0;
     zipperFirstEntrance = true;
+}
+
+void MagnetZipperReactorComponent::update()
+{
+    isInAnyField = false;
+
+    HitboxReactorComponent::update();
+
+    if(!isInAnyField)
+    {
+        PlayerInputComponent *playerInputComponent = dynamic_cast<PlayerInputComponent*>(getEntity()->getComponent("PlayerInputComponent"));
+        if(playerInputComponent)
+        {
+            if(playerInputComponent->getState() == &PlayerState::zipping)
+            {
+                playerInputComponent->setState(&PlayerState::falling);
+            }
+        }
+    }
 }

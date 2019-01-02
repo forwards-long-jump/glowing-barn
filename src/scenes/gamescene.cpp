@@ -8,6 +8,7 @@
 #include "physicscomponent.h"
 #include "hitboxcomponent.h"
 #include "animationcomponent.h"
+#include "gamebuttoncomponent.h"
 
 #include "doorcomponent.h"
 
