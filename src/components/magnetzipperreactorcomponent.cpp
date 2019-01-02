@@ -102,7 +102,8 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     if(!magneticFieldHitboxComponent->getHitbox().intersects(QRectF(entity->pos(), entity->getSize()))) {
         zipperDx = 0;
         zipperDy = 0;
-        playerInputComponent->setState(&PlayerState::falling);
+        if(playerInputComponent)
+            playerInputComponent->setState(&PlayerState::falling);
         zipperFirstEntrance = true;
     }
 
