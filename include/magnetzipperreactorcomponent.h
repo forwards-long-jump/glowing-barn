@@ -25,9 +25,9 @@ private:
 
     void handleZipperMagnet(SquareHitboxComponent *hitboxComponent);
 
-    float zipperDx, zipperDy;
-    bool zipperFirstEntrance;
-    bool isInAnyField;
+    float zipperDx = 0, zipperDy = 0;
+    bool zipperFirstEntrance = false;
+    bool isInAnyField = false;
     MagnetZipperComponent::DIRECTION currentDirection;
 
 };
