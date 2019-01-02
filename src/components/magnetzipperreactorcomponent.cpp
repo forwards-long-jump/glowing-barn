@@ -43,7 +43,7 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     }
 
     // Move entity, save dx/dy for the PhysicsComponent when exiting the area
-    float dx, dy = 0;
+    float dx = 0, dy = 0;
     switch(magnetZipperComponent->getDirection())
     {
     case MagnetZipperComponent::DIRECTION::DOWN:
@@ -106,12 +106,6 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
             playerInputComponent->setState(&PlayerState::falling);
         zipperFirstEntrance = true;
     }
-
-    /*
-     * BEFORE dx: entityPos: QPointF(88.5,54.2) magnetPos: QPointF(88.5,54.2) direction: 0 magnetSpeed: 5
-DURING dx: 5  dy: 0 entityPos: QPointF(93.5,54.2) magnetPos: QPointF(93.5,54.2) direction: 0 magnetSpeed: 5
-AFTER dx: 5  dy: 0 entityPos: QPointF(-7.49866e+32,52.086) magnetPos: QPointF(-7.49866e+32,52.086) direction: 0 magnetSpeed: 5
-*/
 }
 
 void MagnetZipperReactorComponent::onEnable()
