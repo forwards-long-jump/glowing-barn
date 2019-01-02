@@ -1,17 +1,20 @@
 #include "animationcomponent.h"
 
-AnimationComponent::AnimationComponent(const QString resourcePath, float frameWidth_, QVector<QPair<QString, QVector<float> > > animationProperties_,
+AnimationComponent::AnimationComponent(const QString resourcePath, float frameWidth_, QVector<QPair<QString, QVector<float> > > animationProperties_, QString buttons,
                                        const QString name) : GraphicsComponent(name)
 {
     image = QPixmap(resourcePath);
     frameWidth = frameWidth_;
 
+    requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
     currentAnimationVectorIndex = 0;
     currentAnimationStartingIndex = 0;
     currentFrameIndex = 0;
     ticksBeforeNextFrame = 0;
     animationProperties = animationProperties_;
     loopingDisabled = false;
+    mirrored = false;
+    currentButtonAnimationState = ButtonAnimationState::IDLE;
 }
 
 void AnimationComponent::addAnimationToVector(QString animationName, int frameCount, int framesDuration, QVector<QPair<QString, QVector<float> > > &animationVector)
@@ -57,6 +60,11 @@ void AnimationComponent::setMirrored(bool mirrored_)
     mirrored = mirrored_;
 }
 
+void AnimationComponent::setButtons(QString buttons)
+{
+    requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
+}
+
 void AnimationComponent::render(QPainter *painter)
 {
     int entityWidth = entity->getSize().width();
@@ -79,6 +87,37 @@ void AnimationComponent::render(QPainter *painter)
 
 void AnimationComponent::update()
 {
+    bool reactToButtons = false;
+    // If the animation reacts to buttons, set the current animation depending on the state
+    if(requiredButtons.length() > 0)
+    {
+        reactToButtons = true;
+        if(GameButtonComponent::areButtonsPressed(requiredButtons))
+        {
+            // All required buttons pressed, move to active animation
+            switch(currentButtonAnimationState)
+            {
+                case ButtonAnimationState::IDLE:
+                case ButtonAnimationState::END:
+                    currentButtonAnimationState = ButtonAnimationState::START;
+                    setCurrentAnimation("start");
+                    break;
+            }
+        }
+        else
+        {
+            // Some required buttons aren't pressed, move to idle animation
+            switch(currentButtonAnimationState)
+            {
+            case ButtonAnimationState::START:
+            case ButtonAnimationState::ACTIVE:
+                currentButtonAnimationState = ButtonAnimationState::END;
+                setCurrentAnimation("end");
+                break;
+            }
+        }
+    }
+
     ticksBeforeNextFrame--;
     // Next animation frame
     if(ticksBeforeNextFrame < 0)
@@ -97,5 +136,20 @@ void AnimationComponent::update()
             }
         }
         ticksBeforeNextFrame = animationProperties[currentAnimationVectorIndex].second.at(currentFrameIndex);
+
+        if(reactToButtons && currentFrameIndex == 0)
+        {
+            switch(currentButtonAnimationState)
+            {
+            case ButtonAnimationState::END:
+                currentButtonAnimationState = ButtonAnimationState::IDLE;
+                setCurrentAnimation("idle");
+                break;
+            case ButtonAnimationState::START:
+                currentButtonAnimationState = ButtonAnimationState::ACTIVE;
+                setCurrentAnimation("active");
+                break;
+            }
+        }
     }
 }

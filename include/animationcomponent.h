@@ -6,12 +6,13 @@
 #include <QString>
 
 #include "graphicscomponent.h"
+#include "gamebuttoncomponent.h"
 
 class AnimationComponent : public GraphicsComponent
 {
 public:
     AnimationComponent(const QString resourcePath, float frameWidth, QVector<QPair<QString, QVector<float>>> animationProperties,
-                       const QString name = "AnimationComponent");
+                       QString buttons = "", const QString name = "AnimationComponent");
 
     static void addAnimationToVector(QString animationName, int frameCount, int framesDuration, QVector<QPair<QString, QVector<float>>> &animationVector);
 
@@ -19,11 +20,20 @@ public:
     void disableLooping();
     void setMirrored(bool mirrored);
 
+    void setButtons(QString buttons);
+
     void render(QPainter* painter) override;
     void update() override;
 
-private:
+private: 
     QPixmap image;
+
+    enum ButtonAnimationState {
+        IDLE,
+        START,
+        ACTIVE,
+        END
+    };
 
     int currentAnimationStartingIndex;
     int currentAnimationVectorIndex;
@@ -32,9 +42,10 @@ private:
     int frameWidth;
 
     bool loopingDisabled;
-    bool mirrored = true;
+    bool mirrored;
+    ButtonAnimationState currentButtonAnimationState;
 
-
+    QVector<QString> requiredButtons;
 
     QVector<QPair<QString, QVector<float>>> animationProperties;
 };
