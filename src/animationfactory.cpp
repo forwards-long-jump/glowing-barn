@@ -29,6 +29,12 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("idle", 1, 2, animations);
         return new AnimationComponent(":/entities/magnet-wave.png", 16, animations);
     }
+    else if(animationName == "spark")
+    {
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("move", 1, 1, animations);
+        return new AnimationComponent(":/entities/spark.png", 17, animations);
+    }
 
     // Missing / invalid animation
     assert(false);
