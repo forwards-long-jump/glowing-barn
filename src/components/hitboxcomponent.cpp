@@ -37,3 +37,24 @@ QList<HitboxComponent*> HitboxComponent::getInstancesOf(QString name)
     return instances[name];
 }
 
+void HitboxComponent::onDisable()
+{
+    instances[this->name].removeOne(this);
+}
+
+void HitboxComponent::onEnable()
+{
+    instances[this->name].append(this);
+}
+
+HitboxComponent::~HitboxComponent()
+{
+    instances[this->name].removeOne(this);
+}
+
+
+void HitboxComponent::removeAll()
+{
+    instances.clear();
+}
+

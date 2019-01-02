@@ -6,7 +6,7 @@
 class ImageComponent : public GraphicsComponent
 {
 public:
-    ImageComponent(const QString resourceName, const QString name = "ImageComponent");
+    ImageComponent(const QString resourcePath, const QString name = "ImageComponent");
 
     void render(QPainter* painter) override;
     void update() override {};

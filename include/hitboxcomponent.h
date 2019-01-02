@@ -19,7 +19,12 @@ public:
     void setOffset(float dx, float dy);
     QPointF& getOffset();
 
+    void onEnable() override;
+    void onDisable() override;
+    ~HitboxComponent();
+
     static QList<HitboxComponent*> getInstancesOf(QString name);
+    static void removeAll();
 
 protected:
     QPointF offset;

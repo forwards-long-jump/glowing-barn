@@ -9,6 +9,11 @@ Input::Input()
     bindings[ZIP]       = Qt::Key_Space;
 }
 
+bool Input::isDebugKeyDown(Qt::Key key)
+{
+    return keys.value(key, false);
+}
+
 bool Input::isKeyDown(Key key)
 {
     return keys.value(bindings[key], false);

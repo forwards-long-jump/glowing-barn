@@ -7,13 +7,13 @@
 
 #include "squarehitboxcomponent.h"
 
-class ZipperMagnetComponent : public Component
+class MagnetZipperComponent : public Component
 {
 public:
     enum DIRECTION { LEFT, RIGHT, UP, DOWN };
     const static QString HITBOX_NAME;
 
-    ZipperMagnetComponent(DIRECTION direction, QSizeF hitboxSize, float speed = 5);
+    MagnetZipperComponent(DIRECTION direction, QSizeF hitboxSize, float speed = 5);
 
     float getSpeed() const;
     DIRECTION getDirection() const;

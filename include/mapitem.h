@@ -15,7 +15,7 @@ class ObjectGroupItem;
 class MapItem : public Entity
 {
 public:
-    MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);
+    MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr, QString spawnName = "default");
 
     QRectF boundingRect() const override;
     void paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *) override;

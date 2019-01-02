@@ -26,10 +26,18 @@ Game::Game(QWidget *parent)
 
     // Connections
     connect(this, &Game::keyPressEvent,
-            [=](QKeyEvent* event) {input.handleKeyDown(event);}
+            [=](QKeyEvent* event)
+                {
+                    input.handleKeyDown(event);
+                    static_cast<Scene*>(scene())->onKeyChange(input);
+                }
             );
     connect(this, &Game::keyReleaseEvent,
-            [=](QKeyEvent* event) {input.handleKeyUp(event);}
+            [=](QKeyEvent* event)
+                {
+                    input.handleKeyUp(event);
+                    static_cast<Scene*>(scene())->onKeyChange(input);
+                }
             );
 
     // Update "loop"
@@ -71,6 +79,8 @@ void Game::update() {
         }
 
         static_cast<Scene*>(scene())->updateCamera();
+        static_cast<Scene*>(scene())->update();
+
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();
     }
