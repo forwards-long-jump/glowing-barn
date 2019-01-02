@@ -93,6 +93,10 @@ Entity *EntityFactory::graphic(Tiled::MapObject *object, Entity *parent)
             ac->setCurrentAnimation("idle");
             ac->setButtons(object->propertyAsString("buttons"));
         }
+        else
+        {
+            ac->setCurrentAnimation(object->propertyAsString("animationToPlay"));
+        }
         e->addComponent(ac);
     }
     if(object->propertyAsString("texture") != "")
