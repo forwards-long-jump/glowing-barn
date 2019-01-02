@@ -42,7 +42,7 @@ private:
     int currentFrameIndex;
     int ticksBeforeNextFrame;
     int frameWidth;
-    int rotation;
+    int rotation = 0;
 
     bool loopingDisabled;
     bool mirrored;
