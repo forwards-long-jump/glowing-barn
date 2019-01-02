@@ -13,6 +13,7 @@
 #include "doorcomponent.h"
 #include "gamebuttoncomponent.h"
 #include "animationfactory.h"
+#include "sparkcomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity
@@ -22,6 +23,8 @@ class EntityFactory
 public:
     static Entity* player(Tiled::MapObject*, Entity* = nullptr);
     static Entity* player(QPointF, QSizeF, Entity* = nullptr);
+
+    static Entity *spark(Tiled::MapObject *object, Entity *parent);
 
     static Entity* collision(QPointF, QSizeF, Entity* = nullptr);
 

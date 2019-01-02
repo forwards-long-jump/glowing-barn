@@ -13,12 +13,24 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
     animationComponent->setCurrentAnimation("standing");
 
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
+    player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
     player->addComponent(new MagnetZipperReactorComponent());
     player->addComponent(animationComponent);
 
     return player;
+}
+
+Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* spark = new Entity(parent, object->position(), object->size());
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("spark");
+    animationComponent->setCurrentAnimation("idle");
+    spark->addComponent(animationComponent);
+    spark->addComponent(new SparkComponent());
+
+    return spark;
 }
 
 Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
