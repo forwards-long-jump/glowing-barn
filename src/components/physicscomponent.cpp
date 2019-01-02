@@ -71,8 +71,8 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
         ourHB = QRectF(entity->pos(), entity->getSize());
     }
 
-    if (ourHB.y() + ourHB.height() > theirHB.y() + 2 &&
-        ourHB.y() < theirHB.y() + theirHB.height() - 2)
+    if (ourHB.y() + ourHB.height() > theirHB.y() + 8 &&
+        ourHB.y() < theirHB.y() + theirHB.height() - 8)
     {
         if (ourHB.x() + ourHB.width() + dx > theirHB.x() &&
             ourHB.x() < theirHB.x() + theirHB.width())
