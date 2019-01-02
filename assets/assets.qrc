@@ -13,6 +13,7 @@
     <file alias="sun.png" >graphics/decorations/sun.png</file>
 </qresource>
 <qresource prefix="/interface">
-    <file alias="tilemap.png" >graphics/interface/input.png</file>
+    <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
+    <file alias="spacebar.png">graphics/interface/spacebar.png</file>
 </qresource>
 </RCC>
