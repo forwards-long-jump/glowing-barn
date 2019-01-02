@@ -72,7 +72,8 @@ SOURCES += \
     src/components/magnetzipperreactorcomponent.cpp \
     src/components/magnetzippercomponent.cpp \
     src/components/gamebuttoncomponent.cpp \
-    src/animationfactory.cpp
+    src/animationfactory.cpp \
+    src/components/sparkcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -108,7 +109,8 @@ HEADERS += \
     include/magnetzipperreactorcomponent.h \
     include/magnetzippercomponent.h \
     include/gamebuttoncomponent.h \
-    include/animationfactory.h
+    include/animationfactory.h \
+    include/sparkcomponent.h
 
 RESOURCES += \
     assets/assets.qrc
