@@ -17,6 +17,8 @@ public:
     void update() override;
 
 
+    MagnetZipperComponent::DIRECTION getCurrentDirection() const;
+
 private:
     const float ZIPPER_FRICTION = 0.7;
     const float ZIPPER_DISTANCE_ACCELERATION = 0.1;
@@ -26,6 +28,7 @@ private:
     float zipperDx, zipperDy;
     bool zipperFirstEntrance;
     bool isInAnyField;
+    MagnetZipperComponent::DIRECTION currentDirection;
 
 };
 

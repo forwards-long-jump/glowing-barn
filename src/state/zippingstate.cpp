@@ -16,6 +16,32 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
     {
         setHeadingRight(true, playerInputComponent);
     }
+
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    MagnetZipperReactorComponent* mzrc = dynamic_cast<MagnetZipperReactorComponent*>(playerInputComponent->getEntity()->getComponent("MagnetZipperReactorComponent"));
+
+    if(ac && pc && mzrc)
+    {
+        switch(mzrc->getCurrentDirection())
+        {
+        case MagnetZipperComponent::DIRECTION::DOWN:
+            ac->setRotation(0);
+            break;
+        case MagnetZipperComponent::DIRECTION::UP:
+            ac->setRotation(180);
+            break;
+        case MagnetZipperComponent::DIRECTION::LEFT:
+            setHeadingRight(false, playerInputComponent);
+            ac->setRotation(-90);
+            break;
+        case MagnetZipperComponent::DIRECTION::RIGHT:
+            setHeadingRight(false, playerInputComponent);
+            ac->setRotation(90);
+            break;
+        }
+
+    }
 }
 
 void ZippingState::enter(PlayerInputComponent *playerInputComponent) const
