@@ -16,13 +16,16 @@ void SparkComponent::init()
 
 void SparkComponent::onIntersect(HitboxComponent *hb)
 {
-    playerInSight = true;
+    if(hb->getEntity()->getComponent("MagnetZipperReactorComponent"))
+    {
+        playerInSight = true;
 
-    QPointF playerPos = hb->getEntity()->pos();
-    static_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
+        QPointF playerPos = hb->getEntity()->pos();
+        static_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
 
-    getEntity()->setX(getEntity()->x() + (playerPos.x()-getEntity()->x()) * 0.1);
-    getEntity()->setY(getEntity()->y() + (playerPos.y()-getEntity()->y()) * 0.1);
+        getEntity()->setX(getEntity()->x() + (playerPos.x()-getEntity()->x()) * 0.1);
+        getEntity()->setY(getEntity()->y() + (playerPos.y()-getEntity()->y()) * 0.1);
+    }
 }
 
 void SparkComponent::onEnable()
