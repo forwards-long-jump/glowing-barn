@@ -167,7 +167,17 @@ void Camera::setShakingIntensity(float f)
     shakeIntensity = f;
 }
 
+QRectF Camera::getBoundingRect() const
+{
+    return cameraBoundingRect;
+}
+
 QPointF Camera::getPosition() const
 {
-    return position / scaling;
+    return position;
+}
+
+float Camera::getScaling() const
+{
+    return scaling;
 }

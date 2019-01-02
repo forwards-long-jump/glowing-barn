@@ -17,9 +17,9 @@
 class ObjectGroupItem : public Entity
 {
 public:
-    ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent);
+    ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent, QString spawnName);
 
-    ZipperMagnetComponent::DIRECTION convertToDirection(const QString& str);
+    MagnetZipperComponent::DIRECTION convertToDirection(const QString& str);
 
     QRectF boundingRect() const override;
     void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *) override;

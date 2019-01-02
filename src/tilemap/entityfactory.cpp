@@ -8,10 +8,19 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
-   // player->addComponent(new DebugComponent(Qt::red, false, false));
+    QVector<QPair<QString, QVector<float>>> animations;
+    AnimationComponent::addAnimationToVector("running", 8, 5, animations);
+    AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
+    AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
+    AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
+    AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
+    AnimationComponent* animationComponent = new AnimationComponent(":/entities/player.png", 16, animations);
+    animationComponent->setCurrentAnimation("standing");
+
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
-    player->addComponent(new MagneticFieldReactorComponent());
+    player->addComponent(new MagnetZipperReactorComponent());
+    player->addComponent(animationComponent);
 
     return player;
 }
@@ -32,6 +41,13 @@ Entity* EntityFactory::parallaxRectangle(Tiled::MapObject* object, Entity* paren
     return e;
 }
 
+Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
+{
+    Entity *e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn")));
+    return e;
+}
+
 Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),
@@ -43,18 +59,18 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
 {
     pos.setY(pos.y() - 16);
     Entity *e = new Entity(parent, pos, size);
-    e->addComponent(new ZipperMagnetComponent(convertToDirection(direction), fieldSize, speed));
+    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed));
     e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
     return e;
 }
 
-ZipperMagnetComponent::DIRECTION EntityFactory::convertToDirection(const QString& str)
+MagnetZipperComponent::DIRECTION EntityFactory::convertToDirection(const QString& str)
 {
     QString testStr(str.toUpper());
 
-    if(testStr == "UP") return ZipperMagnetComponent::DIRECTION::UP;
-    else if(testStr == "DOWN") return ZipperMagnetComponent::DIRECTION::DOWN;
-    else if(testStr == "LEFT") return ZipperMagnetComponent::DIRECTION::LEFT;
-    else return ZipperMagnetComponent::DIRECTION::RIGHT;
+    if(testStr == "UP") return MagnetZipperComponent::DIRECTION::UP;
+    else if(testStr == "DOWN") return MagnetZipperComponent::DIRECTION::DOWN;
+    else if(testStr == "LEFT") return MagnetZipperComponent::DIRECTION::LEFT;
+    else return MagnetZipperComponent::DIRECTION::RIGHT;
 }

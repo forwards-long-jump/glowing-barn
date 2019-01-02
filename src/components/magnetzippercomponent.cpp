@@ -1,9 +1,9 @@
-#include "zippermagnetcomponent.h"
+#include "magnetzippercomponent.h"
 
 /**
  * @brief The name that will be used everywhere to identify the associated HitboxComponent
  */
-const QString ZipperMagnetComponent::HITBOX_NAME = "ZipperMagnetHitbox";
+const QString MagnetZipperComponent::HITBOX_NAME = "MagnetZipperHitbox";
 
 /**
  * @brief ZipperMagnetComponent::ZipperMagnetComponent
@@ -11,7 +11,7 @@ const QString ZipperMagnetComponent::HITBOX_NAME = "ZipperMagnetHitbox";
  * @param hitboxSize
  * @param speed
  */
-ZipperMagnetComponent::ZipperMagnetComponent(DIRECTION direction_, QSizeF hitboxSize_, float speed_) : Component("ZipperMagnetComponent")
+MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction_, QSizeF hitboxSize_, float speed_) : Component("MagnetZipperComponent")
 {
     hitboxSize = hitboxSize_;
     direction = direction_;
@@ -21,7 +21,7 @@ ZipperMagnetComponent::ZipperMagnetComponent(DIRECTION direction_, QSizeF hitbox
 /**
  * @brief Create an HitboxComponent, attach it to the current entity and set its size
  */
-void ZipperMagnetComponent::init()
+void MagnetZipperComponent::init()
 {
     SquareHitboxComponent *hc = new SquareHitboxComponent(HITBOX_NAME);
     getEntity()->addComponent(hc);
@@ -61,7 +61,7 @@ void ZipperMagnetComponent::init()
  * @brief ZipperMagnetComponent::getSpeed
  * @return
  */
-float ZipperMagnetComponent::getSpeed() const
+float MagnetZipperComponent::getSpeed() const
 {
     return speed;
 }
@@ -70,11 +70,11 @@ float ZipperMagnetComponent::getSpeed() const
  * @brief ZipperMagnetComponent::getDirection
  * @return
  */
-ZipperMagnetComponent::DIRECTION ZipperMagnetComponent::getDirection() const
+MagnetZipperComponent::DIRECTION MagnetZipperComponent::getDirection() const
 {
     return direction;
 }
 
-void ZipperMagnetComponent::update() {}
+void MagnetZipperComponent::update() {}
 
 // TODO: Remove hitbox component on detach

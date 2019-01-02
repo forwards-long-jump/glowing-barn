@@ -55,8 +55,6 @@ SOURCES += \
     src/state/skiddingstate.cpp \
     src/state/fallingstate.cpp \
     src/camera.cpp \
-    src/components/magneticfieldreactorcomponent.cpp \
-    src/components/zippermagnetcomponent.cpp \
     src/components/hitboxcomponent.cpp \
     src/components/debugtextcomponent.cpp \
     src/components/debughitboxcomponent.cpp \
@@ -70,7 +68,9 @@ SOURCES += \
     src/components/circlehitboxcomponent.cpp \
     src/components/parallaxcomponent.cpp \
     src/components/imagecomponent.cpp \
-    src/components/animationcomponent.cpp
+    src/components/animationcomponent.cpp \
+    src/components/magnetzipperreactorcomponent.cpp \
+    src/components/magnetzippercomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -90,8 +90,6 @@ HEADERS += \
     include/debugcomponent.h \
     include/camera.h \
     include/physicscomponent.h \
-    include/magneticfieldreactorcomponent.h \
-    include/zippermagnetcomponent.h \
     include/hitboxcomponent.h \
     include/debugtextcomponent.h \
     include/debughitboxcomponent.h \
@@ -104,7 +102,9 @@ HEADERS += \
     include/circlehitboxcomponent.h \
     include/parallaxcomponent.h \
     include/imagecomponent.h \
-    include/animationcomponent.h
+    include/animationcomponent.h \
+    include/magnetzipperreactorcomponent.h \
+    include/magnetzippercomponent.h
 
 RESOURCES += \
     assets/assets.qrc

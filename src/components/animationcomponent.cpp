@@ -1,9 +1,9 @@
 #include "animationcomponent.h"
 
-AnimationComponent::AnimationComponent(const QString resourceName, float frameWidth_, QVector<QPair<QString, QVector<float> > > animationProperties_,
+AnimationComponent::AnimationComponent(const QString resourcePath, float frameWidth_, QVector<QPair<QString, QVector<float> > > animationProperties_,
                                        const QString name) : GraphicsComponent(name)
 {
-    image = QPixmap("://" + resourceName);
+    image = QPixmap(resourcePath);
     frameWidth = frameWidth_;
 
     currentAnimationVectorIndex = 0;

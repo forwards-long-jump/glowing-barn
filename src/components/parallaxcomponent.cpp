@@ -30,6 +30,11 @@ void ParallaxComponent::update()
 {
     GameScene* gameScene = dynamic_cast<GameScene*>(getEntity()->scene());
     QPointF cameraPos = gameScene->getCamera()->getPosition();
-    getEntity()->setPos(anchorPos.x() + cameraPos.x() * coeff.x(), anchorPos.y() + cameraPos.y() * coeff.y());
+    QRectF cameraRect = gameScene->getCamera()->getBoundingRect();
+    cameraPos.setX(qMax(cameraPos.x(), cameraRect.x()));
+    cameraPos.setY(qMax(cameraPos.y(), cameraRect.y()));
+
+    getEntity()->setPos(anchorPos.x() + cameraPos.x() * coeff.x(),
+                        anchorPos.y() + cameraPos.y() * coeff.y());
 }
 

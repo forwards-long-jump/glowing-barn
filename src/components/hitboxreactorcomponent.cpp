@@ -2,6 +2,7 @@
 
 void HitboxReactorComponent::update()
 {
+    // HitboxReactor must know its own hitbox, don't forget to call setHitbox first if you get a segfault here
     for (auto hb : HitboxComponent::getInstancesOf(targetName))
     {
         if (hitbox->intersects(hb))

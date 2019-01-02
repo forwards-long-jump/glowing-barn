@@ -2,7 +2,6 @@
 #include "debugcomponent.h"
 #include "playerinputcomponent.h"
 #include "physicscomponent.h"
-#include "magneticfieldreactorcomponent.h"
 
 #include "debugcomponent.h"
 #include "playerinputcomponent.h"
@@ -15,6 +14,7 @@
 GameScene::GameScene(QString name, Game *game)
     : Scene(name, game)
 {
+    changeMapScheduled = false;
     loadMap(":maps/map-test.tmx");
 
     // If a dev map is set, adds a file watcher to reload the map automatically every time it is changed on disk
@@ -31,12 +31,29 @@ GameScene::~GameScene()
 
 }
 
+void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
+{
+    changeMapScheduled = true;
+    newMapPath = mapPath;
+    newMapSpawn = spawnName;
+}
+
+
+void GameScene::update()
+{
+    if(changeMapScheduled)
+    {
+        changeMapScheduled = false;
+        loadMap(newMapPath, newMapSpawn);
+    }
+}
+
 void GameScene::onKeyChange(Input &input)
 {
 
 }
 
-bool GameScene::loadMap(QString filename)
+bool GameScene::loadMap(QString filename, QString spawnName)
 {
     HitboxComponent::removeAll();
     clear();
@@ -52,19 +69,12 @@ bool GameScene::loadMap(QString filename)
     }
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
-    mapItem = new MapItem(map, mapRenderer);
+    mapItem = new MapItem(map, mapRenderer, nullptr, spawnName);
     mapItem->getLayer("middle")->createCollisions();
 
     mapItem->getLayer("front")->setZValue(1);
     mapItem->getPlayer()->setZValue(0);
     mapItem->getLayer("back")->setZValue(-1);
-    QVector<QPair<QString, QVector<float>>> animations;
-    AnimationComponent::addAnimationToVector("running", 8, 5, animations);
-    AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
-    AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
-    AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
-    AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
-    mapItem->getPlayer()->addComponent(new AnimationComponent("/entities/player.png", 16, animations));
 
     camera->attachTo(mapItem->getPlayer());
     camera->setScaling(6);
