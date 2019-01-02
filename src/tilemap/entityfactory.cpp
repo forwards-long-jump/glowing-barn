@@ -32,7 +32,7 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 {
     Entity *e = new Entity(parent, object->position(), object->size());
-     e->addComponent(new DebugComponent);
+
     if(object->propertyAsString("requiredKey") != "")
     {
         e->addComponent(new GameButtonComponent(
@@ -77,7 +77,7 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
     pos.setY(pos.y() - 16);
     Entity *e = new Entity(parent, pos, size);
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed, buttons));
-    e->addComponent(new DebugComponent(QColor("chartreuse"), true));
+    // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
     return e;
 }

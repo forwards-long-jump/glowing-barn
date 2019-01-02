@@ -11,8 +11,14 @@ public:
     void render(QPainter* painter) override;
     void update() override {};
 
+    void setMirrored(bool value);
+
+    void setRotation(int value);
+
 private:
     QPixmap image;
+    bool mirrored = false;
+    int rotation = 0;
 };
 
 #endif // IMAGECOMPONENT_H

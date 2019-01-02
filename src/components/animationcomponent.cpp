@@ -62,24 +62,52 @@ void AnimationComponent::setMirrored(bool mirrored_)
 
 void AnimationComponent::setButtons(QString buttons)
 {
-    requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
+    setButtons(GameButtonComponent::getButtonVectorFromString(buttons));
 }
+
+void AnimationComponent::setButtons(QVector<QString> buttons)
+{
+    requiredButtons = buttons;
+    if(requiredButtons.length() > 0)
+    {
+        setCurrentAnimation("idle");
+    }
+}
+
 
 void AnimationComponent::render(QPainter *painter)
 {
     int entityWidth = entity->getSize().width();
     int entityHeight = entity->getSize().height();
 
-    if(mirrored) {
+    if(mirrored)
+    {
         painter->translate(entityWidth, 0);
         painter->scale(-1, 1);
     }
 
-    painter->drawPixmap(0, 0, entityWidth, entityHeight,
-                        image,
-                        frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+    if(rotation != 0)
+    {
+        painter->translate(entityWidth / 2, entityHeight / 2);
+        painter->rotate(rotation);
 
-    if(mirrored) {
+        painter->drawPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
+                            image,
+                            frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+
+        painter->translate(-entityWidth / 2, -entityHeight / 2);
+        painter->rotate(-rotation);
+    }
+    else
+    {
+
+        painter->drawPixmap(0, 0, entityWidth, entityHeight,
+                            image,
+                            frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+    }
+
+    if(mirrored)
+    {
         painter->scale(-1, 1);
         painter->translate(-entityWidth, 0);
     }
@@ -97,15 +125,15 @@ void AnimationComponent::update()
             // All required buttons pressed, move to active animation
             switch(currentButtonAnimationState)
             {
-                case ButtonAnimationState::IDLE:
-                case ButtonAnimationState::END:
-                    currentButtonAnimationState = ButtonAnimationState::START;
-                    setCurrentAnimation("start");
-                    break;
+            case ButtonAnimationState::IDLE:
+            case ButtonAnimationState::END:
+                currentButtonAnimationState = ButtonAnimationState::START;
+                setCurrentAnimation("start");
+                break;
             }
         }
         else
-        {
+          {
             // Some required buttons aren't pressed, move to idle animation
             switch(currentButtonAnimationState)
             {
@@ -152,4 +180,9 @@ void AnimationComponent::update()
             }
         }
     }
+}
+
+void AnimationComponent::setRotation(int value)
+{
+    rotation = value;
 }
