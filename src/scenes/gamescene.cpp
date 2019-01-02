@@ -22,6 +22,7 @@ GameScene::GameScene(QString name, Game *game)
     if(DEV_MAP_PATH != "") {
         mapReloadWatcher.addPath(DEV_MAP_PATH);
         connect(&mapReloadWatcher, &QFileSystemWatcher::fileChanged, this, [=] () {
+            mapReloadWatcher.addPath(DEV_MAP_PATH);
             loadMap(DEV_MAP_PATH);
         });
     }
