@@ -23,8 +23,8 @@ void SparkComponent::onIntersect(HitboxComponent *hb)
         QPointF playerPos = hb->getEntity()->pos();
         static_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
 
-        getEntity()->setX(getEntity()->x() + (playerPos.x()-getEntity()->x()) * 0.1);
-        getEntity()->setY(getEntity()->y() + (playerPos.y()-getEntity()->y()) * 0.1);
+        getEntity()->setX(getEntity()->x() * 0.9 + playerPos.x() * 0.1);
+        getEntity()->setY(getEntity()->y() * 0.9 + playerPos.y() * 0.1);
     }
 }
 
