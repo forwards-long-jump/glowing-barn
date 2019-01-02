@@ -21,6 +21,8 @@ public:
     void setMirrored(bool mirrored);
 
     void setButtons(QString buttons);
+    void setButtons(QVector<QString> buttons);
+    void setRotation(int value);
 
     void render(QPainter* painter) override;
     void update() override;
@@ -40,6 +42,7 @@ private:
     int currentFrameIndex;
     int ticksBeforeNextFrame;
     int frameWidth;
+    int rotation;
 
     bool loopingDisabled;
     bool mirrored;
