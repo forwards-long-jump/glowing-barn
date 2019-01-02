@@ -8,13 +8,8 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
-    QVector<QPair<QString, QVector<float>>> animations;
-    AnimationComponent::addAnimationToVector("running", 8, 5, animations);
-    AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
-    AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
-    AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
-    AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
-    AnimationComponent* animationComponent = new AnimationComponent(":/entities/player.png", 16, animations);
+
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("player");
     animationComponent->setCurrentAnimation("standing");
 
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
@@ -31,14 +26,6 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
     Entity *e = new Entity(parent, pos, size);
     e->addComponent(new SquareHitboxComponent("WallComponent"));
 
-    return e;
-}
-
-Entity* EntityFactory::parallaxRectangle(Tiled::MapObject* object, Entity* parent)
-{
-    Entity *e = new Entity(parent, object->position(), object->size());
-    e->addComponent(new ImageComponent(object->propertyAsString("texture")));
-    e->addComponent(new ParallaxComponent(object->propertyAsString("parallax").toFloat()));
     return e;
 }
 
@@ -92,6 +79,30 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed, buttons));
     e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
+    return e;
+}
+
+Entity *EntityFactory::graphic(Tiled::MapObject *object, Entity *parent)
+{
+    Entity *e = new Entity(parent, object->position(), object->size());
+    if(object->propertyAsString("animationName") != "")
+    {
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent(object->propertyAsString("animationName"));
+        if(object->propertyAsString("buttons") != "")
+        {
+            ac->setCurrentAnimation("idle");
+            ac->setButtons(object->propertyAsString("buttons"));
+        }
+        e->addComponent(ac);
+    }
+    if(object->propertyAsString("texture") != "")
+    {
+        e->addComponent(new ImageComponent(object->propertyAsString("texture")));
+    }
+    if(object->propertyAsString("parallax") != "")
+    {
+        e->addComponent(new ParallaxComponent(object->propertyAsString("parallax").toFloat()));
+    }
     return e;
 }
 
