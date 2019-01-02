@@ -6,6 +6,7 @@
 </qresource>
 <qresource prefix="/entities">
     <file alias="player.png" >graphics/entities/player.png</file>
+    <file alias="lever.png" >graphics/entities/lever.png</file>
     <file alias="player-static.png" >graphics/entities/player-static.png</file>
 </qresource>
 <qresource prefix="/decorations">
