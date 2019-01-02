@@ -86,9 +86,10 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
 {
-    pos.setY(pos.y() - 16);
+    pos.setY(pos.y() - TILE_SIZE);
     Entity *e = new Entity(parent, pos, size);
-    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed, buttons));
+    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
+                                              speed, buttons));
     // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
     return e;

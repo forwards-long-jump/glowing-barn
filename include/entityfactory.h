@@ -38,6 +38,9 @@ public:
     static Entity *gameButton(Tiled::MapObject *object, Entity *parent);
 
     static Input::Key convertToKey(const QString &str);
+
+    // TODO: Get this dynamically from the map
+    static const int TILE_SIZE = 16;
 };
 
 #endif // ENTITYFACTORY_H
