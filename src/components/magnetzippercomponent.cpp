@@ -39,10 +39,11 @@ void MagnetZipperComponent::init()
                     entityCenter.x(),  entityCenter.y() - hitboxSize.height() / 2,
                     hitboxSize.width(),  entityCenter.y() - hitboxSize.height() / 2 + hitboxSize.height());
         break;
-    case DIRECTION::LEFT:
+    case DIRECTION::LEFT: {
         hitboxRect.setCoords(
                     entityCenter.x() - hitboxSize.width(),  entityCenter.y() - hitboxSize.height() / 2,
                     entityCenter.x(),  entityCenter.y() - hitboxSize.height() / 2 + hitboxSize.height());
+    }
         break;
     case DIRECTION::DOWN:
         hitboxRect.setCoords(
@@ -58,6 +59,64 @@ void MagnetZipperComponent::init()
 
     hc->setOffset(hitboxRect.x(), hitboxRect.y());
     hc->setSize(hitboxRect.width(), hitboxRect.height());
+
+    addAnimations();
+}
+
+void MagnetZipperComponent::addAnimations()
+{
+    int w = hitboxSize.width() / WAVE_ANIMATION_SIZE - 1;
+
+    // Add magnet image
+    Entity* magnetImage = new Entity(entity->parentItem(), entity->x(), entity->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+    ImageComponent* ic = new ImageComponent(":/entities/magnet-zipper.png");
+    magnetImage->addComponent(ic);
+
+    switch(direction)
+    {
+    case DIRECTION::RIGHT:
+        for(int i = 1; i < w; ++i)
+        {
+            Entity* e = new Entity(entity->parentItem(), entity->x() + i * WAVE_ANIMATION_SIZE, entity->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
+            ac->setButtons(requiredButtons);
+            ac->setMirrored(true);
+            e->addComponent(ac);
+        }
+        break;
+    case DIRECTION::LEFT:
+        ic->setMirrored(true);
+        for(int i = 1; i < w; ++i)
+        {
+            Entity* e = new Entity(entity->parentItem(), entity->x() - i * WAVE_ANIMATION_SIZE, entity->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
+            ac->setButtons(requiredButtons);
+            e->addComponent(ac);
+        }
+        break;
+    case DIRECTION::UP:
+        ic->setRotation(-90);
+        for(int i = 1; i < w; ++i)
+        {
+            Entity* e = new Entity(entity->parentItem(), entity->x(), entity->y() - i * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
+            ac->setRotation(90);
+            ac->setButtons(requiredButtons);
+            e->addComponent(ac);
+        }
+        break;
+    case DIRECTION::DOWN:
+        ic->setRotation(90);
+        for(int i = 1; i < w; ++i)
+        {
+            Entity* e = new Entity(entity->parentItem(), entity->x(), entity->y() + i * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
+            ac->setRotation(-90);
+            ac->setButtons(requiredButtons);
+            e->addComponent(ac);
+        }
+        break;
+    }
 }
 
 /**

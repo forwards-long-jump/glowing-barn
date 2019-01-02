@@ -7,6 +7,9 @@
 
 #include "squarehitboxcomponent.h"
 #include "gamebuttoncomponent.h"
+#include "animationcomponent.h"
+#include "animationfactory.h"
+#include "imagecomponent.h"
 
 class MagnetZipperComponent : public Component
 {
@@ -23,7 +26,9 @@ public:
     void init() override;
 
 private:
-    float speed;
+    const int WAVE_ANIMATION_SIZE = 16;
+    void addAnimations();
+    float speed = 5;
     QSizeF hitboxSize;
     QVector<QString> requiredButtons;
     DIRECTION direction;

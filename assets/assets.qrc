@@ -8,6 +8,7 @@
     <file alias="player.png" >graphics/entities/player.png</file>
     <file alias="magnet-wave.png" >graphics/entities/magnet-wave.png</file>
     <file alias="lever.png" >graphics/entities/lever.png</file>
+    <file alias="magnet-zipper.png" >graphics/entities/magnet-zipper.png</file>
     <file alias="player-static.png" >graphics/entities/player-static.png</file>
 </qresource>
 <qresource prefix="/decorations">
