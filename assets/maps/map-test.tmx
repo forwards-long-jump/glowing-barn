@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="25" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="30">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="25" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="10" nextobjectid="31">
  <tileset firstgid="1" source="tilemap.tsx"/>
  <layer id="6" name="back" width="25" height="15">
   <data encoding="base64">
@@ -32,22 +32,28 @@
     <property name="w" type="float" value="450"/>
    </properties>
   </object>
-  <object id="12" name="parallax-rect" x="-137.25" y="-83.7917" width="695.098" height="417.037">
+  <object id="12" name="graphic" x="-130.25" y="-75.7917" width="695.098" height="417.037">
    <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.95"/>
     <property name="texture" value=":/decorations/sky.png"/>
-   </properties>
-  </object>
-  <object id="28" name="parallax-rect" x="253.583" y="52.75" width="45" height="43">
-   <properties>
-    <property name="parallax" type="float" value="0.9"/>
-    <property name="texture" value=":/decorations/sun.png"/>
    </properties>
   </object>
   <object id="29" name="door" x="352" y="48" width="16" height="32">
    <properties>
     <property name="targetMap" value=":maps/map-test.tmx"/>
     <property name="targetSpawn" value="default"/>
+   </properties>
+  </object>
+  <object id="30" name="graphic" x="236.451" y="42.8148" width="62.098" height="60.037">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.9"/>
+    <property name="texture" value=":/decorations/sun.png"/>
    </properties>
   </object>
  </objectgroup>
