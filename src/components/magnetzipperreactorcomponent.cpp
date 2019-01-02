@@ -13,6 +13,7 @@ void MagnetZipperReactorComponent::init()
 void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
 {
     isInAnyField = true;
+    assert(hitbox);
 
     // Zipper magnets should only have square hitboxes
     SquareHitboxComponent* magneticFieldHitboxComponent = static_cast<SquareHitboxComponent*>(hb);
@@ -63,6 +64,8 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
         break;
     }
 
+    currentDirection = magnetZipperComponent->getDirection();
+
     // Center the player with a spring effect in the middle of the magnetic field
     switch(magnetZipperComponent->getDirection())
     {
@@ -102,6 +105,12 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
         playerInputComponent->setState(&PlayerState::falling);
         zipperFirstEntrance = true;
     }
+
+    /*
+     * BEFORE dx: entityPos: QPointF(88.5,54.2) magnetPos: QPointF(88.5,54.2) direction: 0 magnetSpeed: 5
+DURING dx: 5  dy: 0 entityPos: QPointF(93.5,54.2) magnetPos: QPointF(93.5,54.2) direction: 0 magnetSpeed: 5
+AFTER dx: 5  dy: 0 entityPos: QPointF(-7.49866e+32,52.086) magnetPos: QPointF(-7.49866e+32,52.086) direction: 0 magnetSpeed: 5
+*/
 }
 
 void MagnetZipperReactorComponent::onEnable()
@@ -128,4 +137,9 @@ void MagnetZipperReactorComponent::update()
             }
         }
     }
+}
+
+MagnetZipperComponent::DIRECTION MagnetZipperReactorComponent::getCurrentDirection() const
+{
+    return currentDirection;
 }

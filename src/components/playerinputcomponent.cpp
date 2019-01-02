@@ -49,6 +49,13 @@ void PlayerInputComponent::update()
     // Handle contextual interactions
     interactiveHitbox.setActive(Game::input.isKeyDown(interactiveHitbox.getAskedKey()));
 
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"));
+    PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
+    if(ac && pc && getState() != &PlayerState::zipping)
+    {
+        ac->setRotation(-qAbs(pc->getSpeed().x()));
+    }
+
     // Handle states input
     state->handleInput(this);
 }

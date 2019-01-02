@@ -146,7 +146,7 @@ void AnimationComponent::update()
         }
     }
 
-    ticksBeforeNextFrame--;
+    ticksBeforeNextFrame -= speedMultiplier;
     // Next animation frame
     if(ticksBeforeNextFrame < 0)
     {
@@ -180,6 +180,16 @@ void AnimationComponent::update()
             }
         }
     }
+}
+
+void AnimationComponent::setSpeedMultiplier(int value)
+{
+    speedMultiplier = value;
+}
+
+int AnimationComponent::getRotation() const
+{
+    return rotation;
 }
 
 void AnimationComponent::setRotation(int value)

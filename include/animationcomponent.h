@@ -27,7 +27,11 @@ public:
     void render(QPainter* painter) override;
     void update() override;
 
-private: 
+    void setSpeedMultiplier(int value);
+
+    int getRotation() const;
+
+private:
     QPixmap image;
 
     enum ButtonAnimationState {
@@ -43,6 +47,7 @@ private:
     int ticksBeforeNextFrame;
     int frameWidth;
     int rotation = 0;
+    int speedMultiplier = 1;
 
     bool loopingDisabled;
     bool mirrored;
