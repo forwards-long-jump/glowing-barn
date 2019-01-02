@@ -28,7 +28,7 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("spark");
     animationComponent->setCurrentAnimation("idle");
     spark->addComponent(animationComponent);
-    spark->addComponent(new SparkComponent());
+    spark->addComponent(new SparkComponent(object->property("radius").toFloat()));
 
     return spark;
 }
