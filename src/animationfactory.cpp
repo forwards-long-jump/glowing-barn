@@ -42,7 +42,7 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
         AnimationComponent::addAnimationToVector("start", 3, 1, animations);
         AnimationComponent::addAnimationToVector("active", 1, 1, animations);
-        AnimationComponent::addAnimationToVector("end", 2, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 3, 0, animations);
         return new AnimationComponent(":/entities/door.png", 16, animations);
     }
 
