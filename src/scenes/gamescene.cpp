@@ -9,6 +9,7 @@
 #include "hitboxcomponent.h"
 #include "animationcomponent.h"
 #include "gamebuttoncomponent.h"
+#include "transitioncomponent.h"
 
 #include "doorcomponent.h"
 
@@ -35,9 +36,27 @@ GameScene::~GameScene()
 
 void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
 {
-    changeMapScheduled = true;
     newMapPath = mapPath;
     newMapSpawn = spawnName;
+
+    Entity *e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 32, map->height() * 32);
+
+    mapItem->getPlayer()->disableComponent("PhysicsComponent");
+    static_cast<AnimationComponent*>(mapItem->getPlayer()->getComponent("AnimationComponent"))->setCurrentAnimation("door");
+    static_cast<AnimationComponent*>(mapItem->getPlayer()->getComponent("AnimationComponent"))->disableLooping();
+    mapItem->getPlayer()->disableComponent("PlayerInputComponent");
+
+    e->addComponent(new TransitionComponent(
+                [=]() {
+                    changeMapScheduled = true;
+                },
+                [](QPainter *painter, const Entity *entity, int duration, int ticksPassed) {
+                    painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(),
+                        QColor(0, 0, 0, 255 * static_cast<float>(ticksPassed) / duration));
+                }, 20
+    ));
+
+    addItem(e);
 }
 
 
@@ -61,7 +80,6 @@ bool GameScene::loadMap(QString filename, QString spawnName)
     clear();
 
     Tiled::MapReader reader;
-    MapItem *mapItem;
 
     map = reader.readMap(filename);
 
@@ -78,11 +96,38 @@ bool GameScene::loadMap(QString filename, QString spawnName)
     mapItem->getPlayer()->setZValue(0);
     mapItem->getLayer("back")->setZValue(-1);
 
-    camera->attachTo(mapItem->getPlayer());
     camera->setScaling(6);
     camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
 
+    if(this->views().size() > 0)
+    {
+        QPointF playerCenter(mapItem->getPlayer()->getSize().width() / 2.0, mapItem->getPlayer()->getSize().height() / 2.0);
+        camera->centerOn(mapItem->getPlayer()->pos() + playerCenter, this->views()[0]->viewport()->size(), false);
+    }
+
+    camera->attachTo(mapItem->getPlayer());
+
     this->addItem(mapItem);
+
+    // TODO: Add a component forcing entity to be displayed as UI element instead of hardcoding an random size here
+    Entity *e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 16 * 4, map->height() * 16 * 4);
+
+    e->addComponent(new TransitionComponent(
+                [=]() {},
+                [](QPainter *painter, const Entity *entity, int duration, int ticksPassed) {
+                    if(ticksPassed < 5)
+                    {
+                            painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(), Qt::black);
+                    }
+                    else
+                    {
+                            painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(),
+                                QColor(0, 0, 0, 255 + 5 - 255 * static_cast<float>(ticksPassed) / duration));
+                    }
+                }, 20
+    ));
+
+    addItem(e);
 
     return true;
 }

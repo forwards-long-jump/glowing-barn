@@ -30,11 +30,12 @@ private:
 
     // Tiled
     Tiled::Map *map;
+    MapItem *mapItem;
     Tiled::MapRenderer *mapRenderer;
 
-    bool changeMapScheduled;
-    QString newMapPath;
-    QString newMapSpawn;
+    bool changeMapScheduled = false;
+    QString newMapPath = "";
+    QString newMapSpawn = "";
 
     // Development related
     QFileSystemWatcher mapReloadWatcher;
