@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="graphic" width="62.098" height="60.037">
+  <properties>
+   <property name="animationName" value=""/>
+   <property name="animationToPlay" value=""/>
+   <property name="buttons" value=""/>
+   <property name="parallax" type="float" value="0.9"/>
+   <property name="texture" value=":/"/>
+  </properties>
+ </object>
+</template>
