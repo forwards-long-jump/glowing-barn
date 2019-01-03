@@ -126,7 +126,7 @@ void Entity::update()
  * @brief Entity::getSize
  * @return
  */
-QSizeF Entity::getSize()
+QSizeF Entity::getSize() const
 {
     return size;
 }

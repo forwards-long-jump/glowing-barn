@@ -5,7 +5,6 @@
 #include <QGraphicsView>
 #include <QRandomGenerator>
 #include "entity.h"
-
 // Manages what is displayed in screen per scene
 class Camera
 {
@@ -23,8 +22,8 @@ public:
     // Called in Game to update camera calculations
     void update(QGraphicsView *v);
     // Center the camera on the position, use noSmoothing to teleport it
-    void centerOn(QPointF pos, bool noSmoothing = false);
-    void centerOn(float x, float y, bool noSmoothing = false);
+    void centerOn(QPointF pos, QSizeF screenSize, bool smoothTransition = true);
+    void centerOn(float x, float y, QSizeF screenSize, bool smoothTransition = true);
     // Attach the camera to the entity, making it follow its center
     void attachTo(Entity *e);
     // Detach the current entity, keep the camera in place of where it was detached
