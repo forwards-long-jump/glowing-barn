@@ -11,6 +11,8 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
         AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
         AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
+        AnimationComponent::addAnimationToVector("falling", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("door", 9, 3, animations);
         return new AnimationComponent(":/entities/player.png", 16, animations);
     }
     else if(animationName == "lever")
@@ -34,6 +36,14 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
         AnimationComponent::addAnimationToVector("move", 1, 1, animations);
         return new AnimationComponent(":/entities/spark.png", 17, animations);
+    }
+    else if(animationName == "door")
+    {
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("start", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 2, 1, animations);
+        return new AnimationComponent(":/entities/door.png", 16, animations);
     }
 
     // Missing / invalid animation
