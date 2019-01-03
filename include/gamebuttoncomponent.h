@@ -10,9 +10,15 @@ class GameButtonComponent : public InteractiveComponent
 {
 public:
     GameButtonComponent(QString buttonName, Input::Key key, bool stayPressed = false,
-                        bool invertOnOff = false, int pressedDurationInTick = 1, bool isTogglable = false, QString name = "GameButtonComponent");
-    GameButtonComponent(QString buttonName, bool stayPressed = false, bool invertOnOff = false,
-                        int pressedDurationInTick = 1, bool isTogglable = false, QString name = "GameButtonComponent");
+                        bool invertOnOff = false, int pressedDurationInTick = 1, bool isTogglable = false,
+                        QString requiredButtonsToPress = "",  QString requiredButtonsToRelease = "", QString name = "GameButtonComponent"
+                        );
+
+    GameButtonComponent(QString buttonName, bool stayPressed = false,
+                        bool invertOnOff = false, int pressedDurationInTick = 1, bool isTogglable = false,
+                        QString requiredButtonsToPress = "",  QString requiredButtonsToRelease = "",
+                        QString reactorName = GameButtonComponent::HITBOX_REACTOR_NAME, QString name = "GameButtonComponent");
+
     ~GameButtonComponent();
 
     const static QString HITBOX_REACTOR_NAME;
@@ -33,12 +39,17 @@ private:
     static QVector<GameButtonComponent *> instances;
 
     QString buttonName;
-    bool stayPressed;
-    bool invertOnOff;
-    bool pressed;
-    int pressedDurationInTick;
-    int pressedTicksLeft;
-    bool isTogglable;
+    QVector<QString> requiredButtonsToPress;
+    QVector<QString> requiredButtonsToRelease;
+    bool stayPressed = false;
+    bool invertOnOff = false;
+    bool pressed = false;
+    int pressedDurationInTick = 0;
+    int pressedTicksLeft = 0;
+    bool isTogglable = false;
+
+    bool canBePressed();
+    bool canBeReleased();
 };
 
 #endif // GAMEBUTTON_H

@@ -28,7 +28,7 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("spark");
     animationComponent->setCurrentAnimation("idle");
     spark->addComponent(animationComponent);
-    spark->addComponent(new SparkComponent(object->property("radius").toFloat()));
+    spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->propertyAsString("hitboxName")));
 
     return spark;
 }
@@ -53,7 +53,9 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
                             object->property("stayPressed").toBool(),
                             object->property("invertOnOff").toBool(),
                             object->propertyAsString("pressedDurationInTick").toInt(),
-                            object->property("isTogglable").toBool()
+                            object->property("isTogglable").toBool(),
+                            object->propertyAsString("requiredButtonsToPress"),
+                            object->propertyAsString("requiredButtonsToRelease")
                         ));
     }
     else
@@ -63,7 +65,10 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
                              object->property("stayPressed").toBool(),
                              object->property("invertOnOff").toBool(),
                              object->propertyAsString("pressedDurationInTick").toInt(),
-                             object->property("isTogglable").toBool()
+                             object->property("isTogglable").toBool(),
+                             object->propertyAsString("requiredButtonsToPress"),
+                             object->propertyAsString("requiredButtonsToRelease"),
+                             object->propertyAsString("pressableBy") == "" ? GameButtonComponent::HITBOX_REACTOR_NAME : object->propertyAsString("pressableBy")
                          ));
     }
 
