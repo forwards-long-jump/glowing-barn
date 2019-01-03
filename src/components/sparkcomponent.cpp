@@ -2,9 +2,9 @@
 
 const QString SparkComponent::HITBOX_REACTOR_NAME = "SparkComponent";
 
-SparkComponent::SparkComponent(float radius, QString name) : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name), radius(radius)
+SparkComponent::SparkComponent(float radius, QString additionalHitboxName_, QString name) : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name), radius(radius)
 {
-
+    additionalHitboxName = additionalHitboxName_;
 }
 
 void SparkComponent::init()
@@ -12,6 +12,11 @@ void SparkComponent::init()
     CircleHitboxComponent *ch = new CircleHitboxComponent();
     setHitbox(ch);
     ch->setRadius(radius);
+
+    if(additionalHitboxName != "")
+    {
+        entity->addComponent(new SquareHitboxComponent(additionalHitboxName));
+    }
 }
 
 void SparkComponent::onIntersect(HitboxComponent *hb)
