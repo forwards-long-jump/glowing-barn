@@ -11,16 +11,16 @@ const QString GameButtonComponent::HITBOX_REACTOR_NAME = "GameButtonPresser";
  * @param name
  */
 GameButtonComponent::GameButtonComponent(QString buttonName_, Input::Key key, bool stayPressed_,
-                                         bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString name)
+                                         bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString requiredButtonsToPress_, QString requiredButtonsToRelease_, QString name)
     : InteractiveComponent(key, name),
       buttonName(buttonName_),
-      pressed(false),
       stayPressed(stayPressed_),
       invertOnOff(invertOnOff_),
       pressedDurationInTick(pressedDurationInTick_),
-      pressedTicksLeft(0),
       isTogglable(isTogglable_)
 {
+    requiredButtonsToPress = GameButtonComponent::getButtonVectorFromString(requiredButtonsToPress_);
+    requiredButtonsToRelease = GameButtonComponent::getButtonVectorFromString(requiredButtonsToRelease_);
     instances.append(this);
 }
 
@@ -31,18 +31,19 @@ GameButtonComponent::GameButtonComponent(QString buttonName_, Input::Key key, bo
  * @param name
  */
 GameButtonComponent::GameButtonComponent(QString buttonName_, bool stayPressed_,
-                                         bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString name)
-    : InteractiveComponent(Input::Key::NONE, name, GameButtonComponent::HITBOX_REACTOR_NAME),
+                                         bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString requiredButtonsToPress_, QString requiredButtonsToRelease_, QString reactorName, QString name)
+    : InteractiveComponent(Input::Key::NONE, name, reactorName),
       buttonName(buttonName_),
-      pressed(false),
       stayPressed(stayPressed_),
       invertOnOff(invertOnOff_),
       pressedDurationInTick(pressedDurationInTick_),
-      pressedTicksLeft(0),
       isTogglable(isTogglable_)
 {
+    requiredButtonsToPress = GameButtonComponent::getButtonVectorFromString(requiredButtonsToPress_);
+    requiredButtonsToRelease = GameButtonComponent::getButtonVectorFromString(requiredButtonsToRelease_);
     instances.append(this);
 }
+
 
 //
 GameButtonComponent::~GameButtonComponent()
@@ -73,7 +74,17 @@ bool GameButtonComponent::areButtonsPressed(QVector<QString> buttons)
     {
         for(int i = 0; i < buttons.size(); ++i)
         {
-            if(buttons[i] == b->buttonName && b->isPressed())
+            bool buttonMustBePressed = true;
+            QString buttonName = buttons[i];
+
+            // Allows to invert the button required state by adding a ! in front of the button name
+            if(buttonName[0] == '!')
+            {
+                buttonMustBePressed = false;
+                buttonName = buttons[i].mid(1);
+            }
+
+            if(buttonName == b->buttonName && b->isPressed() == buttonMustBePressed)
             {
                 matchCount++;
 
@@ -120,7 +131,7 @@ void GameButtonComponent::update()
     }
     else
     {
-        if(!stayPressed && !isTogglable)
+        if(!stayPressed && !isTogglable && canBeReleased())
         {
             pressed = false;
         }
@@ -131,11 +142,39 @@ void GameButtonComponent::action(Entity *target)
 {
     if(isTogglable)
     {
-        pressed = !pressed;
+        if(pressed && canBeReleased())
+        {
+            pressed = false;
+        }
+        else if(!pressed && canBePressed())
+        {
+            pressed = true;
+        }
     }
     else
     {
-        pressed = true;
-        pressedTicksLeft = pressedDurationInTick;
+        if(canBePressed())
+        {
+            pressed = true;
+            pressedTicksLeft = pressedDurationInTick;
+        }
     }
+}
+
+bool GameButtonComponent::canBePressed()
+{
+    if(requiredButtonsToPress.length() > 0)
+    {
+        return GameButtonComponent::areButtonsPressed(requiredButtonsToPress);
+    }
+    return true;
+}
+
+bool GameButtonComponent::canBeReleased()
+{
+    if(requiredButtonsToRelease.length() > 0)
+    {
+        return GameButtonComponent::areButtonsPressed(requiredButtonsToRelease);
+    }
+    return true;
 }
