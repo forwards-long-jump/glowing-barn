@@ -96,7 +96,7 @@ bool GameScene::loadMap(QString filename, QString spawnName)
     mapItem->getPlayer()->setZValue(0);
     mapItem->getLayer("back")->setZValue(-1);
 
-    camera->setScaling(6);
+    camera->setScaling(map->property("zoom").toFloat());
     camera->setBoundingRect(QRectF(0, 0, map->width() * 16, 16 * map->height()));
 
     if(this->views().size() > 0)

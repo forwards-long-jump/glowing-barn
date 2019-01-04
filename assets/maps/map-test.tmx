@@ -1,5 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="35" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="75">
+ <properties>
+  <property name="zoom" type="float" value="3"/>
+ </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
  <layer id="10" name="back" width="35" height="15">
   <data encoding="base64">

@@ -152,7 +152,8 @@ void Camera::setSpeed(float speed_)
 
 void Camera::setScaling(float scaling_)
 {
-    scaling = scaling_;
+    if (scaling_ > 0)
+        scaling = scaling_;
 }
 
 void Camera::setSpringEffectEnabled(bool enabled)
