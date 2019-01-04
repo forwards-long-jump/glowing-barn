@@ -17,7 +17,7 @@ public:
     GameScene(QString name = "default", Game *game = 0);
     ~GameScene();
 
-    void scheduleMapChange(QString mapPath, QString spawnName = "default");
+    void scheduleMapChange(QString mapPath = "", QString spawnName = "default");
 
 private:
     // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
