@@ -74,7 +74,9 @@ SOURCES += \
     src/components/gamebuttoncomponent.cpp \
     src/animationfactory.cpp \
     src/components/sparkcomponent.cpp \
-    src/components/transitioncomponent.cpp
+    src/components/transitioncomponent.cpp \
+    src/components/hurtreactorcomponent.cpp \
+    src/state/deadstate.cpp
 
 HEADERS += \
     include/game.h \
@@ -112,7 +114,8 @@ HEADERS += \
     include/gamebuttoncomponent.h \
     include/animationfactory.h \
     include/sparkcomponent.h \
-    include/transitioncomponent.h
+    include/transitioncomponent.h \
+    include/hurtreactorcomponent.h
 
 RESOURCES += \
     assets/assets.qrc
