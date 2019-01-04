@@ -27,7 +27,7 @@ public:
     Component* getComponent(QString name) const;
     QMap<QString, Component*>* getComponents();
 
-    QSizeF getSize();
+    QSizeF getSize() const;
     QRectF boundingRect() const;
 private:
     QMap<QString, Component*>* components;

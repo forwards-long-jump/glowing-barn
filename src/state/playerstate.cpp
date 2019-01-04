@@ -6,6 +6,8 @@ SkiddingState PlayerState::skidding;
 JumpingState PlayerState::jumping;
 FallingState PlayerState::falling;
 ZippingState PlayerState::zipping;
+DeadState PlayerState::dying;
+
 bool PlayerState::headingRight = true;
 
 

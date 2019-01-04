@@ -16,10 +16,18 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
+    player->addComponent(new HurtReactorComponent());
     player->addComponent(new MagnetZipperReactorComponent());
     player->addComponent(animationComponent);
 
     return player;
+}
+
+Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new SquareHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME));
+    return e;
 }
 
 Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
@@ -28,7 +36,10 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("spark");
     animationComponent->setCurrentAnimation("idle");
     spark->addComponent(animationComponent);
-    spark->addComponent(new SparkComponent(object->property("radius").toFloat()));
+    spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->propertyAsString("hitboxName")));
+    CircleHitboxComponent* chc = new CircleHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME);
+    chc->setRadius(object->size().width() * 0.8);
+    spark->addComponent(chc);
 
     return spark;
 }
@@ -53,7 +64,9 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
                             object->property("stayPressed").toBool(),
                             object->property("invertOnOff").toBool(),
                             object->propertyAsString("pressedDurationInTick").toInt(),
-                            object->property("isTogglable").toBool()
+                            object->property("isTogglable").toBool(),
+                            object->propertyAsString("requiredButtonsToPress"),
+                            object->propertyAsString("requiredButtonsToRelease")
                         ));
     }
     else
@@ -63,7 +76,10 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
                              object->property("stayPressed").toBool(),
                              object->property("invertOnOff").toBool(),
                              object->propertyAsString("pressedDurationInTick").toInt(),
-                             object->property("isTogglable").toBool()
+                             object->property("isTogglable").toBool(),
+                             object->propertyAsString("requiredButtonsToPress"),
+                             object->propertyAsString("requiredButtonsToRelease"),
+                             object->propertyAsString("pressableBy") == "" ? GameButtonComponent::HITBOX_REACTOR_NAME : object->propertyAsString("pressableBy")
                          ));
     }
 
@@ -72,8 +88,18 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
+    // Door and button
     Entity *e = new Entity(parent, object->position(), object->size());
     e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn")));
+    e->addComponent(new GameButtonComponent("auto_door",Input::Key::INTERACT, false, false, 1, true));
+
+    // The door animation has a bigger size, so we create a new component for it
+    Entity *a = new Entity(parent, object->position() - QPointF(0, 16), QSizeF(16, 64));
+    AnimationComponent* ac = AnimationFactory::getAnimationComponent("door");
+    ac->setCurrentAnimation("idle");
+    ac->setButtons("auto_door");
+    a->addComponent(ac);
+    a->addComponent(new ParallaxComponent(0.0001));
     return e;
 }
 
@@ -86,9 +112,10 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
 {
-    pos.setY(pos.y() - 16);
+    pos.setY(pos.y() - TILE_SIZE);
     Entity *e = new Entity(parent, pos, size);
-    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), fieldSize, speed, buttons));
+    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
+                                              speed, buttons));
     // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
     return e;

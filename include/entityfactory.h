@@ -14,6 +14,7 @@
 #include "gamebuttoncomponent.h"
 #include "animationfactory.h"
 #include "sparkcomponent.h"
+#include "hurtreactorcomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity
@@ -38,6 +39,11 @@ public:
     static Entity *gameButton(Tiled::MapObject *object, Entity *parent);
 
     static Input::Key convertToKey(const QString &str);
+
+    static Entity *hurt(Tiled::MapObject *object, Entity *parent);
+
+    // TODO: Get this dynamically from the map
+    static const int TILE_SIZE = 16;
 };
 
 #endif // ENTITYFACTORY_H

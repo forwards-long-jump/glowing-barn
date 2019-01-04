@@ -118,18 +118,21 @@ void Camera::update(QGraphicsView *v)
     v->setSceneRect(position.x(), position.y(), v->width() / scaling, v->height() / scaling);
 }
 
-void Camera::centerOn(QPointF pos, bool noSmoothing)
+void Camera::centerOn(QPointF pos, QSizeF screenSize, bool smoothTransition)
 {
     detachEntity();
-    targetPosition = pos;
-    if(!noSmoothing) {
-        position = pos;
+    targetPosition = pos - QPointF(screenSize.width() / scaling / 2.0, screenSize.height() / scaling / 2.0);
+
+    if(!smoothTransition) {
+        position = targetPosition;
+        cameraForce.setX(0);
+        cameraForce.setY(0);
     }
 }
 
-void Camera::centerOn(float x, float y, bool noSmoothing)
+void Camera::centerOn(float x, float y, QSizeF screenSize, bool smoothTransition)
 {
-    centerOn(QPointF(x, y), noSmoothing);
+    centerOn(QPointF(x, y), screenSize, smoothTransition);
 }
 
 void Camera::attachTo(Entity *e)

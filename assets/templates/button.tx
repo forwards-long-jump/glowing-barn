@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="button" width="16" height="16">
+  <properties>
+   <property name="invertOnOff" type="bool" value="false"/>
+   <property name="isTogglable" type="bool" value="true"/>
+   <property name="name" value="CHANGE_ME"/>
+   <property name="pressableBy" value=""/>
+   <property name="pressedDurationInTick" type="int" value="1"/>
+   <property name="requiredButtonsToPress" value=""/>
+   <property name="requiredButtonsToRelease" value=""/>
+   <property name="requiredKey" value="INTERACT"/>
+   <property name="stayPressed" type="bool" value="false"/>
+  </properties>
+ </object>
+</template>

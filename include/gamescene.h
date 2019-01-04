@@ -17,7 +17,7 @@ public:
     GameScene(QString name = "default", Game *game = 0);
     ~GameScene();
 
-    void scheduleMapChange(QString mapPath, QString spawnName = "default");
+    void scheduleMapChange(QString mapPath = "", QString spawnName = "default");
 
 private:
     // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
@@ -30,11 +30,12 @@ private:
 
     // Tiled
     Tiled::Map *map;
+    MapItem *mapItem;
     Tiled::MapRenderer *mapRenderer;
 
-    bool changeMapScheduled;
-    QString newMapPath;
-    QString newMapSpawn;
+    bool changeMapScheduled = false;
+    QString newMapPath = "";
+    QString newMapSpawn = "";
 
     // Development related
     QFileSystemWatcher mapReloadWatcher;

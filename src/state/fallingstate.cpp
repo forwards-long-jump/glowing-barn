@@ -17,8 +17,11 @@ void FallingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void FallingState::enter(PlayerInputComponent *playerInputComponent) const
 {
-    // TODO
-    // change player sprite
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    if(ac)
+    {
+        ac->setCurrentAnimation("falling");
+    }
 }
 
 void FallingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)

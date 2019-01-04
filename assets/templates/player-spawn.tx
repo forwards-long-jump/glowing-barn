@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <tileset firstgid="1" source="../maps/tilemap.tsx"/>
+ <object gid="249" width="16" height="16">
+  <properties>
+   <property name="h" type="float" value="32"/>
+   <property name="spawnName" value="default"/>
+   <property name="w" type="float" value="16"/>
+  </properties>
+ </object>
+</template>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <tileset firstgid="1" source="../maps/tilemap.tsx"/>
+ <object gid="241" width="16" height="16">
+  <properties>
+   <property name="buttons" value=""/>
+   <property name="direction" value="left"/>
+   <property name="h" type="float" value="1"/>
+   <property name="speed" type="float" value="5"/>
+   <property name="w" type="float" value="10"/>
+  </properties>
+ </object>
+</template>

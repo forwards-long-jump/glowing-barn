@@ -65,7 +65,7 @@ void MagnetZipperComponent::init()
 
 void MagnetZipperComponent::addAnimations()
 {
-    int w = hitboxSize.width() / WAVE_ANIMATION_SIZE - 1;
+    int w = hitboxSize.width() / WAVE_ANIMATION_SIZE + 1;
 
     // Add magnet image
     Entity* magnetImage = new Entity(entity->parentItem(), entity->x(), entity->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);

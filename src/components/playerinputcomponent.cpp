@@ -51,9 +51,11 @@ void PlayerInputComponent::update()
 
     AnimationComponent* ac = dynamic_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"));
     PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
+
     if(ac && pc && getState() != &PlayerState::zipping)
     {
-        ac->setRotation(-qAbs(pc->getSpeed().x()));
+        int targetRotation = -qAbs(pc->getSpeed().x());
+        ac->setRotation(ac->getRotation() + (targetRotation - ac->getRotation()) * 0.5);
     }
 
     // Handle states input

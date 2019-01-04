@@ -21,26 +21,29 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
     PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
     MagnetZipperReactorComponent* mzrc = dynamic_cast<MagnetZipperReactorComponent*>(playerInputComponent->getEntity()->getComponent("MagnetZipperReactorComponent"));
 
+    int targetRotation = 0;
+
     if(ac && pc && mzrc)
     {
         switch(mzrc->getCurrentDirection())
         {
         case MagnetZipperComponent::DIRECTION::DOWN:
-            ac->setRotation(0);
+            targetRotation = 0;
             break;
         case MagnetZipperComponent::DIRECTION::UP:
-            ac->setRotation(180);
+            targetRotation = 180;
             break;
         case MagnetZipperComponent::DIRECTION::LEFT:
             setHeadingRight(false, playerInputComponent);
-            ac->setRotation(-90);
+            targetRotation = -90;
             break;
         case MagnetZipperComponent::DIRECTION::RIGHT:
             setHeadingRight(false, playerInputComponent);
-            ac->setRotation(90);
+            targetRotation = 90;
             break;
         }
 
+        ac->setRotation(ac->getRotation() + (targetRotation - ac->getRotation()) * 0.2);
     }
 }
 

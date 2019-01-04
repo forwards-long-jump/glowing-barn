@@ -33,6 +33,9 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
             else if(object->name() == "spark") {
                 EntityFactory::spark(object, parent);
             }
+            else if(object->name() == "hurt") {
+                EntityFactory::hurt(object, parent);
+            }
             else {
                 qWarning() << "unknown object " << object->name();
             }
