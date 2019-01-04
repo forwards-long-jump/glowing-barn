@@ -2,14 +2,14 @@
 
 Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 {
-    return EntityFactory::player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
+    return EntityFactory::player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
 }
 
-Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
+Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
 
-    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("player");
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent(animationName);
     animationComponent->setCurrentAnimation("standing");
 
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
