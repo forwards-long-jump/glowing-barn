@@ -5,6 +5,7 @@
 #include <QGraphicsView>
 #include <QRandomGenerator>
 #include "entity.h"
+
 // Manages what is displayed in screen per scene
 class Camera
 {
