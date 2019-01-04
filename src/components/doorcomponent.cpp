@@ -2,6 +2,11 @@
 
 void DoorComponent::action(Entity *target)
 {
+   target->disableComponent("PhysicsComponent");
+    static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->setCurrentAnimation("door");
+    static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->disableLooping();
+    target->disableComponent("PlayerInputComponent");
+
     static_cast<GameScene*>(target->scene())->scheduleMapChange(targetMap, targetDoor);
 }
 

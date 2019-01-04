@@ -36,15 +36,13 @@ GameScene::~GameScene()
 
 void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
 {
-    newMapPath = mapPath;
-    newMapSpawn = spawnName;
+    if(mapPath != "")
+    {
+        newMapPath = mapPath;
+        newMapSpawn = spawnName;
+    }
 
     Entity *e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 32, map->height() * 32);
-
-    mapItem->getPlayer()->disableComponent("PhysicsComponent");
-    static_cast<AnimationComponent*>(mapItem->getPlayer()->getComponent("AnimationComponent"))->setCurrentAnimation("door");
-    static_cast<AnimationComponent*>(mapItem->getPlayer()->getComponent("AnimationComponent"))->disableLooping();
-    mapItem->getPlayer()->disableComponent("PlayerInputComponent");
 
     e->addComponent(new TransitionComponent(
                 [=]() {
@@ -58,7 +56,6 @@ void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
 
     addItem(e);
 }
-
 
 void GameScene::update()
 {
@@ -76,6 +73,9 @@ void GameScene::onKeyChange(Input &input)
 
 bool GameScene::loadMap(QString filename, QString spawnName)
 {
+    newMapPath = filename;
+    newMapSpawn = spawnName;
+
     HitboxComponent::removeAll();
     clear();
 
