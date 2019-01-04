@@ -13,6 +13,8 @@
   <properties>
    <property name="h" type="float" value="16"/>
    <property name="w" type="float" value="8"/>
+   <property name="spawnName" value="default"/>
+   <property name="animationName" value="player"/>
   </properties>
  </tile>
 </tileset>

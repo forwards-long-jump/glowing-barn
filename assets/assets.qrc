@@ -8,6 +8,7 @@
 <qresource prefix="/entities">
     <file alias="door.png" >graphics/entities/door.png</file>
     <file alias="player.png" >graphics/entities/player.png</file>
+	<file alias="playerStory.png" >graphics/entities/playerStory.png</file>
     <file alias="magnet-wave.png" >graphics/entities/magnet-wave.png</file>
     <file alias="lever.png" >graphics/entities/lever.png</file>
     <file alias="magnet-zipper.png" >graphics/entities/magnet-zipper.png</file>
