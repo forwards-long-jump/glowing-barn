@@ -13,6 +13,7 @@ class SkiddingState;
 class JumpingState;
 class FallingState;
 class ZippingState;
+class DeadState;
 
 class PlayerState
 {
@@ -35,6 +36,7 @@ public:
     static JumpingState jumping;
     static FallingState falling;
     static ZippingState zipping;
+    static DeadState dying;
 
 protected:
     static bool headingRight;
@@ -97,6 +99,18 @@ class FallingState : public PlayerState
 {
 public:
     FallingState()
+        :PlayerState() {}
+
+    void handleInput(PlayerInputComponent *playerInputComponent) override;
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
+
+    void enter(PlayerInputComponent *playerInputComponent) const override;
+};
+
+class DeadState : public PlayerState
+{
+public:
+    DeadState()
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent *playerInputComponent) override;
