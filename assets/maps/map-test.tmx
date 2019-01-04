@@ -19,6 +19,7 @@
  <objectgroup id="5" name="object">
   <object id="1" gid="249" x="127" y="78.1667" width="16" height="16">
    <properties>
+    <property name="animationName" value="playerStory"/>
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="default"/>
     <property name="w" type="float" value="16"/>
