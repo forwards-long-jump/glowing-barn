@@ -18,6 +18,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
     player->addComponent(new PhysicsComponent());
     player->addComponent(new HurtReactorComponent());
     player->addComponent(new MagnetZipperReactorComponent());
+    player->addComponent(new MagnetJumperReactorComponent());
     player->addComponent(animationComponent);
 
     return player;
@@ -120,6 +121,30 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
 
     return e;
 }
+
+Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
+{
+    object->setY(object->y() - TILE_SIZE);
+    Entity *e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new MagnetJumperComponent(
+                        object->propertyAsString("force").toFloat(),
+                        object->rotation(),
+                        object->propertyAsString("buttons")
+                        )
+                    );
+
+    ImageComponent* ic = new ImageComponent(":/entities/magnet-jumper.png");
+    ic->setRotation(object->rotation());
+    e->addComponent(ic);
+   /*pos.setY(pos.y() - TILE_SIZE);
+    Entity *e = new Entity(parent, pos, size);
+    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
+                                              speed, buttons));*/
+    // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
+
+    return e;
+}
+
 
 Entity *EntityFactory::graphic(Tiled::MapObject *object, Entity *parent)
 {

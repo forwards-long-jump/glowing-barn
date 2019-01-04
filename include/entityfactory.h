@@ -15,6 +15,8 @@
 #include "animationfactory.h"
 #include "sparkcomponent.h"
 #include "hurtreactorcomponent.h"
+#include "magnetjumperreactorcomponent.h"
+#include "magnetjumpercomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity
@@ -31,6 +33,8 @@ public:
 
     static Entity* magnetZipper(Tiled::MapObject*, Entity * = nullptr);
     static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, QString, Entity*);
+
+    static Entity *magnetJumper(Tiled::MapObject *object, Entity *parent);
 
     static Entity* graphic(Tiled::MapObject*, Entity* = nullptr);
     static Entity* door(Tiled::MapObject*, Entity * = nullptr);

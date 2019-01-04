@@ -70,14 +70,16 @@ SOURCES += \
     src/components/parallaxcomponent.cpp \
     src/components/imagecomponent.cpp \
     src/components/animationcomponent.cpp \
-    src/components/magnetzipperreactorcomponent.cpp \
-    src/components/magnetzippercomponent.cpp \
+    src/components/magnets/magnetzipperreactorcomponent.cpp \
+    src/components/magnets/magnetzippercomponent.cpp \
     src/components/gamebuttoncomponent.cpp \
     src/animationfactory.cpp \
     src/components/sparkcomponent.cpp \
     src/components/transitioncomponent.cpp \
     src/components/hurtreactorcomponent.cpp \
-    src/state/deadstate.cpp
+    src/state/deadstate.cpp \
+    src/components/magnets/magnetjumpercomponent.cpp \
+    src/components/magnets/magnetjumperreactorcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -116,7 +118,9 @@ HEADERS += \
     include/animationfactory.h \
     include/sparkcomponent.h \
     include/transitioncomponent.h \
-    include/hurtreactorcomponent.h
+    include/hurtreactorcomponent.h \
+    include/magnetjumpercomponent.h \
+    include/magnetjumperreactorcomponent.h
 
 RESOURCES += \
     assets/assets.qrc
