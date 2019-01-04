@@ -16,10 +16,18 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
+    player->addComponent(new HurtReactorComponent());
     player->addComponent(new MagnetZipperReactorComponent());
     player->addComponent(animationComponent);
 
     return player;
+}
+
+Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new SquareHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME));
+    return e;
 }
 
 Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
@@ -29,6 +37,9 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     animationComponent->setCurrentAnimation("idle");
     spark->addComponent(animationComponent);
     spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->propertyAsString("hitboxName")));
+    CircleHitboxComponent* chc = new CircleHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME);
+    chc->setRadius(object->size().width() * 0.8);
+    spark->addComponent(chc);
 
     return spark;
 }
