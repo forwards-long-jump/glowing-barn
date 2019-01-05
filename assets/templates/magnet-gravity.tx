@@ -4,8 +4,8 @@
  <object gid="239" width="16" height="16">
   <properties>
    <property name="buttons" value=""/>
+   <property name="force" type="float" value="5"/>
    <property name="radius" type="float" value="1"/>
-   <property name="speed" type="float" value="5"/>
   </properties>
  </object>
 </template>

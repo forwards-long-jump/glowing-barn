@@ -5,7 +5,6 @@
   <properties>
    <property name="buttons" value=""/>
    <property name="force" type="float" value="20"/>
-   <property name="radius" type="float" value="1"/>
   </properties>
  </object>
 </template>
