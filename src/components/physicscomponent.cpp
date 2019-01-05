@@ -129,3 +129,8 @@ QPointF PhysicsComponent::getSpeed() const
 {
     return QPointF(dx, dy);
 }
+
+QPointF PhysicsComponent::getForcedSpeed() const
+{
+    return QPointF(fdx, fdy);
+}

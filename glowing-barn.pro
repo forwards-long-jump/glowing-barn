@@ -79,7 +79,10 @@ SOURCES += \
     src/components/hurtreactorcomponent.cpp \
     src/state/deadstate.cpp \
     src/components/magnets/magnetjumpercomponent.cpp \
-    src/components/magnets/magnetjumperreactorcomponent.cpp
+    src/components/magnets/magnetjumperreactorcomponent.cpp \
+    src/components/magnets/magnetgravitycomponent.cpp \
+    src/components/magnets/magnetgravityreactorcomponent.cpp \
+    src/components/genericrendercomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -120,7 +123,10 @@ HEADERS += \
     include/transitioncomponent.h \
     include/hurtreactorcomponent.h \
     include/magnetjumpercomponent.h \
-    include/magnetjumperreactorcomponent.h
+    include/magnetjumperreactorcomponent.h \
+    include/magnetgravitycomponent.h \
+    include/magnetgravityreactorcomponent.h \
+    include/genericrendercomponent.h
 
 RESOURCES += \
     assets/assets.qrc

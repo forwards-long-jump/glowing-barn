@@ -19,6 +19,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, Entity* parent)
     player->addComponent(new HurtReactorComponent());
     player->addComponent(new MagnetZipperReactorComponent());
     player->addComponent(new MagnetJumperReactorComponent());
+    player->addComponent(new MagnetGravityReactorComponent());
     player->addComponent(animationComponent);
 
     return player;
@@ -49,7 +50,6 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity *e = new Entity(parent, pos, size);
     e->addComponent(new SquareHitboxComponent("WallComponent"));
-
     return e;
 }
 
@@ -136,15 +136,37 @@ Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
     ImageComponent* ic = new ImageComponent(":/entities/magnet-jumper.png");
     ic->setRotation(object->rotation());
     e->addComponent(ic);
-   /*pos.setY(pos.y() - TILE_SIZE);
-    Entity *e = new Entity(parent, pos, size);
-    e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
-                                              speed, buttons));*/
-    // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
 
     return e;
 }
 
+Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
+{
+    object->setY(object->y() - TILE_SIZE);
+
+    Entity *e = new Entity(parent, object->position(), object->size());
+
+    float radius =  object->propertyAsString("radius").toFloat();
+    e->addComponent(new MagnetGravityComponent(
+                        radius,
+                        object->propertyAsString("force").toFloat(),
+                        object->propertyAsString("buttons")
+                        )
+                    );
+
+    ImageComponent* ic = new ImageComponent(":/entities/magnet-gravity.png");
+    ic->setRotation(object->rotation());
+    e->addComponent(ic);
+
+    Entity *hitboxDisplay = new Entity(
+            parent, object->position() - QPointF(radius - object->size().width() / 2, radius - object->size().height() / 2),
+            QSizeF(radius * 2, radius * 2));
+
+    hitboxDisplay->addComponent(new GenericRenderComponent(&GenericRenderComponent::circleMagnetHitbox));
+    hitboxDisplay->setZValue(-0.001);
+
+    return e;
+}
 
 Entity *EntityFactory::graphic(Tiled::MapObject *object, Entity *parent)
 {

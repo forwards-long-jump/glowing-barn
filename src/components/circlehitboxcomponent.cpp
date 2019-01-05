@@ -4,7 +4,7 @@
 
 void CircleHitboxComponent::init()
 {
-    setOffset(0, 0);
+    setOffset(entity->getSize().width() / 2, entity->getSize().height() / 2);
     setRadius(sqrt(entity->getSize().width() * entity->getSize().width()
                  + entity->getSize().height() * entity->getSize().height()) / 2);
 }

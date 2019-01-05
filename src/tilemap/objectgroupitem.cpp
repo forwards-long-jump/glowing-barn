@@ -23,6 +23,9 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
         case 237:
             EntityFactory::magnetJumper(object, this);
             break;
+        case 238:
+            EntityFactory::magnetGravity(object, this);
+            break;
         default:
             if(object->name() == "graphic") {
                 EntityFactory::graphic(object, parent);

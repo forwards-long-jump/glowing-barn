@@ -25,6 +25,7 @@ public:
     void setG(float g_) {g = g_;}
 
     QPointF getSpeed() const;
+    QPointF getForcedSpeed() const;
 
     bool isFalling() const {return dy > 0;}
     bool isOnGround() const {return onGround;}
