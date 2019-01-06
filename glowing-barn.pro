@@ -42,10 +42,10 @@ SOURCES += \
     src/scenes/menuscene.cpp \
     src/scenes/scene.cpp \
     src/components/component.cpp \
-    src/components/graphicscomponent.cpp \
-    src/components/playerinputcomponent.cpp \
-    src/components/debugcomponent.cpp \
-    src/components/physicscomponent.cpp \
+    src/components/graphics/graphicscomponent.cpp \
+    src/components/gameplay/playerinputcomponent.cpp \
+    src/components/debug/debugcomponent.cpp \
+    src/components/gameplay/physicscomponent.cpp \
     src/tilemap/mapitem.cpp \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
@@ -57,35 +57,35 @@ SOURCES += \
     src/state/skiddingstate.cpp \
     src/state/fallingstate.cpp \
     src/camera.cpp \
-    src/components/hitboxcomponent.cpp \
-    src/components/debugtextcomponent.cpp \
-    src/components/debughitboxcomponent.cpp \
+    src/components/hitboxes/hitboxcomponent.cpp \
+    src/components/debug/debugtextcomponent.cpp \
+    src/components/debug/debughitboxcomponent.cpp \
     src/state/zippingstate.cpp \
-    src/components/interactivecomponent.cpp \
-    src/components/hitboxreactorcomponent.cpp \
-    src/components/interactivehitboxcomponent.cpp \
-    src/components/doorcomponent.cpp \
+    src/components/hitboxes/interactivecomponent.cpp \
+    src/components/hitboxes/hitboxreactorcomponent.cpp \
+    src/components/hitboxes/interactivehitboxcomponent.cpp \
+    src/components/gameplay/doorcomponent.cpp \
     src/tilemap/entityfactory.cpp \
-    src/components/squarehitboxcomponent.cpp \
-    src/components/circlehitboxcomponent.cpp \
-    src/components/parallaxcomponent.cpp \
-    src/components/imagecomponent.cpp \
-    src/components/animationcomponent.cpp \
+    src/components/hitboxes/squarehitboxcomponent.cpp \
+    src/components/hitboxes/circlehitboxcomponent.cpp \
+    src/components/graphics/parallaxcomponent.cpp \
+    src/components/graphics/imagecomponent.cpp \
+    src/components/graphics/animationcomponent.cpp \
     src/components/magnets/magnetzipperreactorcomponent.cpp \
     src/components/magnets/magnetzippercomponent.cpp \
-    src/components/gamebuttoncomponent.cpp \
+    src/components/gameplay/gamebuttoncomponent.cpp \
     src/animationfactory.cpp \
-    src/components/sparkcomponent.cpp \
-    src/components/transitioncomponent.cpp \
-    src/components/hurtreactorcomponent.cpp \
+    src/components/gameplay/sparkcomponent.cpp \
+    src/components/graphics/transitioncomponent.cpp \
+    src/components/gameplay/hurtreactorcomponent.cpp \
     src/state/deadstate.cpp \
     src/components/magnets/magnetjumpercomponent.cpp \
     src/components/magnets/magnetjumperreactorcomponent.cpp \
     src/components/magnets/magnetgravitycomponent.cpp \
     src/components/magnets/magnetgravityreactorcomponent.cpp \
-    src/components/genericrendercomponent.cpp \
+    src/components/graphics/genericrendercomponent.cpp \
     src/sounds.cpp \
-    src/components/soundbuttonreactorcomponent.cpp
+    src/components/gameplay/soundbuttonreactorcomponent.cpp
 
 HEADERS += \
     include/game.h \
