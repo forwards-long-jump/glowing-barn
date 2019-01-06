@@ -39,6 +39,10 @@ void PlayerInputComponent::update()
             releasedKeyAfterTogglingMagnet = false;
             // Toggle all magnetic components here
             if(!entity->disableComponent("MagnetZipperReactorComponent")) entity->enableComponent("MagnetZipperReactorComponent");
+            if(!entity->disableComponent("MagnetJumperReactorComponent")) entity->enableComponent("MagnetJumperReactorComponent");
+            if(!entity->disableComponent("MagnetGravityReactorComponent")) entity->enableComponent("MagnetGravityReactorComponent");
+            // Player magnet sources
+            if(!entity->disableComponent("PlayerGravityMagnet")) entity->enableComponent("PlayerGravityMagnet");
         }
     }
     else

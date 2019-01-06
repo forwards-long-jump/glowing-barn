@@ -12,12 +12,16 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent(animationName);
     animationComponent->setCurrentAnimation("standing");
 
+    // Attracts items with a BoxGravityHitbox reactor
+    player->addComponent(new MagnetGravityComponent(100, -0.7, "", QPointF(size.width() / 2, -5), "BoxGravityHitbox", "PlayerGravityMagnet"));
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
     player->addComponent(new PhysicsComponent());
     player->addComponent(new HurtReactorComponent());
     player->addComponent(new MagnetZipperReactorComponent());
+    player->addComponent(new MagnetJumperReactorComponent());
+    player->addComponent(new MagnetGravityReactorComponent());
     player->addComponent(animationComponent);
 
     return player;
@@ -48,7 +52,6 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity *e = new Entity(parent, pos, size);
     e->addComponent(new SquareHitboxComponent("WallComponent"));
-
     return e;
 }
 
@@ -112,11 +115,74 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
 {
-    pos.setY(pos.y() - TILE_SIZE);
+    pos.setY(pos.y() - size.height());
     Entity *e = new Entity(parent, pos, size);
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
                                               speed, buttons));
     // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
+
+    return e;
+}
+
+Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
+{
+    object->setY(object->y() - object->size().height());
+    Entity *e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new MagnetJumperComponent(
+                        object->propertyAsString("force").toFloat(),
+                        object->rotation(),
+                        object->propertyAsString("buttons")
+                        )
+                    );
+
+    ImageComponent* ic = new ImageComponent(":/entities/magnet-jumper.png");
+    ic->setRotation(object->rotation());
+    e->addComponent(ic);
+
+    return e;
+}
+
+Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
+{
+    object->setY(object->y() - object->size().height());
+
+    Entity *e = new Entity(parent, object->position(), object->size());
+
+    float radius =  object->propertyAsString("radius").toFloat();
+    e->addComponent(new MagnetGravityComponent(
+                        radius,
+                        object->propertyAsString("force").toFloat(),
+                        object->propertyAsString("buttons")
+                        )
+                    );
+
+    ImageComponent* ic = new ImageComponent(":/entities/magnet-gravity.png");
+    ic->setRotation(object->rotation());
+    e->addComponent(ic);
+
+    Entity *hitboxDisplay = new Entity(
+            parent, object->position() - QPointF(radius - object->size().width() / 2, radius - object->size().height() / 2),
+            QSizeF(radius * 2, radius * 2));
+
+    hitboxDisplay->addComponent(new GenericRenderComponent(&GenericRenderComponent::circleMagnetHitbox));
+    hitboxDisplay->setZValue(-0.001);
+
+    return e;
+}
+
+Entity *EntityFactory::box(Tiled::MapObject *object, Entity *parent)
+{
+    object->setY(object->y() - object->size().height());
+    Entity *e = new Entity(parent, object->position(), object->size());
+
+    e->addComponent(new ImageComponent(":/entities/magnet-box.png"));
+    e->addComponent(new PhysicsComponent());
+    e->addComponent(new MagnetZipperReactorComponent());
+    e->addComponent(new MagnetJumperReactorComponent());
+    e->addComponent(new MagnetGravityReactorComponent());
+    e->addComponent(new MagnetGravityReactorComponent("BoxGravityHitbox", "PlayerGravityMagnet"));
+    e->addComponent(new MagnetGravityComponent(40, 2, "", QPointF(), "BoxGravityHitbox", "PlayerGravityMagnet"));
+    e->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
 
     return e;
 }

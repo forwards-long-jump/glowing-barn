@@ -29,11 +29,15 @@ void PhysicsComponent::update()
         else if (dx < - maxHSpeed)  dx = - maxHSpeed;
 
         dy += g;
+
         if (dy > maxVSpeed)
             dy = maxVSpeed;
         else if (dy < - maxVSpeed)
             dy = -maxVSpeed;
     }
+
+    fdx *= forcedFrictionX;
+    fdy *= forcedFrictionY;
 
     // Collisions
     onGround = false;
@@ -42,20 +46,21 @@ void PhysicsComponent::update()
         handleCollision(static_cast<SquareHitboxComponent*>(hitbox));
     } 
 
+    QPointF pos = getEntity()->pos();
     if (!ignorePhysicsForTick)
     {
-        QPointF pos = getEntity()->pos();
-        getEntity()->setPos(pos.x() + dx, pos.y() + dy);
+        getEntity()->setPos(pos.x() + dx + fdx, pos.y() + dy + fdy);
     }
     else
     {
+        getEntity()->setPos(pos.x() + fdx, pos.y() + fdy);
         ignorePhysicsForTick = false;
     }
 }
 
 void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
 {
-    if (!hitbox) return;
+    if (!hitbox || hitbox->getEntity() == this->getEntity()) return;
     QRectF theirHB = hitbox->getHitbox();
 
     QRectF ourHB;
@@ -80,6 +85,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             // RIGHT WALL
             getEntity()->setX(theirHB.x() - ourHB.width());
             dx = 0;
+            fdx = 0;
         }
         if (ourHB.x() + dx < theirHB.x() + theirHB.width() &&
             ourHB.x() + ourHB.width() > theirHB.x() + theirHB.width())
@@ -87,6 +93,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             // LEFT WALL
             getEntity()->setX(theirHB.x() + theirHB.width());
             dx = 0;
+            fdx = 0;
         }
 
     }
@@ -99,6 +106,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             // FLOOR
             getEntity()->setY(theirHB.y() - ourHB.height());
             dy = 0;
+            fdy = 0;
             onGround = true;
         }
         if (ourHB.y() + dy < theirHB.y() + theirHB.height() &&
@@ -107,6 +115,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             // CEILING
             getEntity()->setY(theirHB.y() + theirHB.height());
             dy *= - 0.2;
+            fdy *= - 0.2;
         }
     }
 }
@@ -119,4 +128,9 @@ void PhysicsComponent::disablePhysicsForTick()
 QPointF PhysicsComponent::getSpeed() const
 {
     return QPointF(dx, dy);
+}
+
+QPointF PhysicsComponent::getForcedSpeed() const
+{
+    return QPointF(fdx, fdy);
 }

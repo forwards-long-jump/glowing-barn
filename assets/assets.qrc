@@ -12,8 +12,12 @@
     <file alias="magnet-wave.png" >graphics/entities/magnet-wave.png</file>
     <file alias="lever.png" >graphics/entities/lever.png</file>
     <file alias="magnet-zipper.png" >graphics/entities/magnet-zipper.png</file>
+    <file alias="magnet-jumper.png" >graphics/entities/magnet-jumper.png</file>
+    <file alias="magnet-grappling.png" >graphics/entities/magnet-grappling.png</file>
+    <file alias="magnet-box.png" >graphics/entities/magnet-box.png</file>
+    <file alias="magnet-gravity.png" >graphics/entities/magnet-gravity.png</file>
     <file alias="player-static.png" >graphics/entities/player-static.png</file>
-	<file alias="spark.png" >graphics/entities/spark.png</file>
+	  <file alias="spark.png" >graphics/entities/spark.png</file>
 </qresource>
 <qresource prefix="/decorations">
     <file alias="sky.png" >graphics/decorations/sky.png</file>

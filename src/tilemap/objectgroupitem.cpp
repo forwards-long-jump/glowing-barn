@@ -20,6 +20,18 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
                 static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
             }
             break;
+        case 235:
+            EntityFactory::box(object, this);
+            break;
+        case 236:
+            // TODO: Grappling magnet
+            break;
+        case 237:
+            EntityFactory::magnetJumper(object, this);
+            break;
+        case 238:
+            EntityFactory::magnetGravity(object, this);
+            break;
         default:
             if(object->name() == "graphic") {
                 EntityFactory::graphic(object, parent);

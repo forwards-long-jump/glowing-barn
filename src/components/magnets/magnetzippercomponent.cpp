@@ -155,4 +155,6 @@ void MagnetZipperComponent::update() {
     }
 }
 
+
+
 // TODO: Remove hitbox component on detach

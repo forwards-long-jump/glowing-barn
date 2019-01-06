@@ -21,9 +21,11 @@ public:
     void setFriction(float friction_) {friction = friction_;}
     void disablePhysicsForTick();
     void setJumpSpeed(float jumpSpeed_) {jumpSpeed = jumpSpeed_;}
+    void setForcedSpeed(float fdx_, float fdy_, float frictionX = 1.0, float frictionY = 1.0) {fdx = fdx_; fdy = fdy_; forcedFrictionX = frictionX; forcedFrictionY = frictionY;}
     void setG(float g_) {g = g_;}
 
     QPointF getSpeed() const;
+    QPointF getForcedSpeed() const;
 
     bool isFalling() const {return dy > 0;}
     bool isOnGround() const {return onGround;}
@@ -32,10 +34,14 @@ public:
 private:
     float dx;
     float dy;
+    float fdx = 0;
+    float fdy = 0;
 
     float accSpeed;
     float maxHSpeed;
     float friction;
+    float forcedFrictionX = 1;
+    float forcedFrictionY = 1;
     float jumpSpeed;
     float g;
     float maxVSpeed;
