@@ -1,6 +1,6 @@
 #include "playerstate.h"
 
-void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
+void SkiddingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     playerInputComponent->resetJumpLeniency();
     if (!checkFalling(playerInputComponent))
@@ -22,9 +22,9 @@ void SkiddingState::handleInput(PlayerInputComponent *playerInputComponent)
     }
 }
 
-void SkiddingState::enter(PlayerInputComponent *playerInputComponent) const
+void SkiddingState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setCurrentAnimation("skidding");

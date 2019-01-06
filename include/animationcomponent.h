@@ -3,7 +3,6 @@
 
 #include <QVector>
 #include <QPair>
-#include <QString>
 
 #include "graphicscomponent.h"
 #include "gamebuttoncomponent.h"
@@ -41,17 +40,17 @@ private:
         END
     };
 
-    int currentAnimationStartingIndex;
-    int currentAnimationVectorIndex;
-    int currentFrameIndex;
-    int ticksBeforeNextFrame;
-    int frameWidth;
+    int currentAnimationStartingIndex = 0;
+    int currentAnimationVectorIndex = 0;
+    int currentFrameIndex = 0;
+    int ticksBeforeNextFrame = 0;
+    int frameWidth = 0;
     int rotation = 0;
     int speedMultiplier = 1;
 
-    bool loopingDisabled;
-    bool mirrored;
-    ButtonAnimationState currentButtonAnimationState;
+    bool loopingDisabled = false;
+    bool mirrored = false;
+    ButtonAnimationState currentButtonAnimationState = ButtonAnimationState::IDLE;
 
     QVector<QString> requiredButtons;
 

@@ -1,6 +1,6 @@
 #include "include/doorcomponent.h"
 
-void DoorComponent::action(Entity *target)
+void DoorComponent::action(Entity* target)
 {
    target->disableComponent("PhysicsComponent");
     static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->setCurrentAnimation("door");

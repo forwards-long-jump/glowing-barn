@@ -1,6 +1,6 @@
 #include "menuscene.h"
 
-MenuScene::MenuScene(QString name, Game *game)
+MenuScene::MenuScene(QString name, Game* game)
     : Scene(name, game)
 {
     this->btnLaunch = new QPushButton(tr("Launch Game"));

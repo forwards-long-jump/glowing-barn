@@ -15,10 +15,10 @@ class ObjectGroupItem;
 class MapItem : public Entity
 {
 public:
-    MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr, QString spawnName = "default");
+    MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent = nullptr, QString spawnName = "default");
 
     QRectF boundingRect() const override;
-    void paint(QPainter *p, const QStyleOptionGraphicsItem *, QWidget *) override;
+    void paint(QPainter* p, const QStyleOptionGraphicsItem* , QWidget* ) override;
 
     TileLayerItem* getLayer(QString name) const;
 

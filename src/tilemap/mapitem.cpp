@@ -1,17 +1,17 @@
 #include "mapitem.h"
 
-MapItem::MapItem(Tiled::Map *map, Tiled::MapRenderer *renderer, QGraphicsItem *parent, QString spawnName)
+MapItem::MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
 
     // Create a child item for each layer
-    for (Tiled::Layer *layer : map->layers()) {
-        if (Tiled::TileLayer *tileLayer = layer->asTileLayer())
+    for (Tiled::Layer* layer : map->layers()) {
+        if (Tiled::TileLayer* tileLayer = layer->asTileLayer())
         {
             layers.insert(layer->name(), new TileLayerItem(tileLayer, renderer, this));
         }
-        else if (Tiled::ObjectGroup *objectGroup = layer->asObjectGroup())
+        else if (Tiled::ObjectGroup* objectGroup = layer->asObjectGroup())
         {
             new ObjectGroupItem(objectGroup, renderer, this, spawnName);
         }
@@ -23,7 +23,7 @@ QRectF MapItem::boundingRect() const
     return QRectF();
 }
 
-void MapItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void MapItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 }

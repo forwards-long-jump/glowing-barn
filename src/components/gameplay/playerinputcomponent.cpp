@@ -3,7 +3,7 @@
 
 void PlayerInputComponent::update()
 {
-    DebugComponent* d = dynamic_cast<DebugComponent*>(entity->getComponent("DebugComponent"));
+    DebugComponent* d = dynamic_cast<DebugComponent*>(parent->getComponent("DebugComponent"));
     if(d) {
         if (state == &PlayerState::standing)
         {
@@ -39,20 +39,20 @@ void PlayerInputComponent::update()
             releasedKeyAfterTogglingMagnet = false;
             // Toggle all magnetic components here
             // NOTE: We mostly use the magnetZipper to check if any magnet is enabled
-            if(!entity->disableComponent("MagnetZipperReactorComponent"))
+            if(!parent->disableComponent("MagnetZipperReactorComponent"))
             {
                 Sounds::playSound("magnetOn");
-                entity->enableComponent("MagnetZipperReactorComponent");
+                parent->enableComponent("MagnetZipperReactorComponent");
             }
             else
             {
                 Sounds::playSound("magnetOff");
             }
 
-            if(!entity->disableComponent("MagnetJumperReactorComponent")) entity->enableComponent("MagnetJumperReactorComponent");
-            if(!entity->disableComponent("MagnetGravityReactorComponent")) entity->enableComponent("MagnetGravityReactorComponent");
+            if(!parent->disableComponent("MagnetJumperReactorComponent")) parent->enableComponent("MagnetJumperReactorComponent");
+            if(!parent->disableComponent("MagnetGravityReactorComponent")) parent->enableComponent("MagnetGravityReactorComponent");
             // Player magnet sources
-            if(!entity->disableComponent("PlayerGravityMagnet")) entity->enableComponent("PlayerGravityMagnet");
+            if(!parent->disableComponent("PlayerGravityMagnet")) parent->enableComponent("PlayerGravityMagnet");
         }
     }
     else
@@ -63,8 +63,8 @@ void PlayerInputComponent::update()
     // Handle contextual interactions
     interactiveHitbox.setActive(Game::input.isKeyDown(interactiveHitbox.getAskedKey()));
 
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"));
-    PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(getParent()->getComponent("AnimationComponent"));
+    PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(getParent()->getComponent("PhysicsComponent"));
 
     if(ac && pc && getState() != &PlayerState::zipping)
     {
@@ -78,7 +78,7 @@ void PlayerInputComponent::update()
 
 void PlayerInputComponent::init()
 {
-    interactiveHitbox.assignParent(entity);
+    interactiveHitbox.setParent(parent);
     interactiveHitbox.init();
     setState(&PlayerState::standing);
 }

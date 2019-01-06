@@ -1,7 +1,3 @@
-#include "include/graphicscomponent.h"
+#include "graphicscomponent.h"
 
-GraphicsComponent::GraphicsComponent(QString name_)
-    :Component(name_)
-{
-
-}
+GraphicsComponent::GraphicsComponent(const QString &name) : Component(name) {}

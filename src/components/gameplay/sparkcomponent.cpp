@@ -9,27 +9,27 @@ SparkComponent::SparkComponent(float radius, QString additionalHitboxName_, QStr
 
 void SparkComponent::init()
 {
-    CircleHitboxComponent *ch = new CircleHitboxComponent();
+    CircleHitboxComponent* ch = new CircleHitboxComponent();
     setHitbox(ch);
     ch->setRadius(radius);
 
     if(additionalHitboxName != "")
     {
-        entity->addComponent(new SquareHitboxComponent(additionalHitboxName));
+        parent->addComponent(new SquareHitboxComponent(additionalHitboxName));
     }
 }
 
-void SparkComponent::onIntersect(HitboxComponent *hb)
+void SparkComponent::onIntersect(HitboxComponent* hb)
 {
-    if(hb->getEntity()->getComponent("MagnetZipperReactorComponent"))
+    if(hb->getParent()->getComponent("MagnetZipperReactorComponent"))
     {
         playerInSight = true;
 
-        QPointF playerPos = hb->getEntity()->pos();
-        static_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
+        QPointF playerPos = hb->getParent()->pos();
+        static_cast<AnimationComponent*>(getParent()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
 
-        getEntity()->setX(getEntity()->x() * 0.9 + playerPos.x() * 0.1);
-        getEntity()->setY(getEntity()->y() * 0.9 + playerPos.y() * 0.1);
+        getParent()->setX(getParent()->x() * 0.9 + playerPos.x() * 0.1);
+        getParent()->setY(getParent()->y() * 0.9 + playerPos.y() * 0.1);
     }
 }
 
@@ -45,5 +45,5 @@ void SparkComponent::update()
     HitboxReactorComponent::update();
 
     if(!playerInSight)
-        static_cast<AnimationComponent*>(getEntity()->getComponent("AnimationComponent"))->setCurrentAnimation("idle");
+        static_cast<AnimationComponent*>(getParent()->getComponent("AnimationComponent"))->setCurrentAnimation("idle");
 }

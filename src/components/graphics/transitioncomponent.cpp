@@ -1,16 +1,16 @@
 #include "transitioncomponent.h"
 
 TransitionComponent::TransitionComponent(std::function<void()> onFinished,
-                                         std::function<void(QPainter *, const Entity *, int, int)> transition,
+                                         std::function<void(QPainter* , const Entity* , int, int)> transition,
                                          int duration)
     : onFinished(onFinished),
       renderTransitionAnimation(transition),
       duration(duration) {}
 
-void TransitionComponent::render(QPainter *painter)
+void TransitionComponent::render(QPainter* painter)
 {
     if(done) return;
-    renderTransitionAnimation(painter, entity, duration, ticksPassed);
+    renderTransitionAnimation(painter, parent, duration, ticksPassed);
 }
 
 void TransitionComponent::update()

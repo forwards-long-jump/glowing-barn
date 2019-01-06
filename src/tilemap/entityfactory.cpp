@@ -50,14 +50,14 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
 
 Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
-    Entity *e = new Entity(parent, pos, size);
+    Entity* e = new Entity(parent, pos, size);
     e->addComponent(new SquareHitboxComponent("WallComponent"));
     return e;
 }
 
 Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 {
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
 
     if(object->propertyAsString("requiredKey") != "")
     {
@@ -92,12 +92,12 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     // Door and button
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
     e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn")));
     e->addComponent(new GameButtonComponent("auto_door",Input::Key::INTERACT, false, false, 1, true));
 
     // The door animation has a bigger size, so we create a new component for it
-    Entity *a = new Entity(parent, object->position() - QPointF(0, 16), QSizeF(16, 64));
+    Entity* a = new Entity(parent, object->position() - QPointF(0, 16), QSizeF(16, 64));
     AnimationComponent* ac = AnimationFactory::getAnimationComponent("door");
     ac->setCurrentAnimation("idle");
     ac->setButtons("auto_door");
@@ -116,7 +116,7 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
 {
     pos.setY(pos.y() - size.height());
-    Entity *e = new Entity(parent, pos, size);
+    Entity* e = new Entity(parent, pos, size);
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
                                               speed, buttons));
     // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
@@ -127,7 +127,7 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
 Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
 {
     object->setY(object->y() - object->size().height());
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
     e->addComponent(new MagnetJumperComponent(
                         object->propertyAsString("force").toFloat(),
                         object->rotation(),
@@ -146,7 +146,7 @@ Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
 {
     object->setY(object->y() - object->size().height());
 
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
 
     float radius =  object->propertyAsString("radius").toFloat();
     e->addComponent(new MagnetGravityComponent(
@@ -160,7 +160,7 @@ Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
     ic->setRotation(object->rotation());
     e->addComponent(ic);
 
-    Entity *hitboxDisplay = new Entity(
+    Entity* hitboxDisplay = new Entity(
             parent, object->position() - QPointF(radius - object->size().width() / 2, radius - object->size().height() / 2),
             QSizeF(radius * 2, radius * 2));
 
@@ -170,10 +170,10 @@ Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
-Entity *EntityFactory::box(Tiled::MapObject *object, Entity *parent)
+Entity* EntityFactory::box(Tiled::MapObject* object, Entity* parent)
 {
     object->setY(object->y() - object->size().height());
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
 
     e->addComponent(new ImageComponent(":/entities/magnet-box.png"));
     e->addComponent(new PhysicsComponent());
@@ -187,9 +187,9 @@ Entity *EntityFactory::box(Tiled::MapObject *object, Entity *parent)
     return e;
 }
 
-Entity *EntityFactory::soundButtonReactor(Tiled::MapObject *object, Entity *parent)
+Entity* EntityFactory::soundButtonReactor(Tiled::MapObject* object, Entity* parent)
 {
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
     e->addComponent(new SoundButtonReactorComponent(object->propertyAsString("start"),
                                                     object->propertyAsString("end"),
                                                     object->propertyAsString("idle"),
@@ -198,9 +198,9 @@ Entity *EntityFactory::soundButtonReactor(Tiled::MapObject *object, Entity *pare
     return e;
 }
 
-Entity *EntityFactory::graphic(Tiled::MapObject *object, Entity *parent)
+Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
 {
-    Entity *e = new Entity(parent, object->position(), object->size());
+    Entity* e = new Entity(parent, object->position(), object->size());
     if(object->propertyAsString("animationName") != "")
     {
         AnimationComponent* ac = AnimationFactory::getAnimationComponent(object->propertyAsString("animationName"));

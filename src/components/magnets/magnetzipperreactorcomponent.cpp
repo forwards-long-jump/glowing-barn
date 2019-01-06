@@ -10,7 +10,7 @@ void MagnetZipperReactorComponent::init()
     setHitbox(new SquareHitboxComponent());
 }
 
-void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
+void MagnetZipperReactorComponent::onIntersect(HitboxComponent* hb)
 {
     isInAnyField = true;
     assert(hitbox);
@@ -19,11 +19,11 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     SquareHitboxComponent* magneticFieldHitboxComponent = static_cast<SquareHitboxComponent*>(hb);
 
     // Get the associated MagnetZipperComponent to get magnet settings
-    MagnetZipperComponent *magnetZipperComponent = static_cast<MagnetZipperComponent*>(magneticFieldHitboxComponent->getEntity()->getComponent("MagnetZipperComponent"));
+    MagnetZipperComponent* magnetZipperComponent = static_cast<MagnetZipperComponent*>(magneticFieldHitboxComponent->getParent()->getComponent("MagnetZipperComponent"));
     assert(magnetZipperComponent);
 
-    PhysicsComponent *physicsComponent = dynamic_cast<PhysicsComponent*>(getEntity()->getComponent("PhysicsComponent"));
-    PlayerInputComponent *playerInputComponent = dynamic_cast<PlayerInputComponent*>(getEntity()->getComponent("PlayerInputComponent"));
+    PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*>(getParent()->getComponent("PhysicsComponent"));
+    PlayerInputComponent* playerInputComponent = dynamic_cast<PlayerInputComponent*>(getParent()->getComponent("PlayerInputComponent"));
 
     // Make the entity entrance smoother by keeping its last dx/dy
     if(physicsComponent)
@@ -47,19 +47,19 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     switch(magnetZipperComponent->getDirection())
     {
     case MagnetZipperComponent::DIRECTION::DOWN:
-        getEntity()->setY(getEntity()->y() - magnetZipperComponent->getSpeed());
+        getParent()->setY(getParent()->y() - magnetZipperComponent->getSpeed());
         dy = - magnetZipperComponent->getSpeed();
         break;
     case MagnetZipperComponent::DIRECTION::UP:
-        getEntity()->setY(getEntity()->y() + magnetZipperComponent->getSpeed());
+        getParent()->setY(getParent()->y() + magnetZipperComponent->getSpeed());
         dy = magnetZipperComponent->getSpeed();
         break;
     case MagnetZipperComponent::DIRECTION::LEFT:
-        getEntity()->setX(getEntity()->x() + magnetZipperComponent->getSpeed());
+        getParent()->setX(getParent()->x() + magnetZipperComponent->getSpeed());
         dx = magnetZipperComponent->getSpeed();
         break;
     case MagnetZipperComponent::DIRECTION::RIGHT:
-        getEntity()->setX(getEntity()->x() - magnetZipperComponent->getSpeed());
+        getParent()->setX(getParent()->x() - magnetZipperComponent->getSpeed());
         dx = - magnetZipperComponent->getSpeed();
         break;
     }
@@ -72,14 +72,14 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     case MagnetZipperComponent::DIRECTION::DOWN:
     case MagnetZipperComponent::DIRECTION::UP:
     {
-        float dist = (magneticFieldHitboxComponent->getHitbox().x() + magneticFieldHitboxComponent->getHitbox().width() / 2) - (getEntity()->x() + getEntity()->getSize().width() / 2);
+        float dist = (magneticFieldHitboxComponent->getHitbox().x() + magneticFieldHitboxComponent->getHitbox().width() / 2) - (getParent()->x() + getParent()->getSize().width() / 2);
         zipperDx += dist * ZIPPER_DISTANCE_ACCELERATION;
     }
         break;
     case MagnetZipperComponent::DIRECTION::LEFT:
     case MagnetZipperComponent::DIRECTION::RIGHT:
     {
-        float dist = (magneticFieldHitboxComponent->getHitbox().y() + magneticFieldHitboxComponent->getHitbox().height() / 2) - (getEntity()->y() + getEntity()->getSize().height() / 2);
+        float dist = (magneticFieldHitboxComponent->getHitbox().y() + magneticFieldHitboxComponent->getHitbox().height() / 2) - (getParent()->y() + getParent()->getSize().height() / 2);
         zipperDy += dist * ZIPPER_DISTANCE_ACCELERATION;
     }
         break;
@@ -88,8 +88,8 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     // Apply spring effect
     zipperDx *= ZIPPER_FRICTION;
     zipperDy *= ZIPPER_FRICTION;
-    getEntity()->setX(getEntity()->x() + zipperDx);
-    getEntity()->setY(getEntity()->y() + zipperDy);
+    getParent()->setX(getParent()->x() + zipperDx);
+    getParent()->setY(getParent()->y() + zipperDy);
 
     // Disable gravity if entity has a physic component
     if(physicsComponent)
@@ -99,7 +99,7 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent *hb)
     }
 
     // Handle reseting values when the entity leaves the magnetic area
-    if(!magneticFieldHitboxComponent->getHitbox().intersects(QRectF(entity->pos(), entity->getSize()))) {
+    if(!magneticFieldHitboxComponent->getHitbox().intersects(QRectF(parent->pos(), parent->getSize()))) {
         zipperDx = 0;
         zipperDy = 0;
         if(playerInputComponent)
@@ -123,7 +123,7 @@ void MagnetZipperReactorComponent::update()
 
     if(!isInAnyField)
     {
-        PlayerInputComponent *playerInputComponent = dynamic_cast<PlayerInputComponent*>(getEntity()->getComponent("PlayerInputComponent"));
+        PlayerInputComponent* playerInputComponent = dynamic_cast<PlayerInputComponent*>(getParent()->getComponent("PlayerInputComponent"));
         if(playerInputComponent)
         {
             if(playerInputComponent->getState() == &PlayerState::zipping)

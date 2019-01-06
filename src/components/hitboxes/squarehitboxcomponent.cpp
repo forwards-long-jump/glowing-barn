@@ -4,7 +4,7 @@
 void SquareHitboxComponent::init()
 {
     setOffset(0, 0);
-    setSize(entity->getSize());
+    setSize(parent->getSize());
 }
 
 void SquareHitboxComponent::setSize(const QSizeF &hitbox_)
@@ -19,10 +19,10 @@ void SquareHitboxComponent::setSize(float w, float h)
 
 QRectF SquareHitboxComponent::getHitbox() const
 {
-    return QRectF(entity->pos() + offset, size);
+    return QRectF(parent->pos() + offset, size);
 }
 
-bool SquareHitboxComponent::intersects(HitboxComponent *hitbox) const
+bool SquareHitboxComponent::intersects(HitboxComponent* hitbox) const
 {
     SquareHitboxComponent* square = dynamic_cast<SquareHitboxComponent*> (hitbox);
     if (square)

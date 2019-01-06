@@ -14,14 +14,14 @@ class GameScene : public Scene
 {
     Q_OBJECT
 public:
-    GameScene(QString name = "default", Game *game = 0);
+    GameScene(QString name = "default", Game* game = 0);
     ~GameScene();
 
     void scheduleMapChange(QString mapPath = "", QString spawnName = "default");
 
 private:
     // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
-    const QString DEV_MAP_PATH = "";
+    const QString DEV_MAP_PATH = "C:/Users/Lockj/Desktop/glowing-barn/assets/maps/map-test.tmx";
 
     void onKeyChange(Input &input) override;
     void update() override;
@@ -29,9 +29,9 @@ private:
     bool loadMap(QString filename, QString spawnName = "default");
 
     // Tiled
-    Tiled::Map *map;
-    MapItem *mapItem;
-    Tiled::MapRenderer *mapRenderer;
+    Tiled::Map* map;
+    MapItem* mapItem;
+    Tiled::MapRenderer* mapRenderer;
 
     bool changeMapScheduled = false;
     QString newMapPath = "";

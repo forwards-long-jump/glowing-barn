@@ -19,7 +19,7 @@ Camera::~Camera()
 
 }
 
-void Camera::update(QGraphicsView *v)
+void Camera::update(QGraphicsView* v)
 {
     if(entity != nullptr)
     {
@@ -135,7 +135,7 @@ void Camera::centerOn(float x, float y, QSizeF screenSize, bool smoothTransition
     centerOn(QPointF(x, y), screenSize, smoothTransition);
 }
 
-void Camera::attachTo(Entity *e)
+void Camera::attachTo(Entity* e)
 {
     entity = e;
 }

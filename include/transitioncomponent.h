@@ -7,7 +7,7 @@ class TransitionComponent : public GraphicsComponent
 {
 public:
     TransitionComponent(std::function<void()> onFinished,
-                        std::function<void(QPainter *, const Entity *, int, int)> renderTransitionAnimation,
+                        std::function<void(QPainter* , const Entity* , int, int)> renderTransitionAnimation,
                         int duration);
 
     void render(QPainter* painter) override;

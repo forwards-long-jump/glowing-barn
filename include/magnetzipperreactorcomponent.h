@@ -23,7 +23,7 @@ private:
     const float ZIPPER_FRICTION = 0.7;
     const float ZIPPER_DISTANCE_ACCELERATION = 0.1;
 
-    void handleZipperMagnet(SquareHitboxComponent *hitboxComponent);
+    void handleZipperMagnet(SquareHitboxComponent* hitboxComponent);
 
     float zipperDx = 0, zipperDy = 0;
     bool zipperFirstEntrance = false;

@@ -1,6 +1,6 @@
 #include "mapobjectitem.h"
 
-MapObjectItem::MapObjectItem(Tiled::MapObject *mapObject, Tiled::MapRenderer *renderer, QGraphicsItem *parent)
+MapObjectItem::MapObjectItem(Tiled::MapObject* mapObject, Tiled::MapRenderer* renderer, QGraphicsItem* parent)
     : Entity(parent)
     , mMapObject(mapObject)
     , mRenderer(renderer)
@@ -21,7 +21,7 @@ QRectF MapObjectItem::boundingRect() const
     return mBoundingRect;
 }
 
-void MapObjectItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void MapObjectItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 

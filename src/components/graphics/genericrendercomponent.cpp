@@ -5,12 +5,12 @@ void GenericRenderComponent::update()
     tick++;
 }
 
-void GenericRenderComponent::render(QPainter *painter)
+void GenericRenderComponent::render(QPainter* painter)
 {
-    functionToRender(painter, entity, tick);
+    functionToRender(painter, parent, tick);
 }
 
-void GenericRenderComponent::circleMagnetHitbox(QPainter *p, Entity *e, int tick)
+void GenericRenderComponent::circleMagnetHitbox(QPainter* p, Entity* e, int tick)
 {
     int diameter = e->getSize().width();
 

@@ -1,6 +1,6 @@
 #include "scene.h"
 
-Scene::Scene(QString name, Game *game)
+Scene::Scene(QString name, Game* game)
     : QGraphicsScene()
 {
     this->game = game;

@@ -21,12 +21,12 @@ public:
     ~Camera();
 
     // Called in Game to update camera calculations
-    void update(QGraphicsView *v);
+    void update(QGraphicsView* v);
     // Center the camera on the position, use noSmoothing to teleport it
     void centerOn(QPointF pos, QSizeF screenSize, bool smoothTransition = true);
     void centerOn(float x, float y, QSizeF screenSize, bool smoothTransition = true);
     // Attach the camera to the entity, making it follow its center
-    void attachTo(Entity *e);
+    void attachTo(Entity* e);
     // Detach the current entity, keep the camera in place of where it was detached
     void detachEntity();
     // Update the speed coeff used when the camera moves
@@ -42,7 +42,7 @@ public:
     float getScaling() const;
 
 private:
-    Entity *entity;
+    Entity* entity;
     QPointF targetPosition;
     QPointF position;
     QPointF springConstant;

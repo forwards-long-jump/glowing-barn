@@ -36,7 +36,7 @@ public:
     void action(Entity* target) override;
 
 private:
-    static QVector<GameButtonComponent *> instances;
+    static QVector<GameButtonComponent* > instances;
 
     QString buttonName;
     QVector<QString> requiredButtonsToPress;

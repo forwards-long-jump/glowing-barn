@@ -14,7 +14,7 @@
 
 #include "doorcomponent.h"
 
-GameScene::GameScene(QString name, Game *game)
+GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)
 {
     changeMapScheduled = false;
@@ -45,13 +45,13 @@ void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
 
     Sounds::fadeOut(20);
 
-    Entity *e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 32, map->height() * 32);
+    Entity* e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 32, map->height() * 32);
 
     e->addComponent(new TransitionComponent(
                 [=]() {
                     changeMapScheduled = true;
                 },
-                [](QPainter *painter, const Entity *entity, int duration, int ticksPassed) {
+                [](QPainter* painter, const Entity* entity, int duration, int ticksPassed) {
                     painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(),
                         QColor(0, 0, 0, 255 * static_cast<float>(ticksPassed) / duration));
                 }, 20
@@ -115,11 +115,11 @@ bool GameScene::loadMap(QString filename, QString spawnName)
     this->addItem(mapItem);
 
     // TODO: Add a component forcing entity to be displayed as UI element instead of hardcoding an random size here
-    Entity *e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 16 * 4, map->height() * 16 * 4);
+    Entity* e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 16 * 4, map->height() * 16 * 4);
 
     e->addComponent(new TransitionComponent(
                 [=]() {},
-                [](QPainter *painter, const Entity *entity, int duration, int ticksPassed) {
+                [](QPainter* painter, const Entity* entity, int duration, int ticksPassed) {
                     if(ticksPassed < 5)
                     {
                             painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(), Qt::black);

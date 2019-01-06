@@ -11,23 +11,23 @@ void HurtReactorComponent::init()
     setHitbox(new SquareHitboxComponent());
 }
 
-void HurtReactorComponent::onIntersect(HitboxComponent *hitboxComponent)
+void HurtReactorComponent::onIntersect(HitboxComponent* hitboxComponent)
 {
     if(died) return;
     died = true;
 
-    PlayerInputComponent* pic = dynamic_cast<PlayerInputComponent*>(entity->getComponent("PlayerInputComponent"));
+    PlayerInputComponent* pic = dynamic_cast<PlayerInputComponent*>(parent->getComponent("PlayerInputComponent"));
 
     if(pic)
     {
         pic->setState(&PlayerState::dying);
-        entity->disableComponent("PlayerInputComponent");
-        entity->disableComponent("MagnetZipperReactorComponent");
+        parent->disableComponent("PlayerInputComponent");
+        parent->disableComponent("MagnetZipperReactorComponent");
     }
 
     if(resetMap)
     {
-        static_cast<GameScene*>(getEntity()->scene())->scheduleMapChange();
+        static_cast<GameScene*>(getParent()->scene())->scheduleMapChange();
     }
 }
 
