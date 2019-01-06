@@ -38,7 +38,17 @@ void PlayerInputComponent::update()
         {
             releasedKeyAfterTogglingMagnet = false;
             // Toggle all magnetic components here
-            if(!entity->disableComponent("MagnetZipperReactorComponent")) entity->enableComponent("MagnetZipperReactorComponent");
+            // NOTE: We mostly use the magnetZipper to check if any magnet is enabled
+            if(!entity->disableComponent("MagnetZipperReactorComponent"))
+            {
+                Sounds::playSound("magnetOn");
+                entity->enableComponent("MagnetZipperReactorComponent");
+            }
+            else
+            {
+                Sounds::playSound("magnetOff");
+            }
+
             if(!entity->disableComponent("MagnetJumperReactorComponent")) entity->enableComponent("MagnetJumperReactorComponent");
             if(!entity->disableComponent("MagnetGravityReactorComponent")) entity->enableComponent("MagnetGravityReactorComponent");
             // Player magnet sources

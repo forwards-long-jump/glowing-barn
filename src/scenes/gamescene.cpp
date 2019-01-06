@@ -10,6 +10,7 @@
 #include "animationcomponent.h"
 #include "gamebuttoncomponent.h"
 #include "transitioncomponent.h"
+#include "sounds.h"
 
 #include "doorcomponent.h"
 
@@ -41,6 +42,8 @@ void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
         newMapPath = mapPath;
         newMapSpawn = spawnName;
     }
+
+    Sounds::fadeOut(20);
 
     Entity *e = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 32, map->height() * 32);
 
@@ -87,6 +90,8 @@ bool GameScene::loadMap(QString filename, QString spawnName)
         qWarning().noquote() << "Error:" << reader.errorString();
         return false;
     }
+
+    Sounds::playMusic(map->propertyAsString("musicPath"));
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
     mapItem = new MapItem(map, mapRenderer, nullptr, spawnName);

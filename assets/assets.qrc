@@ -5,6 +5,15 @@
     <file alias="map-test.tmx" >maps/map-test.tmx</file>
     <file alias="map-1.tmx" >maps/map-1.tmx</file>
 </qresource>
+<qresource prefix="/sounds">
+    <file alias="Bubble-Gum-Puzzler.mp3" >sounds/Bubble-Gum-Puzzler.mp3</file>
+    <file alias="Bubble-Gum-Puzzler-2.mp3" >sounds/Bubble-Gum-Puzzler-2.mp3</file>
+    <file alias="PowerUp21.wav" >sounds/PowerUp21.wav</file>
+    <file alias="UI_Quirky27.wav" >sounds/UI_Quirky27.wav</file>
+    <file alias="UI_Quirky28.wav" >sounds/UI_Quirky28.wav</file>
+    <file alias="lever-on.wav" >sounds/lever-on.wav</file>
+    <file alias="lever-off.wav" >sounds/lever-off.wav</file>
+</qresource>
 <qresource prefix="/entities">
     <file alias="door.png" >graphics/entities/door.png</file>
     <file alias="player.png" >graphics/entities/player.png</file>

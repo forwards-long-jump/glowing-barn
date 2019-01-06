@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="sound" width="16" height="16">
+  <properties>
+   <property name="active" value=""/>
+   <property name="buttons" value="z1"/>
+   <property name="end" value="leverOff"/>
+   <property name="idle" value=""/>
+   <property name="start" value="leverOn"/>
+  </properties>
+ </object>
+</template>
