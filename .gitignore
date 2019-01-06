@@ -1,6 +1,6 @@
 # Build & Release
-debug
-release
+./debug
+./release
 
 # C++ objects and libs
 *.slo
