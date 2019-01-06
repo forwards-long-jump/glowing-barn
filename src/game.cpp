@@ -1,6 +1,6 @@
 #include "game.h"
 
-Game::Game(QWidget *parent)
+Game::Game(QWidget* parent)
     : QGraphicsView(parent)
 {
     Sounds::loadSounds();
@@ -9,8 +9,8 @@ Game::Game(QWidget *parent)
     this->setViewport(new QGLWidget());
 
     // Basic Scene
-    MenuScene *menuScene = new MenuScene("menu", this);
-    GameScene *gameScene = new GameScene("game", this);
+    MenuScene* menuScene = new MenuScene("menu", this);
+    GameScene* gameScene = new GameScene("game", this);
 
     this->setFrameStyle(QFrame::NoFrame);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -94,7 +94,7 @@ void Game::update() {
  * @param nameScene
  * @param scene
  */
-void Game::addScene(QString nameScene, QGraphicsScene *scene)
+void Game::addScene(QString nameScene, QGraphicsScene* scene)
 {
     scenes.insert(nameScene, scene);
 }

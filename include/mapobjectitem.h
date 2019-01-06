@@ -12,15 +12,15 @@
 class MapObjectItem : public Entity
 {
 public:
-    MapObjectItem(Tiled::MapObject *mapObject, Tiled::MapRenderer *renderer, QGraphicsItem *parent = nullptr);
+    MapObjectItem(Tiled::MapObject* mapObject, Tiled::MapRenderer* renderer, QGraphicsItem* parent = nullptr);
 
     QRectF boundingRect() const override;
 
-    void paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget) override;
+    void paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
 
 private:
-    Tiled::MapObject *mMapObject;
-    Tiled::MapRenderer *mRenderer;
+    Tiled::MapObject* mMapObject;
+    Tiled::MapRenderer* mRenderer;
     QRectF mBoundingRect;
 };
 

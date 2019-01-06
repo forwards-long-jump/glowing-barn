@@ -20,10 +20,10 @@ class Game : public QGraphicsView
     Q_OBJECT
 
 public:
-    Game(QWidget *parent = 0);
+    Game(QWidget* parent = 0);
     ~Game();
 
-    void addScene(QString nameScene, QGraphicsScene *scene);
+    void addScene(QString nameScene, QGraphicsScene* scene);
     void switchScene(QString nameScene);
 
     unsigned int getTick() const;
@@ -38,12 +38,12 @@ private:
     // Prevent scrolling the view
     void scrollContentsBy(int, int) override {};
 
-    QMap<QString, QGraphicsScene *> scenes;
-    QGraphicsScene *currentScene;
+    QMap<QString, QGraphicsScene* > scenes;
+    QGraphicsScene* currentScene;
 
     const int MS_PER_UPDATE = 1000 / 60;
-    QTimer *updateTimer;
-    QTime *lastUpdateTime;
+    QTimer* updateTimer;
+    QTime* lastUpdateTime;
     int lag;
     unsigned int tick;
 

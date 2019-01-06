@@ -7,7 +7,7 @@
 class DebugHitboxComponent : public GraphicsComponent
 {
 public:
-    DebugHitboxComponent (QString name = "DebugHitboxComponent", QColor color = QColor(0, 255, 0, 127));
+    DebugHitboxComponent(const QColor& color = QColor(0, 255, 0, 127), const QString& name = "DebugHitboxComponent");
 
     void render(QPainter* painter) override;
     void update() override;

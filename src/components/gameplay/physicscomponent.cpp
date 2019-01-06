@@ -44,36 +44,36 @@ void PhysicsComponent::update()
     for (HitboxComponent* hitbox : HitboxComponent::getInstancesOf("WallComponent"))
     {
         handleCollision(static_cast<SquareHitboxComponent*>(hitbox));
-    } 
+    }
 
-    QPointF pos = getEntity()->pos();
+    QPointF pos = getParent()->pos();
     if (!ignorePhysicsForTick)
     {
-        getEntity()->setPos(pos.x() + dx + fdx, pos.y() + dy + fdy);
+        getParent()->setPos(pos.x() + dx + fdx, pos.y() + dy + fdy);
     }
     else
     {
-        getEntity()->setPos(pos.x() + fdx, pos.y() + fdy);
+        getParent()->setPos(pos.x() + fdx, pos.y() + fdy);
         ignorePhysicsForTick = false;
     }
 }
 
-void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
+void PhysicsComponent::handleCollision(SquareHitboxComponent* hitbox)
 {
-    if (!hitbox || hitbox->getEntity() == this->getEntity()) return;
+    if (!hitbox || hitbox->getParent() == this->getParent()) return;
     QRectF theirHB = hitbox->getHitbox();
 
     QRectF ourHB;
     for (auto physicsHitbox : HitboxComponent::getInstancesOf("PhysicsHitboxComponent"))
     {
-        if (physicsHitbox->getEntity() == entity)
+        if (physicsHitbox->getParent() == parent)
         {
             ourHB = static_cast<SquareHitboxComponent*>(physicsHitbox)->getHitbox();
         }
     }
     if (ourHB.isNull())
     {
-        ourHB = QRectF(entity->pos(), entity->getSize());
+        ourHB = QRectF(parent->pos(), parent->getSize());
     }
 
     if (ourHB.y() + ourHB.height() > theirHB.y() + 8 &&
@@ -83,7 +83,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             ourHB.x() < theirHB.x() + theirHB.width())
         {
             // RIGHT WALL
-            getEntity()->setX(theirHB.x() - ourHB.width());
+            getParent()->setX(theirHB.x() - ourHB.width());
             dx = 0;
             fdx = 0;
         }
@@ -91,7 +91,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             ourHB.x() + ourHB.width() > theirHB.x() + theirHB.width())
         {
             // LEFT WALL
-            getEntity()->setX(theirHB.x() + theirHB.width());
+            getParent()->setX(theirHB.x() + theirHB.width());
             dx = 0;
             fdx = 0;
         }
@@ -104,7 +104,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             ourHB.y() < theirHB.y() + theirHB.height())
         {
             // FLOOR
-            getEntity()->setY(theirHB.y() - ourHB.height());
+            getParent()->setY(theirHB.y() - ourHB.height());
             dy = 0;
             fdy = 0;
             onGround = true;
@@ -113,7 +113,7 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
             ourHB.y() + ourHB.height() > theirHB.y() + theirHB.height())
         {
             // CEILING
-            getEntity()->setY(theirHB.y() + theirHB.height());
+            getParent()->setY(theirHB.y() + theirHB.height());
             dy *= - 0.2;
             fdy *= - 0.2;
         }

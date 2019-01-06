@@ -15,7 +15,7 @@ public:
     void setRadius(float radius_);
     float getRadius() const;
 
-    bool intersects(HitboxComponent *hitbox) const override;
+    bool intersects(HitboxComponent* hitbox) const override;
 
 protected:
     float radius;

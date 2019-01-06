@@ -16,9 +16,9 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
-void StandingState::enter(PlayerInputComponent *playerInputComponent) const
+void StandingState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setCurrentAnimation("standing");

@@ -1,6 +1,6 @@
 #include "objectgroupitem.h"
 
-ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRenderer *renderer, MapItem *parent, QString spawnName)
+ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, MapItem* parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -9,7 +9,7 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup *objectGroup, Tiled::MapRend
     const Tiled::ObjectGroup::DrawOrder drawOrder = objectGroup->drawOrder();
 
     // Create a child item for each object
-    for (Tiled::MapObject *object : objectGroup->objects())
+    for (Tiled::MapObject* object : objectGroup->objects())
     {
         switch (object->cell().tileId()) {
         case 240:
@@ -64,7 +64,7 @@ QRectF ObjectGroupItem::boundingRect() const
     return QRectF();
 }
 
-void ObjectGroupItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void ObjectGroupItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 }

@@ -1,6 +1,6 @@
 #include "gamebuttoncomponent.h"
 
-QVector<GameButtonComponent *> GameButtonComponent::instances;
+QVector<GameButtonComponent* > GameButtonComponent::instances;
 const QString GameButtonComponent::HITBOX_REACTOR_NAME = "GameButtonPresser";
 
 /**
@@ -138,7 +138,7 @@ void GameButtonComponent::update()
     }
 }
 
-void GameButtonComponent::action(Entity *target)
+void GameButtonComponent::action(Entity* target)
 {
     if(isTogglable)
     {

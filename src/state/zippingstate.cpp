@@ -17,9 +17,9 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
         setHeadingRight(true, playerInputComponent);
     }
 
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
-    PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
-    MagnetZipperReactorComponent* mzrc = dynamic_cast<MagnetZipperReactorComponent*>(playerInputComponent->getEntity()->getComponent("MagnetZipperReactorComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
+    PhysicsComponent* pc = dynamic_cast<PhysicsComponent*>(playerInputComponent->getParent()->getComponent("PhysicsComponent"));
+    MagnetZipperReactorComponent* mzrc = dynamic_cast<MagnetZipperReactorComponent*>(playerInputComponent->getParent()->getComponent("MagnetZipperReactorComponent"));
 
     int targetRotation = 0;
 
@@ -47,16 +47,16 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
-void ZippingState::enter(PlayerInputComponent *playerInputComponent) const
+void ZippingState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setCurrentAnimation("zipping");
     }
 }
 
-void ZippingState::setHeadingRight(bool headingRight_, PlayerInputComponent *playerInputComponent)
+void ZippingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
     PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }

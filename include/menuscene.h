@@ -10,11 +10,11 @@ class MenuScene : public Scene
     Q_OBJECT
 
 public:
-    MenuScene(QString name = "default", Game *game = 0);
+    MenuScene(QString name = "default", Game* game = 0);
     ~MenuScene();
 
 private:
-    QPushButton *btnLaunch;
+    QPushButton* btnLaunch;
 };
 
 #endif // MENUSCENE_H

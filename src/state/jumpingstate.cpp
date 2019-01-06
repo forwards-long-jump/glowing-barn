@@ -2,13 +2,13 @@
 
 void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
     {
         physicsComponent->jump();
     }
 
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setCurrentAnimation("jumping");

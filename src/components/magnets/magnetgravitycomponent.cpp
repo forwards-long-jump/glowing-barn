@@ -12,8 +12,8 @@ MagnetGravityComponent::MagnetGravityComponent(float radius_, float force_, QStr
 
 void MagnetGravityComponent::init()
 {
-    CircleHitboxComponent *hc = new CircleHitboxComponent(hitboxName);
-    getEntity()->addComponent(hc);
+    CircleHitboxComponent* hc = new CircleHitboxComponent(hitboxName);
+    getParent()->addComponent(hc);
     hc->setRadius(radius);
     if(!hitboxOffset.isNull())
     {
@@ -23,12 +23,12 @@ void MagnetGravityComponent::init()
 
 void MagnetGravityComponent::onEnable()
 {
-    getEntity()->enableComponent(hitboxName);
+    getParent()->enableComponent(hitboxName);
 }
 
 void MagnetGravityComponent::onDisable()
 {
-    getEntity()->disableComponent(hitboxName);
+    getParent()->disableComponent(hitboxName);
 }
 
 float MagnetGravityComponent::getForce() const
@@ -41,12 +41,11 @@ void MagnetGravityComponent::update() {
     {
         if(GameButtonComponent::areButtonsPressed(requiredButtons))
         {
-            getEntity()->enableComponent(HITBOX_NAME);
+            getParent()->enableComponent(HITBOX_NAME);
         }
         else
         {
-            getEntity()->disableComponent(HITBOX_NAME);
+            getParent()->disableComponent(HITBOX_NAME);
         }
     }
 }
-

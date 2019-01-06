@@ -1,6 +1,6 @@
 #include "tilelayeritem.h"
 
-TileLayerItem::TileLayerItem(Tiled::TileLayer *tileLayer, Tiled::MapRenderer *renderer, MapItem *parent)
+TileLayerItem::TileLayerItem(Tiled::TileLayer* tileLayer, Tiled::MapRenderer* renderer, MapItem* parent)
     : Entity(parent)
     , mTileLayer(tileLayer)
     , mRenderer(renderer)
@@ -71,7 +71,7 @@ QRectF TileLayerItem::boundingRect() const
     return mRenderer->boundingRect(mTileLayer->bounds());
 }
 
-void TileLayerItem::paint(QPainter *p, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void TileLayerItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
     mRenderer->drawTileLayer(p, mTileLayer, option->rect);

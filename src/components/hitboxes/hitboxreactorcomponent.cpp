@@ -17,9 +17,9 @@ void HitboxReactorComponent::init()
 
 }
 
-void HitboxReactorComponent::setHitbox(HitboxComponent *hb)
+void HitboxReactorComponent::setHitbox(HitboxComponent* hb)
 {
     hitbox = hb;
-    hitbox->assignParent(entity);
+    hitbox->setParent(parent);
     hitbox->init();
 }

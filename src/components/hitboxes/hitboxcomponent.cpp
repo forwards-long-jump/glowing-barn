@@ -14,7 +14,7 @@ HitboxComponent::HitboxComponent(QString name_)
 
 QPointF HitboxComponent::getCenter() const
 {
-    return entity->pos() + offset;
+    return parent->pos() + offset;
 }
 
 void HitboxComponent::setOffset(const QPointF& offset_)

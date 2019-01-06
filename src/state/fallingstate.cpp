@@ -15,9 +15,9 @@ void FallingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
-void FallingState::enter(PlayerInputComponent *playerInputComponent) const
+void FallingState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setCurrentAnimation("falling");

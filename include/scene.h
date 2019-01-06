@@ -12,7 +12,7 @@ class Game;
 class Scene : public QGraphicsScene
 {
 public:
-    Scene(QString name = "default", Game *game = 0);
+    Scene(QString name = "default", Game* game = 0);
     ~Scene();
 
     void updateCamera();
@@ -22,8 +22,8 @@ public:
     Game* getGame() {return game;}
     Camera* getCamera() {return camera;}
 protected:
-    Game *game;
-    Camera *camera;
+    Game* game;
+    Camera* camera;
 };
 
 #include "game.h"

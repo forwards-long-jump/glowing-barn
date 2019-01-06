@@ -17,9 +17,9 @@ void RunningState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
-void RunningState::enter(PlayerInputComponent *playerInputComponent) const
+void RunningState::enter(PlayerInputComponent* playerInputComponent) const
 {
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setCurrentAnimation("running");

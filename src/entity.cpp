@@ -8,7 +8,7 @@
  * @param width
  * @param height
  */
-Entity::Entity(QGraphicsItem *parent, float x, float y, float width, float height) : QGraphicsItem(parent)
+Entity::Entity(QGraphicsItem* parent, float x, float y, float width, float height) : QGraphicsItem(parent)
 {
     setPos(x, y);
     size.setWidth(width);
@@ -42,7 +42,7 @@ QRectF Entity::boundingRect() const
  */
 void Entity::addComponent(Component* c)
 {
-    c->assignParent(this);
+    c->setParent(this);
     components->insert(c->getName(), c);
     c->init();
 }
@@ -106,7 +106,7 @@ Component* Entity::getComponent(QString name) const
  * @brief Get all *enabled* components of this entity
  * @return
  */
-QMap<QString, Component *> *Entity::getComponents()
+QMap<QString, Component*>*Entity::getComponents()
 {
     return components;
 }
@@ -137,7 +137,7 @@ QSizeF Entity::getSize() const
  * @param option
  * @param widget
  */
-void Entity::paint(QPainter *painter, const QStyleOptionGraphicsItem *option, QWidget *widget)
+void Entity::paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     for (auto c : components->values())
     {

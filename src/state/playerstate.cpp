@@ -11,9 +11,9 @@ DeadState PlayerState::dying;
 bool PlayerState::headingRight = true;
 
 
-bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComponent)
+bool PlayerState::handleHorizontalMovement(PlayerInputComponent* playerInputComponent)
 {
-    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
     {
         physicsComponent->setLeft(Game::input.isKeyDown(Input::LEFT));
@@ -35,19 +35,19 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent *playerInputComp
     return true;
 }
 
-void PlayerState::setHeadingRight(bool headingRight_, PlayerInputComponent *playerInputComponent)
+void PlayerState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
     headingRight = headingRight_;
-    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getEntity()->getComponent("AnimationComponent"));
+    AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
         ac->setMirrored(!headingRight_);
     }
 }
 
-bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
+bool PlayerState::checkFalling(PlayerInputComponent* playerInputComponent) const
 {
-    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr && physicsComponent->isFalling())
     {
         playerInputComponent->setState(&PlayerState::falling);
@@ -56,17 +56,17 @@ bool PlayerState::checkFalling(PlayerInputComponent *playerInputComponent) const
     return false;
 }
 
-bool PlayerState::checkOnGround(PlayerInputComponent *playerInputComponent) const
+bool PlayerState::checkOnGround(PlayerInputComponent* playerInputComponent) const
 {
-    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
         return physicsComponent->isOnGround();
     return false;
 }
 
-bool PlayerState::checkNoSpeed(PlayerInputComponent *playerInputComponent) const
+bool PlayerState::checkNoSpeed(PlayerInputComponent* playerInputComponent) const
 {
-    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getEntity()->getComponent("PhysicsComponent"));
+    PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
         return physicsComponent->hasZeroSpeed();
     return true;

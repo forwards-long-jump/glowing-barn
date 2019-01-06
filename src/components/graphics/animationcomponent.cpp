@@ -75,10 +75,10 @@ void AnimationComponent::setButtons(QVector<QString> buttons)
 }
 
 
-void AnimationComponent::render(QPainter *painter)
+void AnimationComponent::render(QPainter* painter)
 {
-    int entityWidth = entity->getSize().width();
-    int entityHeight = entity->getSize().height();
+    int entityWidth = parent->getSize().width();
+    int entityHeight = parent->getSize().height();
 
     if(mirrored)
     {

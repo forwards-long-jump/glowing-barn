@@ -9,7 +9,7 @@ public:
     // I decided to not use an enum because the map editor doesn't support them
     // and it would mean having to add a convert function and update it for each new animation
     // This could probably be replaced in the future by something that loads animations from a file
-    static AnimationComponent *getAnimationComponent(QString animationName);
+    static AnimationComponent* getAnimationComponent(QString animationName);
 private:
     AnimationFactory();
 };

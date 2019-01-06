@@ -10,8 +10,8 @@ MagnetJumperComponent::MagnetJumperComponent(float speed_, float rotation_, QStr
 
 void MagnetJumperComponent::init()
 {
-    SquareHitboxComponent *hc = new SquareHitboxComponent(HITBOX_NAME);
-    getEntity()->addComponent(hc);
+    SquareHitboxComponent* hc = new SquareHitboxComponent(HITBOX_NAME);
+    getParent()->addComponent(hc);
 }
 
 float MagnetJumperComponent::getForce() const
@@ -29,11 +29,11 @@ void MagnetJumperComponent::update() {
     {
         if(GameButtonComponent::areButtonsPressed(requiredButtons))
         {
-            getEntity()->enableComponent(HITBOX_NAME);
+            getParent()->enableComponent(HITBOX_NAME);
         }
         else
         {
-            getEntity()->disableComponent(HITBOX_NAME);
+            getParent()->disableComponent(HITBOX_NAME);
         }
     }
 }

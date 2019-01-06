@@ -8,22 +8,22 @@ class Entity;
 class Component
 {
 public:
-    Component(QString name_ = "DEFAULT");
+    Component(const QString& name = "DEFAULT");
     virtual ~Component();
 
-    void assignParent(Entity* parent) {entity = parent;}
-    Entity* getEntity() const {return entity;}
-    QString getName() const {return name;}
+    void setParent(Entity* parent);
+
+    Entity* getParent() const;
+    QString getName() const;
 
     virtual void update() = 0;
-    virtual void init() {}
-    virtual void onEnable() {}
-    virtual void onDisable() {}
+    virtual void init();
+    virtual void onEnable();
+    virtual void onDisable();
 
 protected:
-    Entity* entity;
-
-    QString name;
+    QString name = "";
+    Entity* parent = nullptr;
 };
 
 #include "include/entity.h"

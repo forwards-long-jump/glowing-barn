@@ -9,7 +9,7 @@ public:
     GenericRenderComponent(void(*functionToRender)(QPainter* p, Entity* e, int tick)) : functionToRender(functionToRender) {}
 
     void update() override;
-    void render(QPainter *painter) override;
+    void render(QPainter* painter) override;
 
     static void circleMagnetHitbox(QPainter* p, Entity* e, int tick);
 

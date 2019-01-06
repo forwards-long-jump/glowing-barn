@@ -23,7 +23,7 @@ public:
 
     virtual void handleInput(PlayerInputComponent* playerInputComponent) = 0;
     bool handleHorizontalMovement(PlayerInputComponent* playerInputComponent);
-    virtual void setHeadingRight(bool headingRight_, PlayerInputComponent *playerInputComponent);
+    virtual void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent);
     bool checkFalling(PlayerInputComponent*) const;
     bool checkOnGround(PlayerInputComponent*) const;
     bool checkNoSpeed(PlayerInputComponent*) const;
@@ -52,7 +52,7 @@ public:
     void handleInput(PlayerInputComponent* playerInputComponent) override;
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
 
@@ -65,7 +65,7 @@ public:
     void handleInput(PlayerInputComponent* playerInputComponent) override;
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
 
@@ -78,7 +78,7 @@ public:
     void handleInput(PlayerInputComponent* playerInputComponent) override;
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
 
@@ -101,10 +101,10 @@ public:
     FallingState()
         :PlayerState() {}
 
-    void handleInput(PlayerInputComponent *playerInputComponent) override;
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
 class DeadState : public PlayerState
@@ -113,10 +113,10 @@ public:
     DeadState()
         :PlayerState() {}
 
-    void handleInput(PlayerInputComponent *playerInputComponent) override;
+    void handleInput(PlayerInputComponent* playerInputComponent) override;
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
 
@@ -129,7 +129,7 @@ public:
     void handleInput(PlayerInputComponent* playerInputComponent) override;
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
-    void enter(PlayerInputComponent *playerInputComponent) const override;
+    void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
 #include "playerinputcomponent.h"
