@@ -10,13 +10,13 @@
 class MagnetGravityReactorComponent : public HitboxReactorComponent
 {
 public:
-    MagnetGravityReactorComponent(QString name = "MagnetGravityReactorComponent");
+    MagnetGravityReactorComponent(QString hitboxName = MagnetGravityComponent::HITBOX_NAME, QString magnetGravityComponentName = "MagnetGravityComponent", QString name = "MagnetGravityReactorComponent");
 
     void init() override;
     void onIntersect(HitboxComponent* hitboxComponent) override;
 
 private:
-
+    QString magnetGravityComponentName;
 };
 
 #endif // MAGNETGRAVITYREACTORCOMPONENT_H

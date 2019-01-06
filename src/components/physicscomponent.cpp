@@ -60,7 +60,7 @@ void PhysicsComponent::update()
 
 void PhysicsComponent::handleCollision(SquareHitboxComponent *hitbox)
 {
-    if (!hitbox) return;
+    if (!hitbox || hitbox->getEntity() == this->getEntity()) return;
     QRectF theirHB = hitbox->getHitbox();
 
     QRectF ourHB;

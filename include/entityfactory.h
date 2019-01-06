@@ -41,6 +41,8 @@ public:
 
     static Entity *magnetGravity(Tiled::MapObject *object, Entity *parent);
 
+    static Entity *box(Tiled::MapObject *object, Entity *parent);
+
     static Entity* graphic(Tiled::MapObject*, Entity* = nullptr);
     static Entity* door(Tiled::MapObject*, Entity * = nullptr);
 
