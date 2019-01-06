@@ -11,6 +11,7 @@
 #include "gamescene.h"
 #include "menuscene.h"
 #include "input.h"
+#include "sounds.h"
 
 class GameScene;
 

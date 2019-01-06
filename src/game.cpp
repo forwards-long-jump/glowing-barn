@@ -3,6 +3,8 @@
 Game::Game(QWidget *parent)
     : QGraphicsView(parent)
 {
+    Sounds::loadSounds();
+
     // Set OpenGL
     this->setViewport(new QGLWidget());
 
@@ -80,6 +82,7 @@ void Game::update() {
 
         static_cast<Scene*>(scene())->updateCamera();
         static_cast<Scene*>(scene())->update();
+        Sounds::update();
 
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();

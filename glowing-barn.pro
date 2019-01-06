@@ -6,6 +6,7 @@
 
 QT       += core gui
 QT       += opengl
+QT       += multimedia
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -82,7 +83,9 @@ SOURCES += \
     src/components/magnets/magnetjumperreactorcomponent.cpp \
     src/components/magnets/magnetgravitycomponent.cpp \
     src/components/magnets/magnetgravityreactorcomponent.cpp \
-    src/components/genericrendercomponent.cpp
+    src/components/genericrendercomponent.cpp \
+    src/sounds.cpp \
+    src/components/soundbuttonreactorcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -126,7 +129,9 @@ HEADERS += \
     include/magnetjumperreactorcomponent.h \
     include/magnetgravitycomponent.h \
     include/magnetgravityreactorcomponent.h \
-    include/genericrendercomponent.h
+    include/genericrendercomponent.h \
+    include/sounds.h \
+    include/soundbuttonreactorcomponent.h
 
 RESOURCES += \
     assets/assets.qrc
