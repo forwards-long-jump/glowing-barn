@@ -187,6 +187,17 @@ Entity *EntityFactory::box(Tiled::MapObject *object, Entity *parent)
     return e;
 }
 
+Entity *EntityFactory::soundButtonReactor(Tiled::MapObject *object, Entity *parent)
+{
+    Entity *e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new SoundButtonReactorComponent(object->propertyAsString("start"),
+                                                    object->propertyAsString("end"),
+                                                    object->propertyAsString("idle"),
+                                                    object->propertyAsString("loop"),
+                                                    object->propertyAsString("buttons")));
+    return e;
+}
+
 Entity *EntityFactory::graphic(Tiled::MapObject *object, Entity *parent)
 {
     Entity *e = new Entity(parent, object->position(), object->size());

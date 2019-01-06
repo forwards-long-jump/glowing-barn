@@ -20,6 +20,7 @@
 #include "magnetgravityreactorcomponent.h"
 #include "magnetgravitycomponent.h"
 #include "genericrendercomponent.h"
+#include "soundbuttonreactorcomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity
@@ -42,6 +43,8 @@ public:
     static Entity *magnetGravity(Tiled::MapObject *object, Entity *parent);
 
     static Entity *box(Tiled::MapObject *object, Entity *parent);
+
+    static Entity *soundButtonReactor(Tiled::MapObject *object, Entity *parent);
 
     static Entity* graphic(Tiled::MapObject*, Entity* = nullptr);
     static Entity* door(Tiled::MapObject*, Entity * = nullptr);
