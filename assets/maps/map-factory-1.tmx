@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="186">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="212">
  <properties>
   <property name="musicPath" value="qrc:/sounds/Mind-Bender.mp3"/>
   <property name="zoom" type="float" value="4.2"/>
@@ -65,12 +65,12 @@
     <property name="texture" value=":/decorations/factory-wall.png"/>
    </properties>
   </object>
-  <object id="138" name="graphic" x="-52.3077" y="-129.518" width="909.646" height="297.521">
+  <object id="138" name="graphic" x="-50.3077" y="-21.518" width="909.646" height="297.521">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
-    <property name="parallax" type="float" value="0.9"/>
+    <property name="parallax" type="float" value="0.95"/>
     <property name="texture" value=":/decorations/sky.png"/>
    </properties>
   </object>
@@ -315,6 +315,25 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.001"/>
     <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="186" name="graphic" x="53.8743" y="171.331" width="57.918" height="70.0057">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.9"/>
+    <property name="texture" value=":/decorations/schaffre.png"/>
+   </properties>
+  </object>
+  <object id="203" gid="236" x="222.125" y="281.625" width="15.75" height="15.75"/>
+  <object id="211" gid="241" x="400" y="400" width="16" height="16">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="direction" value="left"/>
+    <property name="h" type="float" value="1"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="w" type="float" value="12"/>
    </properties>
   </object>
  </objectgroup>

@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="149">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="150">
  <properties>
-  <property name="musicPath" value="qrc:/sounds/Circling-the-Barn.mp3"/>
   <property name="zoom" type="float" value="4.5"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
@@ -39,7 +38,7 @@
     <property name="texture" value=":/decorations/sun.png"/>
    </properties>
   </object>
-  <object id="68" gid="249" x="304" y="240" width="16" height="16">
+  <object id="68" gid="249" x="302.5" y="240" width="16" height="16">
    <properties>
     <property name="animationName" value="playerStory"/>
     <property name="h" type="float" value="32"/>
@@ -49,13 +48,13 @@
   </object>
   <object id="131" name="door" x="720" y="240" width="16" height="32">
    <properties>
-    <property name="targetMap" value="C:/Users/Lockj/Desktop/glowing-barn/assets/maps/map-factory-1.tmx"/>
+    <property name="targetMap" value=":/maps/map-factory-1.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
   <object id="132" name="door" x="736" y="240" width="16" height="32">
    <properties>
-    <property name="targetMap" value="C:/Users/Lockj/Desktop/glowing-barn/assets/maps/map-factory-1.tmx"/>
+    <property name="targetMap" value=":/maps/map-factory-1.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
@@ -157,6 +156,14 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="-0.5"/>
     <property name="texture" value=":/decorations/trees.png"/>
+   </properties>
+  </object>
+  <object id="149" gid="249" x="720" y="240" width="16" height="16">
+   <properties>
+    <property name="animationName" value="playerStory"/>
+    <property name="h" type="float" value="32"/>
+    <property name="spawnName" value="door"/>
+    <property name="w" type="float" value="16"/>
    </properties>
   </object>
  </objectgroup>

@@ -4,6 +4,7 @@
     <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
     <file alias="map-test.tmx" >maps/map-test.tmx</file>
     <file alias="map-1.tmx" >maps/map-1.tmx</file>
+    <file alias="map-factory-1.tmx" >maps/map-factory-1.tmx</file>
     <file alias="map-outside-factory.tmx" >maps/map-outside-factory.tmx</file>
 </qresource>
 <qresource prefix="/sounds">
@@ -29,6 +30,7 @@
 	  <file alias="spark.png" >graphics/entities/spark.png</file>
 </qresource>
 <qresource prefix="/decorations">
+    <file alias="schaffre.png" >graphics/decorations/schaffre.png</file>
     <file alias="sky.png" >graphics/decorations/sky.png</file>
     <file alias="sun.png" >graphics/decorations/sun.png</file>
     <file alias="trees.png" >graphics/decorations/trees.png</file>
