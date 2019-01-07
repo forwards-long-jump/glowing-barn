@@ -60,6 +60,7 @@ SOURCES += \
     src/components/graphics/animationcomponent.cpp \
     src/components/graphics/genericrendercomponent.cpp \
     src/components/graphics/transitioncomponent.cpp \
+    src/components/graphics/particlespawnercomponent.cpp \
     src/components/hitboxes/squarehitboxcomponent.cpp \
     src/components/hitboxes/circlehitboxcomponent.cpp \
     src/components/hitboxes/hitboxreactorcomponent.cpp \
@@ -87,7 +88,8 @@ SOURCES += \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
     src/tilemap/mapobjectitem.cpp \
-    src/tilemap/entityfactory.cpp
+    src/tilemap/entityfactory.cpp \
+    src/particle.cpp
 
 HEADERS += \
     include/game.h \
@@ -133,7 +135,9 @@ HEADERS += \
     include/magnetgravityreactorcomponent.h \
     include/genericrendercomponent.h \
     include/sounds.h \
-    include/soundbuttonreactorcomponent.h
+    include/soundbuttonreactorcomponent.h \
+    include/particle.h \
+    include/particlespawnercomponent.h
 
 RESOURCES += \
     assets/assets.qrc
