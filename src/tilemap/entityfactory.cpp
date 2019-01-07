@@ -13,7 +13,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     animationComponent->setCurrentAnimation("standing");
 
     // Attracts items with a BoxGravityHitbox reactor
-    player->addComponent(new MagnetGravityComponent(100, -0.7, "", QPointF(size.width() / 2, -5), "BoxGravityHitbox", "PlayerGravityMagnet"));
+    player->addComponent(new MagnetGravityComponent(50, -0.85, "", QPointF(size.width() / 2, -5), "BoxGravityHitbox", "PlayerGravityMagnet"));
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
