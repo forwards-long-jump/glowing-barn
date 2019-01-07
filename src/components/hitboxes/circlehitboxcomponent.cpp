@@ -13,9 +13,6 @@ void CircleHitboxComponent::init()
     QPointF center(parent->getSize().width() / 2,
                    parent->getSize().height() / 2);
     setOffset(center.x() - radius, center.y() - radius);
-
-    new QGraphicsEllipseItem(getOffset().x(), getOffset().y(),
-                             2 * getRadius(), 2 * getRadius(), parent);
 }
 
 bool CircleHitboxComponent::intersects(HitboxComponent* hitbox) const
@@ -36,19 +33,26 @@ bool CircleHitboxComponent::intersects(HitboxComponent* hitbox) const
     }
 }
 
+/**
+ * @brief CircleHitboxComponent::offsetOffset use to offset the offset
+ * @param offset
+ */
+void CircleHitboxComponent::offsetOffset(QPointF offset)
+{
+    setOffset(this->offset.x() + offset.x(), this->offset.y() + offset.y());
+}
+
 QPointF CircleHitboxComponent::getCenter() const
 {
     return parent->pos() + getOffset() + QPointF(radius, radius);
 }
 
-void CircleHitboxComponent::setRadius(float radius_)
+void CircleHitboxComponent::setRadius(float radius)
 {
-    radius = radius_;
+    this->radius = radius;
     QPointF center(parent->getSize().width() / 2,
                    parent->getSize().height() / 2);
     setOffset(center.x() - radius, center.y() - radius);
-    new QGraphicsEllipseItem(getOffset().x(), getOffset().y(),
-                             2 * getRadius(), 2 * getRadius(), parent);
 }
 
 float CircleHitboxComponent::getRadius() const

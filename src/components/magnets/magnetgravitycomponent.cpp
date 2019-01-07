@@ -17,7 +17,7 @@ void MagnetGravityComponent::init()
     hc->setRadius(radius);
     if(!hitboxOffset.isNull())
     {
-        hc->setOffset(hitboxOffset);
+        hc->offsetOffset(hitboxOffset);
     }
 }
 
