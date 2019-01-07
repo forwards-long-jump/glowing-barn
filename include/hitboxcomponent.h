@@ -13,11 +13,11 @@ public:
     void update() override {}
     virtual bool intersects(HitboxComponent* hitbox) const = 0;
 
-    QPointF getCenter() const;
+    virtual QPointF getCenter() const = 0;
 
     void setOffset(const QPointF& offset_);
     void setOffset(float dx, float dy);
-    QPointF& getOffset();
+    QPointF getOffset() const;
 
     void onEnable() override;
     void onDisable() override;

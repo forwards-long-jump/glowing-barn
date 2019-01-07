@@ -19,7 +19,7 @@ public:
 
 private:
     bool playerInSight = false;
-    float radius;
+    float radius = 50;
     QString additionalHitboxName = "";
 };
 

@@ -42,8 +42,8 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     spark->addComponent(animationComponent);
     spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->propertyAsString("hitboxName")));
     CircleHitboxComponent* chc = new CircleHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME);
-    chc->setRadius(object->size().width() * 0.8);
     spark->addComponent(chc);
+    chc->setRadius(object->size().width() * 0.8);
 
     return spark;
 }
