@@ -13,7 +13,7 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     animationComponent->setCurrentAnimation("standing");
 
     // Attracts items with a BoxGravityHitbox reactor
-    player->addComponent(new MagnetGravityComponent(50, -0.85, "", QPointF(size.width() / 2, -5), "BoxGravityHitbox", "PlayerGravityMagnet"));
+    player->addComponent(new MagnetGravityComponent(50, -0.85, "", QPointF(0, -20), "BoxGravityHitbox", "PlayerGravityMagnet"));
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
@@ -42,8 +42,8 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     spark->addComponent(animationComponent);
     spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->propertyAsString("hitboxName")));
     CircleHitboxComponent* chc = new CircleHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME);
-    chc->setRadius(object->size().width() * 0.8);
     spark->addComponent(chc);
+    chc->setRadius(object->size().width() * 0.8);
 
     return spark;
 }
@@ -180,7 +180,7 @@ Entity* EntityFactory::box(Tiled::MapObject* object, Entity* parent)
     e->addComponent(new MagnetZipperReactorComponent());
     e->addComponent(new MagnetJumperReactorComponent());
     e->addComponent(new MagnetGravityReactorComponent());
-    e->addComponent(new MagnetGravityReactorComponent("BoxGravityHitbox", "PlayerGravityMagnet"));
+    e->addComponent(new MagnetGravityReactorComponent("BoxGravityHitbox", "PlayerGravityMagnet", ""));
     e->addComponent(new MagnetGravityComponent(40, 2, "", QPointF(), "BoxGravityHitbox", "PlayerGravityMagnet"));
     e->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
 

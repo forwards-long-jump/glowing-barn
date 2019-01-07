@@ -13,6 +13,7 @@ public:
 
     void init() override;
 
+    QPointF getCenter() const override;
     void setSize(const QSizeF& hitbox_);
     void setSize(float w, float h);
     QSizeF& getSize() {return size;}
