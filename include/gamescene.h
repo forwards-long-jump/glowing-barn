@@ -21,7 +21,7 @@ public:
 
 private:
     // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
-    const QString DEV_MAP_PATH = "C:/Users/Lockj/Desktop/glowing-barn/assets/maps/map-test.tmx";
+    const QString DEV_MAP_PATH = "C:/Users/alexandr.bianchi/Documents/02-GitHub/glowing-barn/assets/maps/map-test.tmx";
 
     void onKeyChange(Input &input) override;
     void update() override;
