@@ -30,6 +30,8 @@ public:
 
     int getRotation() const;
 
+    bool getMirrored() const;
+
 private:
     QPixmap image;
 

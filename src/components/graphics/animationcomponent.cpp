@@ -192,6 +192,11 @@ int AnimationComponent::getRotation() const
     return rotation;
 }
 
+bool AnimationComponent::getMirrored() const
+{
+    return mirrored;
+}
+
 void AnimationComponent::setRotation(int value)
 {
     rotation = value;
