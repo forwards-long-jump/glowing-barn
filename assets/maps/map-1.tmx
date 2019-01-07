@@ -2,7 +2,7 @@
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="131">
  <properties>
   <property name="musicPath" value="qrc:/sounds/Bubble-Gum-Puzzler-2.mp3"/>
-  <property name="zoom" type="float" value="6"/>
+  <property name="zoom" type="float" value="4"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
  <layer id="10" name="back" width="50" height="30">
@@ -41,7 +41,7 @@
   </object>
   <object id="29" name="door" x="624" y="64" width="16" height="32">
    <properties>
-    <property name="targetMap" value=":maps/map-test.tmx"/>
+    <property name="targetMap" value=":maps/map-outside-factory.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
@@ -192,9 +192,9 @@
     <property name="stayPressed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="125" name="spark" x="304" y="0" width="24" height="24">
+  <object id="125" name="spark" x="299" y="11.5" width="24" height="24">
    <properties>
-    <property name="hitboxName" value="R"/>
+    <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>

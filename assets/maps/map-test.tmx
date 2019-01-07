@@ -2,7 +2,7 @@
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="35" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="75">
  <properties>
   <property name="musicPath" value="qrc:/sounds/Bubble-Gum-Puzzler.mp3"/>
-  <property name="zoom" type="float" value="1"/>
+  <property name="zoom" type="float" value="4.5"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
  <layer id="10" name="back" width="35" height="15">
@@ -23,7 +23,7 @@
  <objectgroup id="5" name="object">
   <object id="1" gid="249" x="127" y="78.1667" width="16" height="16">
    <properties>
-    <property name="animationName" value="playerStory"/>
+    <property name="animationName" value="player"/>
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="default"/>
     <property name="w" type="float" value="16"/>
@@ -60,12 +60,6 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.9"/>
     <property name="texture" value=":/decorations/sun.png"/>
-   </properties>
-  </object>
-  <object id="47" name="spark" x="369" y="176" width="14" height="14">
-   <properties>
-    <property name="radius" type="float" value="150"/>
-    <property name="speed" type="float" value="5"/>
    </properties>
   </object>
   <object id="70" name="hurt" x="-32" y="0" width="16" height="263.417"/>

@@ -39,20 +39,28 @@ void InteractiveComponent::update()
 
 void InteractiveComponent::onIntersect(HitboxComponent* hb)
 {
-    InteractiveHitboxComponent* ihb = static_cast<InteractiveHitboxComponent*> (hb);
-    showPrompt();
-    ihb->askKey(key);
-    if ((readyToInteract && ihb->isActive()) || key == Input::Key::NONE)
+    InteractiveHitboxComponent* ihb = dynamic_cast<InteractiveHitboxComponent*> (hb);
+
+    if(ihb)
+    {
+        showPrompt();
+        ihb->askKey(key);
+        if ((readyToInteract && ihb->isActive()) || key == Input::Key::NONE)
+        {
+            this->action(hb->getParent());
+            readyToInteract = false;
+        }
+        if (!ihb->isActive())
+        {
+            readyToInteract = true;
+        }
+
+        removePromptOnNextTick = false;
+    }
+    else
     {
         this->action(hb->getParent());
-        readyToInteract = false;
     }
-    if (!ihb->isActive())
-    {
-        readyToInteract = true;
-    }
-
-    removePromptOnNextTick = false;
 }
 
 void InteractiveComponent::showPrompt() const

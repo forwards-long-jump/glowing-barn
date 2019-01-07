@@ -35,7 +35,7 @@ void MagnetGravityReactorComponent::onIntersect(HitboxComponent* hb)
         float f = magnetGravityComponent->getForce() / (d / magneticFieldHitboxComponent->getRadius());
 
 
-        if(d < 10 && magnetGravityComponent->getForce() < 0)
+        if(d < 20 && magnetGravityComponent->getForce() < 0)
         {
             int tick = static_cast<GameScene*>(getParent()->scene())->getGame()->getTick();
             physicsComponent->setSpeed(0, 0);
