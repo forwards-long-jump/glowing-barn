@@ -18,7 +18,7 @@ GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)
 {
     changeMapScheduled = false;
-    loadMap(":maps/map-test.tmx");
+    loadMap(":maps/map-outside-factory.tmx");
 
     // If a dev map is set, adds a file watcher to reload the map automatically every time it is changed on disk
     if(DEV_MAP_PATH != "") {
