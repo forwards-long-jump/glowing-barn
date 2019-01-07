@@ -4,6 +4,8 @@
     <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
     <file alias="map-test.tmx" >maps/map-test.tmx</file>
     <file alias="map-1.tmx" >maps/map-1.tmx</file>
+    <file alias="map-2.tmx" >maps/map-2.tmx</file>
+    <file alias="map-3.tmx" >maps/map-3.tmx</file>
 </qresource>
 <qresource prefix="/sounds">
     <file alias="Bubble-Gum-Puzzler.mp3" >sounds/Bubble-Gum-Puzzler.mp3</file>
