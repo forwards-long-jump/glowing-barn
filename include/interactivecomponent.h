@@ -10,7 +10,7 @@
 class InteractiveComponent : public HitboxReactorComponent
 {
 public:
-    InteractiveComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = "InteractiveHitboxComponent");
+    InteractiveComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = "InteractiveHitboxComponent", QString requiredButtons = "");
 
     void update() override;
     void init() override;
@@ -23,6 +23,8 @@ protected:
     Input::Key key;
     bool readyToInteract;
     bool removePromptOnNextTick;
+
+    QVector<QString> requiredButtons;
 
     Entity* commandPrompt;
 };
