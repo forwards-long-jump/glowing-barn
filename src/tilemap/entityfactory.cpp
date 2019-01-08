@@ -134,17 +134,15 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     // Door and button
-    Entity* e = new Entity(parent, object->position(), object->size());
-    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn")));
-    e->addComponent(new GameButtonComponent("auto_door",Input::Key::INTERACT, false, false, 1, true));
+    Entity* e = new Entity(parent, object->position() - QPointF(0, 6), object->size() + QSizeF(0, 12));
+    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn"), object->propertyAsString("buttons")));
 
     // The door animation has a bigger size, so we create a new component for it
-    Entity* a = new Entity(parent, object->position() - QPointF(0, 16), QSizeF(16, 64));
     AnimationComponent* ac = AnimationFactory::getAnimationComponent("door");
     ac->setCurrentAnimation("idle");
     ac->setButtons("auto_door");
-    a->addComponent(ac);
-    a->addComponent(new ParallaxComponent(0.0001));
+    e->addComponent(ac);
+    e->addComponent(new ParallaxComponent(0.0001));
     return e;
 }
 

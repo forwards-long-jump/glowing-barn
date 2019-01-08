@@ -1,13 +1,15 @@
 #include "interactivecomponent.h"
 #include "animationcomponent.h"
+#include "gamebuttoncomponent.h"
 
-InteractiveComponent::InteractiveComponent(Input::Key key_, QString name_, QString targetHitboxName)
+InteractiveComponent::InteractiveComponent(Input::Key key_, QString name_, QString targetHitboxName, QString requiredButtons_)
     : HitboxReactorComponent(targetHitboxName, name_),
     key(key_)
 {
     readyToInteract = false;
     removePromptOnNextTick = false;
 
+    requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
 }
 
 void InteractiveComponent::init()
@@ -39,27 +41,29 @@ void InteractiveComponent::update()
 
 void InteractiveComponent::onIntersect(HitboxComponent* hb)
 {
-    InteractiveHitboxComponent* ihb = dynamic_cast<InteractiveHitboxComponent*> (hb);
-
-    if(ihb)
+    if(requiredButtons.length() == 0 || GameButtonComponent::areButtonsPressed(requiredButtons))
     {
-        showPrompt();
-        ihb->askKey(key);
-        if ((readyToInteract && ihb->isActive()) || key == Input::Key::NONE)
+        InteractiveHitboxComponent* ihb = dynamic_cast<InteractiveHitboxComponent*> (hb);
+        if(ihb)
+        {
+            showPrompt();
+            ihb->askKey(key);
+            if ((readyToInteract && ihb->isActive()) || key == Input::Key::NONE)
+            {
+                this->action(hb->getParent());
+                readyToInteract = false;
+            }
+            if (!ihb->isActive())
+            {
+                readyToInteract = true;
+            }
+
+            removePromptOnNextTick = false;
+        }
+        else
         {
             this->action(hb->getParent());
-            readyToInteract = false;
         }
-        if (!ihb->isActive())
-        {
-            readyToInteract = true;
-        }
-
-        removePromptOnNextTick = false;
-    }
-    else
-    {
-        this->action(hb->getParent());
     }
 }
 
