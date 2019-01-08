@@ -92,7 +92,7 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     // Door and button
-    Entity* e = new Entity(parent, object->position(), object->size() + QSizeF(0, 12));
+    Entity* e = new Entity(parent, object->position() - QPointF(0, 6), object->size() + QSizeF(0, 12));
     e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn"), object->propertyAsString("buttons")));
 
     // The door animation has a bigger size, so we create a new component for it

@@ -12,7 +12,7 @@ void DoorComponent::action(Entity* target)
     static_cast<GameScene*>(target->scene())->scheduleMapChange(targetMap, targetDoor);
 }
 
-DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString requiredButtons_, Input::Key key_, QString name_) : InteractiveComponent(key_, name_, "InteractiveComponent", requiredButtons_)
+DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString requiredButtons_, Input::Key key_, QString name_) : InteractiveComponent(key_, name_, "InteractiveHitboxComponent", requiredButtons_)
 {
     targetMap = targetMap_;
     targetDoor = targetDoor_;
