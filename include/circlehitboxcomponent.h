@@ -13,7 +13,8 @@ public:
     void init() override;
 
     QPointF getCenter() const override;
-    void setRadius(float radius_);
+    void setRadius(float radius);
+    void offsetOffset(QPointF offset);
     float getRadius() const;
 
     bool intersects(HitboxComponent *hitbox) const override;

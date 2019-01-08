@@ -7,6 +7,8 @@
 QT       += core gui
 QT       += opengl
 QT       += multimedia
+# TODO: REMOVE THIS AND DO NOT USE MUSICS AS RESOURCES
+CONFIG += resources_big
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 

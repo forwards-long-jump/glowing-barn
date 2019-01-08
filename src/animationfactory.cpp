@@ -58,6 +58,14 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("end", 3, 0, animations);
         return new AnimationComponent(":/entities/door.png", 16, animations);
     }
+    else if(animationName == "keyboard")
+    {
+        AnimationComponent::addAnimationToVector("down", 2, 10, animations);
+        AnimationComponent::addAnimationToVector("left", 2, 10, animations);
+        AnimationComponent::addAnimationToVector("right", 2, 10, animations);
+        AnimationComponent::addAnimationToVector("up", 2, 10, animations);
+        return new AnimationComponent(":/interface/arrowkeys.png", 16, animations);
+    }
 
     // Missing / invalid animation
     assert(false);
