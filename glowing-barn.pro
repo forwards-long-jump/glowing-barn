@@ -141,3 +141,9 @@ HEADERS += \
 
 RESOURCES += \
     assets/assets.qrc
+
+copydata.commands = $(COPY_DIR) $$PWD/assets $$OUT_PWD
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata
