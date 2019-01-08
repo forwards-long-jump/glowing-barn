@@ -4,7 +4,15 @@ CreditsScene::CreditsScene(QString name, Game *game) : Scene(name, game)
 {
     //Black background for fading
     this->setBackgroundBrush(Qt::black);
+}
 
+CreditsScene::~CreditsScene()
+{
+
+}
+
+void CreditsScene::onEnter()
+{
     bottom1 = new Entity(nullptr, 0, 32, 512, 48);
     bottom1->addComponent(new ImageComponent(":/credits/background.png"));
     bottom2 = new Entity(nullptr, -512, 32, 512, 48);
@@ -60,9 +68,9 @@ CreditsScene::CreditsScene(QString name, Game *game) : Scene(name, game)
     camera->attachTo(cameraLock);
 }
 
-CreditsScene::~CreditsScene()
+void CreditsScene::onLeave()
 {
-
+    this->clear();
 }
 
 void CreditsScene::update()

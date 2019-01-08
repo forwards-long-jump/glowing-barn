@@ -10,6 +10,9 @@ public:
     CreditsScene(QString name = "default", Game* game = 0);
     ~CreditsScene();
 
+    void onEnter() override;
+    void onLeave() override;
+
 private:
     void onKeyChange(Input &input) override;
     void update() override;
