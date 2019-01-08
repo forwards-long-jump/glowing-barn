@@ -7,7 +7,7 @@ MenuScene::MenuScene(QString name, Game* game)
 
     camera->setScaling(1);
 
-    connect(btnLaunch, &QPushButton::clicked, [game](bool checked){
+    connect(btnLaunch, &QPushButton::clicked, [game](bool){
         game->switchScene("game");
     });
 

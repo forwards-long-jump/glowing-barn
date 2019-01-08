@@ -11,9 +11,9 @@ Game::Game(QWidget* parent)
     this->setViewport(new QGLWidget());
 
     // Basic Scene
-    MenuScene* menuScene = new MenuScene("menu", this);
-    GameScene* gameScene = new GameScene("game", this);
-    CreditsScene* creditsScene = new CreditsScene("credits", this);
+    new MenuScene("menu", this);
+    new GameScene("game", this);
+    new CreditsScene("credits", this);
 
     this->setFrameStyle(QFrame::NoFrame);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -25,9 +25,7 @@ Game::Game(QWidget* parent)
     this->setCacheMode(QGraphicsView::CacheBackground);
     this->setViewportUpdateMode( QGraphicsView::FullViewportUpdate);
 
-    currentScene = gameScene;
-
-    this->setScene(currentScene);
+    this->switchScene("menu");
 
     // Connections
     connect(this, &Game::keyPressEvent,
@@ -97,7 +95,7 @@ void Game::update() {
  * @param nameScene
  * @param scene
  */
-void Game::addScene(QString nameScene, QGraphicsScene* scene)
+void Game::addScene(QString nameScene, Scene* scene)
 {
     scenes.insert(nameScene, scene);
 }

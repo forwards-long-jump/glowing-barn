@@ -24,7 +24,7 @@ public:
     Game(QWidget* parent = 0);
     ~Game();
 
-    void addScene(QString nameScene, QGraphicsScene* scene);
+    void addScene(QString nameScene, Scene* scene);
     void switchScene(QString nameScene);
 
     unsigned int getTick() const;
@@ -37,10 +37,10 @@ signals:
 
 private:
     // Prevent scrolling the view
-    void scrollContentsBy(int, int) override {};
+    void scrollContentsBy(int, int) override {}
 
-    QMap<QString, QGraphicsScene* > scenes;
-    QGraphicsScene* currentScene;
+    QMap<QString, Scene* > scenes;
+    Scene* currentScene;
 
     const int MS_PER_UPDATE = 1000 / 60;
     QTimer* updateTimer;
