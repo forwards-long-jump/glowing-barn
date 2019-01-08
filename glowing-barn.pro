@@ -87,7 +87,8 @@ SOURCES += \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
     src/tilemap/mapobjectitem.cpp \
-    src/tilemap/entityfactory.cpp
+    src/tilemap/entityfactory.cpp \
+    src/scenes/creditsscene.cpp
 
 HEADERS += \
     include/game.h \
@@ -133,7 +134,8 @@ HEADERS += \
     include/magnetgravityreactorcomponent.h \
     include/genericrendercomponent.h \
     include/sounds.h \
-    include/soundbuttonreactorcomponent.h
+    include/soundbuttonreactorcomponent.h \
+    include/creditsscene.h
 
 RESOURCES += \
     assets/assets.qrc
