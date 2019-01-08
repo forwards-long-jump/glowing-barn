@@ -24,16 +24,19 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     player->addComponent(new MagnetGravityReactorComponent());
     player->addComponent(animationComponent);
 
+    const int PARTICLE_LIFE_TIME = 30;
+    const int PARTICLE_SIZE = 2;
+
     // Magnet enabled / disabled particles
     player->addComponent(new ParticleSpawnerComponent(
                              [](QPainter* painter, Particle* particle) {
                              if(particle->getIndex() % 2 == 0)
                              {
-                                 painter->fillRect(0, 0, 2, 2, QColor(248, 0, 67, (particle->getLifetime() / 30.0) * 255));
+                                 painter->fillRect(0, 0, 2, 2, QColor(248, 0, 67, (particle->getLifetime() / static_cast<float>(PARTICLE_LIFE_TIME)) * 255));
                              }
                              else
                              {
-                                 painter->fillRect(0, 0, 2, 2, QColor(0, 145, 228, (particle->getLifetime() / 30.0) * 255));
+                                 painter->fillRect(0, 0, 2, 2, QColor(0, 145, 228, (particle->getLifetime() / static_cast<float>(PARTICLE_LIFE_TIME)) * 255));
                              }
                          }, [](Particle* particle) {
                           particle->setPos(particle->pos() + QPointF(particle->getDx() + qSin(0.1 * particle->getLifetime() + particle->getIndex()) * 0.2, particle->getDy()));
@@ -42,24 +45,35 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     player->addComponent(new GenericRenderComponent(
                              [](QPainter* p, Entity* e, int tick) {
 
+                             const float LEFT_POSITION_COEFF = 0.18;
+                             const float RIGHT_POSITION_COEFF = 0.75;
+                             const float FORCE_COEFF = 0.1;
+                             const float SPEED_FORCE_COEEF = 0.2;
+                             const float BASE_Y_FORCE = 0.3;
+                             const int Y_OFFSET = 5;
+
                              if(e->getComponent("MagnetZipperReactorComponent"))
                              {
-                                // TODO: Cleanup this
                                 ParticleSpawnerComponent* magnetParticleSpawner = static_cast<ParticleSpawnerComponent*>(e->getComponent("MagnetParticleSpawner"));
                                 AnimationComponent* ac = static_cast<AnimationComponent*>(e->getComponent("AnimationComponent"));
+                                PhysicsComponent* pc = static_cast<PhysicsComponent*>(e->getComponent("PhysicsComponent"));
 
                                  if(tick % 4 == 0)
                                  {
-                                     if(ac->getMirrored())
-                                     {
-                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.75, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
-                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.18, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
-                                     }
-                                     else
-                                     {
-                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.18, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
-                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.75, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
-                                     }
+                                     float x1 = ac->getMirrored() ? LEFT_POSITION_COEFF : RIGHT_POSITION_COEFF;
+                                     float x2 = ac->getMirrored() ? RIGHT_POSITION_COEFF : LEFT_POSITION_COEFF;
+
+                                     x1 = e->x() + x1 * e->getSize().width();
+                                     x2 = e->x() + x2 * e->getSize().width();
+
+                                     magnetParticleSpawner->spawn(x2, e->y() + Y_OFFSET,
+                                        qSin(tick) * FORCE_COEFF + pc->getSpeed().x() * SPEED_FORCE_COEEF, qSin(tick) * FORCE_COEFF - BASE_Y_FORCE + pc->getSpeed().y() * SPEED_FORCE_COEEF,
+                                        PARTICLE_SIZE, PARTICLE_SIZE, PARTICLE_LIFE_TIME);
+
+                                     magnetParticleSpawner->spawn(x1, e->y() + Y_OFFSET,
+                                        qSin(tick) * FORCE_COEFF + pc->getSpeed().x() * SPEED_FORCE_COEEF, qSin(tick) * FORCE_COEFF - BASE_Y_FORCE + pc->getSpeed().y() * SPEED_FORCE_COEEF,
+                                        PARTICLE_SIZE, PARTICLE_SIZE, PARTICLE_LIFE_TIME);
+
                                  }
                              }
                          }
