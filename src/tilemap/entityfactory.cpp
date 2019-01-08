@@ -24,6 +24,48 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     player->addComponent(new MagnetGravityReactorComponent());
     player->addComponent(animationComponent);
 
+    // Magnet enabled / disabled particles
+    player->addComponent(new ParticleSpawnerComponent(
+                             [](QPainter* painter, Particle* particle) {
+                             if(particle->getIndex() % 2 == 0)
+                             {
+                                 painter->fillRect(0, 0, 2, 2, QColor(248, 0, 67, (particle->getLifetime() / 30.0) * 255));
+                             }
+                             else
+                             {
+                                 painter->fillRect(0, 0, 2, 2, QColor(0, 145, 228, (particle->getLifetime() / 30.0) * 255));
+                             }
+                         }, [](Particle* particle) {
+                          particle->setPos(particle->pos() + QPointF(particle->getDx() + qSin(0.1 * particle->getLifetime() + particle->getIndex()) * 0.2, particle->getDy()));
+    }, "MagnetParticleSpawner"));
+
+    player->addComponent(new GenericRenderComponent(
+                             [](QPainter* p, Entity* e, int tick) {
+
+                             if(e->getComponent("MagnetZipperReactorComponent"))
+                             {
+                                // TODO: Cleanup this
+                                ParticleSpawnerComponent* magnetParticleSpawner = static_cast<ParticleSpawnerComponent*>(e->getComponent("MagnetParticleSpawner"));
+                                AnimationComponent* ac = static_cast<AnimationComponent*>(e->getComponent("AnimationComponent"));
+
+                                 if(tick % 4 == 0)
+                                 {
+                                     if(ac->getMirrored())
+                                     {
+                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.75, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
+                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.18, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
+                                     }
+                                     else
+                                     {
+                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.18, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
+                                         magnetParticleSpawner->spawn(e->x() + e->getSize().width() * 0.75, e->y() + 5, qSin(tick) * 0.1, qSin(tick) * 0.1 - 0.3, 2, 2, 30);
+                                     }
+                                 }
+                             }
+                         }
+                         ));
+
+
     return player;
 }
 
@@ -103,17 +145,15 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     // Door and button
-    Entity* e = new Entity(parent, object->position(), object->size());
-    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn")));
-    e->addComponent(new GameButtonComponent("auto_door",Input::Key::INTERACT, false, false, 1, true));
+    Entity* e = new Entity(parent, object->position() - QPointF(0, 6), object->size() + QSizeF(0, 12));
+    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn"), object->propertyAsString("buttons")));
 
     // The door animation has a bigger size, so we create a new component for it
-    Entity* a = new Entity(parent, object->position() - QPointF(0, 16), QSizeF(16, 64));
     AnimationComponent* ac = AnimationFactory::getAnimationComponent("door");
     ac->setCurrentAnimation("idle");
     ac->setButtons("auto_door");
-    a->addComponent(ac);
-    a->addComponent(new ParallaxComponent(0.0001));
+    e->addComponent(ac);
+    e->addComponent(new ParallaxComponent(0.0001));
     return e;
 }
 
@@ -172,7 +212,7 @@ Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
     e->addComponent(ic);
 
     Entity* hitboxDisplay = new Entity(
-            parent, object->position() - QPointF(radius - object->size().width() / 2, radius - object->size().height() / 2),
+            e, - QPointF(radius - object->size().width() / 2, radius - object->size().height() / 2),
             QSizeF(radius * 2, radius * 2));
 
     hitboxDisplay->addComponent(new GenericRenderComponent(&GenericRenderComponent::circleMagnetHitbox));

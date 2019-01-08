@@ -4,16 +4,10 @@
     <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
     <file alias="map-test.tmx" >maps/map-test.tmx</file>
     <file alias="map-1.tmx" >maps/map-1.tmx</file>
+    <file alias="map-2.tmx" >maps/map-2.tmx</file>
+    <file alias="map-3.tmx" >maps/map-3.tmx</file>
     <file alias="map-factory-1.tmx" >maps/map-factory-1.tmx</file>
     <file alias="map-outside-factory.tmx" >maps/map-outside-factory.tmx</file>
-</qresource>
-<qresource prefix="/sounds">
-    <file alias="Bubble-Gum-Puzzler.mp3" >sounds/Bubble-Gum-Puzzler.mp3</file>
-    <file alias="Bubble-Gum-Puzzler-2.mp3" >sounds/Bubble-Gum-Puzzler-2.mp3</file>
-    <file alias="Circling-the-Barn.mp3" >sounds/Circling-the-Barn.mp3</file>
-    <file alias="Mind-Bender.mp3" >sounds/Mind-Bender.mp3</file>
-    <file alias="UI_Quirky27.wav" >sounds/UI_Quirky27.wav</file>
-    <file alias="UI_Quirky28.wav" >sounds/UI_Quirky28.wav</file>
 </qresource>
 <qresource prefix="/entities">
     <file alias="door.png" >graphics/entities/door.png</file>

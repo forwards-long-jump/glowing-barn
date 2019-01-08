@@ -43,6 +43,7 @@ SOURCES += \
     src/camera.cpp \
     src/sounds.cpp \
     src/animationfactory.cpp \
+    src/particle.cpp \
     src/components/component.cpp \
     src/components/debug/debugtextcomponent.cpp \
     src/components/debug/debughitboxcomponent.cpp \
@@ -60,6 +61,7 @@ SOURCES += \
     src/components/graphics/animationcomponent.cpp \
     src/components/graphics/genericrendercomponent.cpp \
     src/components/graphics/transitioncomponent.cpp \
+    src/components/graphics/particlespawnercomponent.cpp \
     src/components/hitboxes/squarehitboxcomponent.cpp \
     src/components/hitboxes/circlehitboxcomponent.cpp \
     src/components/hitboxes/hitboxreactorcomponent.cpp \
@@ -75,6 +77,7 @@ SOURCES += \
     src/scenes/scene.cpp \
     src/scenes/gamescene.cpp \
     src/scenes/menuscene.cpp \
+    src/scenes/creditsscene.cpp \
     src/state/playerstate.cpp \
     src/state/runningstate.cpp \
     src/state/standingstate.cpp \
@@ -87,8 +90,7 @@ SOURCES += \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
     src/tilemap/mapobjectitem.cpp \
-    src/tilemap/entityfactory.cpp \
-    src/scenes/creditsscene.cpp
+    src/tilemap/entityfactory.cpp
 
 HEADERS += \
     include/game.h \
@@ -135,7 +137,15 @@ HEADERS += \
     include/genericrendercomponent.h \
     include/sounds.h \
     include/soundbuttonreactorcomponent.h \
-    include/creditsscene.h
+    include/creditsscene.h \
+    include/particle.h \
+    include/particlespawnercomponent.h
 
 RESOURCES += \
     assets/assets.qrc
+
+copydata.commands = $(COPY_DIR) $$PWD/assets $$OUT_PWD
+first.depends = $(first) copydata
+export(first.depends)
+export(copydata.commands)
+QMAKE_EXTRA_TARGETS += first copydata

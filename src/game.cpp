@@ -3,6 +3,8 @@
 Game::Game(QWidget* parent)
     : QGraphicsView(parent)
 {
+    QMediaPlayer* player = new QMediaPlayer(this, QMediaPlayer::LowLatency);
+    Sounds::setMediaPlayer(player);
     Sounds::loadSounds();
 
     // Set OpenGL

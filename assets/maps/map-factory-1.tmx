@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="212">
  <properties>
-  <property name="musicPath" value="qrc:/sounds/Mind-Bender.mp3"/>
+  <property name="musicPath" value="/assets/sounds/Mind-Bender.mp3"/>
   <property name="zoom" type="float" value="4.2"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
@@ -324,16 +324,6 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.9"/>
     <property name="texture" value=":/decorations/schaffre.png"/>
-   </properties>
-  </object>
-  <object id="203" gid="236" x="222.125" y="281.625" width="15.75" height="15.75"/>
-  <object id="211" gid="241" x="400" y="400" width="16" height="16">
-   <properties>
-    <property name="buttons" value=""/>
-    <property name="direction" value="left"/>
-    <property name="h" type="float" value="1"/>
-    <property name="speed" type="float" value="5"/>
-    <property name="w" type="float" value="12"/>
    </properties>
   </object>
  </objectgroup>
