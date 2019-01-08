@@ -21,6 +21,7 @@
 #include "magnetgravitycomponent.h"
 #include "genericrendercomponent.h"
 #include "soundbuttonreactorcomponent.h"
+#include "particlespawnercomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity

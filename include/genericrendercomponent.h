@@ -2,6 +2,7 @@
 #define GENERICRENDERCOMPONENT_H
 
 #include "graphicscomponent.h"
+#include <qmath.h>
 
 class GenericRenderComponent : public GraphicsComponent
 {
@@ -12,6 +13,7 @@ public:
     void render(QPainter* painter) override;
 
     static void circleMagnetHitbox(QPainter* p, Entity* e, int tick);
+    static void magnetEnabledEffect(QPainter* p, Entity* e, int tick);
 
 private:
     void (*functionToRender)(QPainter* p, Entity* e, int tick);

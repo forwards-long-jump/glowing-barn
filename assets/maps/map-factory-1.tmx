@@ -326,15 +326,5 @@
     <property name="texture" value=":/decorations/schaffre.png"/>
    </properties>
   </object>
-  <object id="203" gid="236" x="222.125" y="281.625" width="15.75" height="15.75"/>
-  <object id="211" gid="241" x="400" y="400" width="16" height="16">
-   <properties>
-    <property name="buttons" value=""/>
-    <property name="direction" value="left"/>
-    <property name="h" type="float" value="1"/>
-    <property name="speed" type="float" value="5"/>
-    <property name="w" type="float" value="12"/>
-   </properties>
-  </object>
  </objectgroup>
 </map>
