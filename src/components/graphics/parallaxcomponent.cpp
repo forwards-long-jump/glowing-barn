@@ -28,7 +28,7 @@ void ParallaxComponent::setAnchor(QPointF p)
 
 void ParallaxComponent::update()
 {
-    GameScene* gameScene = dynamic_cast<GameScene*>(getParent()->scene());
+    Scene* gameScene = dynamic_cast<Scene*>(getParent()->scene());
     QPointF cameraPos = gameScene->getCamera()->getPosition();
     QRectF cameraRect = gameScene->getCamera()->getBoundingRect();
     cameraPos.setX(qMax(cameraPos.x(), cameraRect.x()));
