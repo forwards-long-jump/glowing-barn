@@ -15,6 +15,8 @@ public:
     Scene(QString name = "default", Game* game = 0);
     ~Scene();
 
+    virtual void onEnter() {}
+    virtual void onLeave() {}
     virtual void onKeyChange(Input&) {}
     virtual void update() {}
 

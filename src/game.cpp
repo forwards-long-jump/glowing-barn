@@ -1,5 +1,7 @@
 #include "game.h"
 
+Input Game::input;
+
 Game::Game(QWidget* parent)
     : QGraphicsView(parent)
 {
@@ -55,12 +57,10 @@ Game::Game(QWidget* parent)
     updateTimer->start();
 }
 
-Input Game::input;
-
 Game::~Game()
 {
-    //qDeleteAll(scenes.begin(), scenes.end());
-    //scenes.clear();
+    qDeleteAll(scenes);
+    scenes.clear();
 }
 
 /**
@@ -106,7 +106,13 @@ void Game::addScene(QString nameScene, Scene* scene)
  */
 void Game::switchScene(QString nameScene)
 {
+    if(this->currentScene)
+        currentScene->onLeave();
+
     this->currentScene = scenes[nameScene];
+    if(this->currentScene)
+        currentScene->onEnter();
+
     this->setScene(currentScene);
 }
 
