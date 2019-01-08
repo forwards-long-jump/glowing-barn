@@ -16,7 +16,7 @@ public:
     ~Scene();
 
     void updateCamera();
-    virtual void onKeyChange(Input &input) {}
+    virtual void onKeyChange(Input&) {}
     virtual void update() {}
 
     Game* getGame() {return game;}
