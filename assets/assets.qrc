@@ -47,4 +47,7 @@
     <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
     <file alias="spacebar.png">graphics/interface/spacebar.png</file>
 </qresource>
+<qresource prefix="/credits">
+    <file alias="background.png">graphics/credits/background.png</file>
+</qresource>
 </RCC>
