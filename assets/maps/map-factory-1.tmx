@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="212">
  <properties>
-  <property name="musicPath" value="qrc:/sounds/Mind-Bender.mp3"/>
+  <property name="musicPath" value="/assets/sounds/Mind-Bender.mp3"/>
   <property name="zoom" type="float" value="4.2"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
