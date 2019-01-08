@@ -27,7 +27,7 @@ Game::Game(QWidget* parent)
     this->setCacheMode(QGraphicsView::CacheBackground);
     this->setViewportUpdateMode( QGraphicsView::FullViewportUpdate);
 
-    this->switchScene("menu");
+    this->switchScene("game");
 
     // Connections
     connect(this, &Game::keyPressEvent,
