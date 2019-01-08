@@ -13,6 +13,7 @@ Game::Game(QWidget* parent)
     // Basic Scene
     MenuScene* menuScene = new MenuScene("menu", this);
     GameScene* gameScene = new GameScene("game", this);
+    CreditsScene* creditsScene = new CreditsScene("credits", this);
 
     this->setFrameStyle(QFrame::NoFrame);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);

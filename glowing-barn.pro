@@ -43,6 +43,7 @@ SOURCES += \
     src/camera.cpp \
     src/sounds.cpp \
     src/animationfactory.cpp \
+    src/particle.cpp \
     src/components/component.cpp \
     src/components/debug/debugtextcomponent.cpp \
     src/components/debug/debughitboxcomponent.cpp \
@@ -76,6 +77,7 @@ SOURCES += \
     src/scenes/scene.cpp \
     src/scenes/gamescene.cpp \
     src/scenes/menuscene.cpp \
+    src/scenes/creditsscene.cpp \
     src/state/playerstate.cpp \
     src/state/runningstate.cpp \
     src/state/standingstate.cpp \
@@ -88,8 +90,7 @@ SOURCES += \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
     src/tilemap/mapobjectitem.cpp \
-    src/tilemap/entityfactory.cpp \
-    src/particle.cpp
+    src/tilemap/entityfactory.cpp
 
 HEADERS += \
     include/game.h \
@@ -136,6 +137,7 @@ HEADERS += \
     include/genericrendercomponent.h \
     include/sounds.h \
     include/soundbuttonreactorcomponent.h \
+    include/creditsscene.h \
     include/particle.h \
     include/particlespawnercomponent.h
 

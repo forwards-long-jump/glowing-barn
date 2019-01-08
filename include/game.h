@@ -10,6 +10,7 @@
 
 #include "gamescene.h"
 #include "menuscene.h"
+#include "creditsscene.h"
 #include "input.h"
 #include "sounds.h"
 
