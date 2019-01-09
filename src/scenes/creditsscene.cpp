@@ -37,9 +37,7 @@ void CreditsScene::onEnter()
 
     Entity* fader = new Entity(nullptr, -1000, -1000, 2000, 2000);
     fader->addComponent(new TransitionComponent(
-                [=]() {
-                    delete fader;
-                },
+                [=]() {},
                 [](QPainter* painter, const Entity* entity, int duration, int ticksPassed) {
                     if(ticksPassed < 60)
                     {
