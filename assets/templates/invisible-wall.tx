@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="invisible-wall" width="16.0" height="16.0"/>
+</template>
