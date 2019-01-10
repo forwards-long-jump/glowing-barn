@@ -43,7 +43,7 @@ private:
 
     QVector<QPair<Entity*, Entity*>> entitiesToAddLater;
     QMap<QString, Scene* > scenes;
-    Scene* currentScene;
+    Scene* currentScene = nullptr;
 
     const int MS_PER_UPDATE = 1000 / 60;
     QTimer* updateTimer;
