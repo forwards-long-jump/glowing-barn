@@ -70,13 +70,20 @@ Game::~Game()
 void Game::update() {
     // Add lag due to timer
     lag = lastUpdateTime->elapsed();
-    tick++;
 
-    while(lag > MS_PER_UPDATE) {
-        // Make sure to only update Entities
-        for(auto e : items()) {
-            Entity* entity = dynamic_cast<Entity*>(e);
-            if (entity)
+    while(lag > MS_PER_UPDATE)
+    {
+        tick++;
+
+        for(int i = 0; i < items().length(); ++i)
+        {
+            Entity* entity = static_cast<Entity*>(items()[i]);
+            if(entity->shouldBeDeleted())
+            {
+                delete items()[i];
+                i--;
+            }
+            else
             {
                 entity->update();
             }
