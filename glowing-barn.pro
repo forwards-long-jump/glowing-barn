@@ -7,8 +7,8 @@
 QT       += core gui
 QT       += opengl
 QT       += multimedia
-# TODO: REMOVE THIS AND DO NOT USE MUSICS AS RESOURCES
-CONFIG += resources_big
+
+CONFIG -= debug_and_release debug_and_release_target
 
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
@@ -27,7 +27,7 @@ DEFINES += QT_DEPRECATED_WARNINGS
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
-!win {
+!win32 {
     LIBS += -lz
 }
 
@@ -144,7 +144,12 @@ HEADERS += \
 RESOURCES += \
     assets/assets.qrc
 
-copydata.commands = $(COPY_DIR) $$PWD/assets $$OUT_PWD
+!win32 {
+    copydata.commands = $(COPY_DIR) $$PWD/assets $$OUT_PWD
+}
+win32 {
+    copydata.commands = $(COPY_DIR) $$shell_path($$PWD/assets) $$shell_path($$OUT_PWD/assets)
+}
 first.depends = $(first) copydata
 export(first.depends)
 export(copydata.commands)
