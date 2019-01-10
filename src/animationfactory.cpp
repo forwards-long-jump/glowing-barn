@@ -39,8 +39,8 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
     else if(animationName == "magnet-wave")
     {
         AnimationComponent::addAnimationToVector("active", 8, 3, animations);
-        AnimationComponent::addAnimationToVector("end", 1, 2, animations);
-        AnimationComponent::addAnimationToVector("start", 1, 2, animations);
+        AnimationComponent::addAnimationToVector("end", 2, 4, animations);
+        AnimationComponent::addAnimationToVector("start", 2, 4, animations);
         AnimationComponent::addAnimationToVector("idle", 1, 2, animations);
         return new AnimationComponent(":/entities/magnet-wave.png", 16, animations);
     }
