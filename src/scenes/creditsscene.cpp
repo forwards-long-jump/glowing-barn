@@ -4,7 +4,15 @@ CreditsScene::CreditsScene(QString name, Game *game) : Scene(name, game)
 {
     //Black background for fading
     this->setBackgroundBrush(Qt::black);
+}
 
+CreditsScene::~CreditsScene()
+{
+
+}
+
+void CreditsScene::onEnter()
+{
     bottom1 = new Entity(nullptr, 0, 32, 512, 48);
     bottom1->addComponent(new ImageComponent(":/credits/background.png"));
     bottom2 = new Entity(nullptr, -512, 32, 512, 48);
@@ -29,9 +37,7 @@ CreditsScene::CreditsScene(QString name, Game *game) : Scene(name, game)
 
     Entity* fader = new Entity(nullptr, -1000, -1000, 2000, 2000);
     fader->addComponent(new TransitionComponent(
-                [=]() {
-                    delete fader;
-                },
+                [=]() {},
                 [](QPainter* painter, const Entity* entity, int duration, int ticksPassed) {
                     if(ticksPassed < 60)
                     {
@@ -60,9 +66,9 @@ CreditsScene::CreditsScene(QString name, Game *game) : Scene(name, game)
     camera->attachTo(cameraLock);
 }
 
-CreditsScene::~CreditsScene()
+void CreditsScene::onLeave()
 {
-
+    this->clear();
 }
 
 void CreditsScene::update()
