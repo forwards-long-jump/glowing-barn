@@ -41,7 +41,7 @@ private:
     void scrollContentsBy(int, int) override {};
 
     QMap<QString, QGraphicsScene* > scenes;
-    QVector<QPair<Entity*, QGraphicsItem*>> entitiesToAddLater;
+    QVector<QPair<Entity*, Entity*>> entitiesToAddLater;
     QGraphicsScene* currentScene;
 
     const int MS_PER_UPDATE = 1000 / 60;
