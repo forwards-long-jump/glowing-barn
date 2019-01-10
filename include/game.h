@@ -26,7 +26,7 @@ public:
     void addScene(QString nameScene, QGraphicsScene* scene);
     void switchScene(QString nameScene);
 
-    void addEntityLater(Entity* e, QGraphicsItem* gi);
+    void addEntityLater(Entity* entityToAdd, Entity* parentEntity);
 
     unsigned int getTick() const;
 

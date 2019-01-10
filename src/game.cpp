@@ -127,9 +127,9 @@ void Game::switchScene(QString nameScene)
     this->setScene(currentScene);
 }
 
-void Game::addEntityLater(Entity *e, QGraphicsItem *gi)
+void Game::addEntityLater(Entity *entityToAdd, Entity *parentEntity)
 {
-    entitiesToAddLater.append(QPair<Entity*, QGraphicsItem*>(e, gi));
+    entitiesToAddLater.append(QPair<Entity*, Entity*>(entityToAdd, parentEntity));
 }
 
 unsigned int Game::getTick() const

@@ -14,7 +14,7 @@ void ParticleSpawnerComponent::spawn(int x, int y, float dx, float dy, int w, in
     Particle* p = new Particle(dx, dy, w, h, lifetime, this->particleRender, particleIndex++);
     p->setZValue(-1);
     p->setPos(x, y);
-    static_cast<Scene*>(getParent()->scene())->getGame()->addEntityLater(p, this->parent->parentItem());
+    static_cast<Scene*>(getParent()->scene())->getGame()->addEntityLater(p, static_cast<Entity*>(this->parent->parentItem()));
     //p->setParentItem(this->parent->parentItem());
     particles.append(p);
 }
