@@ -6,6 +6,12 @@
     <file alias="map-1.tmx" >maps/map-1.tmx</file>
     <file alias="map-2.tmx" >maps/map-2.tmx</file>
     <file alias="map-3.tmx" >maps/map-3.tmx</file>
+    <file alias="map-4.tmx" >maps/map-4.tmx</file>
+    <file alias="map-5.tmx" >maps/map-5.tmx</file>
+    <file alias="map-6.tmx" >maps/map-6.tmx</file>
+    <file alias="map-7.tmx" >maps/map-7.tmx</file>
+    <file alias="map-8.tmx" >maps/map-8.tmx</file>
+    <file alias="map-9.tmx" >maps/map-9.tmx</file>
     <file alias="map-factory-1.tmx" >maps/map-factory-1.tmx</file>
     <file alias="map-outside-factory.tmx" >maps/map-outside-factory.tmx</file>
 </qresource>

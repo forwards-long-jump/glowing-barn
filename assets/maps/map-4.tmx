@@ -40,29 +40,29 @@
   </object>
   <object id="150" name="door" x="480" y="112" width="16" height="32">
    <properties>
-    <property name="targetMap" value=":maps/map-test.tmx"/>
+    <property name="targetMap" value=":maps/map-5.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
-  <object id="151" gid="238" x="336" y="256" width="16" height="16">
+  <object id="151" gid="238" x="336" y="272" width="16" height="16">
    <properties>
     <property name="buttons" value=""/>
     <property name="force" type="float" value="20"/>
    </properties>
   </object>
-  <object id="152" gid="238" x="368" y="144" width="16" height="16" rotation="-90">
+  <object id="152" gid="238" x="361.305" y="147.238" width="16" height="16" rotation="-51.624">
    <properties>
     <property name="buttons" value=""/>
     <property name="force" type="float" value="20"/>
    </properties>
   </object>
-  <object id="153" gid="238" x="256" y="176" width="16" height="16">
+  <object id="153" gid="238" x="194.238" y="161.737" width="16" height="16">
    <properties>
     <property name="buttons" value="mainButton"/>
     <property name="force" type="float" value="20"/>
    </properties>
   </object>
-  <object id="154" gid="238" x="236.768" y="73.9723" width="16" height="16" rotation="45">
+  <object id="154" gid="238" x="206.768" y="54.9723" width="16" height="16" rotation="45">
    <properties>
     <property name="buttons" value=""/>
     <property name="force" type="float" value="20"/>

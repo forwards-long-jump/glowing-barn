@@ -78,49 +78,49 @@
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="193" name="spark" x="208" y="112" width="24" height="24">
+  <object id="193" name="spark" x="206.5" y="101" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="194" name="spark" x="256" y="112" width="24" height="24">
+  <object id="194" name="spark" x="252" y="117" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="195" name="spark" x="304" y="112" width="24" height="24">
+  <object id="195" name="spark" x="310" y="97.5" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="196" name="spark" x="352" y="112" width="24" height="24">
+  <object id="196" name="spark" x="351" y="114" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="197" name="spark" x="400" y="112" width="24" height="24">
+  <object id="197" name="spark" x="401" y="119.5" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="198" name="spark" x="448" y="112" width="24" height="24">
+  <object id="198" name="spark" x="451" y="101.5" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="199" name="spark" x="496" y="112" width="24" height="24">
+  <object id="199" name="spark" x="502.5" y="112.5" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
