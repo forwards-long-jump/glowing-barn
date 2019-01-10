@@ -26,6 +26,8 @@ public:
     void addScene(QString nameScene, QGraphicsScene* scene);
     void switchScene(QString nameScene);
 
+    void addEntityLater(Entity* e, QGraphicsItem* gi);
+
     unsigned int getTick() const;
 
     static Input input;
@@ -39,6 +41,7 @@ private:
     void scrollContentsBy(int, int) override {};
 
     QMap<QString, QGraphicsScene* > scenes;
+    QVector<QPair<Entity*, QGraphicsItem*>> entitiesToAddLater;
     QGraphicsScene* currentScene;
 
     const int MS_PER_UPDATE = 1000 / 60;

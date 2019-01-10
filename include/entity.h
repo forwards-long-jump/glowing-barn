@@ -29,10 +29,14 @@ public:
 
     QSizeF getSize() const;
     QRectF boundingRect() const;
+    bool shouldBeDeleted() const;
+    void deleteLater();
+
 private:
     QMap<QString, Component*>* components;
     QMap<QString, Component*>* disabledComponents;
     QSizeF size;
+    bool markedForDeletion = false;
 };
 
 #endif // ENTITY_H

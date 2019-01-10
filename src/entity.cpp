@@ -36,6 +36,16 @@ QRectF Entity::boundingRect() const
     return QRectF(0, 0, size.width(), size.height());
 }
 
+bool Entity::shouldBeDeleted() const
+{
+    return markedForDeletion;
+}
+
+void Entity::deleteLater()
+{
+    markedForDeletion = true;
+}
+
 /**
  * @brief Adds a component to this entity and init it
  * @param c

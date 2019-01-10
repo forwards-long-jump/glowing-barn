@@ -89,6 +89,15 @@ void Game::update() {
             }
         }
 
+        if(entitiesToAddLater.length())
+        {
+            for(int i = 0; i < entitiesToAddLater.length(); ++i)
+            {
+                entitiesToAddLater[i].first->setParentItem(entitiesToAddLater[i].second);
+            }
+            entitiesToAddLater.clear();
+        }
+
         static_cast<Scene*>(scene())->updateCamera();
         static_cast<Scene*>(scene())->update();
         Sounds::update();
@@ -116,6 +125,11 @@ void Game::switchScene(QString nameScene)
 {
     this->currentScene = scenes[nameScene];
     this->setScene(currentScene);
+}
+
+void Game::addEntityLater(Entity *e, QGraphicsItem *gi)
+{
+    entitiesToAddLater.append(QPair<Entity*, QGraphicsItem*>(e, gi));
 }
 
 unsigned int Game::getTick() const
