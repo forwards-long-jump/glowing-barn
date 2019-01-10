@@ -4,6 +4,8 @@
 #include "component.h"
 #include "particle.h"
 #include "scene.h"
+#include "magnetgravityreactorcomponent.h"
+#include "magnetzipperreactorcomponent.h"
 
 class Entity;
 
