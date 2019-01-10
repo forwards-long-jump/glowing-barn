@@ -6,7 +6,7 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
 
     if(animationName == "player")
     {
-        AnimationComponent::addAnimationToVector("running", 8, 5, animations);
+        AnimationComponent::addAnimationToVector("running", 8, 2, animations);
         AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
         AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
         AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
@@ -18,7 +18,7 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
     }
     else if(animationName == "playerStory")
     {
-        AnimationComponent::addAnimationToVector("running", 8, 5, animations);
+        AnimationComponent::addAnimationToVector("running", 8, 2, animations);
         AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
         AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
         AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
