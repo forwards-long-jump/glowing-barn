@@ -41,7 +41,7 @@
   <object id="150" name="door" x="1024" y="64" width="16" height="32">
    <properties>
     <property name="buttons" value=""/>
-    <property name="targetMap" value=":maps/map-test.tmx"/>
+    <property name="targetMap" value=":maps/map-7.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
