@@ -67,7 +67,7 @@ void Sounds::loadSounds()
     sounds.insert("magnetOn", sfx);
 
     sfx = new QSoundEffect();
-     sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
     sounds.insert("magnetOff", sfx);
 
     sfx = new QSoundEffect();
