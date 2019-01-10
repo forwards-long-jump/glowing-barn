@@ -1,9 +1,9 @@
 #ifndef PARTICLE_H
 #define PARTICLE_H
 
-#include <QGraphicsItem>
+#include "entity.h"
 
-class Particle : public QGraphicsItem
+class Particle : public Entity
 {
 public:
     Particle(float dx, float dy, int w, int h, int lifetime, void (*particleRender)(QPainter* painter, Particle* particle), int index);

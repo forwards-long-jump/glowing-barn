@@ -27,6 +27,8 @@ public:
     void addScene(QString nameScene, Scene* scene);
     void switchScene(QString nameScene);
 
+    void addEntityLater(Entity* entityToAdd, Entity* parentEntity);
+
     unsigned int getTick() const;
 
     static Input input;
@@ -39,8 +41,9 @@ private:
     // Prevent scrolling the view
     void scrollContentsBy(int, int) override {}
 
+    QVector<QPair<Entity*, Entity*>> entitiesToAddLater;
     QMap<QString, Scene* > scenes;
-    Scene* currentScene;
+    Scene* currentScene = nullptr;
 
     const int MS_PER_UPDATE = 1000 / 60;
     QTimer* updateTimer;
