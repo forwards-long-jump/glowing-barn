@@ -1,5 +1,7 @@
 #include "game.h"
 
+Input Game::input;
+
 Game::Game(QWidget* parent)
     : QGraphicsView(parent)
 {
@@ -11,8 +13,9 @@ Game::Game(QWidget* parent)
     this->setViewport(new QGLWidget());
 
     // Basic Scene
-    MenuScene* menuScene = new MenuScene("menu", this);
-    GameScene* gameScene = new GameScene("game", this);
+    new MenuScene("menu", this);
+    new GameScene("game", this);
+    new CreditsScene("credits", this);
 
     this->setFrameStyle(QFrame::NoFrame);
     this->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
@@ -24,9 +27,7 @@ Game::Game(QWidget* parent)
     this->setCacheMode(QGraphicsView::CacheBackground);
     this->setViewportUpdateMode( QGraphicsView::FullViewportUpdate);
 
-    currentScene = gameScene;
-
-    this->setScene(currentScene);
+    this->switchScene("game");
 
     // Connections
     connect(this, &Game::keyPressEvent,
@@ -56,12 +57,10 @@ Game::Game(QWidget* parent)
     updateTimer->start();
 }
 
-Input Game::input;
-
 Game::~Game()
 {
-    //qDeleteAll(scenes.begin(), scenes.end());
-    //scenes.clear();
+    qDeleteAll(scenes);
+    scenes.clear();
 }
 
 /**
@@ -112,7 +111,7 @@ void Game::update() {
  * @param nameScene
  * @param scene
  */
-void Game::addScene(QString nameScene, QGraphicsScene* scene)
+void Game::addScene(QString nameScene, Scene* scene)
 {
     scenes.insert(nameScene, scene);
 }
@@ -123,7 +122,13 @@ void Game::addScene(QString nameScene, QGraphicsScene* scene)
  */
 void Game::switchScene(QString nameScene)
 {
+    if(this->currentScene)
+        currentScene->onLeave();
+
     this->currentScene = scenes[nameScene];
+    if(this->currentScene)
+        currentScene->onEnter();
+
     this->setScene(currentScene);
 }
 

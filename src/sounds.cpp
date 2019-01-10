@@ -11,7 +11,7 @@ QString Sounds::nextMusic = "";
 
 void Sounds::playMusic(QString path)
 {
-    player->setMedia(QUrl("file://" + QCoreApplication::applicationDirPath() + path));
+    player->setMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + path));
     player->play();
     player->setVolume(100);
 }
@@ -63,18 +63,18 @@ void Sounds::loadSounds()
     // TODO: Better loading system
     // Loading sounds multiple time will cause a memory leak
     QSoundEffect* sfx = new QSoundEffect();
-    sfx->setSource(QUrl("file://" + QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky27.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky27.wav"));
     sounds.insert("magnetOn", sfx);
 
     sfx = new QSoundEffect();
-     sfx->setSource(QUrl("file://" + QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
+     sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
     sounds.insert("magnetOff", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl("file://" + QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky27.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky27.wav"));
     sounds.insert("leverOn", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl("file://" + QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
     sounds.insert("leverOff", sfx);
 }

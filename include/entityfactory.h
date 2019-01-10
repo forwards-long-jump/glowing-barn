@@ -31,6 +31,7 @@ class EntityFactory
 public:
     static Entity* player(Tiled::MapObject*, Entity* = nullptr);
     static Entity* player(QPointF, QSizeF, QString animationName, Entity* = nullptr);
+    static Entity* playerCredits(QPointF, QSizeF, Entity* = nullptr);
 
     static Entity* spark(Tiled::MapObject* object, Entity* parent);
 

@@ -15,9 +15,12 @@ public:
     Scene(QString name = "default", Game* game = 0);
     ~Scene();
 
-    void updateCamera();
-    virtual void onKeyChange(Input &input) {}
+    virtual void onEnter() {}
+    virtual void onLeave() {}
+    virtual void onKeyChange(Input&) {}
     virtual void update() {}
+
+    void updateCamera();
 
     Game* getGame() {return game;}
     Camera* getCamera() {return camera;}

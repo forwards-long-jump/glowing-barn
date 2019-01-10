@@ -10,6 +10,7 @@
 
 #include "gamescene.h"
 #include "menuscene.h"
+#include "creditsscene.h"
 #include "input.h"
 #include "sounds.h"
 
@@ -23,7 +24,7 @@ public:
     Game(QWidget* parent = 0);
     ~Game();
 
-    void addScene(QString nameScene, QGraphicsScene* scene);
+    void addScene(QString nameScene, Scene* scene);
     void switchScene(QString nameScene);
 
     void addEntityLater(Entity* entityToAdd, Entity* parentEntity);
@@ -38,11 +39,11 @@ signals:
 
 private:
     // Prevent scrolling the view
-    void scrollContentsBy(int, int) override {};
+    void scrollContentsBy(int, int) override {}
 
-    QMap<QString, QGraphicsScene* > scenes;
     QVector<QPair<Entity*, Entity*>> entitiesToAddLater;
-    QGraphicsScene* currentScene;
+    QMap<QString, Scene* > scenes;
+    Scene* currentScene;
 
     const int MS_PER_UPDATE = 1000 / 60;
     QTimer* updateTimer;

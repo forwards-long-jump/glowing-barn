@@ -107,6 +107,17 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     return player;
 }
 
+Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
+{
+    Entity* playerCredits = new Entity(parent, pos, size);
+
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("player");
+    animationComponent->setCurrentAnimation("running");
+    playerCredits->addComponent(animationComponent);
+
+    return playerCredits;
+}
+
 Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
