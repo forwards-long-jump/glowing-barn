@@ -194,6 +194,20 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+Entity* EntityFactory::cameraSequence(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* cameraSequence = new Entity(parent, object->position(), object->size());
+    cameraSequence->addComponent(new CameraSequenceComponent(
+                                     object->propertyAsString("buttons"),
+                                     object->propertyAsString("speed").toFloat(),
+                                     object->propertyAsString("cancelAfter").toInt(),
+                                     object->property("lockPlayerInput").toBool(),
+                                     object->property("playOnce").toBool()
+                                     )
+                                );
+    return cameraSequence;
+}
+
 Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),

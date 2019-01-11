@@ -60,6 +60,11 @@ void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
     addItem(e);
 }
 
+Entity *GameScene::getPlayer() const
+{
+    return mapItem->getPlayer();
+}
+
 void GameScene::update()
 {
     if(changeMapScheduled)
