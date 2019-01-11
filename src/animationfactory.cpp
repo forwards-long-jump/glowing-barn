@@ -92,13 +92,20 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
     }
     else if(animationName == "magnetGravity")
     {
-            AnimationComponent::addAnimationToVector("active", 1, 1, animations);
-            AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
-            AnimationComponent::addAnimationToVector("end", 2, 1, animations);
-            AnimationComponent::addAnimationToVector("start", 2, 1, animations);
-            return new AnimationComponent(":/entities/magnet-gravity.png", 16, animations);
+        AnimationComponent::addAnimationToVector("start", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        return new AnimationComponent(":/entities/magnet-gravity.png", 16, animations);
     }
-
+    else if(animationName == "boxContainer")
+    {
+            AnimationComponent::addAnimationToVector("start", 3, 1, animations);
+            AnimationComponent::addAnimationToVector("end", 3, 1, animations);
+            AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+            AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+            return new AnimationComponent(":/entities/box-container.png", 26, animations);
+    }
     // Missing / invalid animation
     assert(false);
     return nullptr;
