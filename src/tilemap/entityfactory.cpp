@@ -396,7 +396,7 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
     }
     if(object->propertyAsString("texture") != "")
     {
-        e->addComponent(new ImageComponent(object->propertyAsString("texture")));
+        e->addComponent(new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons")));
     }
     if(object->propertyAsString("parallax") != "")
     {
