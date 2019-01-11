@@ -19,6 +19,8 @@
 #include "magnetjumpercomponent.h"
 #include "magnetgravityreactorcomponent.h"
 #include "magnetgravitycomponent.h"
+#include "storyactivationcomponent.h"
+#include "storymagnetcomponent.h"
 #include "genericrendercomponent.h"
 #include "soundbuttonreactorcomponent.h"
 #include "particlespawnercomponent.h"
@@ -33,6 +35,7 @@ public:
     static Entity* player(Tiled::MapObject*, Entity* = nullptr);
     static Entity* player(QPointF, QSizeF, QString animationName, Entity* = nullptr);
     static Entity* playerCredits(QPointF, QSizeF, Entity* = nullptr);
+    static Entity* storyPlayer(QPointF pos, QSizeF size, Entity* parent = nullptr);
 
     static Entity* spark(Tiled::MapObject* object, Entity* parent);
 
@@ -52,6 +55,9 @@ public:
     static Entity* graphic(Tiled::MapObject*, Entity* = nullptr);
     static Entity* door(Tiled::MapObject*, Entity*  = nullptr);
 
+    static Entity* storyActivation(Tiled::MapObject* object, Entity* parent = nullptr);
+    static Entity* storyMagnet(Tiled::MapObject* object, Entity* parent = nullptr);
+    
     static Entity* cameraSequence(Tiled::MapObject* object, Entity*  parent = nullptr);
 
     static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);

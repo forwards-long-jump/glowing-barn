@@ -35,7 +35,7 @@ public:
 
     void action(Entity* target) override;
 
-private:
+protected:
     static QVector<GameButtonComponent* > instances;
 
     QString buttonName;

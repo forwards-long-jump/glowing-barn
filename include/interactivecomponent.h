@@ -16,7 +16,7 @@ public:
     void init() override;
     void onIntersect(HitboxComponent* hb) override;
 
-    void showPrompt() const;
+    virtual void showPrompt() const;
     virtual void action(Entity* target) = 0;
 
 protected:

@@ -91,6 +91,8 @@ SOURCES += \
     src/tilemap/objectgroupitem.cpp \
     src/tilemap/mapobjectitem.cpp \
     src/tilemap/entityfactory.cpp \
+    src/components/gameplay/storyactivationcomponent.cpp \
+    src/components/gameplay/storymagnetcomponent.cpp \
     src/components/gameplay/camerasequencecomponent.cpp
 
 HEADERS += \
@@ -141,6 +143,8 @@ HEADERS += \
     include/creditsscene.h \
     include/particle.h \
     include/particlespawnercomponent.h \
+    include/storyactivationcomponent.h \
+    include/storymagnetcomponent.h \
     include/camerasequencecomponent.h
 
 RESOURCES += \

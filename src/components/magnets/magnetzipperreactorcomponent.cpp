@@ -113,6 +113,13 @@ void MagnetZipperReactorComponent::onEnable()
     zipperDx = 0;
     zipperDy = 0;
     zipperFirstEntrance = true;
+
+    Sounds::playSound("magnetOn");
+}
+
+void MagnetZipperReactorComponent::onDisable()
+{
+    Sounds::playSound("magnetOff");
 }
 
 void MagnetZipperReactorComponent::update()

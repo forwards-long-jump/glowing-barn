@@ -2,7 +2,11 @@
 
 Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 {
-    return EntityFactory::player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
+    if (object->propertyAsString("animationName") == "playerStory")
+    {
+        return storyPlayer(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
+    }
+    return player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
 }
 
 Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, Entity* parent)
@@ -117,6 +121,21 @@ Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
     return playerCredits;
 }
 
+Entity* EntityFactory::storyPlayer(QPointF pos, QSizeF size, Entity* parent)
+{
+    Entity* player = new Entity(parent, pos, size);
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("playerStory");
+    player->addComponent(animationComponent);
+
+    player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
+    player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
+    player->addComponent(new PlayerInputComponent());
+    player->addComponent(new PhysicsComponent());
+    player->addComponent(new HurtReactorComponent());
+
+    return player;
+}
+
 Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -191,6 +210,24 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     ac->setButtons("auto_door");
     e->addComponent(ac);
     e->addComponent(new ParallaxComponent(0.0001));
+    return e;
+}
+
+Entity *EntityFactory::storyActivation(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new StoryActivationComponent(object->propertyAsString("name")));
+    return e;
+}
+
+Entity *EntityFactory::storyMagnet(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new StoryMagnetComponent(object->propertyAsString("buttons"), object->propertyAsString("targetMap")));
+    ImageComponent* image = new ImageComponent(":/entities/magnet-zipper.png");
+    image->setRotation(-90);
+    e->addComponent(image);
+
     return e;
 }
 
