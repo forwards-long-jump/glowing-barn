@@ -17,10 +17,13 @@ public:
     float getForce() const;
     float getRotation() const;
 
+    bool isDisabled() const;
+
 private:
     QVector<QString> requiredButtons;
     float force = 5;
     float rotation = 0;
+    bool disabled = false;
 };
 
 #endif // MAGNETJUMPERCOMPONENT_H

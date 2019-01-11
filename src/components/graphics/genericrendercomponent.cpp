@@ -22,7 +22,7 @@ void GenericRenderComponent::circleMagnetHitbox(QPainter* p, Entity* e, int tick
     int activeRadius = static_cast<int>(tick * speed) % diameter / 2;
 
     p->setBrush(Qt::transparent);
-    p->setPen(QColor(58, 68, 102, 127 - (activeRadius / (diameter / 2.0f)) * 127));
+    p->setPen(QColor(255, 255, 255, 127 - (activeRadius / (diameter / 2.0f)) * 127));
 
     if(mgc->getForce() > 0)
     {
@@ -33,8 +33,8 @@ void GenericRenderComponent::circleMagnetHitbox(QPainter* p, Entity* e, int tick
         p->drawEllipse(QPointF(diameter / 2, diameter / 2), -activeRadius + diameter / 2, -activeRadius +  diameter / 2);
     }
 
-    p->setPen(QColor(58, 68, 102, 127));
-    p->setBrush(QColor(90, 105, 136, 50));
+    p->setPen(QColor(255, 255, 255, 127));
+    p->setBrush(QColor(255, 255, 255, 50));
     p->drawEllipse(0, 0, diameter, diameter);
 
 }

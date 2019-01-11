@@ -61,7 +61,6 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
 
                                 if(e->getComponent("MagnetZipperReactorComponent"))
                                 {
-                                   ParticleSpawnerComponent* magnetParticleSpawner = static_cast<ParticleSpawnerComponent*>(e->getComponent("MagnetParticleSpawner"));
                                    AnimationComponent* ac = static_cast<AnimationComponent*>(e->getComponent("AnimationComponent"));
                                    PhysicsComponent* pc = static_cast<PhysicsComponent*>(e->getComponent("PhysicsComponent"));
 
@@ -224,9 +223,99 @@ Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
                         )
                     );
 
-    ImageComponent* ic = new ImageComponent(":/entities/magnet-jumper.png");
-    ic->setRotation(object->rotation());
-    e->addComponent(ic);
+    const int PARTICLE_LIFE_TIME = 20;
+    const int PARTICLE_SIZE = 3;
+
+    e->addComponent(new ParticleSpawnerComponent(
+                             [](QPainter* painter, Particle* particle)
+                             {
+                                 if(particle->getIndex() % 2 == 0)
+                                 {
+                                     painter->fillRect(0, 0, PARTICLE_SIZE, PARTICLE_SIZE, QColor(248, 0, 67, (particle->getLifetime() / static_cast<float>(PARTICLE_LIFE_TIME)) * 255));
+                                 }
+                                 else
+                                 {
+                                     painter->fillRect(0, 0, PARTICLE_SIZE, PARTICLE_SIZE, QColor(0, 145, 228, (particle->getLifetime() / static_cast<float>(PARTICLE_LIFE_TIME)) * 255));
+                                 }
+                            },
+                            [](Particle* particle)
+                            {
+                                particle->setPos(
+                                            particle->pos() +
+                                            QPointF(particle->getDx(), particle->getDy()));
+                            },
+                            [](Entity* e, int tick) -> QVector<ParticleParameters>
+                            {
+                                MagnetJumperComponent* mjc = static_cast<MagnetJumperComponent*>(e->getComponent("MagnetJumperComponent"));
+
+                                const float LEFT_POSITION_COEFF = 0.15;
+                                const float RIGHT_POSITION_COEFF = 0.72;
+                                const float Y_COEFF = 0.12;
+
+                                if(tick % 5 == 0 && !mjc->isDisabled())
+                                {
+                                    float x1 = RIGHT_POSITION_COEFF * e->getSize().width();
+                                    float x2 = LEFT_POSITION_COEFF  * e->getSize().width();
+                                    float y1 = Y_COEFF * e->getSize().height();
+                                    float y2 = Y_COEFF * e->getSize().height();
+
+                                    x1 -= e->getSize().width() / 2.0 - 1;
+                                    x2 -= e->getSize().width() / 2.0 - 1;
+                                    y1 -= e->getSize().height() / 2.0 - 1;
+                                    y2 -= e->getSize().height() / 2.0 - 1;
+
+                                    float rad = qDegreesToRadians(mjc->getRotation());
+
+                                    float xr1 = x1 * qCos(rad) - y1 * qSin(rad);
+                                    float yr1 = y1 * qCos(rad) + x1 * qSin(rad);
+
+                                    float xr2 = x2 * qCos(rad) - y2 * qSin(rad);
+                                    float yr2 = y2 * qCos(rad) + x2 * qSin(rad);
+
+                                    xr1 += e->getSize().width() / 2.0 - 1;
+                                    xr2 += e->getSize().width() / 2.0 - 1;
+                                    yr1 += e->getSize().height() / 2.0 - 1;
+                                    yr2 += e->getSize().height() / 2.0 - 1;
+
+                                    xr1 += e->x();
+                                    xr2 += e->x();
+                                    yr1 += e->y();
+                                    yr2 += e->y();
+
+                                    ParticleParameters p1;
+                                    p1.x = xr2;
+                                    p1.y = yr2;
+                                    p1.dx = qSin(qDegreesToRadians(mjc->getRotation()));
+                                    p1.dy = -qCos(qDegreesToRadians(mjc->getRotation()));
+                                    p1.w = PARTICLE_SIZE;
+                                    p1.h = PARTICLE_SIZE;
+                                    p1.lifetime = PARTICLE_LIFE_TIME;
+
+                                    ParticleParameters p2;
+                                    p2.x = xr1;
+                                    p2.y = yr1;
+                                    p2.dx = qSin(qDegreesToRadians(mjc->getRotation()));
+                                    p2.dy = -qCos(qDegreesToRadians(mjc->getRotation()));
+                                    p2.w = PARTICLE_SIZE;
+                                    p2.h = PARTICLE_SIZE;
+                                    p2.lifetime = PARTICLE_LIFE_TIME;
+
+
+                                    QVector<ParticleParameters> v;
+                                    v.append(p1);
+                                    v.append(p2);
+                                    return v;
+                                }
+
+
+                                return QVector<ParticleParameters>();
+                            },
+    "MagnetParticleSpawner"));
+
+    AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnetJumper");
+    ac->setButtons(object->propertyAsString("buttons"));
+    ac->setRotation(object->rotation());
+    e->addComponent(ac);
 
     return e;
 }
@@ -245,9 +334,10 @@ Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
                         )
                     );
 
-    ImageComponent* ic = new ImageComponent(":/entities/magnet-gravity.png");
-    ic->setRotation(object->rotation());
-    e->addComponent(ic);
+    AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnetGravity");
+    ac->setButtons(object->propertyAsString("buttons"));
+    ac->setRotation(object->rotation());
+    e->addComponent(ac);
 
     Entity* hitboxDisplay = new Entity(
             e, - QPointF(radius - object->size().width() / 2, radius - object->size().height() / 2),
