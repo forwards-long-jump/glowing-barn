@@ -3,7 +3,8 @@
 Particle::Particle(float dx, float dy, int w, int h, int lifetime, void (*particleRender)(QPainter* painter, Particle* particle), int index) :
     dx(dx), dy(dy), index(index),
     boundingRectangle(0, 0, w, h), lifetime(lifetime),
-    particleRender(particleRender) {}
+    particleRender(particleRender),
+    Entity(nullptr, 0, 0, w, h) {}
 
 QRectF Particle::boundingRect() const
 {

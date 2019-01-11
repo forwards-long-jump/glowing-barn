@@ -24,16 +24,23 @@ float MagnetJumperComponent::getRotation() const
     return rotation;
 }
 
+bool MagnetJumperComponent::isDisabled() const
+{
+    return disabled;
+}
+
 void MagnetJumperComponent::update() {
     if(requiredButtons.length() > 0)
     {
         if(GameButtonComponent::areButtonsPressed(requiredButtons))
         {
             getParent()->enableComponent(HITBOX_NAME);
+            disabled = false;
         }
         else
         {
             getParent()->disableComponent(HITBOX_NAME);
+            disabled = true;
         }
     }
 }

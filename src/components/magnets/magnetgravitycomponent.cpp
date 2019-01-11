@@ -36,16 +36,25 @@ float MagnetGravityComponent::getForce() const
     return force;
 }
 
+int MagnetGravityComponent::getDisabledTime() const
+{
+    return ticksDisabled;
+}
+
 void MagnetGravityComponent::update() {
     if(requiredButtons.length() > 0)
     {
         if(GameButtonComponent::areButtonsPressed(requiredButtons))
         {
             getParent()->enableComponent(HITBOX_NAME);
+            ticksDisabled -= 2;
+            if(ticksDisabled > 50) ticksDisabled = 50;
+            if(ticksDisabled < 0)  ticksDisabled = 0;
         }
         else
         {
             getParent()->disableComponent(HITBOX_NAME);
+            ticksDisabled++;
         }
     }
 }

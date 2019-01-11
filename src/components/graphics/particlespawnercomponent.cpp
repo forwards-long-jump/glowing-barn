@@ -9,9 +9,15 @@ ParticleSpawnerComponent::ParticleSpawnerComponent(void (*particleRender)(QPaint
     spawnCondition(spawnCondition),
     particleUpdate(particleUpdate) {}
 
-void ParticleSpawnerComponent::spawn(int x, int y, float dx, float dy, int w, int h, int lifetime)
+void ParticleSpawnerComponent::spawn(int x, int y, float dx, float dy, int w, int h, int lifetime, bool affectedByMagnets)
 {
     Particle* p = new Particle(dx, dy, w, h, lifetime, this->particleRender, particleIndex++);
+    if(affectedByMagnets)
+    {
+        p->addComponent(new PhysicsComponent(100, 100, 0, -10, 0, 100));
+        p->addComponent(new MagnetGravityReactorComponent);
+        p->addComponent(new MagnetZipperReactorComponent);
+    }
     p->setZValue(-1);
     p->setPos(x, y);
     static_cast<Scene*>(getParent()->scene())->getGame()->addEntityLater(p, static_cast<Entity*>(this->parent->parentItem()));

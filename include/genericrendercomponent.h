@@ -2,7 +2,9 @@
 #define GENERICRENDERCOMPONENT_H
 
 #include "graphicscomponent.h"
+#include "magnetgravitycomponent.h"
 #include <qmath.h>
+
 
 class GenericRenderComponent : public GraphicsComponent
 {

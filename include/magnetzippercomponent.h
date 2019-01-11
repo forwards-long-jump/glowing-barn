@@ -28,6 +28,7 @@ public:
 private:
     const int WAVE_ANIMATION_SIZE = 16;
     void addAnimations();
+    int rotation = 0;
     float speed = 5;
     QSizeF hitboxSize;
     QVector<QString> requiredButtons;
