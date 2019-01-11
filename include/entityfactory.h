@@ -34,6 +34,7 @@ public:
     static Entity* player(Tiled::MapObject*, Entity* = nullptr);
     static Entity* player(QPointF, QSizeF, QString animationName, Entity* = nullptr);
     static Entity* playerCredits(QPointF, QSizeF, Entity* = nullptr);
+    static Entity* storyPlayer(QPointF pos, QSizeF size, Entity* parent = nullptr);
 
     static Entity* spark(Tiled::MapObject* object, Entity* parent);
 

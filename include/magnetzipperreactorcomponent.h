@@ -14,6 +14,7 @@ public:
     void init() override;
     void onIntersect(HitboxComponent* hitboxComponent) override;
     void onEnable() override;
+    void onDisable() override;
     void update() override;
 
 

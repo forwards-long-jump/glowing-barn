@@ -2,7 +2,11 @@
 
 Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 {
-    return EntityFactory::player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
+    if (object->propertyAsString("animationName") == "playerStory")
+    {
+        return storyPlayer(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
+    }
+    return player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
 }
 
 Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, Entity* parent)
@@ -116,6 +120,21 @@ Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
     playerCredits->addComponent(animationComponent);
 
     return playerCredits;
+}
+
+Entity* EntityFactory::storyPlayer(QPointF pos, QSizeF size, Entity* parent)
+{
+    Entity* player = new Entity(parent, pos, size);
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("playerStory");
+    player->addComponent(animationComponent);
+
+    player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
+    player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
+    player->addComponent(new PlayerInputComponent());
+    player->addComponent(new PhysicsComponent());
+    player->addComponent(new HurtReactorComponent());
+
+    return player;
 }
 
 Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)

@@ -40,13 +40,8 @@ void PlayerInputComponent::update()
             // Toggle all magnetic components here
             // NOTE: We mostly use the magnetZipper to check if any magnet is enabled
             if(!parent->disableComponent("MagnetZipperReactorComponent"))
-            {
-                Sounds::playSound("magnetOn");
+            {  
                 parent->enableComponent("MagnetZipperReactorComponent");
-            }
-            else
-            {
-                Sounds::playSound("magnetOff");
             }
 
             if(!parent->disableComponent("MagnetJumperReactorComponent")) parent->enableComponent("MagnetJumperReactorComponent");
