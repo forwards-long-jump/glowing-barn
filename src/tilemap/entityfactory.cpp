@@ -195,6 +195,24 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+Entity *EntityFactory::storyActivation(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new StoryActivationComponent(object->propertyAsString("name")));
+    return e;
+}
+
+Entity *EntityFactory::storyMagnet(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new StoryMagnetComponent(object->propertyAsString("buttons"), object->propertyAsString("targetMap")));
+    ImageComponent* image = new ImageComponent(":/entities/magnet-zipper.png");
+    image->setRotation(-90);
+    e->addComponent(image);
+
+    return e;
+}
+
 Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),

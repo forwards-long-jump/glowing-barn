@@ -77,4 +77,8 @@ void Sounds::loadSounds()
     sfx = new QSoundEffect();
     sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
     sounds.insert("leverOff", sfx);
+
+    sfx = new QSoundEffect();
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/slap.wav"));
+    sounds.insert("crash", sfx);
 }

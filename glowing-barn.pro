@@ -90,7 +90,9 @@ SOURCES += \
     src/tilemap/tilelayeritem.cpp \
     src/tilemap/objectgroupitem.cpp \
     src/tilemap/mapobjectitem.cpp \
-    src/tilemap/entityfactory.cpp
+    src/tilemap/entityfactory.cpp \
+    src/components/gameplay/storyactivationcomponent.cpp \
+    src/components/gameplay/storymagnetcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -139,7 +141,9 @@ HEADERS += \
     include/soundbuttonreactorcomponent.h \
     include/creditsscene.h \
     include/particle.h \
-    include/particlespawnercomponent.h
+    include/particlespawnercomponent.h \
+    include/storyactivationcomponent.h \
+    include/storymagnetcomponent.h
 
 RESOURCES += \
     assets/assets.qrc

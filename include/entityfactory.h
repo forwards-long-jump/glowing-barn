@@ -19,6 +19,8 @@
 #include "magnetjumpercomponent.h"
 #include "magnetgravityreactorcomponent.h"
 #include "magnetgravitycomponent.h"
+#include "storyactivationcomponent.h"
+#include "storymagnetcomponent.h"
 #include "genericrendercomponent.h"
 #include "soundbuttonreactorcomponent.h"
 #include "particlespawnercomponent.h"
@@ -50,6 +52,9 @@ public:
 
     static Entity* graphic(Tiled::MapObject*, Entity* = nullptr);
     static Entity* door(Tiled::MapObject*, Entity*  = nullptr);
+
+    static Entity* storyActivation(Tiled::MapObject* object, Entity* parent = nullptr);
+    static Entity* storyMagnet(Tiled::MapObject* object, Entity* parent = nullptr);
 
     static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);
     static Entity* gameButton(Tiled::MapObject* object, Entity* parent);

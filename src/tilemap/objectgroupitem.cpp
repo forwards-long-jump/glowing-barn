@@ -51,6 +51,12 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
             else if(object->name() == "invisible-wall") {
                 EntityFactory::collision(object->position(), object->size(), parent);
             }
+            else if(object->name() == "story-activation") {
+                EntityFactory::storyActivation(object, parent);
+            }
+            else if(object->name() == "story-magnet") {
+                EntityFactory::storyMagnet(object, parent);
+            }
             else if(object->name() == "sound") {
                 EntityFactory::soundButtonReactor(object, parent);
             }
