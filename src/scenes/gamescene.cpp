@@ -1,18 +1,4 @@
 #include "gamescene.h"
-#include "debugcomponent.h"
-#include "playerinputcomponent.h"
-#include "physicscomponent.h"
-
-#include "debugcomponent.h"
-#include "playerinputcomponent.h"
-#include "physicscomponent.h"
-#include "hitboxcomponent.h"
-#include "animationcomponent.h"
-#include "gamebuttoncomponent.h"
-#include "transitioncomponent.h"
-#include "sounds.h"
-
-#include "doorcomponent.h"
 
 GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)

@@ -7,6 +7,10 @@
 #include "orthogonalrenderer.h"
 #include "mapitem.h"
 
+#include "hitboxcomponent.h"
+#include "transitioncomponent.h"
+#include "sounds.h"
+
 #include <QDebug>
 #include <QFileSystemWatcher>
 
