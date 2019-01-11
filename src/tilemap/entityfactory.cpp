@@ -360,7 +360,6 @@ Entity* EntityFactory::box(Tiled::MapObject* object, Entity* parent)
     e->addComponent(new MagnetJumperReactorComponent());
     e->addComponent(new MagnetGravityReactorComponent());
     e->addComponent(new MagnetGravityReactorComponent("BoxGravityHitbox", "PlayerGravityMagnet", ""));
-    e->addComponent(new MagnetGravityComponent(40, 2, "", QPointF(), "BoxGravityHitbox", "PlayerGravityMagnet"));
     e->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
 
     return e;
