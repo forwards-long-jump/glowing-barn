@@ -14,9 +14,29 @@ void GenericRenderComponent::circleMagnetHitbox(QPainter* p, Entity* e, int tick
 {
     int diameter = e->getSize().width();
 
-    p->setPen(QColor(58, 68, 102, 50));
-    p->setBrush(QColor(90, 105, 136, 50));
+    MagnetGravityComponent* mgc = static_cast<MagnetGravityComponent*>(e->getParent()->getComponent("MagnetGravityComponent"));
+
+
+    p->setOpacity(1 - qMin(mgc->getDisabledTime() / 20.0, 1.0));
+    float speed = (mgc->getForce() - 0.25) / 99.75f + 2;
+    int activeRadius = static_cast<int>(tick * speed) % diameter / 2;
+
+    p->setBrush(Qt::transparent);
+    p->setPen(QColor(255, 255, 255, 127 - (activeRadius / (diameter / 2.0f)) * 127));
+
+    if(mgc->getForce() > 0)
+    {
+        p->drawEllipse(QPointF(diameter / 2, diameter / 2), activeRadius, activeRadius);
+    }
+    else
+    {
+        p->drawEllipse(QPointF(diameter / 2, diameter / 2), -activeRadius + diameter / 2, -activeRadius +  diameter / 2);
+    }
+
+    p->setPen(QColor(255, 255, 255, 127));
+    p->setBrush(QColor(255, 255, 255, 50));
     p->drawEllipse(0, 0, diameter, diameter);
+
 }
 
 void GenericRenderComponent::magnetEnabledEffect(QPainter *p, Entity *e, int tick)

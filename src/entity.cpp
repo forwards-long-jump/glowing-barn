@@ -8,7 +8,7 @@
  * @param width
  * @param height
  */
-Entity::Entity(QGraphicsItem* parent, float x, float y, float width, float height) : QGraphicsItem(parent)
+Entity::Entity(QGraphicsItem* parent, float x, float y, float width, float height) : QGraphicsItem(parent), parent(static_cast<Entity*>(parent))
 {
     setPos(x, y);
     size.setWidth(width);
@@ -44,6 +44,11 @@ bool Entity::shouldBeDeleted() const
 void Entity::deleteLater()
 {
     markedForDeletion = true;
+}
+
+Entity *Entity::getParent() const
+{
+    return parent;
 }
 
 /**

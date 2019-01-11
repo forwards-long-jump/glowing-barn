@@ -36,11 +36,19 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("active", 1, 1, animations);
         return new AnimationComponent(":/entities/lever.png", 16, animations);
     }
+    else if(animationName == "plate")
+    {
+        AnimationComponent::addAnimationToVector("start", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 3, 1, animations);
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        return new AnimationComponent(":/entities/plate.png", 16, animations);
+    }
     else if(animationName == "magnet-wave")
     {
         AnimationComponent::addAnimationToVector("active", 8, 3, animations);
-        AnimationComponent::addAnimationToVector("end", 1, 2, animations);
-        AnimationComponent::addAnimationToVector("start", 1, 2, animations);
+        AnimationComponent::addAnimationToVector("end", 2, 4, animations);
+        AnimationComponent::addAnimationToVector("start", 2, 4, animations);
         AnimationComponent::addAnimationToVector("idle", 1, 2, animations);
         return new AnimationComponent(":/entities/magnet-wave.png", 16, animations);
     }
@@ -66,7 +74,38 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("up", 2, 10, animations);
         return new AnimationComponent(":/interface/arrowkeys.png", 16, animations);
     }
-
+    else if(animationName == "magnetJumper")
+    {
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 2, 1, animations);
+        AnimationComponent::addAnimationToVector("start", 2, 1, animations);
+        return new AnimationComponent(":/entities/magnet-jumper.png", 16, animations);
+    }
+    else if(animationName == "magnetZipper")
+    {
+            AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+            AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+            AnimationComponent::addAnimationToVector("end", 2, 1, animations);
+            AnimationComponent::addAnimationToVector("start", 2, 1, animations);
+            return new AnimationComponent(":/entities/magnet-zipper.png", 16, animations);
+    }
+    else if(animationName == "magnetGravity")
+    {
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 2, 1, animations);
+        AnimationComponent::addAnimationToVector("start", 2, 1, animations);
+        return new AnimationComponent(":/entities/magnet-gravity.png", 16, animations);
+    }
+    else if(animationName == "boxContainer")
+    {
+            AnimationComponent::addAnimationToVector("start", 3, 1, animations);
+            AnimationComponent::addAnimationToVector("end", 3, 1, animations);
+            AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+            AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+            return new AnimationComponent(":/entities/box-container.png", 26, animations);
+    }
     // Missing / invalid animation
     assert(false);
     return nullptr;

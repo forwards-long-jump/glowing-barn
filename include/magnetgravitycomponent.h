@@ -19,6 +19,8 @@ public:
     float getForce() const;
     float getRotation() const;
 
+    int getDisabledTime() const;
+
 private:
     QVector<QString> requiredButtons;
     float force = 5;
@@ -26,6 +28,7 @@ private:
     float radius = 0;
     QString hitboxName;
     QPointF hitboxOffset;
+    int ticksDisabled = 0;
 };
 
 #endif // MAGNETGRAVITYCOMPONENT_H

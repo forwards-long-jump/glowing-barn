@@ -1,12 +1,18 @@
 #include "imagecomponent.h"
 
-ImageComponent::ImageComponent(const QString resourcePath, const QString name) : GraphicsComponent(name)
+ImageComponent::ImageComponent(const QString resourcePath, const QString name, const QString& buttons) : GraphicsComponent(name)
 {
+    requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
     image = QPixmap(resourcePath);
 }
 
 void ImageComponent::render(QPainter* painter)
 {
+    if(requiredButtons.length() > 0 && !GameButtonComponent::areButtonsPressed(requiredButtons))
+    {
+        return;
+    }
+
     if(mirrored) {
         painter->translate(image.width(), 0);
         painter->scale(-1, 1);

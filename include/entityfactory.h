@@ -24,6 +24,7 @@
 #include "genericrendercomponent.h"
 #include "soundbuttonreactorcomponent.h"
 #include "particlespawnercomponent.h"
+#include "camerasequencecomponent.h"
 
 /**
  * @brief The EntityFactory class.\nIt only contains static method to build entity
@@ -56,6 +57,8 @@ public:
 
     static Entity* storyActivation(Tiled::MapObject* object, Entity* parent = nullptr);
     static Entity* storyMagnet(Tiled::MapObject* object, Entity* parent = nullptr);
+    
+    static Entity* cameraSequence(Tiled::MapObject* object, Entity*  parent = nullptr);
 
     static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);
     static Entity* gameButton(Tiled::MapObject* object, Entity* parent);
