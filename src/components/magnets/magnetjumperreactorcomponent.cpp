@@ -22,7 +22,7 @@ void MagnetJumperReactorComponent::onIntersect(HitboxComponent* hb)
     PhysicsComponent* physicsComponent = dynamic_cast<PhysicsComponent*>(getParent()->getComponent("PhysicsComponent"));
     if(physicsComponent)
     {
-        physicsComponent->setSpeed(0, -0.01);
+        physicsComponent->disablePhysicsForTick();
         physicsComponent->setForcedSpeed(qSin(qDegreesToRadians(magnetJumperComponent->getRotation())) * magnetJumperComponent->getForce(),
                                    -qCos(qDegreesToRadians(magnetJumperComponent->getRotation())) * magnetJumperComponent->getForce(), 0.9, 0.94);
     }
