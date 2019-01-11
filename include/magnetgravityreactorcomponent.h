@@ -17,6 +17,7 @@ public:
 
 private:
     QString magnetGravityComponentName;
+    bool attachedToCenter = false;
 };
 
 #endif // MAGNETGRAVITYREACTORCOMPONENT_H
