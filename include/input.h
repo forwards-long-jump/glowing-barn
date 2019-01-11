@@ -17,7 +17,8 @@ public:
         RIGHT,
         JUMP,
         INTERACT,
-        ZIP
+        ZIP,
+        PAUSE_MENU
     };
 
     bool isKeyDown(Key key);

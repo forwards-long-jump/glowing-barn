@@ -1,4 +1,4 @@
-#include "include/input.h"
+#include "input.h"
 
 Input::Input()
 {
@@ -7,6 +7,7 @@ Input::Input()
     bindings[JUMP]      = Qt::Key_Up;
     bindings[INTERACT]  = Qt::Key_Down;
     bindings[ZIP]       = Qt::Key_Space;
+    bindings[PAUSE_MENU]    = Qt::Key_Escape;
 }
 
 bool Input::isDebugKeyDown(Qt::Key key)
