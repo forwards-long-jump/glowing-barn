@@ -1,6 +1,9 @@
 #ifndef SPARKCOMPONENT_H
 #define SPARKCOMPONENT_H
 
+#include <QtMath>
+#include <QRandomGenerator>
+
 #include "hitboxreactorcomponent.h"
 #include "circlehitboxcomponent.h"
 #include "animationcomponent.h"
@@ -21,6 +24,13 @@ private:
     bool playerInSight = false;
     float radius = 50;
     QString additionalHitboxName = "";
+
+    int pauseDurationInTicks = 10;
+    int ticksUntilMove;
+
+    QPointF actualPosition;
+    QPointF errorComponent;
+    float errorRadius = 7;
 };
 
 #endif // SPARKCOMPONENT_H

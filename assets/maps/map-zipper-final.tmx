@@ -199,38 +199,16 @@
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="133" name="hurt" x="256" y="152" width="320" height="8"/>
   <object id="134" gid="241" x="656" y="48" width="16" height="16">
    <properties>
     <property name="buttons" value=""/>
     <property name="direction" value="left"/>
     <property name="h" type="float" value="1"/>
-    <property name="speed" type="float" value="5"/>
+    <property name="speed" type="float" value="5.5"/>
     <property name="w" type="float" value="24"/>
    </properties>
   </object>
   <object id="135" name="spark" x="346" y="119.333" width="24" height="24">
-   <properties>
-    <property name="hitboxName" value=""/>
-    <property name="radius" type="float" value="100"/>
-    <property name="speed" type="float" value="5"/>
-   </properties>
-  </object>
-  <object id="136" name="spark" x="399.333" y="123.333" width="24" height="24">
-   <properties>
-    <property name="hitboxName" value=""/>
-    <property name="radius" type="float" value="100"/>
-    <property name="speed" type="float" value="5"/>
-   </properties>
-  </object>
-  <object id="137" name="spark" x="456" y="123.333" width="24" height="24">
-   <properties>
-    <property name="hitboxName" value=""/>
-    <property name="radius" type="float" value="100"/>
-    <property name="speed" type="float" value="5"/>
-   </properties>
-  </object>
-  <object id="138" name="spark" x="526" y="119.333" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
