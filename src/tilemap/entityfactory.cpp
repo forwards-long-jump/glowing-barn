@@ -143,6 +143,18 @@ Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent)
+{
+    Entity* e = new Entity(parent, object->position(), object->size());
+    e->addComponent(new TextComponent(
+                        object->propertyAsString("text"),
+                        object->propertyAsString("buttons"),
+                        object->propertyAsString("fontSize").toInt()
+                        )
+                    );
+    return e;
+}
+
 Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
 {
     Entity* spark = new Entity(parent, object->position(), object->size());

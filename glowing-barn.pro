@@ -93,7 +93,9 @@ SOURCES += \
     src/tilemap/entityfactory.cpp \
     src/components/gameplay/storyactivationcomponent.cpp \
     src/components/gameplay/storymagnetcomponent.cpp \
-    src/components/gameplay/camerasequencecomponent.cpp
+    src/components/gameplay/camerasequencecomponent.cpp \
+    src/components/graphics/guiitemcomponent.cpp \
+    src/components/graphics/textcomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -145,7 +147,9 @@ HEADERS += \
     include/particlespawnercomponent.h \
     include/storyactivationcomponent.h \
     include/storymagnetcomponent.h \
-    include/camerasequencecomponent.h
+    include/camerasequencecomponent.h \
+    include/guiitemcomponent.h \
+    include/textcomponent.h
 
 RESOURCES += \
     assets/assets.qrc

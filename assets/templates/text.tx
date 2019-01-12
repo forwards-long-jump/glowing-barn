@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="text" width="80" height="32">
+  <properties>
+   <property name="buttons" value="sign1"/>
+   <property name="fontSize" type="int" value="4"/>
+   <property name="text" value="text goes here"/>
+  </properties>
+ </object>
+</template>
