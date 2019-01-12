@@ -8,7 +8,7 @@
 class DoorComponent : public InteractiveComponent
 {
 public:
-    DoorComponent(QString targetMap, QString targetDoor, QString requiredButtons_ = "", Input::Key key_ = Input::INTERACT, QString name_ = "InteractiveComponent");
+    DoorComponent(QString targetMap, QString targetDoor, QString requiredButtons_ = "", bool isFinalDoor_ = false, Input::Key key_ = Input::INTERACT, QString name_ = "InteractiveComponent");
 
     //void update() override {}
     void init() override;
@@ -16,6 +16,8 @@ public:
 private:
     QString targetMap;
     QString targetDoor;
+
+    bool isFinalDoor;
 };
 
 #endif // DOORCOMPONENT_H

@@ -203,7 +203,7 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     // Door and button
     Entity* e = new Entity(parent, object->position() - QPointF(0, 6), object->size() + QSizeF(0, 12));
-    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn"), object->propertyAsString("buttons")));
+    e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn"), object->propertyAsString("buttons"), object->property("isFinalDoor").toBool()));
 
     // The door animation has a bigger size, so we create a new component for it
     AnimationComponent* ac = AnimationFactory::getAnimationComponent("door");
