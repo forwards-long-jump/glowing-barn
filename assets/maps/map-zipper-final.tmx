@@ -41,11 +41,11 @@
   </object>
   <object id="29" name="door" x="624" y="64" width="16" height="32">
    <properties>
-    <property name="targetMap" value=":maps/map-2.tmx"/>
+    <property name="targetMap" value=":maps/map-zipper-buttons.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
-  <object id="30" name="graphic" x="284.451" y="25.8148" width="62.098" height="60.037">
+  <object id="30" name="graphic" x="277.784" y="7.8148" width="62.098" height="60.037">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -192,7 +192,7 @@
     <property name="stayPressed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="125" name="spark" x="299" y="11.5" width="24" height="24">
+  <object id="125" name="spark" x="327" y="3.5" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>

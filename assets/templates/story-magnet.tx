@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<template>
+ <object name="story-magnet" width="16" height="16">
+ <properties>
+  <property name="buttons" value=""/>
+  <property name="targetMap" value=""/>
+ </properties>
+ </object>
+</template>
