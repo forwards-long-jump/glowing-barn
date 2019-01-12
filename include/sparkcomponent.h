@@ -11,7 +11,7 @@
 class SparkComponent : public HitboxReactorComponent
 {
 public:
-    SparkComponent(float radius = 50, QString additionalHitboxName = "", QString name = "SparkComponent");
+    SparkComponent(float radius = 50, float speed = 100, QString additionalHitboxName = "", QString name = "SparkComponent");
 
     void init() override;
     void onIntersect(HitboxComponent* hitboxComponent) override;
@@ -22,6 +22,7 @@ public:
 
 private:
     bool playerInSight = false;
+    float speed;
     float radius = 50;
     QString additionalHitboxName = "";
 

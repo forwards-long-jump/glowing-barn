@@ -150,7 +150,7 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("spark");
     animationComponent->setCurrentAnimation("idle");
     spark->addComponent(animationComponent);
-    spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->propertyAsString("hitboxName")));
+    spark->addComponent(new SparkComponent(object->property("radius").toFloat(), object->property("speed").toFloat(), object->propertyAsString("hitboxName")));
     CircleHitboxComponent* chc = new CircleHitboxComponent(HurtReactorComponent::HITBOX_REACTOR_NAME);
     spark->addComponent(chc);
     chc->setRadius(object->size().width() * 0.8);

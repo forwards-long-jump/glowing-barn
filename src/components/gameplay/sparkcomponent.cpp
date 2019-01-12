@@ -2,9 +2,13 @@
 
 const QString SparkComponent::HITBOX_REACTOR_NAME = "SparkComponent";
 
-SparkComponent::SparkComponent(float radius, QString additionalHitboxName_, QString name) : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name), radius(radius)
+SparkComponent::SparkComponent(float radius, float speed, QString additionalHitboxName, QString name)
+    : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name),
+      radius(radius),
+      speed(speed / 5.),
+      additionalHitboxName(additionalHitboxName)
 {
-    additionalHitboxName = additionalHitboxName_;
+
 }
 
 void SparkComponent::init()
@@ -31,7 +35,7 @@ void SparkComponent::onIntersect(HitboxComponent* hb)
         static_cast<AnimationComponent*>(getParent()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
 
         QPointF attackVect = hb->getParent()->pos() - actualPosition;
-        actualPosition += attackVect * 0.05;
+        actualPosition += attackVect * 0.05 * speed;
     }
 }
 
