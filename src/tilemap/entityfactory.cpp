@@ -466,11 +466,15 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
         {
             ac->setCurrentAnimation(object->propertyAsString("animationToPlay"));
         }
+
+        ac->setRotation(object->rotation());
         e->addComponent(ac);
     }
     if(object->propertyAsString("texture") != "")
     {
-        e->addComponent(new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons")));
+        ImageComponent* ic = new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons"));
+        ic->setRotation(object->rotation());
+        e->addComponent(ic);
     }
     if(object->propertyAsString("parallax") != "")
     {
