@@ -217,7 +217,7 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     e->addComponent(new DoorComponent(object->propertyAsString("targetMap"), object->propertyAsString("targetSpawn"), object->propertyAsString("buttons")));
 
     // The door animation has a bigger size, so we create a new component for it
-    AnimationComponent* ac = AnimationFactory::getAnimationComponent("door");
+    AnimationComponent* ac = AnimationFactory::getAnimationComponent(object->propertyAsString("animation") != "" ? object->propertyAsString("animation") : "door");
     ac->setCurrentAnimation("idle");
     ac->setButtons("auto_door");
     e->addComponent(ac);
