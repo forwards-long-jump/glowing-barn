@@ -220,6 +220,10 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     AnimationComponent* ac = AnimationFactory::getAnimationComponent(object->propertyAsString("animation") != "" ? object->propertyAsString("animation") : "door");
     ac->setCurrentAnimation("idle");
     ac->setButtons("auto_door");
+    if(object->property("mirrorX").toBool())
+    {
+        ac->setMirrored(true);
+    }
     e->addComponent(ac);
     e->addComponent(new ParallaxComponent(0.0001));
     return e;
