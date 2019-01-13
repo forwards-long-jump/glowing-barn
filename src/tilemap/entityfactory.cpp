@@ -268,9 +268,10 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
 {
     pos.setY(pos.y() - size.height());
     Entity* e = new Entity(parent, pos, size);
+    // Note: the MagnetZipperComponent adds animation itself
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
                                               speed, buttons));
-    // e->addComponent(new DebugComponent(QColor("chartreuse"), true));
+
 
     return e;
 }
@@ -421,8 +422,12 @@ Entity* EntityFactory::box(Tiled::MapObject* object, Entity* parent)
     e->addComponent(new PhysicsComponent());
     e->addComponent(new MagnetZipperReactorComponent());
     e->addComponent(new MagnetJumperReactorComponent());
+    // React to gravity magnets
     e->addComponent(new MagnetGravityReactorComponent());
+    // React to player magnet
     e->addComponent(new MagnetGravityReactorComponent("BoxGravityHitbox", "PlayerGravityMagnet", ""));
+    // Create a "player" magnetic field so other boxes don't stack
+    e->addComponent(new MagnetGravityComponent(50, 0.5, "", QPointF(0, 0), "BoxGravityHitbox", "PlayerGravityMagnet"));
     e->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     e->addComponent(new SquareHitboxComponent("Box"));
 
