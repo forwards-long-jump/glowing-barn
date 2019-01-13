@@ -63,6 +63,9 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
             else if(object->name() == "camera") {
                 EntityFactory::cameraSequence(object, parent);
             }
+            else if(object->name() == "text") {
+                EntityFactory::text(object, parent);
+            }
             else {
                 qWarning() << "unknown object " << object->name();
             }

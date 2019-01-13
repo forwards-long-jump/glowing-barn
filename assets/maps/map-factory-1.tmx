@@ -103,11 +103,11 @@
   </object>
   <object id="143" name="graphic" x="124.874" y="313.664" width="210.918" height="47.339">
    <properties>
-    <property name="animationName" value=""/>
-    <property name="animationToPlay" value=""/>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.2"/>
-    <property name="texture" value=":/decorations/factory-belt.png"/>
+    <property name="texture" value=""/>
    </properties>
   </object>
   <object id="144" name="graphic" x="278.874" y="67.9972" width="11.585" height="101.672">
@@ -130,11 +130,11 @@
   </object>
   <object id="147" name="graphic" x="409.874" y="293.664" width="142.918" height="28.0057">
    <properties>
-    <property name="animationName" value=""/>
-    <property name="animationToPlay" value=""/>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.4"/>
-    <property name="texture" value=":/decorations/factory-belt.png"/>
+    <property name="texture" value=""/>
    </properties>
   </object>
   <object id="148" gid="241" x="368" y="176" width="16" height="16">
@@ -292,11 +292,11 @@
   <object id="180" gid="236" x="672" y="368" width="15.75" height="15.75"/>
   <object id="181" name="graphic" x="605.791" y="366.747" width="143.168" height="36.5057">
    <properties>
-    <property name="animationName" value=""/>
-    <property name="animationToPlay" value=""/>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="idle"/>
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.0001"/>
-    <property name="texture" value=":/decorations/factory-belt.png"/>
+    <property name="texture" value=""/>
    </properties>
   </object>
   <object id="184" name="graphic" x="19.125" y="287.5" width="12.75" height="12.25">

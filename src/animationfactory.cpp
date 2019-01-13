@@ -106,6 +106,12 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
             AnimationComponent::addAnimationToVector("active", 1, 1, animations);
             return new AnimationComponent(":/entities/box-container.png", 26, animations);
     }
+    else if(animationName == "belt")
+    {
+            AnimationComponent::addAnimationToVector("active", 2, 4, animations);
+            AnimationComponent::addAnimationToVector("idle", 1, 4, animations);
+            return new AnimationComponent(":/decorations/factory-belt.png", 261, animations);
+    }
     // Missing / invalid animation
     assert(false);
     return nullptr;
