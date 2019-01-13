@@ -83,6 +83,14 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("up", 2, 10, animations);
         return new AnimationComponent(":/interface/arrowkeys.png", 16, animations);
     }
+    else if(animationName == "spacebar")
+    {
+        AnimationComponent::addAnimationToVector("active", 2, 10, animations);
+        AnimationComponent::addAnimationToVector("start", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 1, 1, animations);
+        return new AnimationComponent(":/interface/spacebar.png", 32, animations);
+    }
     else if(animationName == "magnetJumper")
     {
         AnimationComponent::addAnimationToVector("active", 1, 1, animations);
