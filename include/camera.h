@@ -41,6 +41,14 @@ public:
     QRectF getBoundingRect() const;
     float getScaling() const;
 
+    float getSpeed() const;
+
+    Entity *getEntity() const;
+
+    bool reachedTarget() const;
+
+    QPointF getCameraForce() const;
+
 private:
     Entity* entity;
     QPointF targetPosition;
@@ -49,6 +57,7 @@ private:
     QPointF cameraForce;
     QRectF cameraBoundingRect;
     bool springEffectEnabled;
+    bool onTarget = false;
     float scaling;
     float speed;
     float shakeIntensity;

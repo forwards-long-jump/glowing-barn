@@ -19,14 +19,18 @@ public:
 
     static void update();
     static void loadSounds();
+    static void toggleMute();
+    static bool isMuted();
 private:
     static QMediaPlayer* player;
     static QMap<QString, QSoundEffect*> sounds;
 
     static int fadeOutTick;
     static int fadeoutDuration;
+    static bool muted;
 
     static QString nextMusic;
+
 };
 
 #endif // SOUNDS_H

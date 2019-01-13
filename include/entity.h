@@ -32,10 +32,13 @@ public:
     bool shouldBeDeleted() const;
     void deleteLater();
 
+    Entity *getParent() const;
+
 private:
     QMap<QString, Component*>* components;
     QMap<QString, Component*>* disabledComponents;
     QSizeF size;
+    Entity* parent = nullptr;
     bool markedForDeletion = false;
 };
 

@@ -35,6 +35,7 @@ Game::Game(QWidget* parent)
                 {
                     input.handleKeyDown(event);
                     static_cast<Scene*>(scene())->onKeyChange(input);
+                    handleToggleMute();
                 }
             );
     connect(this, &Game::keyReleaseEvent,
@@ -74,35 +75,56 @@ void Game::update() {
     {
         tick++;
 
-        for(int i = 0; i < items().length(); ++i)
+        if(!paused)
         {
-            Entity* entity = static_cast<Entity*>(items()[i]);
-            if(entity->shouldBeDeleted())
+            for(int i = 0; i < items().length(); ++i)
             {
-                delete items()[i];
-                i--;
+                Entity* entity = static_cast<Entity*>(items()[i]);
+                if(entity->shouldBeDeleted())
+                {
+                    delete items()[i];
+                    i--;
+                }
+                else
+                {
+                    entity->update();
+                }
             }
-            else
+
+
+            if(entitiesToAddLater.length())
             {
-                entity->update();
+                for(int i = 0; i < entitiesToAddLater.length(); ++i)
+                {
+                    entitiesToAddLater[i].first->setParentItem(entitiesToAddLater[i].second);
+                }
+                entitiesToAddLater.clear();
             }
+
+            static_cast<Scene*>(scene())->updateCamera();
         }
 
-        if(entitiesToAddLater.length())
-        {
-            for(int i = 0; i < entitiesToAddLater.length(); ++i)
-            {
-                entitiesToAddLater[i].first->setParentItem(entitiesToAddLater[i].second);
-            }
-            entitiesToAddLater.clear();
-        }
-
-        static_cast<Scene*>(scene())->updateCamera();
         static_cast<Scene*>(scene())->update();
         Sounds::update();
 
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();
+    }
+}
+
+void Game::handleToggleMute()
+{
+    if(input.isKeyDown(Input::Key::MUTE_GAME))
+    {
+        if(canPressMuteKey)
+        {
+            canPressMuteKey = false;
+            Sounds::toggleMute();
+        }
+    }
+    else
+    {
+        canPressMuteKey = true;
     }
 }
 
@@ -140,4 +162,14 @@ void Game::addEntityLater(Entity *entityToAdd, Entity *parentEntity)
 unsigned int Game::getTick() const
 {
     return tick;
+}
+
+void Game::togglePaused()
+{
+    paused = !paused;
+}
+
+bool Game::isPaused() const
+{
+    return paused;
 }

@@ -56,7 +56,97 @@
     <property name="texture" value=":/decorations/sky.png"/>
    </properties>
   </object>
-  <object id="156" name="graphic" x="-134.792" y="148.164" width="1098.92" height="279.672">
+  <object id="139" name="graphic" x="76.5408" y="65.4972" width="22.2517" height="159.839">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="141" name="graphic" x="216.874" y="59.4972" width="19.585" height="134.839">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="142" name="graphic" x="330.874" y="76.9972" width="19.585" height="151.339">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="143" name="graphic" x="124.874" y="313.664" width="210.918" height="47.339">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.2"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="144" name="graphic" x="278.874" y="67.9972" width="11.585" height="101.672">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.45"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="146" name="graphic" x="156.874" y="55.4972" width="14.2517" height="125.172">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.45"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="147" name="graphic" x="409.874" y="293.664" width="142.918" height="28.0057">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="148" gid="241" x="368" y="176" width="16" height="16">
+   <properties>
+    <property name="buttons" value="!boxButton"/>
+    <property name="direction" value="down"/>
+    <property name="h" type="float" value="1"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="w" type="float" value="12"/>
+   </properties>
+  </object>
+  <object id="149" name="graphic" x="380.374" y="321.164" width="210.918" height="198.339">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="151" name="graphic" x="-254.671" y="-184.503" width="1473.34" height="290.339">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.1"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="156" name="graphic" x="-129.459" y="356.164" width="1098.92" height="279.672">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -81,8 +171,8 @@
   </object>
   <object id="214" name="graphic" x="160" y="166" width="112" height="26">
    <properties>
-    <property name="animationName" value=""/>
-    <property name="animationToPlay" value=""/>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="idle"/>
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.1"/>
     <property name="texture" value=":/decorations/factory-belt.png"/>

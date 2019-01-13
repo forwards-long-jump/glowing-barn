@@ -91,3 +91,10 @@ void PlayerInputComponent::setState(PlayerState* _state)
         state->enter(this);
     }
 }
+
+void PlayerInputComponent::onDisable()
+{
+    PhysicsComponent* pc = static_cast<PhysicsComponent*>(getParent()->getComponent("PhysicsComponent"));
+    pc->setLeft(false);
+    pc->setRight(false);
+}

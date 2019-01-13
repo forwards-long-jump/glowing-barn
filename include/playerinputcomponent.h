@@ -24,6 +24,8 @@ public:
     void resetJumpLeniency() {jumpLeniencyStart.restart();}
     bool isJumpLenient() const {return jumpLeniencyStart.elapsed() < jumpLeniencyInMSec;}
 
+    void onDisable() override;
+
 private:
     bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;

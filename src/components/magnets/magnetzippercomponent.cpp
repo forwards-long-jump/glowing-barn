@@ -68,9 +68,10 @@ void MagnetZipperComponent::addAnimations()
     int w = hitboxSize.width() / WAVE_ANIMATION_SIZE + 1;
 
     // Add magnet image
-    Entity* magnetImage = new Entity(parent->parentItem(), parent->x(), parent->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-    ImageComponent* ic = new ImageComponent(":/entities/magnet-zipper.png");
-    magnetImage->addComponent(ic);
+    Entity* parentAnimation = new Entity(parent->parentItem(), parent->x(), parent->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+    AnimationComponent* zipperAnimation = AnimationFactory::getAnimationComponent("magnetZipper");
+    zipperAnimation->setButtons(requiredButtons);
+    parentAnimation->addComponent(zipperAnimation);
 
     switch(direction)
     {
@@ -86,7 +87,7 @@ void MagnetZipperComponent::addAnimations()
         }
         break;
     case DIRECTION::LEFT:
-        ic->setMirrored(true);
+        zipperAnimation->setMirrored(true);
         for(int i = 1; i < w; ++i)
         {
             Entity* e = new Entity(parent->parentItem(), parent->x() - i * WAVE_ANIMATION_SIZE, parent->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
@@ -97,7 +98,7 @@ void MagnetZipperComponent::addAnimations()
         }
         break;
     case DIRECTION::UP:
-        ic->setRotation(-90);
+        zipperAnimation->setRotation(-90);
         for(int i = 1; i < w; ++i)
         {
             Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() - i * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
@@ -109,7 +110,7 @@ void MagnetZipperComponent::addAnimations()
         }
         break;
     case DIRECTION::DOWN:
-        ic->setRotation(90);
+        zipperAnimation->setRotation(90);
         for(int i = 1; i < w; ++i)
         {
             Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() + i * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);

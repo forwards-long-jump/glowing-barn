@@ -7,6 +7,12 @@
 #include "orthogonalrenderer.h"
 #include "mapitem.h"
 
+#include "hitboxcomponent.h"
+#include "transitioncomponent.h"
+#include "sounds.h"
+#include "genericrendercomponent.h"
+#include "guiitemcomponent.h"
+
 #include <QDebug>
 #include <QFileSystemWatcher>
 
@@ -19,9 +25,10 @@ public:
 
     void scheduleMapChange(QString mapPath = "", QString spawnName = "default");
 
+    Entity* getPlayer() const;
 private:
     // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
-    const QString DEV_MAP_PATH = "/home/pierre/P2/glowing-barn/assets/maps/map-zipper-final.tmx";
+    const QString DEV_MAP_PATH = "";
 
     void onKeyChange(Input &input) override;
     void update() override;
@@ -39,7 +46,8 @@ private:
 
     // Development related
     QFileSystemWatcher mapReloadWatcher;
-
+    bool canPressPauseKey = true;
+    bool canPressMuteKey = true;
 };
 
 #endif // GAMESCENE_H

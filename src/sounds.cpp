@@ -5,8 +5,8 @@ QMediaPlayer* Sounds::player;
 QMap<QString, QSoundEffect*> Sounds::sounds;
 int Sounds::fadeOutTick = 0;
 int Sounds::fadeoutDuration = 0;
+bool Sounds::muted = false;
 QString Sounds::nextMusic = "";
-
 
 
 void Sounds::playMusic(QString path)
@@ -18,7 +18,10 @@ void Sounds::playMusic(QString path)
 
 void Sounds::playSound(QString name)
 {
-    sounds[name]->play();
+    if(!muted)
+    {
+        sounds[name]->play();
+    }
 }
 
 void Sounds::fadeOut(int duration_, QString nextMusic_)
@@ -67,7 +70,7 @@ void Sounds::loadSounds()
     sounds.insert("magnetOn", sfx);
 
     sfx = new QSoundEffect();
-     sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
     sounds.insert("magnetOff", sfx);
 
     sfx = new QSoundEffect();
@@ -81,4 +84,15 @@ void Sounds::loadSounds()
     sfx = new QSoundEffect();
     sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/slap.wav"));
     sounds.insert("crash", sfx);
+}
+
+void Sounds::toggleMute()
+{
+    muted = !muted;
+    player->setMuted(muted);
+}
+
+bool Sounds::isMuted()
+{
+    return muted;
 }

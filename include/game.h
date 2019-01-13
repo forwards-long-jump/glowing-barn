@@ -33,6 +33,10 @@ public:
 
     static Input input;
 
+    void togglePaused();
+
+    bool isPaused() const;
+
 signals:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
@@ -50,7 +54,10 @@ private:
     QTime* lastUpdateTime;
     int lag;
     unsigned int tick;
+    bool paused = false;
+    bool canPressMuteKey = true;
 
+    void handleToggleMute();
 private slots:
     void update();
 

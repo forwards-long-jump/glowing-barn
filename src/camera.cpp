@@ -112,9 +112,11 @@ void Camera::update(QGraphicsView* v)
         position.setY(position.y() + QRandomGenerator::global()->generateDouble() * shakeIntensity);
     }
 
+    if((position - targetPosition + screenCenter).manhattanLength() < 5) onTarget = true;
+
     v->resetTransform();
     v->scale(scaling, scaling);
-    //v->centerOn(targetPosition);
+
     v->setSceneRect(position.x(), position.y(), v->width() / scaling, v->height() / scaling);
 }
 
@@ -137,6 +139,7 @@ void Camera::centerOn(float x, float y, QSizeF screenSize, bool smoothTransition
 
 void Camera::attachTo(Entity* e)
 {
+    onTarget = false;
     entity = e;
 }
 
@@ -184,4 +187,24 @@ QPointF Camera::getPosition() const
 float Camera::getScaling() const
 {
     return scaling;
+}
+
+float Camera::getSpeed() const
+{
+    return speed;
+}
+
+Entity *Camera::getEntity() const
+{
+    return entity;
+}
+
+bool Camera::reachedTarget() const
+{
+    return onTarget;
+}
+
+QPointF Camera::getCameraForce() const
+{
+    return cameraForce;
 }

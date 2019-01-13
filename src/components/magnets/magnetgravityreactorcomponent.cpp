@@ -35,16 +35,18 @@ void MagnetGravityReactorComponent::onIntersect(HitboxComponent* hb)
         float f = magnetGravityComponent->getForce() / (d / magneticFieldHitboxComponent->getRadius());
 
 
-        if(d < 20 && magnetGravityComponent->getForce() < 0)
+        if((d < 5 && magnetGravityComponent->getForce() < 0) || (attachedToCenter && d < 15))
         {
             int tick = static_cast<GameScene*>(getParent()->scene())->getGame()->getTick();
             physicsComponent->setSpeed(0, 0);
             physicsComponent->disablePhysicsForTick();
             getParent()->setPos(hb->getCenter() - QPointF(getParent()->getSize().width() / 2,
                                                           getParent()->getSize().height() / 2 + qSin(tick * 0.07) * 2));
+            attachedToCenter = true;
         }
-        else if(qAbs(d) > 0.001)
+        else if(d > 0.001)
         {
+            attachedToCenter = false;
             physicsComponent->setSpeed(physicsComponent->getSpeed().x() + f * (vx / d),
                                              physicsComponent->getSpeed().y() + f * (vy / d));
         }

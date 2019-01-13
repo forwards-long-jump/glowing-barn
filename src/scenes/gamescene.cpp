@@ -1,18 +1,4 @@
 #include "gamescene.h"
-#include "debugcomponent.h"
-#include "playerinputcomponent.h"
-#include "physicscomponent.h"
-
-#include "debugcomponent.h"
-#include "playerinputcomponent.h"
-#include "physicscomponent.h"
-#include "hitboxcomponent.h"
-#include "animationcomponent.h"
-#include "gamebuttoncomponent.h"
-#include "transitioncomponent.h"
-#include "sounds.h"
-
-#include "doorcomponent.h"
 
 GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)
@@ -60,6 +46,11 @@ void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
     addItem(e);
 }
 
+Entity *GameScene::getPlayer() const
+{
+    return mapItem->getPlayer();
+}
+
 void GameScene::update()
 {
     if(changeMapScheduled)
@@ -67,11 +58,28 @@ void GameScene::update()
         changeMapScheduled = false;
         loadMap(newMapPath, newMapSpawn);
     }
+
+    if(Game::input.isKeyDown(Input::Key::PAUSE_MENU))
+    {
+        if(canPressPauseKey)
+        {
+            canPressPauseKey = false;
+            game->togglePaused();
+        }
+    }
+    else
+    {
+        canPressPauseKey = true;
+    }
 }
 
 void GameScene::onKeyChange(Input &input)
 {
-
+    // Handle going back to main menu
+    if(Game::input.isKeyDown(Input::Key::QUIT_GAME) && game->isPaused())
+    {
+        game->switchScene("menu");
+    }
 }
 
 bool GameScene::loadMap(QString filename, QString spawnName)
@@ -132,6 +140,32 @@ bool GameScene::loadMap(QString filename, QString spawnName)
                 }, 20
     ));
 
+     Entity* pauseMenu = new Entity(nullptr, -map->width() * 16, -map->height() * 16, map->width() * 16 * 4, map->height() * 16 * 4);
+     pauseMenu->addComponent(new GUIItemComponent);
+     pauseMenu->addComponent(new GenericRenderComponent(
+                                [](QPainter* p, Entity* e, int tick) {
+                                    if(static_cast<GameScene*>(e->scene())->getGame()->isPaused())
+                                    {
+                                        // Since it's not a real fullscreen overlay we render it a bit on the left in case the windows size is changed...
+                                        p->fillRect(-100, -100, e->getSize().width(), e->getSize().height(), QColor(0, 0, 0, 200));
+
+                                        p->setFont(QFont("Serif", 15));
+                                        p->setPen(QColor(250, 250, 250));
+                                        p->drawText(20, 50, "Game paused");
+                                        p->setFont(QFont("Serif", 7));
+                                        p->drawText(20, 80, "[Escape]");
+                                        p->drawText(20, 100, "[Q]");
+                                        p->drawText(20, 120, "[M]");
+                                        p->drawText(100, 80, "- Unpause");
+                                        p->drawText(100, 100, "- Go back to menu");
+                                        p->drawText(100, 120, "- Toggle music");
+                                    }
+                                }
+                            )
+    );
+
+
+    addItem(pauseMenu);
     addItem(e);
 
     return true;

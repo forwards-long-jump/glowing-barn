@@ -2,6 +2,7 @@
 <template>
  <object name="door" width="16" height="32">
   <properties>
+   <property name="animation" value="insideDoor"/>
    <property name="buttons" value=""/>
    <property name="targetMap" value=":maps/map-test.tmx"/>
    <property name="targetSpawn" value="default"/>

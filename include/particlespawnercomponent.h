@@ -4,6 +4,8 @@
 #include "component.h"
 #include "particle.h"
 #include "scene.h"
+#include "magnetgravityreactorcomponent.h"
+#include "magnetzipperreactorcomponent.h"
 
 class Entity;
 
@@ -22,7 +24,7 @@ class ParticleSpawnerComponent : public Component
 {
 public:
     ParticleSpawnerComponent(void (*particleRender)(QPainter* painter, Particle* particle), void (*particleUpdate)(Particle* particle), QVector<ParticleParameters> (*spawnCondition)(Entity *, int tick), QString particleSpawnerName);
-    void spawn(int x, int y, float dx, float dy, int w, int h, int lifetime);
+    void spawn(int x, int y, float dx, float dy, int w, int h, int lifetime, bool affectedByMagnets = false);
 
     void update() override;
     void onDisable() override;
