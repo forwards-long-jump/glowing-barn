@@ -240,9 +240,11 @@ Entity *EntityFactory::storyMagnet(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
     e->addComponent(new StoryMagnetComponent(object->propertyAsString("buttons"), object->propertyAsString("targetMap")));
-    ImageComponent* image = new ImageComponent(":/entities/magnet-zipper.png");
-    image->setRotation(-90);
-    e->addComponent(image);
+    AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnetZipper");
+    ac->setCurrentAnimation("active");
+    ac->setRotation(-90);
+    e->addComponent(ac);
+    e->setZValue(1);
 
     return e;
 }
