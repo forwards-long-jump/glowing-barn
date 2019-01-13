@@ -10,6 +10,8 @@
 #include "hitboxcomponent.h"
 #include "transitioncomponent.h"
 #include "sounds.h"
+#include "genericrendercomponent.h"
+#include "guiitemcomponent.h"
 
 #include <QDebug>
 #include <QFileSystemWatcher>
@@ -44,7 +46,8 @@ private:
 
     // Development related
     QFileSystemWatcher mapReloadWatcher;
-
+    bool canPressPauseKey = true;
+    bool canPressMuteKey = true;
 };
 
 #endif // GAMESCENE_H

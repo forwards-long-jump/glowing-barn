@@ -203,3 +203,8 @@ bool Camera::reachedTarget() const
 {
     return onTarget;
 }
+
+QPointF Camera::getCameraForce() const
+{
+    return cameraForce;
+}

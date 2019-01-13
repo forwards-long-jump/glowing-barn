@@ -8,6 +8,8 @@ Input::Input()
     bindings[INTERACT]  = Qt::Key_Down;
     bindings[ZIP]       = Qt::Key_Space;
     bindings[PAUSE_MENU]    = Qt::Key_Escape;
+    bindings[MUTE_GAME] = Qt::Key_M;
+    bindings[QUIT_GAME] = Qt::Key_Q;
 }
 
 bool Input::isDebugKeyDown(Qt::Key key)

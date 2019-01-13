@@ -47,6 +47,8 @@ public:
 
     bool reachedTarget() const;
 
+    QPointF getCameraForce() const;
+
 private:
     Entity* entity;
     QPointF targetPosition;
