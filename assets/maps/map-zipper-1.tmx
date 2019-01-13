@@ -232,7 +232,7 @@
   </object>
   <object id="261" gid="249" x="640" y="80" width="16" height="16">
    <properties>
-    <property name="animationName" value="playerStory"/>
+    <property name="animationName" value="player"/>
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="door1"/>
     <property name="w" type="float" value="16"/>
@@ -240,7 +240,7 @@
   </object>
   <object id="262" gid="249" x="656" y="80" width="16" height="16">
    <properties>
-    <property name="animationName" value="playerStory"/>
+    <property name="animationName" value="player"/>
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="door2"/>
     <property name="w" type="float" value="16"/>
