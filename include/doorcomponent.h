@@ -18,6 +18,7 @@ public:
 private:
     QString targetMap;
     QString targetDoor;
+    bool enteringDoor = false;
 
     bool isFinalDoor;
 };

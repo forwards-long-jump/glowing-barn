@@ -2,6 +2,7 @@
 
 void DoorComponent::action(Entity* target)
 {
+    enteringDoor = true;
     static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->setCurrentAnimation("start");
     static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->disableLooping();
 
@@ -34,7 +35,7 @@ void DoorComponent::action(Entity* target)
 void DoorComponent::update()
 {
     InteractiveComponent::update();
-    if(requiredButtons.length() > 0)
+    if(requiredButtons.length() > 0 && !enteringDoor)
     {
         if(!GameButtonComponent::areButtonsPressed(requiredButtons))
         {
