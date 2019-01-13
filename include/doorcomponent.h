@@ -13,6 +13,8 @@ public:
     //void update() override {}
     void init() override;
     void action(Entity* target) override;
+    void update() override;
+
 private:
     QString targetMap;
     QString targetDoor;

@@ -31,6 +31,24 @@ void DoorComponent::action(Entity* target)
     }
 }
 
+void DoorComponent::update()
+{
+    InteractiveComponent::update();
+    if(requiredButtons.length() > 0)
+    {
+        if(!GameButtonComponent::areButtonsPressed(requiredButtons))
+        {
+            static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->setCurrentAnimation("deactivated");
+            static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->disableLooping();
+        }
+        else
+        {
+            static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->setCurrentAnimation("idle");
+            static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->disableLooping();
+        }
+    }
+}
+
 DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString requiredButtons_, bool isFinalDoor_, Input::Key key_, QString name_)
     : InteractiveComponent(key_, name_, "InteractiveHitboxComponent", requiredButtons_)
 {
