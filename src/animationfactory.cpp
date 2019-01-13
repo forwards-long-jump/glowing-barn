@@ -66,6 +66,15 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("end", 3, 0, animations);
         return new AnimationComponent(":/entities/door.png", 16, animations);
     }
+    else if(animationName == "insideDoor")
+    {
+        AnimationComponent::addAnimationToVector("idle", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("start", 5, 1, animations);
+        AnimationComponent::addAnimationToVector("active", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("end", 5, 1, animations);
+        AnimationComponent::addAnimationToVector("deactivated", 1, 1, animations);
+        return new AnimationComponent(":/entities/inside-door.png", 16, animations);
+    }
     else if(animationName == "keyboard")
     {
         AnimationComponent::addAnimationToVector("down", 2, 10, animations);

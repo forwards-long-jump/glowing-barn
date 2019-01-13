@@ -2,7 +2,13 @@
 <qresource prefix="/maps">
     <file alias="tilemap.png" >maps/tilemap.png</file>
     <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
-    <file alias="map-test.tmx" >maps/map-test.tmx</file>
+    <file alias="test-boxes.tmx" >maps/test-boxes.tmx</file>
+    <file alias="test-buttons.tmx" >maps/test-buttons.tmx</file>
+    <file alias="test-graphics.tmx" >maps/test-graphics.tmx</file>
+    <file alias="test-magnets.tmx" >maps/test-magnets.tmx</file>
+    <file alias="test-misc.tmx" >maps/test-misc.tmx</file>
+    <file alias="test-zipper.tmx" >maps/test-zipper.tmx</file>
+    <file alias="test-hub.tmx" >maps/test-hub.tmx</file>
     <file alias="map-1.tmx" >maps/map-1.tmx</file>
     <file alias="map-2.tmx" >maps/map-2.tmx</file>
     <file alias="map-3.tmx" >maps/map-3.tmx</file>
@@ -17,6 +23,7 @@
 </qresource>
 <qresource prefix="/entities">
     <file alias="door.png" >graphics/entities/door.png</file>
+    <file alias="inside-door.png" >graphics/entities/inside-door.png</file>
     <file alias="player.png" >graphics/entities/player.png</file>
     <file alias="box-container.png" >graphics/entities/box-container.png</file>
 	   <file alias="playerStory.png" >graphics/entities/playerStory.png</file>
