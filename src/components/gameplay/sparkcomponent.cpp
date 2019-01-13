@@ -2,9 +2,13 @@
 
 const QString SparkComponent::HITBOX_REACTOR_NAME = "SparkComponent";
 
-SparkComponent::SparkComponent(float radius, QString additionalHitboxName_, QString name) : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name), radius(radius)
+SparkComponent::SparkComponent(float radius, float speed, QString additionalHitboxName, QString name)
+    : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name),
+      radius(radius),
+      speed(speed / 5.),
+      additionalHitboxName(additionalHitboxName)
 {
-    additionalHitboxName = additionalHitboxName_;
+
 }
 
 void SparkComponent::init()
@@ -17,6 +21,9 @@ void SparkComponent::init()
     {
         parent->addComponent(new SquareHitboxComponent(additionalHitboxName));
     }
+
+    actualPosition = parent->pos();
+    ticksUntilMove = QRandomGenerator::global()->bounded(0, pauseDurationInTicks);
 }
 
 void SparkComponent::onIntersect(HitboxComponent* hb)
@@ -25,11 +32,10 @@ void SparkComponent::onIntersect(HitboxComponent* hb)
     {
         playerInSight = true;
 
-        QPointF playerPos = hb->getParent()->pos();
         static_cast<AnimationComponent*>(getParent()->getComponent("AnimationComponent"))->setCurrentAnimation("move");
 
-        getParent()->setX(getParent()->x() * 0.9 + playerPos.x() * 0.1);
-        getParent()->setY(getParent()->y() * 0.9 + playerPos.y() * 0.1);
+        QPointF attackVect = hb->getParent()->pos() - actualPosition;
+        actualPosition += attackVect * 0.05 * speed;
     }
 }
 
@@ -46,4 +52,14 @@ void SparkComponent::update()
 
     if(!playerInSight)
         static_cast<AnimationComponent*>(getParent()->getComponent("AnimationComponent"))->setCurrentAnimation("idle");
+
+    if (--ticksUntilMove < 1)
+    {
+        float theta = QRandomGenerator::global()->bounded(2 * M_PI);
+        errorComponent.setX(errorRadius * qCos(theta));
+        errorComponent.setY(errorRadius * qSin(theta));
+        ticksUntilMove = pauseDurationInTicks;
+    }
+
+    getParent()->setPos(actualPosition + errorComponent);
 }

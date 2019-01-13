@@ -28,7 +28,7 @@ void StoryMagnetComponent::init()
 
 void StoryMagnetComponent::onIntersect(HitboxComponent* hb)
 {
-    if (!alreadyActivated)
+    if (GameButtonComponent::areButtonsPressed(requiredButtons) && !alreadyActivated)
     {
         alreadyActivated = true;
         parent->disableComponent("PhysicsComponent");
