@@ -2,7 +2,7 @@
 #define INTERACTIVECOMPONENT_H
 
 #include "hitboxreactorcomponent.h"
-#include "interactivehitboxcomponent.h"
+#include "interactivereactorcomponent.h"
 #include "debugcomponent.h"
 #include "input.h"
 

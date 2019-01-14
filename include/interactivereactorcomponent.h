@@ -5,10 +5,10 @@
 #include "input.h"
 
 //belongs to a player
-class InteractiveHitboxComponent : public SquareHitboxComponent
+class InteractiveReactorComponent : public SquareHitboxComponent
 {
 public:
-    InteractiveHitboxComponent(QString name_ = "InteractiveHitboxComponent");
+    InteractiveReactorComponent(QString name_ = "InteractiveHitboxComponent");
 
     void update() override;
 

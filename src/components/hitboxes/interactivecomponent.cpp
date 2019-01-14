@@ -43,7 +43,7 @@ void InteractiveComponent::onIntersect(HitboxComponent* hb)
 {
     if(requiredButtons.length() == 0 || GameButtonComponent::areButtonsPressed(requiredButtons))
     {
-        InteractiveHitboxComponent* ihb = dynamic_cast<InteractiveHitboxComponent*> (hb);
+        InteractiveReactorComponent* ihb = dynamic_cast<InteractiveReactorComponent*> (hb);
         if(ihb)
         {
             showPrompt();
