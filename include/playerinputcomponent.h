@@ -2,7 +2,7 @@
 #define INPUTCOMPONENT_H
 
 #include "component.h"
-#include "interactivehitboxcomponent.h"
+#include "interactivereactorcomponent.h"
 
 #include <QTime>
 
@@ -30,7 +30,7 @@ private:
     bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;
 
-    InteractiveHitboxComponent interactiveHitbox;
+    InteractiveReactorComponent interactiveHitbox;
 
     QTime jumpLeniencyStart;
     const int jumpLeniencyInMSec = 100;

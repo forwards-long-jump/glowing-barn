@@ -4,7 +4,7 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 {
     if (object->propertyAsString("animationName") == "playerStory")
     {
-        return storyPlayer(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
+        return playerStory(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
     }
     return player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
 }
@@ -121,7 +121,7 @@ Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
     return playerCredits;
 }
 
-Entity* EntityFactory::storyPlayer(QPointF pos, QSizeF size, Entity* parent)
+Entity* EntityFactory::playerStory(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("playerStory");
