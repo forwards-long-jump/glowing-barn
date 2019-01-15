@@ -42,7 +42,7 @@ public:
     static Entity* hurt(Tiled::MapObject* object, Entity* parent);
 
     static Entity* magnetZipper(Tiled::MapObject*, Entity*  = nullptr);
-    static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, QString, Entity*);
+    static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, QString, Entity*, bool noAnimations = false);
     static Entity* magnetJumper(Tiled::MapObject* object, Entity* parent);
     static Entity* magnetGravity(Tiled::MapObject* object, Entity* parent);
 

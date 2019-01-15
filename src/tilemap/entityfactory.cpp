@@ -267,16 +267,16 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),
                                             QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()),
-                                            object->propertyAsString("speed").toFloat(), object->propertyAsString("buttons"), parent);
+                                            object->propertyAsString("speed").toFloat(), object->propertyAsString("buttons"), parent, object->property("noAnimations").toBool());
 }
 
-Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
+Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent, bool noAnimations)
 {
     pos.setY(pos.y() - size.height());
     Entity* e = new Entity(parent, pos, size);
     // Note: the MagnetZipperComponent adds animation itself
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
-                                              speed, buttons));
+                                              speed, buttons, noAnimations));
 
 
     return e;
