@@ -79,9 +79,9 @@
    <properties>
     <property name="active" value=""/>
     <property name="buttons" value="z1"/>
-    <property name="end" value="magnetOff"/>
+    <property name="end" value="leverOff"/>
     <property name="idle" value=""/>
-    <property name="start" value="magnetOn"/>
+    <property name="start" value="leverOn"/>
    </properties>
   </object>
   <object id="367" name="button" x="352" y="128" width="16" height="16">

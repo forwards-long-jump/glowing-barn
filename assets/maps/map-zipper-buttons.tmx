@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="225">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="226">
  <properties>
-  <property name="musicPath" value="/assets/sounds/Mind-Bender.mp3"/>
+  <property name="musicPath" value="/assets/sounds/Puzzle-Dreams-2.mp3"/>
   <property name="zoom" type="float" value="4.2"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
@@ -321,7 +321,7 @@
    <properties>
     <property name="animationName" value="boxContainer"/>
     <property name="animationToPlay" value=""/>
-    <property name="buttons" value="firstButton"/>
+    <property name="buttons" value="boxButton"/>
     <property name="parallax" type="float" value="0"/>
     <property name="texture" value=""/>
    </properties>
@@ -351,6 +351,15 @@
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="default"/>
     <property name="w" type="float" value="16"/>
+   </properties>
+  </object>
+  <object id="225" name="sound" x="48" y="368" width="16" height="16">
+   <properties>
+    <property name="active" value=""/>
+    <property name="buttons" value="leverButton"/>
+    <property name="end" value="leverOff"/>
+    <property name="idle" value=""/>
+    <property name="start" value="leverOn"/>
    </properties>
   </object>
  </objectgroup>
