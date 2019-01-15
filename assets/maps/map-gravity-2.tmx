@@ -52,7 +52,7 @@
     <property name="radius" type="float" value="70"/>
    </properties>
   </object>
-  <object id="179" name="hurt" x="-149" y="336" width="858.333" height="29.6667"/>
+  <object id="179" name="hurt" x="-138" y="389" width="858.333" height="29.6667"/>
   <object id="183" name="invisible-wall" x="16" y="66" width="16" height="206"/>
   <object id="184" gid="236" x="48" y="208" width="16" height="16"/>
   <object id="185" gid="239" x="464" y="208" width="16" height="16">

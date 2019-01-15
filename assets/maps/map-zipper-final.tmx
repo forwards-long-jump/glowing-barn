@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="43" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="207">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="43" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="216">
  <properties>
   <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler-2.mp3"/>
   <property name="zoom" type="float" value="4"/>
@@ -85,7 +85,7 @@
     <property name="w" type="float" value="27"/>
    </properties>
   </object>
-  <object id="158" name="graphic" x="-27.3825" y="-10.5185" width="932.765" height="494.037">
+  <object id="158" name="graphic" x="-49.3825" y="-16.5185" width="716.765" height="388.037">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -315,14 +315,6 @@
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
-  <object id="197" gid="249" x="64" y="368" width="16" height="16">
-   <properties>
-    <property name="animationName" value="player"/>
-    <property name="h" type="float" value="32"/>
-    <property name="spawnName" value="default"/>
-    <property name="w" type="float" value="16"/>
-   </properties>
-  </object>
   <object id="198" gid="249" x="544" y="64" width="16" height="16">
    <properties>
     <property name="animationName" value="player"/>
@@ -375,6 +367,77 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.95"/>
     <property name="texture" value=":/decorations/sky.png"/>
+   </properties>
+  </object>
+  <object id="207" name="graphic" x="160.541" y="-77.5863" width="22.2517" height="187.173">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="208" gid="249" x="64" y="368" width="16" height="16">
+   <properties>
+    <property name="animationName" value="player"/>
+    <property name="h" type="float" value="32"/>
+    <property name="spawnName" value="default"/>
+    <property name="w" type="float" value="16"/>
+   </properties>
+  </object>
+  <object id="209" name="graphic" x="221.541" y="-117.586" width="22.2517" height="187.173">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="210" name="graphic" x="303.541" y="-100.253" width="22.2517" height="187.173">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="211" name="graphic" x="366.207" y="-122.92" width="22.2517" height="187.173">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="212" name="graphic" x="190.374" y="-70.6167" width="16.2517" height="136.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.5"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="213" name="graphic" x="269.874" y="-79.8515" width="16.2517" height="136.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.5"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="214" name="graphic" x="341.874" y="-42.8515" width="16.2517" height="136.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.5"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
    </properties>
   </object>
  </objectgroup>
