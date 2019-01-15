@@ -104,3 +104,11 @@ void MenuScene::update()
     }
 }
 
+void MenuScene::onKeyChange(Input&)
+{
+    // Handle start the game
+    if(Game::input.isKeyDown(Input::Key::START_GAME) || Game::input.isKeyDown(Input::Key::START_GAME2))
+    {
+        static_cast<TransitionComponent*>(leaveFader->getComponent("TransitionComponent"))->restart();
+    }
+}

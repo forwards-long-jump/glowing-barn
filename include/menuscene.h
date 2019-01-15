@@ -13,6 +13,7 @@ public:
     ~MenuScene();
 
     void onEnter() override;
+    void onKeyChange(Input&) override;
     void update() override;
 
 private:
