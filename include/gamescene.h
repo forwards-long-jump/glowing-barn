@@ -30,7 +30,8 @@ private:
     // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
     const QString DEV_MAP_PATH = "";
 
-    void onKeyChange(Input &input) override;
+    void onEnter() override;
+    void onKeyChange(Input&) override;
     void update() override;
 
     bool loadMap(QString filename, QString spawnName = "default");
