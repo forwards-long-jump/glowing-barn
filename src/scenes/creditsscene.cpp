@@ -17,9 +17,9 @@ void CreditsScene::onEnter()
     bottom1->addComponent(new ImageComponent(":/credits/background.png"));
     bottom2 = new Entity(nullptr, -512, 32, 512, 48);
     bottom2->addComponent(new ImageComponent(":/credits/background.png"));
-    credits = new Entity(nullptr, -103.5, 130, 223, 607);
+    credits = new Entity(nullptr, -111.5, 130, 223, 607);
     credits->addComponent(new ImageComponent(":/credits/credits.png"));
-    thanks = new Entity(nullptr, -103.5, 882, 223, 31);
+    thanks = new Entity(nullptr, -111.5, 882, 223, 31);
     thanks->addComponent(new ImageComponent(":/credits/thanks.png"));
 
     Entity* sky = new Entity(nullptr, -200, -200, 900, 300);
@@ -32,8 +32,8 @@ void CreditsScene::onEnter()
     clouds = new Entity(nullptr, -200, -96, 600, 96);
     clouds->addComponent(new ImageComponent(":/decorations/clouds.png"));
 
-    Entity* playerCredits = EntityFactory::playerCredits(QPointF(0,0), QSizeF(16, 32));
-    Entity* cameraLock = new Entity(nullptr, 0, -38, 16, 16);
+    Entity* playerCredits = EntityFactory::playerCredits(QPointF(-8,0), QSizeF(16, 32));
+    Entity* cameraLock = new Entity(nullptr, -8, -38, 16, 16);
 
     Entity* fader = new Entity(nullptr, -1000, -1000, 2000, 2000);
     fader->addComponent(new TransitionComponent(
@@ -103,7 +103,7 @@ void CreditsScene::update()
                         else
                         {
                                 painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(),
-                                    QColor(0, 0, 0, (255 * static_cast<float>(ticksPassed - 60) / (duration - 60))));
+                                    QColor(255, 255, 255, (255 * static_cast<float>(ticksPassed - 60) / (duration - 60))));
                         }
                     }, 150
         ));
