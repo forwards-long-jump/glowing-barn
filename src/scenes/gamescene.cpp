@@ -76,7 +76,7 @@ void GameScene::update()
     }
 }
 
-void GameScene::onKeyChange(Input &input)
+void GameScene::onKeyChange(Input&)
 {
     // Handle going back to main menu
     if(Game::input.isKeyDown(Input::Key::QUIT_GAME) && game->isPaused())
