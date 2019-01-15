@@ -1,26 +1,32 @@
-#ifndef INTERACTIVEHITBOXCOMPONENT_H
-#define INTERACTIVEHITBOXCOMPONENT_H
+#ifndef INTERACTIVECOMPONENT_H
+#define INTERACTIVECOMPONENT_H
 
-#include "squarehitboxcomponent.h"
+#include "hitboxreactorcomponent.h"
+#include "interactivecomponent.h"
+#include "debugcomponent.h"
 #include "input.h"
 
-//belongs to a player
-class InteractiveReactorComponent : public SquareHitboxComponent
+//belongs to an interactible objet
+class InteractiveReactorComponent : public HitboxReactorComponent
 {
 public:
-    InteractiveReactorComponent(QString name_ = "InteractiveHitboxComponent");
+    InteractiveReactorComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = "InteractiveHitboxComponent", QString requiredButtons = "");
 
     void update() override;
+    void init() override;
+    void onIntersect(HitboxComponent* hb) override;
 
-    void askKey(Input::Key key);
+    virtual void showPrompt() const;
+    virtual void action(Entity* target) = 0;
 
-    Input::Key getAskedKey() const {return askedKey;}
-    bool isActive() const {return isKeyActive;}
-    void setActive(bool active_) {isKeyActive = active_;}
+protected:
+    Input::Key key;
+    bool readyToInteract;
+    bool removePromptOnNextTick;
 
-private:
-    Input::Key askedKey;
-    bool isKeyActive;
+    QVector<QString> requiredButtons;
+
+    Entity* commandPrompt;
 };
 
-#endif // INTERACTIVEHITBOXCOMPONENT_H
+#endif // INTERACTIVECOMPONENT_H

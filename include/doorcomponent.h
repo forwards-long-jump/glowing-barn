@@ -1,11 +1,11 @@
 #ifndef DOORCOMPONENT_H
 #define DOORCOMPONENT_H
 
-#include "interactivecomponent.h"
+#include "interactivereactorcomponent.h"
 #include "squarehitboxcomponent.h"
 #include "gamescene.h"
 
-class DoorComponent : public InteractiveComponent
+class DoorComponent : public InteractiveReactorComponent
 {
 public:
     DoorComponent(QString targetMap, QString targetDoor, QString requiredButtons_ = "", bool isFinalDoor_ = false, Input::Key key_ = Input::INTERACT, QString name_ = "InteractiveComponent");

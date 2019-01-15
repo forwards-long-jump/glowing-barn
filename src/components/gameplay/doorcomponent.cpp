@@ -34,7 +34,7 @@ void DoorComponent::action(Entity* target)
 
 void DoorComponent::update()
 {
-    InteractiveComponent::update();
+    InteractiveReactorComponent::update();
     if(requiredButtons.length() > 0 && !enteringDoor)
     {
         if(!GameButtonComponent::areButtonsPressed(requiredButtons))
@@ -51,7 +51,7 @@ void DoorComponent::update()
 }
 
 DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString requiredButtons_, bool isFinalDoor_, Input::Key key_, QString name_)
-    : InteractiveComponent(key_, name_, "InteractiveHitboxComponent", requiredButtons_)
+    : InteractiveReactorComponent(key_, name_, "InteractiveHitboxComponent", requiredButtons_)
 {
     targetMap = targetMap_;
     targetDoor = targetDoor_;
@@ -61,7 +61,7 @@ DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString re
 
 void DoorComponent::init()
 {
-    InteractiveComponent::init();
+    InteractiveReactorComponent::init();
 
     setHitbox(new SquareHitboxComponent());
 }
