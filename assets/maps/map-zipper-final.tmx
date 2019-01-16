@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="43" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="216">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="43" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="226">
  <properties>
   <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler-2.mp3"/>
   <property name="zoom" type="float" value="4"/>
@@ -270,7 +270,7 @@
     <property name="buttons" value="b1 b2"/>
     <property name="direction" value="down"/>
     <property name="h" type="float" value="1"/>
-    <property name="speed" type="float" value="20"/>
+    <property name="speed" type="float" value="15"/>
     <property name="w" type="float" value="13"/>
    </properties>
   </object>
@@ -438,6 +438,86 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.5"/>
     <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="218" name="button" x="0" y="336" width="127.667" height="63.3333">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="sign1"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="219" name="text" x="3.33333" y="345.333" width="58.3333" height="32.6667">
+   <properties>
+    <property name="buttons" value="sign1"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="This box may come handy later..."/>
+   </properties>
+  </object>
+  <object id="220" name="button" x="592" y="304" width="97.3337" height="94">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="sign2"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="221" name="text" x="587.667" y="285" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="sign2"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="What are they even testing in here???"/>
+   </properties>
+  </object>
+  <object id="222" name="text" x="80" y="240" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="sign3"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="Goodbye little box... I will miss you :("/>
+   </properties>
+  </object>
+  <object id="223" name="button" x="94.7985" y="299.333" width="20.8685" height="20.3333">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="sign3"/>
+    <property name="pressableBy" value="Box"/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="224" name="text" x="96.6667" y="16" width="63.3333" height="32.6667">
+   <properties>
+    <property name="buttons" value="sign4"/>
+    <property name="fontSize" type="int" value="4"/>
+    <property name="text" value="What the???"/>
+   </properties>
+  </object>
+  <object id="225" name="button" x="115.333" y="60" width="43.3337" height="20.6667">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="sign4"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>

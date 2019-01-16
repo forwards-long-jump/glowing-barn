@@ -6,6 +6,7 @@
    <property name="buttons" value=""/>
    <property name="direction" value="left"/>
    <property name="h" type="float" value="1"/>
+   <property name="noAnimations" type="bool" value="false"/>
    <property name="speed" type="float" value="5"/>
    <property name="w" type="float" value="10"/>
   </properties>
