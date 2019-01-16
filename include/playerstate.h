@@ -40,6 +40,7 @@ public:
 
 protected:
     static bool headingRight;
+    static int ticksSinceEntering;
 };
 
 
@@ -92,6 +93,9 @@ public:
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
+
+public:
+    const int nbTicksJumping = 7;
 };
 
 
@@ -105,6 +109,12 @@ public:
     void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
+
+    void setLenient(bool lenient);
+
+private:
+    const int jumpLeniency = 5;
+    bool canBeLenient = false;
 };
 
 class DeadState : public PlayerState

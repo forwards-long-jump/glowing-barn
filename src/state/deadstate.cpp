@@ -7,6 +7,7 @@ void DeadState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void DeadState::enter(PlayerInputComponent* playerInputComponent) const
 {
+    ticksSinceEntering = 0;
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
     if (physicsComponent != nullptr)
     {

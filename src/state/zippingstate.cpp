@@ -2,6 +2,7 @@
 
 void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
+    ticksSinceEntering++;
     if (Game::input.isKeyDown(Input::ZIP))
     {
         playerInputComponent->setState(&PlayerState::falling);
@@ -49,6 +50,9 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void ZippingState::enter(PlayerInputComponent* playerInputComponent) const
 {
+    ticksSinceEntering = 0;
+    PlayerState::falling.setLenient(false);
+
     AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {

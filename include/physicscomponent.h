@@ -7,7 +7,7 @@
 class PhysicsComponent : public Component
 {
 public:
-    PhysicsComponent(float accSpeed_ = 1.0, float maxHSpeed_ = 4.5, float friction_ = 0.8, float jumpSpeed_ = -10., float g_ = 0.7, float maxVSpeed_ = 10., QString name_ = "PhysicsComponent");
+    PhysicsComponent(float accSpeed_ = 1.0, float maxHSpeed_ = 4.5, float friction_ = 0.8, float jumpSpeed_ = -7.2, float g_ = 0.7, float maxVSpeed_ = 10., QString name_ = "PhysicsComponent");
 
     void update() override;
     void handleCollision(SquareHitboxComponent* hitbox);

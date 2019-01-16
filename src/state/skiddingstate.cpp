@@ -2,7 +2,8 @@
 
 void SkiddingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
-    playerInputComponent->resetJumpLeniency();
+    ticksSinceEntering++;
+
     if (!checkFalling(playerInputComponent))
     {
         if (handleHorizontalMovement(playerInputComponent))
@@ -24,6 +25,9 @@ void SkiddingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void SkiddingState::enter(PlayerInputComponent* playerInputComponent) const
 {
+    ticksSinceEntering = 0;
+    PlayerState::falling.setLenient(true);
+
     AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
