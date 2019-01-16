@@ -4,7 +4,7 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 {
     if (object->propertyAsString("animationName") == "playerStory")
     {
-        return storyPlayer(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
+        return playerStory(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), parent);
     }
     return player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
 }
@@ -121,7 +121,7 @@ Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
     return playerCredits;
 }
 
-Entity* EntityFactory::storyPlayer(QPointF pos, QSizeF size, Entity* parent)
+Entity* EntityFactory::playerStory(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
     AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("playerStory");
@@ -220,6 +220,10 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     AnimationComponent* ac = AnimationFactory::getAnimationComponent(object->propertyAsString("animation") != "" ? object->propertyAsString("animation") : "door");
     ac->setCurrentAnimation("idle");
     ac->setButtons("auto_door");
+    if(object->property("mirrorX").toBool())
+    {
+        ac->setMirrored(true);
+    }
     e->addComponent(ac);
     e->addComponent(new ParallaxComponent(0.0001));
     return e;
@@ -236,9 +240,11 @@ Entity *EntityFactory::storyMagnet(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
     e->addComponent(new StoryMagnetComponent(object->propertyAsString("buttons"), object->propertyAsString("targetMap")));
-    ImageComponent* image = new ImageComponent(":/entities/magnet-zipper.png");
-    image->setRotation(-90);
-    e->addComponent(image);
+    AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnetZipper");
+    ac->setCurrentAnimation("active");
+    ac->setRotation(-90);
+    e->addComponent(ac);
+    e->setZValue(1);
 
     return e;
 }
@@ -261,16 +267,16 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),
                                             QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()),
-                                            object->propertyAsString("speed").toFloat(), object->propertyAsString("buttons"), parent);
+                                            object->propertyAsString("speed").toFloat(), object->propertyAsString("buttons"), parent, object->property("noAnimations").toBool());
 }
 
-Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent)
+Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent, bool noAnimations)
 {
     pos.setY(pos.y() - size.height());
     Entity* e = new Entity(parent, pos, size);
     // Note: the MagnetZipperComponent adds animation itself
     e->addComponent(new MagnetZipperComponent(convertToDirection(direction), QSizeF((0.5 + fieldSize.width()) * TILE_SIZE , fieldSize.height() * TILE_SIZE),
-                                              speed, buttons));
+                                              speed, buttons, noAnimations));
 
 
     return e;
@@ -460,11 +466,15 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
         {
             ac->setCurrentAnimation(object->propertyAsString("animationToPlay"));
         }
+
+        ac->setRotation(object->rotation());
         e->addComponent(ac);
     }
     if(object->propertyAsString("texture") != "")
     {
-        e->addComponent(new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons")));
+        ImageComponent* ic = new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons"));
+        ic->setRotation(object->rotation());
+        e->addComponent(ic);
     }
     if(object->propertyAsString("parallax") != "")
     {

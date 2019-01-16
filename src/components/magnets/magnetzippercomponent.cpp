@@ -11,14 +11,13 @@ const QString MagnetZipperComponent::HITBOX_NAME = "MagnetZipperHitbox";
  * @param hitboxSize
  * @param speed
  */
-MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction_, QSizeF hitboxSize_, float speed_, QString requiredButtons_) : Component("MagnetZipperComponent")
+MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction, QSizeF hitboxSize, float speed, QString requiredButtons_, bool noAnimations) : Component("MagnetZipperComponent"),
+    noAnimations(noAnimations),
+    hitboxSize(hitboxSize),
+    direction(direction),
+    speed(speed)
 {
-    hitboxSize = hitboxSize_;
-    direction = direction_;
-
     requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
-
-    speed = speed_;
 }
 
 /**
@@ -60,7 +59,10 @@ void MagnetZipperComponent::init()
     hc->setOffset(hitboxRect.x(), hitboxRect.y());
     hc->setSize(hitboxRect.width(), hitboxRect.height());
 
-    addAnimations();
+    if(!noAnimations)
+    {
+        addAnimations();
+    }
 }
 
 void MagnetZipperComponent::addAnimations()

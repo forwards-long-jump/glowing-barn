@@ -66,19 +66,19 @@ void Sounds::loadSounds()
     // TODO: Better loading system
     // Loading sounds multiple time will cause a memory leak
     QSoundEffect* sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky27.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnetON.wav"));
     sounds.insert("magnetOn", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnetOFF.wav"));
     sounds.insert("magnetOff", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky27.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever-on.wav"));
     sounds.insert("leverOn", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/UI_Quirky28.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever-on.wav"));
     sounds.insert("leverOff", sfx);
 
     sfx = new QSoundEffect();

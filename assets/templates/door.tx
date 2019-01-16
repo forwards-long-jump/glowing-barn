@@ -4,6 +4,7 @@
   <properties>
    <property name="animation" value="insideDoor"/>
    <property name="buttons" value=""/>
+   <property name="isFinalDoor" type="bool" value="false"/>
    <property name="targetMap" value=":maps/map-test.tmx"/>
    <property name="targetSpawn" value="default"/>
   </properties>

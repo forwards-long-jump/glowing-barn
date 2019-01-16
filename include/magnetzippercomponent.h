@@ -17,7 +17,7 @@ public:
     enum DIRECTION { LEFT, RIGHT, UP, DOWN };
     const static QString HITBOX_NAME;
 
-    MagnetZipperComponent(DIRECTION direction, QSizeF hitboxSize, float speed = 5, QString requiredButtons = "");
+    MagnetZipperComponent(DIRECTION direction, QSizeF hitboxSize, float speed = 5, QString requiredButtons_ = "", bool noAnimations = false);
 
     float getSpeed() const;
     DIRECTION getDirection() const;
@@ -32,6 +32,7 @@ private:
     float speed = 5;
     QSizeF hitboxSize;
     QVector<QString> requiredButtons;
+    bool noAnimations = false;
     DIRECTION direction;
 };
 

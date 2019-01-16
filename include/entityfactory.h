@@ -36,21 +36,17 @@ public:
     static Entity* player(Tiled::MapObject*, Entity* = nullptr);
     static Entity* player(QPointF, QSizeF, QString animationName, Entity* = nullptr);
     static Entity* playerCredits(QPointF, QSizeF, Entity* = nullptr);
-    static Entity* storyPlayer(QPointF pos, QSizeF size, Entity* parent = nullptr);
+    static Entity* playerStory(QPointF pos, QSizeF size, Entity* parent = nullptr);
 
     static Entity* spark(Tiled::MapObject* object, Entity* parent);
-
-    static Entity* collision(QPointF, QSizeF, Entity* = nullptr);
+    static Entity* hurt(Tiled::MapObject* object, Entity* parent);
 
     static Entity* magnetZipper(Tiled::MapObject*, Entity*  = nullptr);
-    static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, QString, Entity*);
-
+    static Entity* magnetZipper(QPointF, QSizeF, QString, QSizeF, float, QString, Entity*, bool noAnimations = false);
     static Entity* magnetJumper(Tiled::MapObject* object, Entity* parent);
-
     static Entity* magnetGravity(Tiled::MapObject* object, Entity* parent);
 
-    static Entity* box(Tiled::MapObject* object, Entity* parent);
-
+    static Entity* gameButton(Tiled::MapObject* object, Entity* parent);
     static Entity* soundButtonReactor(Tiled::MapObject* object, Entity* parent);
 
     static Entity* graphic(Tiled::MapObject*, Entity* = nullptr);
@@ -59,16 +55,13 @@ public:
     static Entity* storyActivation(Tiled::MapObject* object, Entity* parent = nullptr);
     static Entity* storyMagnet(Tiled::MapObject* object, Entity* parent = nullptr);
     
+    static Entity* collision(QPointF, QSizeF, Entity* = nullptr);
+    static Entity* box(Tiled::MapObject* object, Entity* parent);
     static Entity* cameraSequence(Tiled::MapObject* object, Entity*  parent = nullptr);
-
-    static Entity *text(Tiled::MapObject *object, Entity *parent);
+    static Entity* text(Tiled::MapObject* object, Entity* parent);
 
     static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);
-    static Entity* gameButton(Tiled::MapObject* object, Entity* parent);
-
     static Input::Key convertToKey(const QString &str);
-
-    static Entity* hurt(Tiled::MapObject* object, Entity* parent);
 
     // TODO: Get this dynamically from the map
     static const int TILE_SIZE = 16;

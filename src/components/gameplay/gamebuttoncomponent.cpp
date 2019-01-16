@@ -12,7 +12,7 @@ const QString GameButtonComponent::HITBOX_REACTOR_NAME = "GameButtonPresser";
  */
 GameButtonComponent::GameButtonComponent(QString buttonName_, Input::Key key, bool stayPressed_,
                                          bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString requiredButtonsToPress_, QString requiredButtonsToRelease_, QString name)
-    : InteractiveComponent(key, name),
+    : InteractiveReactorComponent(key, name),
       buttonName(buttonName_),
       stayPressed(stayPressed_),
       invertOnOff(invertOnOff_),
@@ -32,7 +32,7 @@ GameButtonComponent::GameButtonComponent(QString buttonName_, Input::Key key, bo
  */
 GameButtonComponent::GameButtonComponent(QString buttonName_, bool stayPressed_,
                                          bool invertOnOff_, int pressedDurationInTick_, bool isTogglable_, QString requiredButtonsToPress_, QString requiredButtonsToRelease_, QString reactorName, QString name)
-    : InteractiveComponent(Input::Key::NONE, name, reactorName),
+    : InteractiveReactorComponent(Input::Key::NONE, name, reactorName),
       buttonName(buttonName_),
       stayPressed(stayPressed_),
       invertOnOff(invertOnOff_),
@@ -108,7 +108,7 @@ QVector<QString> GameButtonComponent::getButtonVectorFromString(QString buttons)
 
 void GameButtonComponent::init()
 {
-    InteractiveComponent::init();
+    InteractiveReactorComponent::init();
     setHitbox(new SquareHitboxComponent());
 }
 
@@ -124,7 +124,7 @@ void GameButtonComponent::onEnable()
 
 void GameButtonComponent::update()
 {
-    InteractiveComponent::update();
+    InteractiveReactorComponent::update();
     if(pressedTicksLeft > 0)
     {
         pressedTicksLeft--;

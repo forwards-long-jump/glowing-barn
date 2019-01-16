@@ -65,8 +65,6 @@ SOURCES += \
     src/components/hitboxes/squarehitboxcomponent.cpp \
     src/components/hitboxes/circlehitboxcomponent.cpp \
     src/components/hitboxes/hitboxreactorcomponent.cpp \
-    src/components/hitboxes/interactivecomponent.cpp \
-    src/components/hitboxes/interactivehitboxcomponent.cpp \
     src/components/hitboxes/hitboxcomponent.cpp \
     src/components/magnets/magnetzipperreactorcomponent.cpp \
     src/components/magnets/magnetzippercomponent.cpp \
@@ -95,7 +93,9 @@ SOURCES += \
     src/components/gameplay/storymagnetcomponent.cpp \
     src/components/gameplay/camerasequencecomponent.cpp \
     src/components/graphics/guiitemcomponent.cpp \
-    src/components/graphics/textcomponent.cpp
+    src/components/graphics/textcomponent.cpp \
+    src/components/hitboxes/interactivereactorcomponent.cpp \
+    src/components/hitboxes/interactivecomponent.cpp
 
 HEADERS += \
     include/game.h \
@@ -118,9 +118,7 @@ HEADERS += \
     include/hitboxcomponent.h \
     include/debugtextcomponent.h \
     include/debughitboxcomponent.h \
-    include/interactivecomponent.h \
     include/hitboxreactorcomponent.h \
-    include/interactivehitboxcomponent.h \
     include/doorcomponent.h \
     include/entityfactory.h \
     include/squarehitboxcomponent.h \
@@ -149,7 +147,9 @@ HEADERS += \
     include/storymagnetcomponent.h \
     include/camerasequencecomponent.h \
     include/guiitemcomponent.h \
-    include/textcomponent.h
+    include/textcomponent.h \
+    include/interactivereactorcomponent.h \
+    include/interactivecomponent.h
 
 RESOURCES += \
     assets/assets.qrc

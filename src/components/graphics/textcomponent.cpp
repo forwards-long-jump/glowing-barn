@@ -19,7 +19,7 @@ void TextComponent::render(QPainter *painter)
         painter->setBrush(QColor(0, 0, 0, currentBackgroundOpacity));
         painter->drawRect(parent->boundingRect());
 
-        painter->setFont(QFont("Serif", fontSize));
+        painter->setFont(QFont("Arial", fontSize));
         painter->setPen(QColor(255, 255, 255, (static_cast<float>(currentBackgroundOpacity) / MAX_BACKGROUND_OPACITY) * 255));
         painter->drawText(QRectF(0, 0, getParent()->getSize().width(), getParent()->getSize().height()), text, QTextOption(Qt::AlignCenter));
     }

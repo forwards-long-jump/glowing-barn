@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="256">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="260">
  <properties>
   <property name="musicPath" value="/assets/sounds/Circling-the-Barn.mp3"/>
   <property name="zoom" type="float" value="4.5"/>
@@ -31,15 +31,16 @@
   </object>
   <object id="131" name="door" x="880" y="240" width="16" height="32">
    <properties>
+    <property name="mirrorX" type="bool" value="true"/>
     <property name="targetMap" value=":/maps/map-factory-1.tmx"/>
-    <property name="targetSpawn" value="default"/>
+    <property name="targetSpawn" value="door1"/>
    </properties>
   </object>
   <object id="132" name="door" x="896" y="240" width="16" height="32">
    <properties>
     <property name="buttons" value=""/>
     <property name="targetMap" value=":/maps/map-factory-1.tmx"/>
-    <property name="targetSpawn" value="default"/>
+    <property name="targetSpawn" value="door2"/>
    </properties>
   </object>
   <object id="133" name="graphic" x="815.455" y="191.636" width="81" height="33">
@@ -83,7 +84,7 @@
    <properties>
     <property name="animationName" value="playerStory"/>
     <property name="h" type="float" value="32"/>
-    <property name="spawnName" value="door"/>
+    <property name="spawnName" value="door1"/>
     <property name="w" type="float" value="16"/>
    </properties>
   </object>
@@ -113,7 +114,7 @@
    <properties>
     <property name="buttons" value="sign1"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="Voici Tengam Stanp, un entrepreneur renommé."/>
+    <property name="text" value="This is Magnus. A renowned contractor."/>
    </properties>
   </object>
   <object id="173" name="button" x="400" y="160" width="111.5" height="112">
@@ -133,7 +134,7 @@
    <properties>
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="Son rival l'a invité pour discuter d'un nouveau type d'aimant."/>
+    <property name="text" value="He was invited by his rival Mr. Samarium to discover their latest invention"/>
    </properties>
   </object>
   <object id="179" name="graphic" x="-112" y="96" width="1129.76" height="389.703">
@@ -307,6 +308,43 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.001"/>
     <property name="texture" value=":/decorations/clouds.png"/>
+   </properties>
+  </object>
+  <object id="256" name="graphic" x="-632.88" y="23.1485" width="1129.76" height="389.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.01"/>
+    <property name="texture" value=":/decorations/trees.png"/>
+   </properties>
+  </object>
+  <object id="257" name="button" x="848" y="64" width="111.5" height="112">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="signE"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="258" name="text" x="862.583" y="114.333" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="signE"/>
+    <property name="fontSize" type="int" value="4"/>
+    <property name="text" value="Apparently, Mr Magnus was very curious..."/>
+   </properties>
+  </object>
+  <object id="259" gid="249" x="896" y="240" width="16" height="16">
+   <properties>
+    <property name="animationName" value="playerStory"/>
+    <property name="h" type="float" value="32"/>
+    <property name="spawnName" value="door2"/>
+    <property name="w" type="float" value="16"/>
    </properties>
   </object>
  </objectgroup>

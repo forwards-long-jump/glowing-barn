@@ -3,10 +3,10 @@
 
 #include "hitboxreactorcomponent.h"
 #include "squarehitboxcomponent.h"
-#include "interactivecomponent.h"
+#include "interactivereactorcomponent.h"
 #include "input.h"
 
-class GameButtonComponent : public InteractiveComponent
+class GameButtonComponent : public InteractiveReactorComponent
 {
 public:
     GameButtonComponent(QString buttonName, Input::Key key, bool stayPressed = false,
