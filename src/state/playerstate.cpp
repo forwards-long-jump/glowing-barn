@@ -9,6 +9,7 @@ ZippingState PlayerState::zipping;
 DeadState PlayerState::dying;
 
 bool PlayerState::headingRight = true;
+int PlayerState::ticksSinceEntering = 0;
 
 
 bool PlayerState::handleHorizontalMovement(PlayerInputComponent* playerInputComponent)

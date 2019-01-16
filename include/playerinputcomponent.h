@@ -12,7 +12,7 @@ class PlayerInputComponent : public Component
 {
 public:
     PlayerInputComponent(QString name_ = "PlayerInputComponent")
-        :Component(name_) {jumpLeniencyStart.start();}
+        :Component(name_) {}
     virtual ~PlayerInputComponent() {}
 
     void update() override;
@@ -21,9 +21,6 @@ public:
     PlayerState* getState() const;
     void setState(PlayerState* _state);
 
-    void resetJumpLeniency() {jumpLeniencyStart.restart();}
-    bool isJumpLenient() const {return jumpLeniencyStart.elapsed() < jumpLeniencyInMSec;}
-
     void onDisable() override;
 
 private:
@@ -31,9 +28,6 @@ private:
     PlayerState* state;
 
     InteractiveComponent interactiveHitbox;
-
-    QTime jumpLeniencyStart;
-    const int jumpLeniencyInMSec = 100;
 };
 
 #include "playerstate.h"

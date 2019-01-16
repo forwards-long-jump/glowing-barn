@@ -2,7 +2,8 @@
 
 void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
-    playerInputComponent->resetJumpLeniency();
+    ticksSinceEntering++;
+
     if (!checkFalling(playerInputComponent))
     {
         if (Game::input.isKeyDown(Input::JUMP))
@@ -18,6 +19,9 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 
 void StandingState::enter(PlayerInputComponent* playerInputComponent) const
 {
+    ticksSinceEntering = 0;
+    PlayerState::falling.setLenient(true);
+
     AnimationComponent* ac = dynamic_cast<AnimationComponent*>(playerInputComponent->getParent()->getComponent("AnimationComponent"));
     if(ac)
     {
