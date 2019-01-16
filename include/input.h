@@ -19,6 +19,8 @@ public:
         INTERACT,
         ZIP,
         PAUSE_MENU,
+        START_GAME,
+        START_GAME2,
         MUTE_GAME,
         QUIT_GAME
     };

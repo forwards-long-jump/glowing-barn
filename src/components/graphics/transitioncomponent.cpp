@@ -2,10 +2,14 @@
 
 TransitionComponent::TransitionComponent(std::function<void()> onFinished,
                                          std::function<void(QPainter* , const Entity* , int, int)> transition,
-                                         int duration)
-    : onFinished(onFinished),
+                                         int duration, bool autoplay)
+    : GraphicsComponent("TransitionComponent"),
+      onFinished(onFinished),
       renderTransitionAnimation(transition),
-      duration(duration) {}
+      duration(duration)
+{
+    done = !autoplay;
+}
 
 void TransitionComponent::render(QPainter* painter)
 {
@@ -22,4 +26,10 @@ void TransitionComponent::update()
         done = true;
         onFinished();
     }
+}
+
+void TransitionComponent::restart()
+{
+    ticksPassed = 0;
+    done = false;
 }

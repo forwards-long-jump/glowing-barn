@@ -3,9 +3,6 @@
 GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)
 {
-    changeMapScheduled = false;
-    loadMap(":maps/map-outside-factory.tmx");
-
     // If a dev map is set, adds a file watcher to reload the map automatically every time it is changed on disk
     if(DEV_MAP_PATH != "") {
         mapReloadWatcher.addPath(DEV_MAP_PATH);
@@ -19,6 +16,12 @@ GameScene::GameScene(QString name, Game* game)
 GameScene::~GameScene()
 {
 
+}
+
+void GameScene::onEnter()
+{
+    changeMapScheduled = false;
+    loadMap(":maps/map-outside-factory.tmx");
 }
 
 void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
@@ -73,7 +76,7 @@ void GameScene::update()
     }
 }
 
-void GameScene::onKeyChange(Input &input)
+void GameScene::onKeyChange(Input&)
 {
     // Handle going back to main menu
     if(Game::input.isKeyDown(Input::Key::QUIT_GAME) && game->isPaused())

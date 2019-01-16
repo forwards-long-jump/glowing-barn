@@ -65,4 +65,8 @@
 	<file alias="credits.png">graphics/credits/credits.png</file>
 	<file alias="thanks.png">graphics/credits/thanks.png</file>
 </qresource>
+<qresource prefix="/menu">
+    <file alias="title.png">graphics/menu/title.png</file>
+	<file alias="start.png">graphics/menu/start.png</file>
+</qresource>
 </RCC>

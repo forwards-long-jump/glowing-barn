@@ -2,14 +2,16 @@
 
 Input::Input()
 {
-    bindings[LEFT]      = Qt::Key_Left;
-    bindings[RIGHT]     = Qt::Key_Right;
-    bindings[JUMP]      = Qt::Key_Up;
-    bindings[INTERACT]  = Qt::Key_Down;
-    bindings[ZIP]       = Qt::Key_Space;
-    bindings[PAUSE_MENU]    = Qt::Key_Escape;
-    bindings[MUTE_GAME] = Qt::Key_M;
-    bindings[QUIT_GAME] = Qt::Key_Q;
+    bindings[LEFT]       = Qt::Key_Left;
+    bindings[RIGHT]      = Qt::Key_Right;
+    bindings[JUMP]       = Qt::Key_Up;
+    bindings[INTERACT]   = Qt::Key_Down;
+    bindings[ZIP]        = Qt::Key_Space;
+    bindings[PAUSE_MENU] = Qt::Key_Escape;
+    bindings[START_GAME] = Qt::Key_Enter;
+    bindings[START_GAME2] = Qt::Key_Return;
+    bindings[MUTE_GAME]  = Qt::Key_M;
+    bindings[QUIT_GAME]  = Qt::Key_Q;
 }
 
 bool Input::isDebugKeyDown(Qt::Key key)
