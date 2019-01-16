@@ -53,7 +53,7 @@
   <object id="152" gid="238" x="361.305" y="147.238" width="16" height="16" rotation="-51.624">
    <properties>
     <property name="buttons" value=""/>
-    <property name="force" type="float" value="20"/>
+    <property name="force" type="float" value="22"/>
    </properties>
   </object>
   <object id="153" gid="238" x="194.238" y="161.737" width="16" height="16">
