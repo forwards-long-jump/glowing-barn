@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="227">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="239">
  <properties>
   <property name="musicPath" value="/assets/sounds/Puzzle-Dreams-2.mp3"/>
   <property name="zoom" type="float" value="4.2"/>
@@ -171,7 +171,7 @@
     <property name="direction" value="down"/>
     <property name="h" type="float" value="1"/>
     <property name="speed" type="float" value="3"/>
-    <property name="w" type="float" value="12"/>
+    <property name="w" type="float" value="10"/>
    </properties>
   </object>
   <object id="159" gid="241" x="45.75" y="290.875" width="16" height="16">
@@ -278,7 +278,7 @@
    <properties>
     <property name="animationName" value="belt"/>
     <property name="animationToPlay" value="idle"/>
-    <property name="buttons" value="test"/>
+    <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.0001"/>
     <property name="texture" value=""/>
    </properties>
@@ -362,14 +362,79 @@
     <property name="start" value="leverOn"/>
    </properties>
   </object>
-  <object id="226" name="button" x="576" y="384" width="16" height="16">
+  <object id="227" name="graphic" x="15.7558" y="495.865" width="171.651" height="44.486">
    <properties>
-    <property name="invertOnOff" type="bool" value="false"/>
-    <property name="isTogglable" type="bool" value="false"/>
-    <property name="name" value="test"/>
-    <property name="pressedDurationInTick" type="int" value="1"/>
-    <property name="requiredKey" value="INTERACT"/>
-    <property name="stayPressed" type="bool" value="false"/>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.4"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="228" name="graphic" x="-126.044" y="537.459" width="1336.09" height="63.6454">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.41"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="229" name="graphic" x="346.815" y="496.162" width="171.651" height="44.486">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="idle"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.4"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="230" name="graphic" x="696.477" y="495.297" width="171.651" height="44.486">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.4"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="231" name="graphic" x="977.955" y="-24.8227" width="28.09" height="625.645">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.41"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="232" name="graphic" x="552.622" y="-0.275686" width="18.7567" height="417.765">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="236" name="text" x="32" y="336" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="leverButton !firstButton"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="&quot;I don't think this button does anything right now&quot;"/>
+   </properties>
+  </object>
+  <object id="237" name="text" x="32" y="336" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="leverButton boxButton"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="&quot;Oh, it's working now!&quot;"/>
+   </properties>
+  </object>
+  <object id="238" name="text" x="32" y="336" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="leverButton firstButton !boxButton"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="&quot;It's still doing nothing!&quot;"/>
    </properties>
   </object>
  </objectgroup>
