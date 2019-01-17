@@ -35,7 +35,6 @@ Game::Game(QWidget* parent)
                 {
                     input.handleKeyDown(event);
                     static_cast<Scene*>(scene())->onKeyChange(input);
-                    handleToggleMute();
                 }
             );
     connect(this, &Game::keyReleaseEvent,
@@ -106,6 +105,7 @@ void Game::update() {
 
         static_cast<Scene*>(scene())->update();
         Sounds::update();
+        handleToggleMute();
 
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();
