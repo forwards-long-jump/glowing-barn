@@ -32,6 +32,7 @@ private:
     static SoundEffectThread* leverOn;
     static SoundEffectThread* leverOff;
     static SoundEffectThread* crash;
+    static SoundEffectThread* demag;
 
     static int fadeOutTick;
     static int fadeoutDuration;

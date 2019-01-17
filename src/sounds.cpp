@@ -13,6 +13,7 @@ SoundEffectThread* Sounds::magnetOff = new SoundEffectThread();
 SoundEffectThread* Sounds::leverOn = new SoundEffectThread();
 SoundEffectThread* Sounds::leverOff = new SoundEffectThread();
 SoundEffectThread* Sounds::crash = new SoundEffectThread();
+SoundEffectThread* Sounds::demag = new SoundEffectThread();
 
 void Sounds::playMusic(QString path)
 {
@@ -44,6 +45,10 @@ void Sounds::playSound(QString name)
         else if (name == "crash")
         {
             crash->start();
+        }
+        else if (name == "demag")
+        {
+            demag->start();
         }
     }
 }
@@ -86,11 +91,12 @@ void Sounds::update()
 
 void Sounds::loadSounds()
 {
-    magnetOn->init("/assets/sounds/magnetON.wav");
-    magnetOff->init("/assets/sounds/magnetOFF.wav");
+    magnetOn->init("/assets/sounds/magnet-on.wav");
+    magnetOff->init("/assets/sounds/magnet-off.wav");
     leverOn->init("/assets/sounds/lever-on.wav");
     leverOff->init("/assets/sounds/lever-on.wav");
     crash->init("/assets/sounds/slap.wav");
+    demag->init("/assets/sounds/demag-sound.wav");
 }
 
 void Sounds::toggleMute()
