@@ -111,7 +111,7 @@
    <properties>
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="3"/>
-    <property name="text" value="To the cleaning personnel: Please remove the Magnet before cleaning the corpse of Mr. Magnus."/>
+    <property name="text" value="To the cleaning personnel: Please remove the Magnet before cleaning the remains of Mr. Magnus."/>
    </properties>
   </object>
   <object id="237" name="button" x="296.733" y="140.032" width="32.0929" height="4">

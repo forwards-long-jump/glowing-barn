@@ -205,6 +205,7 @@
     <property name="buttons" value=""/>
     <property name="direction" value="down"/>
     <property name="h" type="float" value="1"/>
+    <property name="noAnimations" type="bool" value="true"/>
     <property name="speed" type="float" value="1"/>
     <property name="w" type="float" value="5"/>
    </properties>
@@ -241,6 +242,7 @@
     <property name="buttons" value=""/>
     <property name="direction" value="left"/>
     <property name="h" type="float" value="1"/>
+    <property name="noAnimations" type="bool" value="true"/>
     <property name="speed" type="float" value="1"/>
     <property name="w" type="float" value="1"/>
    </properties>
@@ -250,6 +252,7 @@
     <property name="buttons" value=""/>
     <property name="direction" value="right"/>
     <property name="h" type="float" value="1"/>
+    <property name="noAnimations" type="bool" value="true"/>
     <property name="speed" type="float" value="2"/>
     <property name="w" type="float" value="1"/>
    </properties>

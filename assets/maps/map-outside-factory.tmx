@@ -43,7 +43,7 @@
     <property name="targetSpawn" value="door2"/>
    </properties>
   </object>
-  <object id="133" name="graphic" x="815.455" y="191.636" width="81" height="33">
+  <object id="133" name="graphic" x="814.819" y="191.636" width="81.6364" height="33">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
