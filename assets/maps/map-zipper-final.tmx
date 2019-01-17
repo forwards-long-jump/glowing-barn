@@ -21,7 +21,7 @@
   </data>
  </layer>
  <objectgroup id="5" name="object">
-  <object id="141" name="door" x="64" y="368" width="16" height="32">
+  <object id="141" name="door" x="48" y="368" width="16" height="32">
    <properties>
     <property name="animation" value="insideDoor"/>
     <property name="targetMap" value=":maps/map-jumper-2.tmx"/>
@@ -381,7 +381,7 @@
     <property name="texture" value=":/decorations/factory-grip-1.png"/>
    </properties>
   </object>
-  <object id="208" gid="249" x="64" y="368" width="16" height="16">
+  <object id="208" gid="249" x="48" y="368" width="16" height="16">
    <properties>
     <property name="animationName" value="player"/>
     <property name="h" type="float" value="32"/>
