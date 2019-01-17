@@ -29,6 +29,9 @@ private:
 
     static SoundEffectThread* magnetOn;
     static SoundEffectThread* magnetOff;
+    static SoundEffectThread* leverOn;
+    static SoundEffectThread* leverOff;
+    static SoundEffectThread* crash;
 
     static int fadeOutTick;
     static int fadeoutDuration;
