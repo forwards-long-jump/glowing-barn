@@ -8,6 +8,12 @@
 
 class PlayerState;
 
+/**
+ * Handles input, attached only to the playable character
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class PlayerInputComponent : public Component
 {
 public:

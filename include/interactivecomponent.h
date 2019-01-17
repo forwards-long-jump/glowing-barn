@@ -4,7 +4,12 @@
 #include "squarehitboxcomponent.h"
 #include "input.h"
 
-//belongs to a player
+/**
+ * Attached to the player, allows for interaction with InteractiveReactorComponents
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class InteractiveComponent : public SquareHitboxComponent
 {
 public:

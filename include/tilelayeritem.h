@@ -13,8 +13,11 @@
 #include <QRectF>
 
 /**
- * Item that represents a tile layer.
+ * Represents a tile layer, and creates collision hitboxes
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
+
 class TileLayerItem : public Entity
 {
 public:

@@ -8,7 +8,12 @@
 
 #include "soundeffectthread.h"
 
-// TODO: Use a ResourceLocator if times allows it
+/**
+ * Handles sounds
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Sounds
 {
 public:

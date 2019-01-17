@@ -5,6 +5,12 @@
 #include <QList>
 #include <QMap>
 
+/**
+ * Gives its entity an area of the scene to trigger certain behaviors
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class HitboxComponent : public Component
 {
 public:

@@ -4,6 +4,12 @@
 #include "circlehitboxcomponent.h"
 #include "gamebuttoncomponent.h"
 
+/**
+ * Magnets which radially pulls or pushes entities set to react to it
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MagnetGravityComponent : public Component
 {
 public:

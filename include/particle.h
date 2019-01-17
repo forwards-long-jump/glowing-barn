@@ -3,6 +3,12 @@
 
 #include "entity.h"
 
+/**
+ * Particle
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Particle : public Entity
 {
 public:

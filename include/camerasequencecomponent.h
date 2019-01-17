@@ -4,6 +4,12 @@
 #include "scene.h"
 #include "gamebuttoncomponent.h"
 
+/**
+ * Detaches the camera off of the player in order to play cinematic sequences
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class CameraSequenceComponent : public Component
 {
 public:

@@ -11,6 +11,12 @@
 #include "animationfactory.h"
 #include "imagecomponent.h"
 
+/**
+ * Captures and pulls any entity set to react to it with a "tractor beam"
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MagnetZipperComponent : public Component
 {
 public:

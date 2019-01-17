@@ -7,8 +7,11 @@
 #include "entity.h"
 
 /**
- * Item that represents a map object.
+ * Wrapper for lel
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
+
 class MapObjectItem : public Entity
 {
 public:

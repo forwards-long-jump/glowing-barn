@@ -28,8 +28,11 @@
 #include "textcomponent.h"
 
 /**
- * @brief The EntityFactory class.\nIt only contains static method to build entity
+ * Contains static methods to create entites
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
+
 class EntityFactory
 {
 public:

@@ -12,8 +12,11 @@
 #include <QDebug>
 
 /**
- * Item that represents an object group.
+ * lel
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
+
 class ObjectGroupItem : public Entity
 {
 public:

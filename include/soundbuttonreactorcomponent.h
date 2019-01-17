@@ -5,6 +5,12 @@
 #include "gamebuttoncomponent.h"
 #include "sounds.h"
 
+/**
+ * Plays sounds depending on the state of its associated buttons
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class SoundButtonReactorComponent : public Component
 {
 public:

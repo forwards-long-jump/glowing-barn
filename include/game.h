@@ -16,6 +16,12 @@
 
 class GameScene;
 
+/**
+ * Main widget, core of the application
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Game : public QGraphicsView
 {
     Q_OBJECT

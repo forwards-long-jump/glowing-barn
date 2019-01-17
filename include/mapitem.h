@@ -12,6 +12,12 @@
 class TileLayerItem;
 class ObjectGroupItem;
 
+/**
+ * Accesses, creates and contains TiledLayerItems
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MapItem : public Entity
 {
 public:

@@ -5,6 +5,11 @@
 #include "magnetgravitycomponent.h"
 #include <qmath.h>
 
+/**
+ * This component takes a renderer function allowing to render any custom graphic needed by an entity
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class GenericRenderComponent : public GraphicsComponent
 {

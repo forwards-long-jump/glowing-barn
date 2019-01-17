@@ -15,6 +15,12 @@ class FallingState;
 class ZippingState;
 class DeadState;
 
+/**
+ * Abstract class which handles the input
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class PlayerState
 {
 public:
@@ -43,6 +49,11 @@ protected:
     static int ticksSinceEntering;
 };
 
+/**
+ * Handles input for a running player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class RunningState : public PlayerState
 {
@@ -56,6 +67,11 @@ public:
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a skidding player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class SkiddingState : public PlayerState
 {
@@ -69,6 +85,11 @@ public:
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a standing player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class StandingState : public PlayerState
 {
@@ -82,6 +103,11 @@ public:
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a jumping player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class JumpingState : public PlayerState
 {
@@ -98,6 +124,11 @@ public:
     const int nbTicksJumping = 7;
 };
 
+/**
+ * Handles input for a falling player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class FallingState : public PlayerState
 {
@@ -117,6 +148,12 @@ private:
     bool canBeLenient = false;
 };
 
+/**
+ * Handles input for a dead player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DeadState : public PlayerState
 {
 public:
@@ -129,6 +166,11 @@ public:
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a player zipping to a magnet
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class ZippingState : public PlayerState
 {

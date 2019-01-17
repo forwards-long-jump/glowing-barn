@@ -4,6 +4,12 @@
 #include "graphicscomponent.h"
 #include "gamebuttoncomponent.h"
 
+/**
+ * Draws a textbox on screen
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class TextComponent : public GraphicsComponent
 {
 public:

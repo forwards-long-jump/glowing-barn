@@ -9,6 +9,12 @@
 
 class Game;
 
+/**
+ * Contains the entities and the camera, also a QGraphicsScene
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Scene : public QGraphicsScene
 {
 public:

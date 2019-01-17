@@ -20,6 +20,12 @@ struct ParticleParameters
     int lifetime = 0;
 };
 
+/**
+ * Spawns particles
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class ParticleSpawnerComponent : public Component
 {
 public:

@@ -5,6 +5,12 @@
 #include "squarehitboxcomponent.h"
 #include "gamescene.h"
 
+/**
+ * Gives its entity the properties to act as a door
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DoorComponent : public InteractiveReactorComponent
 {
 public:

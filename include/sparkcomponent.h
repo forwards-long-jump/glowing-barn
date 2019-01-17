@@ -8,6 +8,12 @@
 #include "circlehitboxcomponent.h"
 #include "animationcomponent.h"
 
+/**
+ * Makes its entity follow the player when he is too close, and wiggles randomly around its position
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class SparkComponent : public HitboxReactorComponent
 {
 public:

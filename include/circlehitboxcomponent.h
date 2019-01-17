@@ -4,6 +4,12 @@
 
 #include "hitboxcomponent.h"
 
+/**
+ * HitboxComponent whose shape is a circle
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class CircleHitboxComponent : public HitboxComponent
 {
 public:

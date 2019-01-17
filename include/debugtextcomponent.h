@@ -3,6 +3,12 @@
 
 #include "graphicscomponent.h"
 
+/**
+ * Component which draws text on the screen
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DebugTextComponent : public GraphicsComponent
 {
 public:

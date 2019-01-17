@@ -6,7 +6,12 @@
 #include "debugcomponent.h"
 #include "input.h"
 
-//belongs to an interactible objet
+/**
+ * Asks the player for an input on intersection, and acts appropriately when the input is provided
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class InteractiveReactorComponent : public HitboxReactorComponent
 {
 public:

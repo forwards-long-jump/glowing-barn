@@ -6,6 +6,12 @@
 #include "magnetzippercomponent.h"
 #include "playerinputcomponent.h"
 
+/**
+ * Allows its entity to react to MagnetZipperComponents
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MagnetZipperReactorComponent : public HitboxReactorComponent
 {
 public:

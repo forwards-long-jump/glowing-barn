@@ -5,6 +5,12 @@
 
 class Entity;
 
+/**
+ * Basis of the Entity-Components design pattern
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Component
 {
 public:

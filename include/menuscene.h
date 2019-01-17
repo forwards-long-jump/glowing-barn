@@ -4,6 +4,12 @@
 #include "scene.h"
 #include "entity.h"
 
+/**
+ * Scene in which the title is displayed
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MenuScene : public Scene
 {
     Q_OBJECT

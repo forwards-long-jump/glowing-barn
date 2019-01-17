@@ -16,6 +16,12 @@
 #include <QDebug>
 #include <QFileSystemWatcher>
 
+/**
+ * Scene which features a playable character
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class GameScene : public Scene
 {
     Q_OBJECT

@@ -5,6 +5,12 @@
 
 class CircularHitboxComponent;
 
+/**
+ * Hitbox whose shape is rectangular
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class SquareHitboxComponent : public HitboxComponent
 {
 public:

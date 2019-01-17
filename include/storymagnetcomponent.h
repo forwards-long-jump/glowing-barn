@@ -6,6 +6,12 @@
 #include "gamescene.h"
 #include "sounds.h"
 
+/**
+ * Unique component for the magnet in the prologue of the game.
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class StoryMagnetComponent : public HitboxReactorComponent
 {
 public:

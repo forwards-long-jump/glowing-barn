@@ -4,6 +4,12 @@
 #include "component.h"
 #include "squarehitboxcomponent.h"
 
+/**
+ * Moves its entity according to gravity and handles collisions
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class PhysicsComponent : public Component
 {
 public:
