@@ -714,7 +714,7 @@
   </object>
   <object id="321" name="door" x="80" y="640" width="16" height="32">
    <properties>
-    <property name="animation" value=""/>
+    <property name="animation" value="insideDoor"/>
     <property name="buttons" value=""/>
     <property name="targetMap" value=":maps/map-gravity-2.tmx"/>
     <property name="targetSpawn" value="door2"/>
@@ -722,7 +722,7 @@
   </object>
   <object id="322" name="door" x="64" y="640" width="16" height="32">
    <properties>
-    <property name="animation" value=""/>
+    <property name="animation" value="insideDoor"/>
     <property name="buttons" value=""/>
     <property name="mirrorX" type="bool" value="true"/>
     <property name="targetMap" value=":maps/map-gravity-2.tmx"/>

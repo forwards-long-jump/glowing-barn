@@ -33,7 +33,7 @@
   <object id="150" name="door" x="592" y="240" width="16" height="32">
    <properties>
     <property name="animation" value="insideDoor"/>
-    <property name="buttons" value="btnDoor"/>
+    <property name="buttons" value=""/>
     <property name="mirrorX" type="bool" value="true"/>
     <property name="targetMap" value=":maps/map-final-countdown.tmx"/>
     <property name="targetSpawn" value="default"/>
@@ -172,12 +172,12 @@
   <object id="208" name="door" x="608" y="240" width="16" height="32">
    <properties>
     <property name="animation" value="insideDoor"/>
-    <property name="buttons" value="btnDoor"/>
+    <property name="buttons" value=""/>
     <property name="targetMap" value=":maps/map-final-countdown.tmx"/>
     <property name="targetSpawn" value="default"/>
    </properties>
   </object>
-  <object id="212" gid="239" x="416" y="96" width="16" height="16">
+  <object id="212" gid="239" x="416" y="64" width="16" height="16">
    <properties>
     <property name="buttons" value="btnDoor"/>
     <property name="force" type="float" value="-3"/>
