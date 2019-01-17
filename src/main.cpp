@@ -9,6 +9,6 @@ int main(int argc, char* argv[])
     Game game;
 
     game.resize(1280, 720);
-    game.show();
+    game.showFullScreen();
     return a.exec();
 }

@@ -114,7 +114,7 @@ Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* playerCredits = new Entity(parent, pos, size);
 
-    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("player");
+    AnimationComponent* animationComponent = AnimationFactory::getAnimationComponent("playerStory");
     animationComponent->setCurrentAnimation("running");
     playerCredits->addComponent(animationComponent);
 

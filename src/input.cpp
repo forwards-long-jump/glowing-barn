@@ -12,11 +12,17 @@ Input::Input()
     bindings[START_GAME2] = Qt::Key_Return;
     bindings[MUTE_GAME]  = Qt::Key_M;
     bindings[QUIT_GAME]  = Qt::Key_Q;
+    bindings[LOAD_LEVEL] = Qt::Key_F8;
 }
 
 bool Input::isDebugKeyDown(Qt::Key key)
 {
     return keys.value(key, false);
+}
+
+void Input::setKeyDown(Key key)
+{
+    keys.insert(bindings[key], false);
 }
 
 bool Input::isKeyDown(Key key)
