@@ -23,7 +23,7 @@ MenuScene::MenuScene(QString name, Game* game)
     title->addComponent(new ImageComponent(":menu/title.png"));
     Entity* start = new Entity(nullptr, -45.25, -3.125 , 80.5, 6.25);
     start->addComponent(new ImageComponent(":menu/start.png"));
-    start->addComponent(new GenericRenderComponent([=](QPainter* painter, Entity*, int tick) {
+    start->addComponent(new GenericRenderComponent([](QPainter* painter, Entity*, int tick) {
         painter->setOpacity(qAbs(qSin(static_cast<double>(tick)/30)));
     }));
 
