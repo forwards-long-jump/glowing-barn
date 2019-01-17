@@ -80,6 +80,7 @@ MenuScene::~MenuScene()
 
 void MenuScene::onEnter()
 {
+    Sounds::fadeOut(20, "/assets/sounds/menu.mp3");
     if(!game->isPaused())
         static_cast<TransitionComponent*>(enterFader->getComponent("TransitionComponent"))->restart();
     else

@@ -6,6 +6,8 @@
 #include <QString>
 #include <QCoreApplication>
 
+#include "soundeffectthread.h"
+
 // TODO: Use a ResourceLocator if times allows it
 class Sounds
 {
@@ -24,6 +26,13 @@ public:
 private:
     static QMediaPlayer* player;
     static QMap<QString, QSoundEffect*> sounds;
+
+    static SoundEffectThread* magnetOn;
+    static SoundEffectThread* magnetOff;
+    static SoundEffectThread* leverOn;
+    static SoundEffectThread* leverOff;
+    static SoundEffectThread* crash;
+    static SoundEffectThread* demag;
 
     static int fadeOutTick;
     static int fadeoutDuration;

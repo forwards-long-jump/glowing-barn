@@ -95,7 +95,8 @@ SOURCES += \
     src/components/graphics/guiitemcomponent.cpp \
     src/components/graphics/textcomponent.cpp \
     src/components/hitboxes/interactivereactorcomponent.cpp \
-    src/components/hitboxes/interactivecomponent.cpp
+    src/components/hitboxes/interactivecomponent.cpp \
+    src/soundeffectthread.cpp
 
 HEADERS += \
     include/game.h \
@@ -149,7 +150,8 @@ HEADERS += \
     include/guiitemcomponent.h \
     include/textcomponent.h \
     include/interactivereactorcomponent.h \
-    include/interactivecomponent.h
+    include/interactivecomponent.h \
+    include/soundeffectthread.h
 
 RESOURCES += \
     assets/assets.qrc
