@@ -12,7 +12,6 @@
     
     <file alias="map-factory-1.tmx" >maps/map-factory-1.tmx</file>
     <file alias="map-outside-factory.tmx" >maps/map-outside-factory.tmx</file>
-    <file alias="map-factory-1.tmx" >maps/map-factory-1.tmx</file>
     <file alias="map-zipper-1.tmx" >maps/map-zipper-1.tmx</file>
     <file alias="map-jumper-1.tmx" >maps/map-jumper-1.tmx</file>
     <file alias="map-jumper-3.tmx" >maps/map-jumper-3.tmx</file>
@@ -30,7 +29,7 @@
     <file alias="inside-door.png" >graphics/entities/inside-door.png</file>
     <file alias="player.png" >graphics/entities/player.png</file>
     <file alias="box-container.png" >graphics/entities/box-container.png</file>
-	   <file alias="playerStory.png" >graphics/entities/playerStory.png</file>
+	<file alias="playerStory.png" >graphics/entities/playerStory.png</file>
     <file alias="magnet-wave.png" >graphics/entities/magnet-wave.png</file>
     <file alias="lever.png" >graphics/entities/lever.png</file>
     <file alias="plate.png" >graphics/entities/plate.png</file>
@@ -40,7 +39,7 @@
     <file alias="magnet-box.png" >graphics/entities/magnet-box.png</file>
     <file alias="magnet-gravity.png" >graphics/entities/magnet-gravity.png</file>
     <file alias="player-static.png" >graphics/entities/player-static.png</file>
-	  <file alias="spark.png" >graphics/entities/spark.png</file>
+	<file alias="spark.png" >graphics/entities/spark.png</file>
 </qresource>
 <qresource prefix="/decorations">
     <file alias="schaffre.png" >graphics/decorations/schaffre.png</file>

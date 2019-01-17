@@ -397,15 +397,6 @@
     <property name="texture" value=""/>
    </properties>
   </object>
-  <object id="231" name="graphic" x="977.955" y="-24.8227" width="28.09" height="625.645">
-   <properties>
-    <property name="animationName" value=""/>
-    <property name="animationToPlay" value=""/>
-    <property name="buttons" value=""/>
-    <property name="parallax" type="float" value="-0.41"/>
-    <property name="texture" value=":/decorations/black-square.png"/>
-   </properties>
-  </object>
   <object id="232" name="graphic" x="552.622" y="-0.275686" width="18.7567" height="417.765">
    <properties>
     <property name="animationName" value=""/>
