@@ -8,7 +8,18 @@ TextComponent::TextComponent(const QString &text, QString buttons, int fontSize,
     requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
 }
 
-void TextComponent::update() {}
+void TextComponent::update()
+{
+    if(requiredButtons.length() == 0 || GameButtonComponent::areButtonsPressed(requiredButtons))
+    {
+        if(currentBackgroundOpacity < MAX_BACKGROUND_OPACITY) currentBackgroundOpacity += 5;
+    }
+    else
+    {
+        if(currentBackgroundOpacity > 1) currentBackgroundOpacity -= 5;
+        else currentBackgroundOpacity = 0;
+    }
+}
 
 void TextComponent::render(QPainter *painter)
 {
@@ -22,15 +33,5 @@ void TextComponent::render(QPainter *painter)
         painter->setFont(QFont("Arial", fontSize));
         painter->setPen(QColor(255, 255, 255, (static_cast<float>(currentBackgroundOpacity) / MAX_BACKGROUND_OPACITY) * 255));
         painter->drawText(QRectF(0, 0, getParent()->getSize().width(), getParent()->getSize().height()), text, QTextOption(Qt::AlignCenter));
-    }
-
-    if(requiredButtons.length() == 0 || GameButtonComponent::areButtonsPressed(requiredButtons))
-    {
-        if(currentBackgroundOpacity < MAX_BACKGROUND_OPACITY) currentBackgroundOpacity += 5;
-    }
-    else
-    {
-        if(currentBackgroundOpacity > 1) currentBackgroundOpacity -= 5;
-        else currentBackgroundOpacity = 0;
     }
 }

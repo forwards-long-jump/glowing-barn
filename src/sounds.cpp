@@ -66,24 +66,28 @@ void Sounds::loadSounds()
     // TODO: Better loading system
     // Loading sounds multiple time will cause a memory leak
     QSoundEffect* sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnetON.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnet-on.wav"));
     sounds.insert("magnetOn", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnetOFF.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnet-off.wav"));
     sounds.insert("magnetOff", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever-on.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever.wav"));
     sounds.insert("leverOn", sfx);
 
     sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever-on.wav"));
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever.wav"));
     sounds.insert("leverOff", sfx);
 
     sfx = new QSoundEffect();
     sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/slap.wav"));
     sounds.insert("crash", sfx);
+
+    sfx = new QSoundEffect();
+    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/demag-sound.wav"));
+    sounds.insert("demag", sfx);
 }
 
 void Sounds::toggleMute()
