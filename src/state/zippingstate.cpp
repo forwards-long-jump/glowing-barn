@@ -1,5 +1,9 @@
 #include "playerstate.h"
 
+/**
+ * @brief ZippingState::handleInput
+ * @param playerInputComponent
+ */
 void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     ticksSinceEntering++;
@@ -48,6 +52,10 @@ void ZippingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
+/**
+ * @brief ZippingState::enter
+ * @param playerInputComponent
+ */
 void ZippingState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -58,9 +66,4 @@ void ZippingState::enter(PlayerInputComponent* playerInputComponent) const
     {
         ac->setCurrentAnimation("zipping");
     }
-}
-
-void ZippingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }

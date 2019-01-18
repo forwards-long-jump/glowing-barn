@@ -1,5 +1,9 @@
 #include "playerstate.h"
 
+/**
+ * @brief RunningState::handleInput
+ * @param playerInputComponent
+ */
 void RunningState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     ticksSinceEntering++;
@@ -18,6 +22,10 @@ void RunningState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
+/**
+ * @brief RunningState::enter
+ * @param playerInputComponent
+ */
 void RunningState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -28,11 +36,4 @@ void RunningState::enter(PlayerInputComponent* playerInputComponent) const
     {
         ac->setCurrentAnimation("running");
     }
-}
-
-void RunningState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
-    // TODO
-    // change player sprite
 }

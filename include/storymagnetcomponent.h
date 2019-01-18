@@ -2,7 +2,7 @@
 #define STORYMAGNETCOMPONENT_H
 
 #include "gamebuttoncomponent.h"
-#include "interactivecomponent.h" ti
+#include "interactivecomponent.h"
 #include "physicscomponent.h"
 #include "gamescene.h"
 #include "sounds.h"

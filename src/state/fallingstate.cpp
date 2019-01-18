@@ -1,5 +1,9 @@
 #include "playerstate.h"
 
+/**
+ * @brief FallingState::handleInput
+ * @param playerInputComponent
+ */
 void FallingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     ticksSinceEntering++;
@@ -16,6 +20,10 @@ void FallingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
+/**
+ * @brief FallingState::enter
+ * @param playerInputComponent
+ */
 void FallingState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -27,13 +35,10 @@ void FallingState::enter(PlayerInputComponent* playerInputComponent) const
     }
 }
 
-void FallingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
-    // TODO
-    // change player sprite
-}
-
+/**
+ * @brief FallingState::setLenient
+ * @param lenient
+ */
 void FallingState::setLenient(bool lenient)
 {
     canBeLenient = lenient;

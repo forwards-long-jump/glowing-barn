@@ -1,5 +1,9 @@
 #include "playerstate.h"
 
+/**
+ * @brief SkiddingState::handleInput
+ * @param playerInputComponent
+ */
 void SkiddingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     ticksSinceEntering++;
@@ -23,6 +27,10 @@ void SkiddingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
+/**
+ * @brief SkiddingState::enter
+ * @param playerInputComponent
+ */
 void SkiddingState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -33,9 +41,4 @@ void SkiddingState::enter(PlayerInputComponent* playerInputComponent) const
     {
         ac->setCurrentAnimation("skidding");
     }
-}
-
-void SkiddingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }

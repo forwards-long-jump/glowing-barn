@@ -1,10 +1,9 @@
 #include "playerstate.h"
 
-void DeadState::handleInput(PlayerInputComponent* playerInputComponent)
-{
-
-}
-
+/**
+ * @brief DeadState::enter
+ * @param playerInputComponent
+ */
 void DeadState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -21,9 +20,4 @@ void DeadState::enter(PlayerInputComponent* playerInputComponent) const
         ac->setCurrentAnimation("death");
         ac->disableLooping();
     }
-}
-
-void DeadState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-
 }

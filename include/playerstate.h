@@ -59,10 +59,9 @@ class RunningState : public PlayerState
 {
 public:
     RunningState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -77,10 +76,9 @@ class SkiddingState : public PlayerState
 {
 public:
     SkiddingState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -95,10 +93,9 @@ class StandingState : public PlayerState
 {
 public:
     StandingState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -113,10 +110,9 @@ class JumpingState : public PlayerState
 {
 public:
     JumpingState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 
@@ -137,7 +133,6 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 
@@ -160,8 +155,8 @@ public:
     DeadState()
         :PlayerState() {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
+    void handleInput(PlayerInputComponent* playerInputComponent) override {}
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override {}
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
@@ -179,7 +174,6 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
