@@ -3,10 +3,7 @@
 
 #include "hitboxreactorcomponent.h"
 #include "interactivecomponent.h"
-#include "debugcomponent.h"
 #include "input.h"
-#include "animationfactory.h"
-#include "gamebuttoncomponent.h"
 
 /**
  * Asks the player for an input on intersection, and acts appropriately when the input is provided
@@ -26,6 +23,7 @@ public:
     virtual void showPrompt() const;
     virtual void action(Entity* target) = 0;
 
+
 protected:
     Input::Key key;
     bool readyToInteract;
@@ -35,5 +33,8 @@ protected:
 
     Entity* commandPrompt;
 };
+
+#include "gamebuttoncomponent.h"
+#include "animationfactory.h"
 
 #endif // INTERACTIVECOMPONENT_H

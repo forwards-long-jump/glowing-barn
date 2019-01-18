@@ -83,3 +83,5 @@ void InteractiveReactorComponent::showPrompt() const
 {
     commandPrompt->enableComponent("AnimationComponent");
 }
+
+

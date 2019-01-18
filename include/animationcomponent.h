@@ -5,7 +5,6 @@
 #include <QPair>
 
 #include "graphicscomponent.h"
-#include "gamebuttoncomponent.h"
 
 /**
  * Allows its entity to have an animated sprite
@@ -64,5 +63,7 @@ private:
 
     QVector<QPair<QString, QVector<float>>> animationProperties;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // ANIMATIONCOMPONENT_H
