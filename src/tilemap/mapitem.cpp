@@ -1,5 +1,12 @@
 #include "mapitem.h"
 
+/**
+ * @brief MapItem::MapItem
+ * @param map
+ * @param renderer
+ * @param parent
+ * @param spawnName
+ */
 MapItem::MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent, QString spawnName)
     : Entity(parent)
 {
@@ -18,16 +25,31 @@ MapItem::MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* p
     }
 }
 
+/**
+ * @brief MapItem::boundingRect
+ * @return
+ */
 QRectF MapItem::boundingRect() const
 {
     return QRectF();
 }
 
+/**
+ * @brief MapItem::paint
+ * @param p
+ * @param option
+ * @param widget
+ */
 void MapItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 }
 
+/**
+ * @brief MapItem::getLayer
+ * @param name
+ * @return
+ */
 TileLayerItem* MapItem::getLayer(QString name) const
 {
     return layers.value(name);

@@ -1,9 +1,15 @@
 #include "tilelayeritem.h"
 
+/**
+ * @brief TileLayerItem::TileLayerItem
+ * @param tileLayer
+ * @param renderer
+ * @param parent
+ */
 TileLayerItem::TileLayerItem(Tiled::TileLayer* tileLayer, Tiled::MapRenderer* renderer, MapItem* parent)
-    : Entity(parent)
-    , mTileLayer(tileLayer)
-    , mRenderer(renderer)
+    : Entity(parent),
+      mTileLayer(tileLayer),
+      mRenderer(renderer)
 {
     setFlag(QGraphicsItem::ItemUsesExtendedStyleOption);
     setPos(mTileLayer->offset());
@@ -66,11 +72,21 @@ void TileLayerItem::createCollisions()
     }
 }
 
+/**
+ * @brief TileLayerItem::boundingRect
+ * @return
+ */
 QRectF TileLayerItem::boundingRect() const
 {
     return mRenderer->boundingRect(mTileLayer->bounds());
 }
 
+/**
+ * @brief TileLayerItem::paint
+ * @param painter
+ * @param option
+ * @param widget
+ */
 void TileLayerItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);

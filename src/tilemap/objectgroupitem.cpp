@@ -1,12 +1,17 @@
 #include "objectgroupitem.h"
 
+/**
+ * @brief ObjectGroupItem::ObjectGroupItem
+ * @param objectGroup
+ * @param renderer
+ * @param parent
+ * @param spawnName
+ */
 ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, MapItem* parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
     setPos(objectGroup->offset());
-
-    const Tiled::ObjectGroup::DrawOrder drawOrder = objectGroup->drawOrder();
 
     // Create a child item for each object
     for (Tiled::MapObject* object : objectGroup->objects())
@@ -74,11 +79,21 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
     }
 }
 
+/**
+ * @brief ObjectGroupItem::boundingRect
+ * @return
+ */
 QRectF ObjectGroupItem::boundingRect() const
 {
     return QRectF();
 }
 
+/**
+ * @brief ObjectGroupItem::paint
+ * @param painter
+ * @param option
+ * @param widget
+ */
 void ObjectGroupItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);

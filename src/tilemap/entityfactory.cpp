@@ -1,5 +1,11 @@
 #include "entityfactory.h"
 
+/**
+ * @brief EntityFactory::player
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
 {
     if (object->propertyAsString("animationName") == "playerStory")
@@ -9,6 +15,14 @@ Entity* EntityFactory::player(Tiled::MapObject* object, Entity* parent)
     return player(object->position(), QSizeF(object->propertyAsString("w").toFloat(), object->propertyAsString("h").toFloat()), object->propertyAsString("animationName"), parent);
 }
 
+/**
+ * @brief EntityFactory::player
+ * @param pos
+ * @param size
+ * @param animationName
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
@@ -110,6 +124,13 @@ Entity* EntityFactory::player(QPointF pos, QSizeF size, QString animationName, E
     return player;
 }
 
+/**
+ * @brief EntityFactory::playerCredits
+ * @param pos
+ * @param size
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* playerCredits = new Entity(parent, pos, size);
@@ -121,6 +142,13 @@ Entity* EntityFactory::playerCredits(QPointF pos, QSizeF size, Entity* parent)
     return playerCredits;
 }
 
+/**
+ * @brief EntityFactory::playerStory
+ * @param pos
+ * @param size
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::playerStory(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* player = new Entity(parent, pos, size);
@@ -136,6 +164,12 @@ Entity* EntityFactory::playerStory(QPointF pos, QSizeF size, Entity* parent)
     return player;
 }
 
+/**
+ * @brief EntityFactory::hurt
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -143,6 +177,12 @@ Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::text
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -155,6 +195,12 @@ Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::spark
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
 {
     Entity* spark = new Entity(parent, object->position(), object->size());
@@ -169,6 +215,13 @@ Entity* EntityFactory::spark(Tiled::MapObject* object, Entity* parent)
     return spark;
 }
 
+/**
+ * @brief EntityFactory::collision
+ * @param pos
+ * @param size
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
 {
     Entity* e = new Entity(parent, pos, size);
@@ -176,6 +229,12 @@ Entity* EntityFactory::collision(QPointF pos, QSizeF size, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::gameButton
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -210,6 +269,12 @@ Entity* EntityFactory::gameButton(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::door
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
 {
     // Door and button
@@ -229,6 +294,12 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::storyActivation
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity *EntityFactory::storyActivation(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -236,6 +307,12 @@ Entity *EntityFactory::storyActivation(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::storyMagnet
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity *EntityFactory::storyMagnet(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -249,6 +326,12 @@ Entity *EntityFactory::storyMagnet(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::cameraSequence
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::cameraSequence(Tiled::MapObject* object, Entity* parent)
 {
     Entity* cameraSequence = new Entity(parent, object->position(), object->size());
@@ -263,6 +346,12 @@ Entity* EntityFactory::cameraSequence(Tiled::MapObject* object, Entity* parent)
     return cameraSequence;
 }
 
+/**
+ * @brief EntityFactory::magnetZipper
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
 {
     return EntityFactory::magnetZipper(object->position(), object->size(), object->propertyAsString("direction"),
@@ -270,6 +359,18 @@ Entity* EntityFactory::magnetZipper(Tiled::MapObject* object, Entity* parent)
                                             object->propertyAsString("speed").toFloat(), object->propertyAsString("buttons"), parent, object->property("noAnimations").toBool());
 }
 
+/**
+ * @brief EntityFactory::magnetZipper
+ * @param pos
+ * @param size
+ * @param direction
+ * @param fieldSize
+ * @param speed
+ * @param buttons
+ * @param parent
+ * @param noAnimations
+ * @return
+ */
 Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction, QSizeF fieldSize, float speed, QString buttons, Entity* parent, bool noAnimations)
 {
     pos.setY(pos.y() - size.height());
@@ -282,6 +383,12 @@ Entity* EntityFactory::magnetZipper(QPointF pos, QSizeF size, QString direction,
     return e;
 }
 
+/**
+ * @brief EntityFactory::magnetJumper
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
 {
     object->setY(object->y() - object->size().height());
@@ -390,6 +497,12 @@ Entity* EntityFactory::magnetJumper(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::magnetGravity
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
 {
     object->setY(object->y() - object->size().height());
@@ -419,6 +532,12 @@ Entity* EntityFactory::magnetGravity(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::box
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::box(Tiled::MapObject* object, Entity* parent)
 {
     object->setY(object->y() - object->size().height());
@@ -440,6 +559,12 @@ Entity* EntityFactory::box(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::soundButtonReactor
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::soundButtonReactor(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -451,6 +576,12 @@ Entity* EntityFactory::soundButtonReactor(Tiled::MapObject* object, Entity* pare
     return e;
 }
 
+/**
+ * @brief EntityFactory::graphic
+ * @param object
+ * @param parent
+ * @return
+ */
 Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
@@ -483,6 +614,11 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
     return e;
 }
 
+/**
+ * @brief EntityFactory::convertToDirection
+ * @param str
+ * @return
+ */
 MagnetZipperComponent::DIRECTION EntityFactory::convertToDirection(const QString& str)
 {
     QString testStr(str.toUpper());
@@ -493,7 +629,11 @@ MagnetZipperComponent::DIRECTION EntityFactory::convertToDirection(const QString
     else return MagnetZipperComponent::DIRECTION::RIGHT;
 }
 
-
+/**
+ * @brief EntityFactory::convertToKey
+ * @param str
+ * @return
+ */
 Input::Key EntityFactory::convertToKey(const QString& str)
 {
     QString testStr(str.toUpper());
