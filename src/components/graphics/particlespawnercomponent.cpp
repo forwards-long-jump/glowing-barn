@@ -1,14 +1,35 @@
 #include "particlespawnercomponent.h"
 
+/**
+ * @brief ParticleSpawnerComponent::ParticleSpawnerComponent
+ * @param particleRender Lambda rendering function for the particles
+ * @param particleUpdate Lambda update function for the particles
+ * @param spawnCondition Parameters for the spawning of particles
+ * @param particleSpawnerName
+ */
 ParticleSpawnerComponent::ParticleSpawnerComponent(void (*particleRender)(QPainter *, Particle *),
                                                    void (*particleUpdate)(Particle* particle),
                                                    QVector<ParticleParameters> (*spawnCondition)(Entity* entity, int tick),
-                                                   QString particleSpawnerName):
-    Component(particleSpawnerName),
+                                                   QString particleSpawnerName)
+    : Component(particleSpawnerName),
     particleRender(particleRender),
     spawnCondition(spawnCondition),
-    particleUpdate(particleUpdate) {}
+    particleUpdate(particleUpdate)
+{
 
+}
+
+/**
+ * @brief ParticleSpawnerComponent::spawn
+ * @param x
+ * @param y
+ * @param dx
+ * @param dy
+ * @param width
+ * @param height
+ * @param lifetime
+ * @param affectedByMagnets
+ */
 void ParticleSpawnerComponent::spawn(int x, int y, float dx, float dy, int w, int h, int lifetime, bool affectedByMagnets)
 {
     Particle* p = new Particle(dx, dy, w, h, lifetime, this->particleRender, particleIndex++);
@@ -25,6 +46,9 @@ void ParticleSpawnerComponent::spawn(int x, int y, float dx, float dy, int w, in
     particles.append(p);
 }
 
+/**
+ * @brief ParticleSpawnerComponent::update
+ */
 void ParticleSpawnerComponent::update()
 {
     QVector<ParticleParameters> parameters = spawnCondition(getParent(), static_cast<Scene*>(getParent()->scene())->getGame()->getTick());
@@ -50,6 +74,9 @@ void ParticleSpawnerComponent::update()
     }
 }
 
+/**
+ * @brief ParticleSpawnerComponent::onDisable
+ */
 void ParticleSpawnerComponent::onDisable()
 {
     for(Particle* particle : particles)

@@ -1,10 +1,14 @@
-#include "include/hitboxreactorcomponent.h"
+#include "hitboxreactorcomponent.h"
 
+/**
+ * @brief HitboxReactorComponent::update
+ * Imperatively needs setHitbox() to be called before update() is called
+ * Typically setHitbox() is called in the init() method
+ */
 void HitboxReactorComponent::update()
 {
     for (auto hb : HitboxComponent::getInstancesOf(targetName))
     {
-        // HitboxReactor must know its own hitbox, don't forget to call setHitbox first if you get a segfault here
         if (hitbox->intersects(hb))
         {
             onIntersect(hb);
@@ -12,11 +16,10 @@ void HitboxReactorComponent::update()
     }
 }
 
-void HitboxReactorComponent::init()
-{
-
-}
-
+/**
+ * @brief HitboxReactorComponent::setHitbox
+ * @param hb
+ */
 void HitboxReactorComponent::setHitbox(HitboxComponent* hb)
 {
     hitbox = hb;

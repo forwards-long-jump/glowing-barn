@@ -1,12 +1,24 @@
 #include "camerasequencecomponent.h"
 
+/**
+ * @brief CameraSequenceComponent::CameraSequenceComponent
+ * @param buttons Buttons required to be activated
+ * @param cameraSpeed
+ * @param lockCameraDuration
+ * @param lockPlayerInput
+ * @param playOnce
+ * @param name
+ */
 CameraSequenceComponent::CameraSequenceComponent(QString buttons, float cameraSpeed, int lockCameraDuration,
-                                                 bool lockPlayerInput, bool playOnce, QString name) :
-    Component(name), cameraSpeed(cameraSpeed), lockCameraDuration(lockCameraDuration), lockPlayerInput(lockPlayerInput), playOnce(playOnce)
+                                                 bool lockPlayerInput, bool playOnce, QString name)
+    : Component(name), cameraSpeed(cameraSpeed), lockCameraDuration(lockCameraDuration), lockPlayerInput(lockPlayerInput), playOnce(playOnce)
 {
     requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
 }
 
+/**
+ * @brief CameraSequenceComponent::update
+ */
 void CameraSequenceComponent::update()
 {
     Camera* c = static_cast<Scene*>(getParent()->scene())->getCamera();

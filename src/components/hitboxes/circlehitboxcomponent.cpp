@@ -5,7 +5,17 @@
 
 #include "QGraphicsItem"
 
+/**
+ * @brief CircleHitboxComponent::CircleHitboxComponent
+ * @param name_
+ */
+CircleHitboxComponent::CircleHitboxComponent(QString name_)
+    :HitboxComponent(name_) {}
 
+/**
+ * @brief CircleHitboxComponent::init
+ * Sets the hitbox as the escribed center of the entity
+ */
 void CircleHitboxComponent::init()
 {
     setRadius(sqrt(parent->getSize().width() * parent->getSize().width()
@@ -15,6 +25,14 @@ void CircleHitboxComponent::init()
     setOffset(center.x() - radius, center.y() - radius);
 }
 
+
+/**
+ * @brief CircleHitboxComponent::intersects
+ * Note that this method is a misnomer when given a SquareHitboxComponent as argument,
+ * in which case it return true when it contains the argument's center
+ * @param hitbox
+ * @return
+ */
 bool CircleHitboxComponent::intersects(HitboxComponent* hitbox) const
 {
     QPointF vectD = hitbox->getCenter() - getCenter();
@@ -26,27 +44,23 @@ bool CircleHitboxComponent::intersects(HitboxComponent* hitbox) const
     }
     else
     {
-        // here intersects is a misnomer
-        // but cases in which it is used as such are where
-        // the rectangular one is way smaller than the circular one
         return d <= radius;
     }
 }
 
 /**
- * @brief CircleHitboxComponent::offsetOffset use to offset the offset
- * @param offset
+ * @brief CircleHitboxComponent::getCenter
+ * @return
  */
-void CircleHitboxComponent::offsetOffset(QPointF offset)
-{
-    setOffset(this->offset.x() + offset.x(), this->offset.y() + offset.y());
-}
-
 QPointF CircleHitboxComponent::getCenter() const
 {
     return parent->pos() + getOffset() + QPointF(radius, radius);
 }
 
+/**
+ * @brief CircleHitboxComponent::setRadius
+ * @param radius
+ */
 void CircleHitboxComponent::setRadius(float radius)
 {
     this->radius = radius;
@@ -55,6 +69,10 @@ void CircleHitboxComponent::setRadius(float radius)
     setOffset(center.x() - radius, center.y() - radius);
 }
 
+/**
+ * @brief CircleHitboxComponent::getRadius
+ * @return
+ */
 float CircleHitboxComponent::getRadius() const
 {
     return radius;

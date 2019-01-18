@@ -1,5 +1,11 @@
 #include "magnetgravityreactorcomponent.h"
 
+/**
+ * @brief MagnetGravityReactorComponent::MagnetGravityReactorComponent
+ * @param hitboxName
+ * @param magnetGravityComponentName
+ * @param name
+ */
 MagnetGravityReactorComponent::MagnetGravityReactorComponent(QString hitboxName, QString magnetGravityComponentName, QString name)
     : HitboxReactorComponent(hitboxName, name),
       magnetGravityComponentName(magnetGravityComponentName)
@@ -7,11 +13,18 @@ MagnetGravityReactorComponent::MagnetGravityReactorComponent(QString hitboxName,
 
 }
 
+/**
+ * @brief MagnetGravityReactorComponent::init
+ */
 void MagnetGravityReactorComponent::init()
 {
     setHitbox(new SquareHitboxComponent());
 }
 
+/**
+ * @brief MagnetGravityReactorComponent::onIntersect
+ * @param hitbox
+ */
 void MagnetGravityReactorComponent::onIntersect(HitboxComponent* hb)
 {
     CircleHitboxComponent* magneticFieldHitboxComponent = static_cast<CircleHitboxComponent*>(hb);

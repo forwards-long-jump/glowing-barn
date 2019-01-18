@@ -1,6 +1,11 @@
 #include "magnetzipperreactorcomponent.h"
 
-MagnetZipperReactorComponent::MagnetZipperReactorComponent(QString name) : HitboxReactorComponent(MagnetZipperComponent::HITBOX_NAME, name)
+/**
+ * @brief MagnetZipperReactorComponent::MagnetZipperReactorComponent
+ * @param name
+ */
+MagnetZipperReactorComponent::MagnetZipperReactorComponent(QString name)
+    : HitboxReactorComponent(MagnetZipperComponent::HITBOX_NAME, name)
 {
 
 }
@@ -28,7 +33,6 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent* hb)
     // Make the entity entrance smoother by keeping its last dx/dy
     if(physicsComponent)
     {
-
         if(zipperFirstEntrance) {
             zipperFirstEntrance = false;
             zipperDx = physicsComponent->getSpeed().x() * ZIPPER_FRICTION;
@@ -108,6 +112,9 @@ void MagnetZipperReactorComponent::onIntersect(HitboxComponent* hb)
     }
 }
 
+/**
+ * @brief MagnetZipperReactorComponent::onEnable
+ */
 void MagnetZipperReactorComponent::onEnable()
 {
     zipperDx = 0;
@@ -117,11 +124,17 @@ void MagnetZipperReactorComponent::onEnable()
     Sounds::playSound("magnetOn");
 }
 
+/**
+ * @brief MagnetZipperReactorComponent::onDisable
+ */
 void MagnetZipperReactorComponent::onDisable()
 {
     Sounds::playSound("magnetOff");
 }
 
+/**
+ * @brief MagnetZipperReactorComponent::update
+ */
 void MagnetZipperReactorComponent::update()
 {
     isInAnyField = false;
@@ -141,6 +154,10 @@ void MagnetZipperReactorComponent::update()
     }
 }
 
+/**
+ * @brief MagnetZipperReactorComponent::getCurrentDirection
+ * @return
+ */
 MagnetZipperComponent::DIRECTION MagnetZipperReactorComponent::getCurrentDirection() const
 {
     return currentDirection;

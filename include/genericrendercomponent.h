@@ -14,7 +14,7 @@
 class GenericRenderComponent : public GraphicsComponent
 {
 public:
-    GenericRenderComponent(void(*functionToRender)(QPainter* p, Entity* e, int tick)) : functionToRender(functionToRender) {}
+    GenericRenderComponent(void(*functionToRender)(QPainter* p, Entity* e, int tick));
 
     void update() override;
     void render(QPainter* painter) override;

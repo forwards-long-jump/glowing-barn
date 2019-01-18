@@ -13,7 +13,8 @@
 class InteractiveComponent : public SquareHitboxComponent
 {
 public:
-    InteractiveComponent(QString name_ = "InteractiveHitboxComponent");
+    InteractiveComponent(QString name_ = HITBOX_NAME);
+    const static QString HITBOX_NAME;
 
     void update() override;
 

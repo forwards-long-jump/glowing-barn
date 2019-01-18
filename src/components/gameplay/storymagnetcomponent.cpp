@@ -1,12 +1,20 @@
-#include "include/storymagnetcomponent.h"
+#include "storymagnetcomponent.h"
 
+/**
+ * @brief StoryMagnetComponent::StoryMagnetComponent
+ * @param requiredButtons
+ * @param targetMap
+ */
 StoryMagnetComponent::StoryMagnetComponent(QString requiredButtons_, QString targetMap_)
-    : HitboxReactorComponent("InteractiveHitboxComponent", "StoryMagnetComponent"),
+    : HitboxReactorComponent(InteractiveComponent::HITBOX_NAME, "StoryMagnetComponent"),
       targetMap(targetMap_)
 {
     requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
 }
 
+/**
+ * @brief StoryMagnetComponent::update
+ */
 void StoryMagnetComponent::update()
 {
     HitboxReactorComponent::update();
@@ -16,6 +24,9 @@ void StoryMagnetComponent::update()
     }
 }
 
+/**
+ * @brief StoryMagnetComponent::init
+ */
 void StoryMagnetComponent::init()
 {
     SquareHitboxComponent* hb = new SquareHitboxComponent();
@@ -26,6 +37,10 @@ void StoryMagnetComponent::init()
     parent->disableComponent("PhysicsComponent");
 }
 
+/**
+ * @brief StoryMagnetComponent::onIntersect
+ * @param hitbox
+ */
 void StoryMagnetComponent::onIntersect(HitboxComponent* hb)
 {
     if (GameButtonComponent::areButtonsPressed(requiredButtons) && !alreadyActivated)

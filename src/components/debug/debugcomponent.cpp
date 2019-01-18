@@ -1,17 +1,34 @@
 #include "debugcomponent.h"
 
-DebugComponent::DebugComponent(const QColor &color, bool hasHitboxComponent, bool hasTextComponent, const QString &debugText, const QString &name) :
-    GraphicsComponent(name),
+/**
+ * @brief DebugComponent::DebugComponent
+ *
+ * @param color
+ * @param hasHitboxComponent
+ * @param hasTextComponent
+ * @param debugText
+ * @param name
+ */
+DebugComponent::DebugComponent(const QColor &color, bool hasHitboxComponent, bool hasTextComponent, const QString &debugText, const QString &name)
+    : GraphicsComponent(name),
     color(color), hasHitboxComponent(hasHitboxComponent), hasTextComponent(hasTextComponent), debugText(debugText)
 {
 
 }
 
+/**
+ * @brief DebugComponent::setColor
+ * @param color
+ */
 void DebugComponent::setColor(const QColor &color)
 {
     this->color = color;
 }
 
+/**
+ * @brief DebugComponent::setDebugText
+ * @param text
+ */
 void DebugComponent::setDebugText(const QString &text)
 {
     if(hasTextComponent) {
@@ -19,11 +36,18 @@ void DebugComponent::setDebugText(const QString &text)
     }
 }
 
+/**
+ * @brief DebugComponent::render
+ * @param painter
+ */
 void DebugComponent::render(QPainter* painter)
 {
     painter->fillRect(0, 0, parent->getSize().width(), parent->getSize().height(), color);
 }
 
+/**
+ * @brief DebugComponent::init
+ */
 void DebugComponent::init()
 {
     if(hasTextComponent || hasHitboxComponent) {
@@ -41,4 +65,7 @@ void DebugComponent::init()
     }
 }
 
+/**
+ * @brief DebugComponent::update
+ */
 void DebugComponent::update() {}

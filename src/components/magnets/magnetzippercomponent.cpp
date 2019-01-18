@@ -65,6 +65,9 @@ void MagnetZipperComponent::init()
     }
 }
 
+/**
+ * @brief MagnetZipperComponent::addAnimations
+ */
 void MagnetZipperComponent::addAnimations()
 {
     int w = hitboxSize.width() / WAVE_ANIMATION_SIZE + 1;
@@ -144,6 +147,9 @@ MagnetZipperComponent::DIRECTION MagnetZipperComponent::getDirection() const
     return direction;
 }
 
+/**
+ * @brief MagnetZipperComponent::update
+ */
 void MagnetZipperComponent::update() {
     if(requiredButtons.length() > 0)
     {
@@ -157,7 +163,3 @@ void MagnetZipperComponent::update() {
         }
     }
 }
-
-
-
-// TODO: Remove hitbox component on detach

@@ -1,3 +1,11 @@
 #include "graphicscomponent.h"
 
-GraphicsComponent::GraphicsComponent(const QString &name) : Component(name) {}
+/**
+ * @brief GraphicsComponent::GraphicsComponent
+ * @param name
+ */
+GraphicsComponent::GraphicsComponent(const QString &name)
+    : Component(name)
+{
+
+}

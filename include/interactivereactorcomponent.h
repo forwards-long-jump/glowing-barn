@@ -15,7 +15,7 @@
 class InteractiveReactorComponent : public HitboxReactorComponent
 {
 public:
-    InteractiveReactorComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = "InteractiveHitboxComponent", QString requiredButtons = "");
+    InteractiveReactorComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = InteractiveComponent::HITBOX_NAME, QString requiredButtons = "");
 
     void update() override;
     void init() override;

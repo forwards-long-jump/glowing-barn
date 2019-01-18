@@ -1,15 +1,27 @@
 #include "magnetjumperreactorcomponent.h"
 
-MagnetJumperReactorComponent::MagnetJumperReactorComponent(QString name) : HitboxReactorComponent(MagnetJumperComponent::HITBOX_NAME, name)
+/**
+ * @brief MagnetJumperReactorComponent::MagnetJumperReactorComponent
+ * @param name
+ */
+MagnetJumperReactorComponent::MagnetJumperReactorComponent(QString name)
+    : HitboxReactorComponent(MagnetJumperComponent::HITBOX_NAME, name)
 {
 
 }
 
+/**
+ * @brief MagnetJumperReactorComponent::init
+ */
 void MagnetJumperReactorComponent::init()
 {
     setHitbox(new SquareHitboxComponent());
 }
 
+/**
+ * @brief MagnetJumperReactorComponent::onIntersect
+ * @param hitbox
+ */
 void MagnetJumperReactorComponent::onIntersect(HitboxComponent* hb)
 {
     // Zipper magnets should only have square hitboxes

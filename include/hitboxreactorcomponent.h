@@ -18,7 +18,6 @@ public:
         targetName(targetName_) {}
 
     void update() override;
-    void init() override;
 
     void setHitbox(HitboxComponent* hb);
 

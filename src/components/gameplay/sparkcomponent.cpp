@@ -2,6 +2,13 @@
 
 const QString SparkComponent::HITBOX_REACTOR_NAME = "SparkComponent";
 
+/**
+ * @brief SparkComponent::SparkComponent
+ * @param radius
+ * @param speed
+ * @param additionalHitboxName
+ * @param name
+ */
 SparkComponent::SparkComponent(float radius, float speed, QString additionalHitboxName, QString name)
     : HitboxReactorComponent(SparkComponent::HITBOX_REACTOR_NAME, name),
       radius(radius),
@@ -11,6 +18,9 @@ SparkComponent::SparkComponent(float radius, float speed, QString additionalHitb
 
 }
 
+/**
+ * @brief SparkComponent::init
+ */
 void SparkComponent::init()
 {
     CircleHitboxComponent* ch = new CircleHitboxComponent();
@@ -26,6 +36,10 @@ void SparkComponent::init()
     ticksUntilMove = QRandomGenerator::global()->bounded(0, pauseDurationInTicks);
 }
 
+/**
+ * @brief SparkComponent::onIntersect
+ * @param hitbox
+ */
 void SparkComponent::onIntersect(HitboxComponent* hb)
 {
     if(hb->getParent()->getComponent("MagnetZipperReactorComponent"))
@@ -39,11 +53,17 @@ void SparkComponent::onIntersect(HitboxComponent* hb)
     }
 }
 
+/**
+ * @brief SparkComponent::onEnable
+ */
 void SparkComponent::onEnable()
 {
 
 }
 
+/**
+ * @brief SparkComponent::update
+ */
 void SparkComponent::update()
 {
     playerInSight = false;

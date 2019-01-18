@@ -17,8 +17,7 @@ class PlayerState;
 class PlayerInputComponent : public Component
 {
 public:
-    PlayerInputComponent(QString name_ = "PlayerInputComponent")
-        :Component(name_) {}
+    PlayerInputComponent(QString name_ = "PlayerInputComponent");
     virtual ~PlayerInputComponent() {}
 
     void update() override;
@@ -30,6 +29,8 @@ public:
     void onDisable() override;
 
 private:
+    void handleMagnetActivation();
+
     bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;
 

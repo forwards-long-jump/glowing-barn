@@ -1,17 +1,27 @@
 #include "storyactivationcomponent.h"
 
+/**
+ * @brief StoryActivationComponent::StoryActivationComponent
+ * @param buttonName
+ */
 StoryActivationComponent::StoryActivationComponent(QString buttonName)
-    :GameButtonComponent(buttonName, true, false, 1, false, "", "", "InteractiveHitboxComponent")
+    : GameButtonComponent(buttonName, true)
 {
 
 }
 
+/**
+ * @brief StoryActivationComponent::update
+ */
 void StoryActivationComponent::update()
 {
     GameButtonComponent::update();
-    //commandPrompt->disableComponent("AnimationComponent");
 }
 
+/**
+ * @brief StoryActivationComponent::action
+ * @param target
+ */
 void StoryActivationComponent::action(Entity *target)
 {
     GameButtonComponent::action(target);
@@ -20,8 +30,6 @@ void StoryActivationComponent::action(Entity *target)
     static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->setCurrentAnimation("standing");
     static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->setRotation(0);
 
-    //target->disableComponent("PlayerInputComponent");
     target->disableComponent("MagnetParticleSpawner");
     target->disableComponent("PhysicsComponent");
-    //target->setPos();
 }

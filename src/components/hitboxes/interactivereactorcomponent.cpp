@@ -1,7 +1,14 @@
 #include "interactivereactorcomponent.h"
-#include "animationcomponent.h"
+#include "animationfactory.h"
 #include "gamebuttoncomponent.h"
 
+/**
+ * @brief InteractiveReactorComponent::InteractiveReactorComponent
+ * @param key_ Key used to interact
+ * @param name_
+ * @param targetHitboxName Name of the hitbox which may interact with this
+ * @param requiredButtons_
+ */
 InteractiveReactorComponent::InteractiveReactorComponent(Input::Key key_, QString name_, QString targetHitboxName, QString requiredButtons_)
     : HitboxReactorComponent(targetHitboxName, name_),
     key(key_)
@@ -12,23 +19,22 @@ InteractiveReactorComponent::InteractiveReactorComponent(Input::Key key_, QStrin
     requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
 }
 
+/**
+ * @brief InteractiveReactorComponent::init
+ */
 void InteractiveReactorComponent::init()
 {
-    HitboxReactorComponent::init();
-
     commandPrompt = new Entity(parent->parentItem(), QSizeF(8, 8));
-    QVector<QPair<QString, QVector<float>>> animations;
-    AnimationComponent::addAnimationToVector("down", 2, 10, animations);
-    AnimationComponent::addAnimationToVector("left", 2, 10, animations);
-    AnimationComponent::addAnimationToVector("right", 2, 10, animations);
-    AnimationComponent::addAnimationToVector("up", 2, 10, animations);
-    commandPrompt->addComponent(new AnimationComponent(":/interface/arrowkeys.png", 16, animations));
+    commandPrompt->addComponent(AnimationFactory::getAnimationComponent("keyboard"));
     commandPrompt->setPos(
         parent->pos().x() + (parent->getSize().width() - commandPrompt->getSize().width()) / 2,
         parent->pos().y() - 1.5 * commandPrompt->getSize().height());
     commandPrompt->disableComponent("AnimationComponent");
 }
 
+/**
+ * @brief InteractiveReactorComponent::update
+ */
 void InteractiveReactorComponent::update()
 {
     HitboxReactorComponent::update();
@@ -39,6 +45,10 @@ void InteractiveReactorComponent::update()
     removePromptOnNextTick = true;
 }
 
+/**
+ * @brief InteractiveReactorComponent::onIntersect
+ * @param hitbox
+ */
 void InteractiveReactorComponent::onIntersect(HitboxComponent* hb)
 {
     if(requiredButtons.length() == 0 || GameButtonComponent::areButtonsPressed(requiredButtons))
@@ -67,6 +77,9 @@ void InteractiveReactorComponent::onIntersect(HitboxComponent* hb)
     }
 }
 
+/**
+ * @brief InteractiveReactorComponent::showPrompt
+ */
 void InteractiveReactorComponent::showPrompt() const
 {
     commandPrompt->enableComponent("AnimationComponent");

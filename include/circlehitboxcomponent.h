@@ -13,14 +13,12 @@
 class CircleHitboxComponent : public HitboxComponent
 {
 public:
-    CircleHitboxComponent(QString name_ = "HitboxComponent")
-        :HitboxComponent(name_) {}
+    CircleHitboxComponent(QString name_ = "HitboxComponent");
 
     void init() override;
 
     QPointF getCenter() const override;
     void setRadius(float radius);
-    void offsetOffset(QPointF offset);
     float getRadius() const;
 
     bool intersects(HitboxComponent *hitbox) const override;

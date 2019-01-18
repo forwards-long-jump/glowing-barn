@@ -1,7 +1,16 @@
 #include "animationcomponent.h"
 
+/**
+ * @brief AnimationComponent::AnimationComponent
+ * @param resourcePath
+ * @param frameWidth
+ * @param animationProperties
+ * @param buttons
+ * @param name
+ */
 AnimationComponent::AnimationComponent(const QString resourcePath, float frameWidth_, QVector<QPair<QString, QVector<float> > > animationProperties_, QString buttons,
-                                       const QString name) : GraphicsComponent(name)
+                                       const QString name)
+    : GraphicsComponent(name)
 {
     image = QPixmap(resourcePath);
     frameWidth = frameWidth_;
@@ -17,6 +26,13 @@ AnimationComponent::AnimationComponent(const QString resourcePath, float frameWi
     currentButtonAnimationState = ButtonAnimationState::IDLE;
 }
 
+/**
+ * @brief AnimationComponent::addAnimationToVector
+ * @param animationName
+ * @param frameCount
+ * @param framesDuration
+ * @param animationVector
+ */
 void AnimationComponent::addAnimationToVector(QString animationName, int frameCount, int framesDuration, QVector<QPair<QString, QVector<float> > > &animationVector)
 {
     QPair<QString, QVector<float>> animation;
@@ -27,6 +43,10 @@ void AnimationComponent::addAnimationToVector(QString animationName, int frameCo
     animationVector.append(animation);
 }
 
+/**
+ * @brief AnimationComponent::setCurrentAnimation
+ * @param animation
+ */
 void AnimationComponent::setCurrentAnimation(QString animation)
 {
     ticksBeforeNextFrame = 0;
@@ -50,21 +70,36 @@ void AnimationComponent::setCurrentAnimation(QString animation)
     loopingDisabled = false;
 }
 
+/**
+ * @brief AnimationComponent::disableLooping
+ */
 void AnimationComponent::disableLooping()
 {
     loopingDisabled = true;
 }
 
+/**
+ * @brief AnimationComponent::setMirrored
+ * @param mirrored
+ */
 void AnimationComponent::setMirrored(bool mirrored_)
 {
     mirrored = mirrored_;
 }
 
+/**
+ * @brief AnimationComponent::setButtons
+ * @param buttons
+ */
 void AnimationComponent::setButtons(QString buttons)
 {
     setButtons(GameButtonComponent::getButtonVectorFromString(buttons));
 }
 
+/**
+ * @brief AnimationComponent::setButtons
+ * @param buttons
+ */
 void AnimationComponent::setButtons(QVector<QString> buttons)
 {
     requiredButtons = buttons;
@@ -74,7 +109,10 @@ void AnimationComponent::setButtons(QVector<QString> buttons)
     }
 }
 
-
+/**
+ * @brief AnimationComponent::render
+ * @param painter
+ */
 void AnimationComponent::render(QPainter* painter)
 {
     int entityWidth = parent->getSize().width();
@@ -113,6 +151,9 @@ void AnimationComponent::render(QPainter* painter)
     }
 }
 
+/**
+ * @brief AnimationComponent::update
+ */
 void AnimationComponent::update()
 {
     bool reactToButtons = false;
@@ -182,21 +223,37 @@ void AnimationComponent::update()
     }
 }
 
+/**
+ * @brief AnimationComponent::setSpeedMultiplier
+ * @param value
+ */
 void AnimationComponent::setSpeedMultiplier(int value)
 {
     speedMultiplier = value;
 }
 
+/**
+ * @brief AnimationComponent::getRotation
+ * @return
+ */
 int AnimationComponent::getRotation() const
 {
     return rotation;
 }
 
+/**
+ * @brief AnimationComponent::getMirrored
+ * @return
+ */
 bool AnimationComponent::getMirrored() const
 {
     return mirrored;
 }
 
+/**
+ * @brief AnimationComponent::setRotation
+ * @param value
+ */
 void AnimationComponent::setRotation(int value)
 {
     rotation = value;

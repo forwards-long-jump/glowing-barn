@@ -1,16 +1,28 @@
 #include "soundbuttonreactorcomponent.h"
 
+/**
+ * @brief SoundButtonReactorComponent::SoundButtonReactorComponent
+ * @param startSound_
+ * @param endSound_
+ * @param idleSound_
+ * @param activeSound_
+ * @param requiredButtons_
+ * @param name
+ */
 SoundButtonReactorComponent::SoundButtonReactorComponent(QString startSound_, QString endSound_, QString idleSound_, QString activeSound_,
-                                                         QString requiredButtons_, QString name) : Component(name)
+                                                         QString requiredButtons_, QString name)
+    : Component(name),
+      startSound(startSound_),
+      endSound(endSound_),
+      idleSound(idleSound_),
+      activeSound(activeSound_)
 {
-    startSound = startSound_;
-    endSound = endSound_;
-    idleSound = idleSound_;
-    activeSound = activeSound_;
-
     requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
 }
 
+/**
+ * @brief SoundButtonReactorComponent::update
+ */
 void SoundButtonReactorComponent::update()
 {
     if(GameButtonComponent::areButtonsPressed(requiredButtons))

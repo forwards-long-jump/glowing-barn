@@ -1,5 +1,28 @@
-#include "include/doorcomponent.h"
+#include "doorcomponent.h"
 
+/**
+ * @brief DoorComponent::DoorComponent
+ * Don't forget to call init only after its parent has been set
+ * @param targetMap_
+ * @param targetDoor_
+ * @param requiredButtons_
+ * @param isFinalDoor_
+ * @param key_ Input required to open
+ * @param name_
+ */
+DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString requiredButtons_, bool isFinalDoor_, Input::Key key_, QString name_)
+    : InteractiveReactorComponent(key_, name_, InteractiveComponent::HITBOX_NAME, requiredButtons_)
+{
+    targetMap = targetMap_;
+    targetDoor = targetDoor_;
+
+    isFinalDoor = isFinalDoor_;
+}
+
+/**
+ * @brief DoorComponent::action
+ * @param target
+ */
 void DoorComponent::action(Entity* target)
 {
     enteringDoor = true;
@@ -32,6 +55,9 @@ void DoorComponent::action(Entity* target)
     }
 }
 
+/**
+ * @brief DoorComponent::update
+ */
 void DoorComponent::update()
 {
     InteractiveReactorComponent::update();
@@ -50,15 +76,9 @@ void DoorComponent::update()
     }
 }
 
-DoorComponent::DoorComponent(QString targetMap_, QString targetDoor_, QString requiredButtons_, bool isFinalDoor_, Input::Key key_, QString name_)
-    : InteractiveReactorComponent(key_, name_, "InteractiveHitboxComponent", requiredButtons_)
-{
-    targetMap = targetMap_;
-    targetDoor = targetDoor_;
-
-    isFinalDoor = isFinalDoor_;
-}
-
+/**
+ * @brief DoorComponent::init
+ */
 void DoorComponent::init()
 {
     InteractiveReactorComponent::init();

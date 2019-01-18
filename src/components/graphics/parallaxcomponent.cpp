@@ -1,14 +1,19 @@
 #include "parallaxcomponent.h"
+
 /**
  * @brief ParallaxComponent::ParallaxComponent
  * @param coeff_ The x/y "depth" of the entity, negative= background, positive  = foreground
  * @param name
  */
-ParallaxComponent::ParallaxComponent(QPointF coeff_, QString name)  : Component(name)
+ParallaxComponent::ParallaxComponent(QPointF coeff_, QString name)
+    : Component(name)
 {
     coeff = coeff_;
 }
 
+/**
+ * @brief ParallaxComponent::init
+ */
 void ParallaxComponent::init()
 {
     anchorPos = getParent()->pos();
@@ -21,11 +26,18 @@ void ParallaxComponent::init()
     }
 }
 
+/**
+ * @brief ParallaxComponent::setAnchor
+ * @param p
+ */
 void ParallaxComponent::setAnchor(QPointF p)
 {
     anchorPos = p;
 }
 
+/**
+ * @brief ParallaxComponent::update
+ */
 void ParallaxComponent::update()
 {
     Scene* gameScene = dynamic_cast<Scene*>(getParent()->scene());

@@ -14,8 +14,7 @@ class CircularHitboxComponent;
 class SquareHitboxComponent : public HitboxComponent
 {
 public:
-    SquareHitboxComponent(QString name_ = "HitboxComponent")
-        :HitboxComponent(name_) {}
+    SquareHitboxComponent(QString name_ = "HitboxComponent");
 
     void init() override;
 
