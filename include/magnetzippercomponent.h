@@ -6,7 +6,6 @@
 #include <QString>
 
 #include "squarehitboxcomponent.h"
-#include "gamebuttoncomponent.h"
 #include "animationcomponent.h"
 #include "animationfactory.h"
 #include "imagecomponent.h"
@@ -41,5 +40,7 @@ private:
     bool noAnimations = false;
     DIRECTION direction;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // ZIPPERMAGNET_H

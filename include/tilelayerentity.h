@@ -4,7 +4,6 @@
 #include "maprenderer.h"
 #include "tilelayer.h"
 #include "entity.h"
-#include "entityfactory.h"
 
 #include <QStyleOptionGraphicsItem>
 #include <QVector>
@@ -33,5 +32,7 @@ private:
 
     QRect findBoundsRect(int, int, int, QVector<bool>*) const;
 };
+
+#include "entityfactory.h"
 
 #endif // TILELAYERENTITY_H

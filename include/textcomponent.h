@@ -2,7 +2,6 @@
 #define TEXTCOMPONENT_H
 
 #include "graphicscomponent.h"
-#include "gamebuttoncomponent.h"
 
 /**
  * Draws a textbox on screen
@@ -26,5 +25,7 @@ private:
     int fontSize;
     int currentBackgroundOpacity = 0;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // TEXTCOMPONENT_H

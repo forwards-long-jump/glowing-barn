@@ -3,29 +3,8 @@
 
 #include "magnetzippercomponent.h"
 #include "playerinputcomponent.h"
-#include "physicscomponent.h"
-#include "magnetzipperreactorcomponent.h"
-#include "hitboxcomponent.h"
-#include "parallaxcomponent.h"
-#include "debugcomponent.h"
 #include "mapobject.h"
-#include "imagecomponent.h"
-#include "doorcomponent.h"
-#include "gamebuttoncomponent.h"
-#include "animationfactory.h"
-#include "sparkcomponent.h"
-#include "hurtreactorcomponent.h"
-#include "magnetjumperreactorcomponent.h"
-#include "magnetjumpercomponent.h"
-#include "magnetgravityreactorcomponent.h"
-#include "magnetgravitycomponent.h"
-#include "storyactivationcomponent.h"
-#include "storymagnetcomponent.h"
-#include "genericrendercomponent.h"
-#include "soundbuttonreactorcomponent.h"
-#include "particlespawnercomponent.h"
-#include "camerasequencecomponent.h"
-#include "textcomponent.h"
+
 
 /**
  * Contains static methods to create entites
@@ -69,5 +48,28 @@ public:
     // TODO: Get this dynamically from the map
     static const int TILE_SIZE = 16;
 };
+
+#include "physicscomponent.h"
+#include "magnetzipperreactorcomponent.h"
+#include "hitboxcomponent.h"
+#include "parallaxcomponent.h"
+#include "debugcomponent.h"
+#include "imagecomponent.h"
+#include "doorcomponent.h"
+#include "gamebuttoncomponent.h"
+#include "animationfactory.h"
+#include "sparkcomponent.h"
+#include "hurtreactorcomponent.h"
+#include "magnetjumperreactorcomponent.h"
+#include "magnetjumpercomponent.h"
+#include "magnetgravityreactorcomponent.h"
+#include "magnetgravitycomponent.h"
+#include "storyactivationcomponent.h"
+#include "storymagnetcomponent.h"
+#include "genericrendercomponent.h"
+#include "soundbuttonreactorcomponent.h"
+#include "particlespawnercomponent.h"
+#include "camerasequencecomponent.h"
+#include "textcomponent.h"
 
 #endif // ENTITYFACTORY_H

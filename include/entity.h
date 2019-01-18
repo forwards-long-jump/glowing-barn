@@ -4,6 +4,7 @@
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QMap>
+
 #include "component.h"
 #include "graphicscomponent.h"
 

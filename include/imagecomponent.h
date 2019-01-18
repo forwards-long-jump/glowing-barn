@@ -2,7 +2,6 @@
 #define IMAGECOMPONENT_H
 
 #include "graphicscomponent.h"
-#include "gamebuttoncomponent.h"
 
 /**
  * Draws an image on screen
@@ -28,5 +27,7 @@ private:
     bool mirrored = false;
     int rotation = 0;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // IMAGECOMPONENT_H

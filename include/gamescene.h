@@ -7,13 +7,6 @@
 #include "orthogonalrenderer.h"
 #include "mapentity.h"
 
-#include "hitboxcomponent.h"
-#include "transitioncomponent.h"
-#include "sounds.h"
-#include "genericrendercomponent.h"
-#include "guiitemcomponent.h"
-
-#include <QDebug>
 #include <QFileSystemWatcher>
 
 /**
@@ -56,5 +49,13 @@ private:
     bool canPressPauseKey = true;
     bool canPressMuteKey = true;
 };
+
+#include "hitboxcomponent.h"
+#include "transitioncomponent.h"
+#include "sounds.h"
+#include "genericrendercomponent.h"
+#include "guiitemcomponent.h"
+
+#include <QDebug>
 
 #endif // GAMESCENE_H

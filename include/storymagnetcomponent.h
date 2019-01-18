@@ -1,10 +1,8 @@
 #ifndef STORYMAGNETCOMPONENT_H
 #define STORYMAGNETCOMPONENT_H
 
-#include "gamebuttoncomponent.h"
 #include "interactivecomponent.h"
 #include "physicscomponent.h"
-#include "gamescene.h"
 #include "sounds.h"
 
 /**
@@ -30,5 +28,8 @@ private:
 
     QString targetMap;
 };
+
+#include "gamebuttoncomponent.h"
+#include "gamescene.h"
 
 #endif // STORYMAGNETCOMPONENT_H

@@ -2,7 +2,6 @@
 #define SOUNDBUTTONREACTORCOMPONENT_H
 
 #include "component.h"
-#include "gamebuttoncomponent.h"
 #include "sounds.h"
 
 /**
@@ -34,5 +33,7 @@ private:
     QVector<QString> requiredButtons;
     SoundButtonState currentState = SoundButtonState::IDLE;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // SOUNDBUTTONREACTORCOMPONENT_H

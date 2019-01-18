@@ -5,11 +5,11 @@
 #include "maprenderer.h"
 #include "objectgroup.h"
 #include "layer.h"
-#include "tilelayerentity.h"
-#include "objectlayerentity.h"
 #include "entity.h"
 
 #include <QMap>
+
+class TileLayerEntity;
 
 /**
  * Accesses, creates and contains TiledLayerItems
@@ -34,5 +34,8 @@ private:
     QMap<QString, TileLayerEntity*> layers;
     Entity* player = nullptr;
 };
+
+#include "objectlayerentity.h"
+#include "tilelayerentity.h"
 
 #endif // MAPENTITY_H

@@ -3,7 +3,6 @@
 
 #include "component.h"
 #include "squarehitboxcomponent.h"
-#include "gamebuttoncomponent.h"
 
 /**
  * Gives any entity set to react to it upwards momentum on intersection
@@ -31,5 +30,7 @@ private:
     float rotation = 0;
     bool disabled = false;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // MAGNETJUMPERCOMPONENT_H

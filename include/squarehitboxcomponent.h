@@ -1,7 +1,6 @@
 #ifndef SQUAREHITBOXCOMPONENT_H
 #define SQUAREHITBOXCOMPONENT_H
 
-#include <QtCore/qmath.h>
 
 #include "hitboxcomponent.h"
 
@@ -34,5 +33,6 @@ protected:
 };
 
 #include "circlehitboxcomponent.h"
+#include <QtCore/qmath.h>
 
 #endif // SQUAREHITBOXCOMPONENT_H

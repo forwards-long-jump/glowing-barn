@@ -3,9 +3,7 @@
 
 #include "component.h"
 #include "interactivecomponent.h"
-#include "scene.h"
 
-#include <QTime>
 
 class PlayerState;
 
@@ -39,5 +37,6 @@ private:
 };
 
 #include "playerstate.h"
+#include "scene.h"
 
 #endif // INPUTCOMPONENT_H

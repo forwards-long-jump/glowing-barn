@@ -32,6 +32,6 @@ protected:
     Entity* parent = nullptr;
 };
 
-#include "include/entity.h"
+#include "entity.h"
 
 #endif // COMPONENT_H

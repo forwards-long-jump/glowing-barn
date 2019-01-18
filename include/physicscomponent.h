@@ -3,8 +3,6 @@
 
 #include "component.h"
 #include "squarehitboxcomponent.h"
-#include "playerinputcomponent.h"
-#include "playerstate.h"
 
 /**
  * Moves its entity according to gravity and handles collisions
@@ -60,5 +58,8 @@ private:
     bool right;
     bool ignorePhysicsForTick;
 };
+
+#include "playerinputcomponent.h"
+#include "playerstate.h"
 
 #endif // PHYSICSCOMPONENT_H
