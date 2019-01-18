@@ -3,6 +3,7 @@
 
 #include "component.h"
 #include "interactivecomponent.h"
+#include "scene.h"
 
 #include <QTime>
 

@@ -1,6 +1,8 @@
 #ifndef SQUAREHITBOXCOMPONENT_H
 #define SQUAREHITBOXCOMPONENT_H
 
+#include <QtCore/qmath.h>
+
 #include "hitboxcomponent.h"
 
 class CircularHitboxComponent;

@@ -1,5 +1,3 @@
-#include <QtCore/qmath.h>
-
 #include "squarehitboxcomponent.h"
 
 /**

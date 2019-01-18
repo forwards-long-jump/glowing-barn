@@ -1,8 +1,11 @@
 #ifndef CIRCLEHITBOXCOMPONENT_H
 #define CIRCLEHITBOXCOMPONENT_H
 
+#include <QtCore/qmath.h>
+#include <QGraphicsItem>
 
 #include "hitboxcomponent.h"
+#include "squarehitboxcomponent.h"
 
 /**
  * HitboxComponent whose shape is a circle

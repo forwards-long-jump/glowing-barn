@@ -1,9 +1,4 @@
 #include "circlehitboxcomponent.h"
-#include "squarehitboxcomponent.h"
-
-#include <QtCore/qmath.h>
-
-#include "QGraphicsItem"
 
 /**
  * @brief CircleHitboxComponent::CircleHitboxComponent

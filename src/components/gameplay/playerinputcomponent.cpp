@@ -1,5 +1,4 @@
 #include "playerinputcomponent.h"
-#include "scene.h"
 
 /**
  * @brief PlayerInputComponent::PlayerInputComponent

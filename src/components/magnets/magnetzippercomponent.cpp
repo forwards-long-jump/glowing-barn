@@ -11,7 +11,8 @@ const QString MagnetZipperComponent::HITBOX_NAME = "MagnetZipperHitbox";
  * @param hitboxSize
  * @param speed
  */
-MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction, QSizeF hitboxSize, float speed, QString requiredButtons_, bool noAnimations) : Component("MagnetZipperComponent"),
+MagnetZipperComponent::MagnetZipperComponent(DIRECTION direction, QSizeF hitboxSize, float speed, QString requiredButtons_, bool noAnimations)
+    : Component("MagnetZipperComponent"),
     noAnimations(noAnimations),
     hitboxSize(hitboxSize),
     direction(direction),

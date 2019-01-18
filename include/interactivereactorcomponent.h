@@ -5,6 +5,8 @@
 #include "interactivecomponent.h"
 #include "debugcomponent.h"
 #include "input.h"
+#include "animationfactory.h"
+#include "gamebuttoncomponent.h"
 
 /**
  * Asks the player for an input on intersection, and acts appropriately when the input is provided

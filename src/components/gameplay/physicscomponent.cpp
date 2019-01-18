@@ -1,7 +1,4 @@
-#include "include/physicscomponent.h"
-#include "playerinputcomponent.h"
-#include "playerstate.h"
-#include "squarehitboxcomponent.h"
+#include "physicscomponent.h"
 
 /**
  * @brief PhysicsComponent::PhysicsComponent

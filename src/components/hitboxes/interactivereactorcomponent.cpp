@@ -1,6 +1,5 @@
 #include "interactivereactorcomponent.h"
-#include "animationfactory.h"
-#include "gamebuttoncomponent.h"
+
 
 /**
  * @brief InteractiveReactorComponent::InteractiveReactorComponent
