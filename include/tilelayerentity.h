@@ -1,12 +1,10 @@
-#ifndef TILELAYERITEM_H
-#define TILELAYERITEM_H
+#ifndef TILELAYERENTITY_H
+#define TILELAYERENTITY_H
 
-#include "tilelayer.h"
 #include "maprenderer.h"
+#include "tilelayer.h"
 #include "entity.h"
-#include "hitboxcomponent.h"
 #include "entityfactory.h"
-#include "mapitem.h"
 
 #include <QStyleOptionGraphicsItem>
 #include <QVector>
@@ -18,10 +16,10 @@
  * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
 
-class TileLayerItem : public Entity
+class TileLayerEntity : public Entity
 {
 public:
-    TileLayerItem(Tiled::TileLayer* tileLayer, Tiled::MapRenderer* renderer, MapItem* parent);
+    TileLayerEntity(Tiled::TileLayer* tileLayer, Tiled::MapRenderer* renderer, Entity* parent = nullptr);
 
     QRectF boundingRect() const override;
 
@@ -30,11 +28,10 @@ public:
     void createCollisions();
 
 private:
-    Tiled::TileLayer* mTileLayer;
-    Tiled::MapRenderer* mRenderer;
-    QVector<Entity*> collisions;
+    Tiled::TileLayer* tileLayer;
+    Tiled::MapRenderer* renderer;
 
     QRect findBoundsRect(int, int, int, QVector<bool>*) const;
 };
 
-#endif // TILELAYERITEM_H
+#endif // TILELAYERENTITY_H

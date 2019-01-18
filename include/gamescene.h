@@ -5,7 +5,7 @@
 #include "mapreader.h"
 #include "map.h"
 #include "orthogonalrenderer.h"
-#include "mapitem.h"
+#include "mapentity.h"
 
 #include "hitboxcomponent.h"
 #include "transitioncomponent.h"
@@ -44,7 +44,7 @@ private:
 
     // Tiled
     Tiled::Map* map;
-    MapItem* mapItem;
+    MapEntity* mapItem;
     Tiled::MapRenderer* mapRenderer;
 
     bool changeMapScheduled = false;

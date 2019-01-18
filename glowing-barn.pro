@@ -84,10 +84,6 @@ SOURCES += \
     src/state/fallingstate.cpp \
     src/state/zippingstate.cpp \
     src/state/deadstate.cpp \
-    src/tilemap/mapitem.cpp \
-    src/tilemap/tilelayeritem.cpp \
-    src/tilemap/objectgroupitem.cpp \
-    src/tilemap/mapobjectitem.cpp \
     src/tilemap/entityfactory.cpp \
     src/components/gameplay/storyactivationcomponent.cpp \
     src/components/gameplay/storymagnetcomponent.cpp \
@@ -96,7 +92,10 @@ SOURCES += \
     src/components/graphics/textcomponent.cpp \
     src/components/hitboxes/interactivereactorcomponent.cpp \
     src/components/hitboxes/interactivecomponent.cpp \
-    src/soundeffectthread.cpp
+    src/soundeffectthread.cpp \
+    src/tilemap/mapentity.cpp \
+    src/tilemap/tilelayerentity.cpp \
+    src/tilemap/objectlayerentity.cpp
 
 HEADERS += \
     include/game.h \
@@ -106,10 +105,6 @@ HEADERS += \
     include/scene.h \
     include/component.h \
     include/graphicscomponent.h \
-    include/mapitem.h \
-    include/tilelayeritem.h \
-    include/objectgroupitem.h \
-    include/mapobjectitem.h \
     include/input.h \
     include/playerinputcomponent.h \
     include/playerstate.h \
@@ -151,7 +146,10 @@ HEADERS += \
     include/textcomponent.h \
     include/interactivereactorcomponent.h \
     include/interactivecomponent.h \
-    include/soundeffectthread.h
+    include/soundeffectthread.h \
+    include/mapentity.h \
+    include/tilelayerentity.h \
+    include/objectlayerentity.h
 
 RESOURCES += \
     assets/assets.qrc

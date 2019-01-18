@@ -1,16 +1,15 @@
-#ifndef MAPITEM_H
-#define MAPITEM_H
+#ifndef MAPENTITY_H
+#define MAPENTITY_H
 
 #include "map.h"
-#include "tilelayer.h"
 #include "maprenderer.h"
 #include "objectgroup.h"
+#include "layer.h"
+#include "tilelayerentity.h"
+#include "objectlayerentity.h"
 #include "entity.h"
 
 #include <QMap>
-
-class TileLayerItem;
-class ObjectGroupItem;
 
 /**
  * Accesses, creates and contains TiledLayerItems
@@ -18,25 +17,22 @@ class ObjectGroupItem;
  * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
 
-class MapItem : public Entity
+class MapEntity : public Entity
 {
 public:
-    MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent = nullptr, QString spawnName = "default");
+    MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent = nullptr, QString spawnName = "default");
 
     QRectF boundingRect() const override;
     void paint(QPainter* p, const QStyleOptionGraphicsItem* , QWidget* ) override;
 
-    TileLayerItem* getLayer(QString name) const;
+    TileLayerEntity* getLayer(QString name) const;
 
     void setPlayer(Entity* _player) {this->player = _player;}
     Entity* getPlayer() const {return this->player;}
 
 private:
-    QMap<QString, TileLayerItem*> layers;
+    QMap<QString, TileLayerEntity*> layers;
     Entity* player = nullptr;
 };
 
-#include "objectgroupitem.h"
-#include "tilelayeritem.h"
-
-#endif // MAPITEM_H
+#endif // MAPENTITY_H

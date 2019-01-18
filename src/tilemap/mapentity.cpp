@@ -1,13 +1,13 @@
-#include "mapitem.h"
+#include "mapentity.h"
 
 /**
- * @brief MapItem::MapItem
+ * @brief MapEntity::MapEntity
  * @param map
  * @param renderer
  * @param parent
  * @param spawnName
  */
-MapItem::MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent, QString spawnName)
+MapEntity::MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -16,41 +16,41 @@ MapItem::MapItem(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* p
     for (Tiled::Layer* layer : map->layers()) {
         if (Tiled::TileLayer* tileLayer = layer->asTileLayer())
         {
-            layers.insert(layer->name(), new TileLayerItem(tileLayer, renderer, this));
+            layers.insert(layer->name(), new TileLayerEntity(tileLayer, renderer, this));
         }
         else if (Tiled::ObjectGroup* objectGroup = layer->asObjectGroup())
         {
-            new ObjectGroupItem(objectGroup, renderer, this, spawnName);
+            new ObjectLayerEntity(objectGroup, renderer, this, spawnName);
         }
     }
 }
 
 /**
- * @brief MapItem::boundingRect
+ * @brief MapEntity::boundingRect
  * @return
  */
-QRectF MapItem::boundingRect() const
+QRectF MapEntity::boundingRect() const
 {
     return QRectF();
 }
 
 /**
- * @brief MapItem::paint
+ * @brief MapEntity::paint
  * @param p
  * @param option
  * @param widget
  */
-void MapItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
+void MapEntity::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 }
 
 /**
- * @brief MapItem::getLayer
+ * @brief MapEntity::getLayer
  * @param name
  * @return
  */
-TileLayerItem* MapItem::getLayer(QString name) const
+TileLayerEntity* MapEntity::getLayer(QString name) const
 {
     return layers.value(name);
 }

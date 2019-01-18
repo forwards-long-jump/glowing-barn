@@ -1,13 +1,13 @@
-#include "objectgroupitem.h"
+#include "objectlayerentity.h"
 
 /**
- * @brief ObjectGroupItem::ObjectGroupItem
+ * @brief ObjectLayerEntity::ObjectLayerEntity
  * @param objectGroup
  * @param renderer
  * @param parent
  * @param spawnName
  */
-ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, MapItem* parent, QString spawnName)
+ObjectLayerEntity::ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer*, Entity* parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -22,7 +22,7 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
             break;
         case 248:
             if(object->propertyAsString("spawnName") == spawnName) {
-                static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
+                static_cast<MapEntity*>(parent)->setPlayer(EntityFactory::player(object, parent));
             }
             break;
         case 235:
@@ -80,21 +80,21 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
 }
 
 /**
- * @brief ObjectGroupItem::boundingRect
+ * @brief ObjectLayerEntity::boundingRect
  * @return
  */
-QRectF ObjectGroupItem::boundingRect() const
+QRectF ObjectLayerEntity::boundingRect() const
 {
     return QRectF();
 }
 
 /**
- * @brief ObjectGroupItem::paint
+ * @brief ObjectLayerEntity::paint
  * @param painter
  * @param option
  * @param widget
  */
-void ObjectGroupItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
+void ObjectLayerEntity::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 }

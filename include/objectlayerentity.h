@@ -1,13 +1,9 @@
-#ifndef OBJECTGROUPITEM_H
-#define OBJECTGROUPITEM_H
+#ifndef OBJECTLAYERENTITY_H
+#define OBJECTLAYERENTITY_H
 
-#include "objectgroup.h"
 #include "maprenderer.h"
-#include "mapobject.h"
-#include "mapobjectitem.h"
+#include "magnetzippercomponent.h"
 #include "entityfactory.h"
-#include "entity.h"
-#include "mapitem.h"
 
 #include <QDebug>
 
@@ -17,10 +13,10 @@
  * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
 
-class ObjectGroupItem : public Entity
+class ObjectLayerEntity : public Entity
 {
 public:
-    ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, MapItem* parent, QString spawnName);
+    ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, Entity* parent, QString spawnName);
 
     MagnetZipperComponent::DIRECTION convertToDirection(const QString& str);
 
@@ -28,4 +24,4 @@ public:
     void paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* ) override;
 };
 
-#endif // OBJECTGROUPITEM_H
+#endif // OBJECTLAYERENTITY_H
