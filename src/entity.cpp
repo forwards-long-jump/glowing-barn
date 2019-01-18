@@ -1,4 +1,4 @@
-#include "include/entity.h"
+#include "entity.h"
 
 /**
  * @brief Entity::Entity
@@ -8,7 +8,9 @@
  * @param width
  * @param height
  */
-Entity::Entity(QGraphicsItem* parent, float x, float y, float width, float height) : QGraphicsItem(parent), parent(static_cast<Entity*>(parent))
+Entity::Entity(QGraphicsItem* parent, float x, float y, float width, float height)
+    : QGraphicsItem(parent),
+      parent(static_cast<Entity*>(parent))
 {
     setPos(x, y);
     size.setWidth(width);
@@ -36,16 +38,27 @@ QRectF Entity::boundingRect() const
     return QRectF(0, 0, size.width(), size.height());
 }
 
+/**
+ * @brief Entity::shouldBeDeleted
+ * @return
+ */
 bool Entity::shouldBeDeleted() const
 {
     return markedForDeletion;
 }
 
+/**
+ * @brief Entity::deleteLater
+ */
 void Entity::deleteLater()
 {
     markedForDeletion = true;
 }
 
+/**
+ * @brief Entity::getParent
+ * @return
+ */
 Entity *Entity::getParent() const
 {
     return parent;

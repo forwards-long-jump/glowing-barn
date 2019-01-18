@@ -11,6 +11,10 @@ QString Sounds::nextMusic = "";
 SoundEffectThread* Sounds::magnetOn = new SoundEffectThread();
 SoundEffectThread* Sounds::magnetOff = new SoundEffectThread();
 
+/**
+ * @brief Sounds::playMusic
+ * @param path
+ */
 void Sounds::playMusic(QString path)
 {
     player->setMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + path));
@@ -18,6 +22,10 @@ void Sounds::playMusic(QString path)
     player->setVolume(100);
 }
 
+/**
+ * @brief Sounds::playSound
+ * @param name
+ */
 void Sounds::playSound(QString name)
 {
     if(!muted)
@@ -33,6 +41,11 @@ void Sounds::playSound(QString name)
     }
 }
 
+/**
+ * @brief Sounds::fadeOut
+ * @param duration_
+ * @param nextMusic_
+ */
 void Sounds::fadeOut(int duration_, QString nextMusic_)
 {
     nextMusic = nextMusic_;
@@ -40,11 +53,18 @@ void Sounds::fadeOut(int duration_, QString nextMusic_)
     fadeOutTick = duration_;
 }
 
+/**
+ * @brief Sounds::setMediaPlayer
+ * @param player_
+ */
 void Sounds::setMediaPlayer(QMediaPlayer *player_)
 {
     player = player_;
 }
 
+/**
+ * @brief Sounds::update
+ */
 void Sounds::update()
 {
     if(player->state() == QMediaPlayer::StoppedState)
@@ -69,6 +89,9 @@ void Sounds::update()
     }
 }
 
+/**
+ * @brief Sounds::loadSounds
+ */
 void Sounds::loadSounds()
 {
     // TODO: Load and unload sounds when they are required
@@ -97,12 +120,19 @@ void Sounds::loadSounds()
     sounds.insert("crash", sfx);*/
 }
 
+/**
+ * @brief Sounds::toggleMute
+ */
 void Sounds::toggleMute()
 {
     muted = !muted;
     player->setMuted(muted);
 }
 
+/**
+ * @brief Sounds::isMuted
+ * @return
+ */
 bool Sounds::isMuted()
 {
     return muted;

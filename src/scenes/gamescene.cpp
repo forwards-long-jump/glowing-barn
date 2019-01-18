@@ -1,5 +1,10 @@
 #include "gamescene.h"
 
+/**
+ * @brief GameScene::GameScene
+ * @param name
+ * @param game
+ */
 GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)
 {
@@ -13,17 +18,28 @@ GameScene::GameScene(QString name, Game* game)
     }
 }
 
+/**
+ * @brief GameScene::~GameScene
+ */
 GameScene::~GameScene()
 {
 
 }
 
+/**
+ * @brief GameScene::onEnter
+ */
 void GameScene::onEnter()
 {
     changeMapScheduled = false;
     loadMap(":maps/map-outside-factory.tmx");
 }
 
+/**
+ * @brief GameScene::scheduleMapChange
+ * @param mapPath
+ * @param spawnName
+ */
 void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
 {
     if(mapPath != "")
@@ -49,11 +65,18 @@ void GameScene::scheduleMapChange(QString mapPath, QString spawnName)
     addItem(e);
 }
 
+/**
+ * @brief GameScene::getPlayer
+ * @return
+ */
 Entity *GameScene::getPlayer() const
 {
     return mapItem->getPlayer();
 }
 
+/**
+ * @brief GameScene::update
+ */
 void GameScene::update()
 {
     if(changeMapScheduled)
@@ -76,6 +99,9 @@ void GameScene::update()
     }
 }
 
+/**
+ * @brief GameScene::onKeyChange
+ */
 void GameScene::onKeyChange(Input&)
 {
     // Handle going back to main menu
@@ -85,6 +111,12 @@ void GameScene::onKeyChange(Input&)
     }
 }
 
+/**
+ * @brief GameScene::loadMap
+ * @param filename
+ * @param spawnName
+ * @return
+ */
 bool GameScene::loadMap(QString filename, QString spawnName)
 {
     newMapPath = filename;

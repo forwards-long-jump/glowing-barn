@@ -1,5 +1,10 @@
 #include "menuscene.h"
 
+/**
+ * @brief MenuScene::MenuScene
+ * @param name
+ * @param game
+ */
 MenuScene::MenuScene(QString name, Game* game)
     : Scene(name, game)
 {
@@ -23,7 +28,7 @@ MenuScene::MenuScene(QString name, Game* game)
     title->addComponent(new ImageComponent(":menu/title.png"));
     Entity* start = new Entity(nullptr, -45.25, -3.125 , 80.5, 6.25);
     start->addComponent(new ImageComponent(":menu/start.png"));
-    start->addComponent(new GenericRenderComponent([=](QPainter* painter, Entity*, int tick) {
+    start->addComponent(new GenericRenderComponent([](QPainter* painter, Entity*, int tick) {
         painter->setOpacity(qAbs(qSin(static_cast<double>(tick)/30)));
     }));
 
@@ -73,11 +78,17 @@ MenuScene::MenuScene(QString name, Game* game)
     camera->attachTo(cameraLock);
 }
 
+/**
+ * @brief MenuScene::~MenuScene
+ */
 MenuScene::~MenuScene()
 {
 
 }
 
+/**
+ * @brief MenuScene::onEnter
+ */
 void MenuScene::onEnter()
 {
     if(!game->isPaused())
@@ -86,6 +97,9 @@ void MenuScene::onEnter()
         game->togglePaused();
 }
 
+/**
+ * @brief MenuScene::update
+ */
 void MenuScene::update()
 {
     clouds1->setPos(clouds1->pos() - QPointF(1, 0));
@@ -104,6 +118,9 @@ void MenuScene::update()
     }
 }
 
+/**
+ * @brief MenuScene::onKeyChange
+ */
 void MenuScene::onKeyChange(Input&)
 {
     // Handle start the game
