@@ -11,7 +11,11 @@ DeadState PlayerState::dying;
 bool PlayerState::headingRight = true;
 int PlayerState::ticksSinceEntering = 0;
 
-
+/**
+ * @brief PlayerState::handleHorizontalMovement
+ * @param playerInputComponent
+ * @return
+ */
 bool PlayerState::handleHorizontalMovement(PlayerInputComponent* playerInputComponent)
 {
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
@@ -36,6 +40,11 @@ bool PlayerState::handleHorizontalMovement(PlayerInputComponent* playerInputComp
     return true;
 }
 
+/**
+ * @brief PlayerState::setHeadingRight
+ * @param headingRight_
+ * @param playerInputComponent
+ */
 void PlayerState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
 {
     headingRight = headingRight_;
@@ -46,6 +55,11 @@ void PlayerState::setHeadingRight(bool headingRight_, PlayerInputComponent* play
     }
 }
 
+/**
+ * @brief PlayerState::checkFalling
+ * @param playerInputComponent
+ * @return
+ */
 bool PlayerState::checkFalling(PlayerInputComponent* playerInputComponent) const
 {
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
@@ -57,6 +71,11 @@ bool PlayerState::checkFalling(PlayerInputComponent* playerInputComponent) const
     return false;
 }
 
+/**
+ * @brief PlayerState::checkOnGround
+ * @param playerInputComponent
+ * @return
+ */
 bool PlayerState::checkOnGround(PlayerInputComponent* playerInputComponent) const
 {
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));
@@ -65,6 +84,11 @@ bool PlayerState::checkOnGround(PlayerInputComponent* playerInputComponent) cons
     return false;
 }
 
+/**
+ * @brief PlayerState::checkNoSpeed
+ * @param playerInputComponent
+ * @return
+ */
 bool PlayerState::checkNoSpeed(PlayerInputComponent* playerInputComponent) const
 {
     PhysicsComponent* physicsComponent = static_cast<PhysicsComponent*> (playerInputComponent->getParent()->getComponent("PhysicsComponent"));

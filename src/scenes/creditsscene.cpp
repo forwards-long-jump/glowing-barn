@@ -1,16 +1,27 @@
 #include "creditsscene.h"
 
+/**
+ * @brief CreditsScene::CreditsScene
+ * @param name
+ * @param game
+ */
 CreditsScene::CreditsScene(QString name, Game *game) : Scene(name, game)
 {
     //Black background for fading
     this->setBackgroundBrush(Qt::black);
 }
 
+/**
+ * @brief CreditsScene::~CreditsScene
+ */
 CreditsScene::~CreditsScene()
 {
 
 }
 
+/**
+ * @brief CreditsScene::onEnter
+ */
 void CreditsScene::onEnter()
 {
     bottom1 = new Entity(nullptr, 0, 32, 512, 48);
@@ -67,11 +78,17 @@ void CreditsScene::onEnter()
     camera->attachTo(cameraLock);
 }
 
+/**
+ * @brief CreditsScene::onLeave
+ */
 void CreditsScene::onLeave()
 {
     this->clear();
 }
 
+/**
+ * @brief CreditsScene::update
+ */
 void CreditsScene::update()
 {
     bottom1->setPos(bottom1->pos() - QPointF(0.5, 0));
@@ -124,6 +141,10 @@ void CreditsScene::update()
     }
 }
 
+/**
+ * @brief CreditsScene::onKeyChange
+ * @param input
+ */
 void CreditsScene::onKeyChange(Input &input)
 {
 

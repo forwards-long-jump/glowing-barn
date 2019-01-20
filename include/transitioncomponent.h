@@ -3,6 +3,12 @@
 
 #include "graphicscomponent.h"
 
+/**
+ * Allows to create generic transition, with generic outcome
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class TransitionComponent : public GraphicsComponent
 {
 public:

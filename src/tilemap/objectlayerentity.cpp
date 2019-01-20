@@ -1,12 +1,17 @@
-#include "objectgroupitem.h"
+#include "objectlayerentity.h"
 
-ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, MapItem* parent, QString spawnName)
+/**
+ * @brief ObjectLayerEntity::ObjectLayerEntity
+ * @param objectGroup
+ * @param renderer
+ * @param parent
+ * @param spawnName
+ */
+ObjectLayerEntity::ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer*, Entity* parent, QString spawnName)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
     setPos(objectGroup->offset());
-
-    const Tiled::ObjectGroup::DrawOrder drawOrder = objectGroup->drawOrder();
 
     // Create a child item for each object
     for (Tiled::MapObject* object : objectGroup->objects())
@@ -17,7 +22,7 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
             break;
         case 248:
             if(object->propertyAsString("spawnName") == spawnName) {
-                static_cast<MapItem*>(parent)->setPlayer(EntityFactory::player(object, parent));
+                static_cast<MapEntity*>(parent)->setPlayer(EntityFactory::player(object, parent));
             }
             break;
         case 235:
@@ -74,12 +79,22 @@ ObjectGroupItem::ObjectGroupItem(Tiled::ObjectGroup* objectGroup, Tiled::MapRend
     }
 }
 
-QRectF ObjectGroupItem::boundingRect() const
+/**
+ * @brief ObjectLayerEntity::boundingRect
+ * @return
+ */
+QRectF ObjectLayerEntity::boundingRect() const
 {
     return QRectF();
 }
 
-void ObjectGroupItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
+/**
+ * @brief ObjectLayerEntity::paint
+ * @param painter
+ * @param option
+ * @param widget
+ */
+void ObjectLayerEntity::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
 }

@@ -1,5 +1,12 @@
 #include "textcomponent.h"
 
+/**
+ * @brief TextComponent::TextComponent
+ * @param text
+ * @param buttons
+ * @param fontSize
+ * @param name
+ */
 TextComponent::TextComponent(const QString &text, QString buttons, int fontSize, QString name) :
     GraphicsComponent(name),
     fontSize(fontSize),
@@ -8,6 +15,10 @@ TextComponent::TextComponent(const QString &text, QString buttons, int fontSize,
     requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
 }
 
+
+/**
+ * @brief TextComponent::update
+ */
 void TextComponent::update()
 {
     if(requiredButtons.length() == 0 || GameButtonComponent::areButtonsPressed(requiredButtons))
@@ -21,6 +32,10 @@ void TextComponent::update()
     }
 }
 
+/**
+ * @brief TextComponent::render
+ * @param painter
+ */
 void TextComponent::render(QPainter *painter)
 {
 

@@ -4,6 +4,12 @@
 #include "graphicscomponent.h"
 #include "squarehitboxcomponent.h"
 
+/**
+ * LELELELEL
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DebugHitboxComponent : public GraphicsComponent
 {
 public:

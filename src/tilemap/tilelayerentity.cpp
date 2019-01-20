@@ -1,23 +1,29 @@
-#include "tilelayeritem.h"
+#include "tilelayerentity.h"
 
-TileLayerItem::TileLayerItem(Tiled::TileLayer* tileLayer, Tiled::MapRenderer* renderer, MapItem* parent)
-    : Entity(parent)
-    , mTileLayer(tileLayer)
-    , mRenderer(renderer)
+/**
+ * @brief TileLayerEntity::TileLayerEntity
+ * @param tileLayer
+ * @param renderer
+ * @param parent
+ */
+TileLayerEntity::TileLayerEntity(Tiled::TileLayer* tileLayer, Tiled::MapRenderer* renderer, Entity* parent)
+    : Entity(parent),
+      tileLayer(tileLayer),
+      renderer(renderer)
 {
     setFlag(QGraphicsItem::ItemUsesExtendedStyleOption);
-    setPos(mTileLayer->offset());
+    setPos(tileLayer->offset());
 }
 
 /**
  * @brief createCollisions
  * @return an entity vector of collisions
  */
-void TileLayerItem::createCollisions()
+void TileLayerEntity::createCollisions()
 {
     QVector<Entity*> collisions;
-    int width = mTileLayer->width();
-    int height = mTileLayer->height();
+    int width = tileLayer->width();
+    int height = tileLayer->height();
 
     for(int x = 0; x < width; x++)
     {
@@ -28,7 +34,7 @@ void TileLayerItem::createCollisions()
 
         for(int y = 0; y < height; y++)
         {
-            Tiled::Cell cell = mTileLayer->cellAt(x, y);
+            Tiled::Cell cell = tileLayer->cellAt(x, y);
 
             if(cell.tileId() != -1 && y != height - 1 )
             {
@@ -66,13 +72,23 @@ void TileLayerItem::createCollisions()
     }
 }
 
-QRectF TileLayerItem::boundingRect() const
+/**
+ * @brief TileLayerEntity::boundingRect
+ * @return
+ */
+QRectF TileLayerEntity::boundingRect() const
 {
-    return mRenderer->boundingRect(mTileLayer->bounds());
+    return renderer->boundingRect(tileLayer->bounds());
 }
 
-void TileLayerItem::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
+/**
+ * @brief TileLayerEntity::paint
+ * @param painter
+ * @param option
+ * @param widget
+ */
+void TileLayerEntity::paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* widget)
 {
     Entity::paint(p, option, widget);
-    mRenderer->drawTileLayer(p, mTileLayer, option->rect);
+    renderer->drawTileLayer(p, tileLayer, option->rect);
 }

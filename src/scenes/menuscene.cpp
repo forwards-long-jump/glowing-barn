@@ -1,5 +1,10 @@
 #include "menuscene.h"
 
+/**
+ * @brief MenuScene::MenuScene
+ * @param name
+ * @param game
+ */
 MenuScene::MenuScene(QString name, Game* game)
     : Scene(name, game)
 {
@@ -73,11 +78,17 @@ MenuScene::MenuScene(QString name, Game* game)
     camera->attachTo(cameraLock);
 }
 
+/**
+ * @brief MenuScene::~MenuScene
+ */
 MenuScene::~MenuScene()
 {
 
 }
 
+/**
+ * @brief MenuScene::onEnter
+ */
 void MenuScene::onEnter()
 {
     Sounds::fadeOut(20, "/assets/sounds/menu.mp3");
@@ -87,6 +98,9 @@ void MenuScene::onEnter()
         game->togglePaused();
 }
 
+/**
+ * @brief MenuScene::update
+ */
 void MenuScene::update()
 {
     clouds1->setPos(clouds1->pos() - QPointF(1, 0));
@@ -105,6 +119,9 @@ void MenuScene::update()
     }
 }
 
+/**
+ * @brief MenuScene::onKeyChange
+ */
 void MenuScene::onKeyChange(Input&)
 {
     // Handle start the game

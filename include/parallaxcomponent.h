@@ -6,6 +6,12 @@
 #include "component.h"
 #include "gamescene.h"
 
+/**
+ * Allow its entity to move with a certain parallax when the camera moves
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class ParallaxComponent  : public Component
 {
 public:

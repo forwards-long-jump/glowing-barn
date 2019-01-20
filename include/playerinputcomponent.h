@@ -4,15 +4,19 @@
 #include "component.h"
 #include "interactivecomponent.h"
 
-#include <QTime>
 
 class PlayerState;
+
+/**
+ * Handles input, attached only to the playable character
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class PlayerInputComponent : public Component
 {
 public:
-    PlayerInputComponent(QString name_ = "PlayerInputComponent")
-        :Component(name_) {}
+    PlayerInputComponent(QString name_ = "PlayerInputComponent");
     virtual ~PlayerInputComponent() {}
 
     void update() override;
@@ -24,6 +28,8 @@ public:
     void onDisable() override;
 
 private:
+    void handleMagnetActivation();
+
     bool releasedKeyAfterTogglingMagnet;
     PlayerState* state;
 
@@ -31,5 +37,6 @@ private:
 };
 
 #include "playerstate.h"
+#include "scene.h"
 
 #endif // INPUTCOMPONENT_H

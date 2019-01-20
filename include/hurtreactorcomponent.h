@@ -4,6 +4,12 @@
 #include "hitboxreactorcomponent.h"
 #include "gamescene.h"
 
+/**
+ * Restarts the current map on contact with a HurtComponent
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class HurtReactorComponent : public HitboxReactorComponent
 {
 public:

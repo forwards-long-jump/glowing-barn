@@ -1,7 +1,18 @@
 #include "magnetgravitycomponent.h"
 
 const QString MagnetGravityComponent::HITBOX_NAME = "MagnetGravityHitbox";
-MagnetGravityComponent::MagnetGravityComponent(float radius_, float force_, QString requiredButtons_, QPointF hitboxOffset_, QString customHitboxName, QString name) : Component(name)
+
+/**
+ * @brief MagnetGravityComponent::MagnetGravityComponent
+ * @param radius_
+ * @param force_ Negative value for attractive magnet, positive for repulsive
+ * @param requiredButtons_
+ * @param hitboxOffset_
+ * @param customHitboxName
+ * @param name
+ */
+MagnetGravityComponent::MagnetGravityComponent(float radius_, float force_, QString requiredButtons_, QPointF hitboxOffset_, QString customHitboxName, QString name)
+    : Component(name)
 {
     requiredButtons = GameButtonComponent::getButtonVectorFromString(requiredButtons_);
     radius = radius_;
@@ -10,6 +21,9 @@ MagnetGravityComponent::MagnetGravityComponent(float radius_, float force_, QStr
     hitboxOffset = hitboxOffset_;
 }
 
+/**
+ * @brief MagnetGravityComponent::init
+ */
 void MagnetGravityComponent::init()
 {
     CircleHitboxComponent* hc = new CircleHitboxComponent(hitboxName);
@@ -17,30 +31,47 @@ void MagnetGravityComponent::init()
     hc->setRadius(radius);
     if(!hitboxOffset.isNull())
     {
-        hc->offsetOffset(hitboxOffset);
+        hc->setOffset(hc->getOffset() + hitboxOffset);
     }
 }
 
+/**
+ * @brief MagnetGravityComponent::onEnable
+ */
 void MagnetGravityComponent::onEnable()
 {
     getParent()->enableComponent(hitboxName);
 }
 
+/**
+ * @brief MagnetGravityComponent::onDisable
+ */
 void MagnetGravityComponent::onDisable()
 {
     getParent()->disableComponent(hitboxName);
 }
 
+/**
+ * @brief MagnetGravityComponent::getForce
+ * @return
+ */
 float MagnetGravityComponent::getForce() const
 {
     return force;
 }
 
+/**
+ * @brief MagnetGravityComponent::getDisabledTime
+ * @return
+ */
 int MagnetGravityComponent::getDisabledTime() const
 {
     return ticksDisabled;
 }
 
+/**
+ * @brief MagnetGravityComponent::update
+ */
 void MagnetGravityComponent::update() {
     if(requiredButtons.length() > 0)
     {

@@ -1,10 +1,13 @@
 #ifndef GAMEBUTTON_H
 #define GAMEBUTTON_H
 
-#include "hitboxreactorcomponent.h"
-#include "squarehitboxcomponent.h"
 #include "interactivereactorcomponent.h"
-#include "input.h"
+
+/**
+ * Button which reacts to the player or other entities, to influence behavior of other entities
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class GameButtonComponent : public InteractiveReactorComponent
 {

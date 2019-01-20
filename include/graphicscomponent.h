@@ -5,6 +5,12 @@
 
 #include "component.h"
 
+/**
+ * Abstract component which gives a graphical appearance to its entity
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class GraphicsComponent : public Component
 {
 public:

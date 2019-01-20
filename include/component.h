@@ -5,6 +5,12 @@
 
 class Entity;
 
+/**
+ * Basis of the Entity-Components design pattern
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Component
 {
 public:
@@ -26,6 +32,6 @@ protected:
     Entity* parent = nullptr;
 };
 
-#include "include/entity.h"
+#include "entity.h"
 
 #endif // COMPONENT_H

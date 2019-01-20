@@ -1,5 +1,9 @@
 #include "playerstate.h"
 
+/**
+ * @brief JumpingState::enter
+ * @param playerInputComponent
+ */
 void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -18,6 +22,10 @@ void JumpingState::enter(PlayerInputComponent* playerInputComponent) const
     }
 }
 
+/**
+ * @brief JumpingState::handleInput
+ * @param playerInputComponent
+ */
 void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     ticksSinceEntering++;
@@ -40,9 +48,3 @@ void JumpingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
-void JumpingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
-    // TODO
-    // change player sprite
-}

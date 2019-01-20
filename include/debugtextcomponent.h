@@ -3,13 +3,19 @@
 
 #include "graphicscomponent.h"
 
+/**
+ * Component which draws text on the screen
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DebugTextComponent : public GraphicsComponent
 {
 public:
     DebugTextComponent(QString name, QString debugText, bool hasHitboxComponent = false);
     DebugTextComponent(QString debugText = "", bool hasHitboxComponent = false);
 
-    void setText(const QString &text_);
+    void setText(const QString &text);
     void render(QPainter* painter) override;
     void update() override;
 private:

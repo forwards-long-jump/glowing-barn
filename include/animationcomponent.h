@@ -5,7 +5,12 @@
 #include <QPair>
 
 #include "graphicscomponent.h"
-#include "gamebuttoncomponent.h"
+
+/**
+ * Allows its entity to have an animated sprite
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class AnimationComponent : public GraphicsComponent
 {
@@ -58,5 +63,7 @@ private:
 
     QVector<QPair<QString, QVector<float>>> animationProperties;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // ANIMATIONCOMPONENT_H

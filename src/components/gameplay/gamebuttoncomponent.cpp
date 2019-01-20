@@ -45,7 +45,9 @@ GameButtonComponent::GameButtonComponent(QString buttonName_, bool stayPressed_,
 }
 
 
-//
+/**
+ * @brief GameButtonComponent::~GameButtonComponent
+ */
 GameButtonComponent::~GameButtonComponent()
 {
     instances.removeOne(this);
@@ -101,27 +103,44 @@ bool GameButtonComponent::areButtonsPressed(QVector<QString> buttons)
     return false;
 }
 
+/**
+ * @brief GameButtonComponent::getButtonVectorFromString
+ * @param buttons
+ * @return
+ */
 QVector<QString> GameButtonComponent::getButtonVectorFromString(QString buttons)
 {
     return buttons.split(" ", QString::SkipEmptyParts).toVector();
 }
 
+/**
+ * @brief GameButtonComponent::init
+ */
 void GameButtonComponent::init()
 {
     InteractiveReactorComponent::init();
     setHitbox(new SquareHitboxComponent());
 }
 
+/**
+ * @brief GameButtonComponent::onDisable
+ */
 void GameButtonComponent::onDisable()
 {
     instances.removeOne(this);
 }
 
+/**
+ * @brief GameButtonComponent::onEnable
+ */
 void GameButtonComponent::onEnable()
 {
     instances.append(this);
 }
 
+/**
+ * @brief GameButtonComponent::update
+ */
 void GameButtonComponent::update()
 {
     InteractiveReactorComponent::update();
@@ -138,6 +157,10 @@ void GameButtonComponent::update()
     }
 }
 
+/**
+ * @brief GameButtonComponent::action
+ * @param target
+ */
 void GameButtonComponent::action(Entity* target)
 {
     if(isTogglable)
@@ -161,6 +184,10 @@ void GameButtonComponent::action(Entity* target)
     }
 }
 
+/**
+ * @brief GameButtonComponent::canBePressed
+ * @return
+ */
 bool GameButtonComponent::canBePressed()
 {
     if(requiredButtonsToPress.length() > 0)
@@ -170,6 +197,10 @@ bool GameButtonComponent::canBePressed()
     return true;
 }
 
+/**
+ * @brief GameButtonComponent::canBeReleased
+ * @return
+ */
 bool GameButtonComponent::canBeReleased()
 {
     if(requiredButtonsToRelease.length() > 0)

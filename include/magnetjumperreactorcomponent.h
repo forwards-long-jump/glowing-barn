@@ -7,6 +7,12 @@
 #include "playerinputcomponent.h"
 #include <QtCore/qmath.h>
 
+/**
+ * Allows its entity to react to MagnetJumperComponents
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MagnetJumperReactorComponent : public HitboxReactorComponent
 {
 public:

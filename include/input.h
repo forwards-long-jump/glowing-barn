@@ -5,6 +5,12 @@
 #include <QString>
 #include <QKeyEvent>
 
+/**
+ * Keeps an updated list of pressed keys, to be read by others classes
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Input
 {
 public:

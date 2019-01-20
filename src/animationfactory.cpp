@@ -1,5 +1,10 @@
 #include "animationfactory.h"
 
+/**
+ * @brief AnimationFactory::getAnimationComponent
+ * @param animationName
+ * @return
+ */
 AnimationComponent* AnimationFactory::getAnimationComponent(QString animationName)
 {
     QVector<QPair<QString, QVector<float>>> animations;
@@ -134,4 +139,7 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
     return nullptr;
 }
 
+/**
+ * @brief AnimationFactory::AnimationFactory
+ */
 AnimationFactory::AnimationFactory() {}

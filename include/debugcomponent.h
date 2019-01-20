@@ -5,6 +5,12 @@
 #include "debugtextcomponent.h"
 #include "debughitboxcomponent.h"
 
+/**
+ * Component which draws a rectangle and prints info
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DebugComponent : public GraphicsComponent
 {
 public:

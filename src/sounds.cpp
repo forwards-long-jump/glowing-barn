@@ -15,6 +15,10 @@ SoundEffectThread* Sounds::leverOff = new SoundEffectThread();
 SoundEffectThread* Sounds::crash = new SoundEffectThread();
 SoundEffectThread* Sounds::demag = new SoundEffectThread();
 
+/**
+ * @brief Sounds::playMusic
+ * @param path
+ */
 void Sounds::playMusic(QString path)
 {
     player->setMedia(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + path));
@@ -22,6 +26,10 @@ void Sounds::playMusic(QString path)
     player->setVolume(100);
 }
 
+/**
+ * @brief Sounds::playSound
+ * @param name
+ */
 void Sounds::playSound(QString name)
 {
     if(!muted)
@@ -53,6 +61,11 @@ void Sounds::playSound(QString name)
     }
 }
 
+/**
+ * @brief Sounds::fadeOut
+ * @param duration_
+ * @param nextMusic_
+ */
 void Sounds::fadeOut(int duration_, QString nextMusic_)
 {
     nextMusic = nextMusic_;
@@ -60,11 +73,18 @@ void Sounds::fadeOut(int duration_, QString nextMusic_)
     fadeOutTick = duration_;
 }
 
+/**
+ * @brief Sounds::setMediaPlayer
+ * @param player_
+ */
 void Sounds::setMediaPlayer(QMediaPlayer *player_)
 {
     player = player_;
 }
 
+/**
+ * @brief Sounds::update
+ */
 void Sounds::update()
 {
     if(player->state() == QMediaPlayer::StoppedState)
@@ -89,22 +109,32 @@ void Sounds::update()
     }
 }
 
+/**
+ * @brief Sounds::loadSounds
+ */
 void Sounds::loadSounds()
 {
     magnetOn->init("/assets/sounds/magnet-on.wav");
     magnetOff->init("/assets/sounds/magnet-off.wav");
-    leverOn->init("/assets/sounds/lever-on.wav");
-    leverOff->init("/assets/sounds/lever-on.wav");
+    leverOn->init("/assets/sounds/lever.wav");
+    leverOff->init("/assets/sounds/lever.wav");
     crash->init("/assets/sounds/slap.wav");
     demag->init("/assets/sounds/demag-sound.wav");
 }
 
+/**
+ * @brief Sounds::toggleMute
+ */
 void Sounds::toggleMute()
 {
     muted = !muted;
     player->setMuted(muted);
 }
 
+/**
+ * @brief Sounds::isMuted
+ * @return
+ */
 bool Sounds::isMuted()
 {
     return muted;

@@ -2,15 +2,28 @@
 
 const QString HurtReactorComponent::HITBOX_REACTOR_NAME = "HurtHitbox";
 
-HurtReactorComponent::HurtReactorComponent(bool resetMap, QString name) :
-    HitboxReactorComponent(HurtReactorComponent::HITBOX_REACTOR_NAME, name),
+/**
+ * @brief HurtReactorComponent::HurtReactorComponent
+ * @param resetMap Whether the map should be reloaded on contact
+ * @param name
+ */
+HurtReactorComponent::HurtReactorComponent(bool resetMap, QString name)
+    : HitboxReactorComponent(HurtReactorComponent::HITBOX_REACTOR_NAME, name),
     resetMap(resetMap) {}
 
+/**
+ * @brief HurtReactorComponent::init
+ * Important to call this function, if you want to avoid segmentation faults
+ */
 void HurtReactorComponent::init()
 {
     setHitbox(new SquareHitboxComponent());
 }
 
+/**
+ * @brief HurtReactorComponent::onIntersect
+ * @param hitboxComponent
+ */
 void HurtReactorComponent::onIntersect(HitboxComponent* hitboxComponent)
 {
     if(died) return;
@@ -31,6 +44,10 @@ void HurtReactorComponent::onIntersect(HitboxComponent* hitboxComponent)
     }
 }
 
+/**
+ * @brief HurtReactorComponent::isDead
+ * @return
+ */
 bool HurtReactorComponent::isDead() const
 {
     return died;

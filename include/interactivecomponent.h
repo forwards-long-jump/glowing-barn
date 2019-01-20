@@ -4,11 +4,17 @@
 #include "squarehitboxcomponent.h"
 #include "input.h"
 
-//belongs to a player
+/**
+ * Attached to the player, allows for interaction with InteractiveReactorComponents
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class InteractiveComponent : public SquareHitboxComponent
 {
 public:
-    InteractiveComponent(QString name_ = "InteractiveHitboxComponent");
+    InteractiveComponent(QString name_ = HITBOX_NAME);
+    const static QString HITBOX_NAME;
 
     void update() override;
 

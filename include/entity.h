@@ -4,8 +4,15 @@
 #include <QGraphicsItem>
 #include <QGraphicsScene>
 #include <QMap>
+
 #include "component.h"
 #include "graphicscomponent.h"
+
+/**
+ * Basis of the Entity-Components design pattern
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class Entity : public QGraphicsItem
 {

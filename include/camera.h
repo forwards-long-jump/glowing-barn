@@ -6,7 +6,12 @@
 #include <QRandomGenerator>
 #include "entity.h"
 
-// Manages what is displayed in screen per scene
+/**
+ * Manages what is displayed in screen per scene
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class Camera
 {
     const float DEFAULT_SCALING = 5;

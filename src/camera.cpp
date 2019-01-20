@@ -1,5 +1,8 @@
 #include "camera.h"
 
+/**
+ * @brief Camera::Camera
+ */
 Camera::Camera()
 {
     cameraBoundingRect = QRectF(0, 0, 0, 0);
@@ -14,11 +17,18 @@ Camera::Camera()
     shakeIntensity = 0;
 }
 
+/**
+ * @brief Camera::~Camera
+ */
 Camera::~Camera()
 {
 
 }
 
+/**
+ * @brief Camera::update
+ * @param view
+ */
 void Camera::update(QGraphicsView* v)
 {
     if(entity != nullptr)
@@ -120,6 +130,12 @@ void Camera::update(QGraphicsView* v)
     v->setSceneRect(position.x(), position.y(), v->width() / scaling, v->height() / scaling);
 }
 
+/**
+ * @brief Camera::centerOn
+ * @param position
+ * @param screenSize
+ * @param smoothTransition
+ */
 void Camera::centerOn(QPointF pos, QSizeF screenSize, bool smoothTransition)
 {
     detachEntity();
@@ -132,78 +148,141 @@ void Camera::centerOn(QPointF pos, QSizeF screenSize, bool smoothTransition)
     }
 }
 
+/**
+ * @brief Camera::centerOn
+ * @param x
+ * @param y
+ * @param screenSize
+ * @param smoothTransition
+ */
 void Camera::centerOn(float x, float y, QSizeF screenSize, bool smoothTransition)
 {
     centerOn(QPointF(x, y), screenSize, smoothTransition);
 }
 
+/**
+ * @brief Camera::attachTo
+ * The camera will follow this entity
+ * @param entity
+ */
 void Camera::attachTo(Entity* e)
 {
     onTarget = false;
     entity = e;
 }
 
+/**
+ * @brief Camera::detachEntity
+ */
 void Camera::detachEntity()
 {
     entity = nullptr;
 }
 
+/**
+ * @brief Camera::setSpeed
+ * @param speed_
+ */
 void Camera::setSpeed(float speed_)
 {
     speed = speed_;
 }
 
+/**
+ * @brief Camera::setScaling
+ * @param scaling_
+ */
 void Camera::setScaling(float scaling_)
 {
     if (scaling_ > 0)
         scaling = scaling_;
 }
 
+/**
+ * @brief Camera::setSpringEffectEnabled
+ * @param enabled
+ */
 void Camera::setSpringEffectEnabled(bool enabled)
 {
     springEffectEnabled = enabled;
 }
 
+/**
+ * @brief Camera::setBoundingRect
+ * @param rect
+ */
 void Camera::setBoundingRect(const QRectF rect)
 {
     cameraBoundingRect = rect;
 }
 
+/**
+ * @brief Camera::setShakingIntensity
+ * @param f
+ */
 void Camera::setShakingIntensity(float f)
 {
     shakeIntensity = f;
 }
 
+/**
+ * @brief Camera::getBoundingRect
+ * @return
+ */
 QRectF Camera::getBoundingRect() const
 {
     return cameraBoundingRect;
 }
 
+/**
+ * @brief Camera::getPosition
+ * @return
+ */
 QPointF Camera::getPosition() const
 {
     return position;
 }
 
+/**
+ * @brief Camera::getScaling
+ * @return
+ */
 float Camera::getScaling() const
 {
     return scaling;
 }
 
+/**
+ * @brief Camera::getSpeed
+ * @return
+ */
 float Camera::getSpeed() const
 {
     return speed;
 }
 
+/**
+ * @brief Camera::getEntity
+ * @return
+ */
 Entity *Camera::getEntity() const
 {
     return entity;
 }
 
+/**
+ * @brief Camera::reachedTarget
+ * @return
+ */
 bool Camera::reachedTarget() const
 {
     return onTarget;
 }
 
+/**
+ * @brief Camera::getCameraForce
+ * @return
+ */
 QPointF Camera::getCameraForce() const
 {
     return cameraForce;

@@ -1,8 +1,15 @@
-#include "include/physicscomponent.h"
-#include "playerinputcomponent.h"
-#include "playerstate.h"
-#include "squarehitboxcomponent.h"
+#include "physicscomponent.h"
 
+/**
+ * @brief PhysicsComponent::PhysicsComponent
+ * @param accSpeed_ Horizontal speed gained on each update when a direction key is pressed
+ * @param maxHSpeed_ Horizontal speed will be trimmed down to this at every update
+ * @param friction_ 1.0 : zero friction, 0.0 : total friction and your character will stop moving instantly
+ * @param jumpSpeed_ Speed gained on jumping
+ * @param g_ Vertical speed added on each update
+ * @param maxVSpeed_ Vertical speed will be trimmed down to this at every update
+ * @param name_
+ */
 PhysicsComponent::PhysicsComponent(float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, QString name_)
     :Component(name_),
       accSpeed(accSpeed_),
@@ -17,6 +24,9 @@ PhysicsComponent::PhysicsComponent(float accSpeed_, float maxHSpeed_, float fric
     ignorePhysicsForTick = false;
 }
 
+/**
+ * @brief PhysicsComponent::update
+ */
 void PhysicsComponent::update()
 {
     if (!ignorePhysicsForTick)
@@ -58,6 +68,10 @@ void PhysicsComponent::update()
     }
 }
 
+/**
+ * @brief PhysicsComponent::handleCollision
+ * @param hitbox
+ */
 void PhysicsComponent::handleCollision(SquareHitboxComponent* hitbox)
 {
     if (!hitbox || hitbox->getParent() == this->getParent()) return;
@@ -120,16 +134,27 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent* hitbox)
     }
 }
 
+/**
+ * @brief PhysicsComponent::disablePhysicsForTick
+ */
 void PhysicsComponent::disablePhysicsForTick()
 {
     ignorePhysicsForTick = true;
 }
 
+/**
+ * @brief PhysicsComponent::getSpeed
+ * @return
+ */
 QPointF PhysicsComponent::getSpeed() const
 {
     return QPointF(dx, dy);
 }
 
+/**
+ * @brief PhysicsComponent::getForcedSpeed
+ * @return
+ */
 QPointF PhysicsComponent::getForcedSpeed() const
 {
     return QPointF(fdx, fdy);

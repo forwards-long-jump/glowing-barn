@@ -2,7 +2,12 @@
 #define TEXTCOMPONENT_H
 
 #include "graphicscomponent.h"
-#include "gamebuttoncomponent.h"
+
+/**
+ * Draws a textbox on screen
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class TextComponent : public GraphicsComponent
 {
@@ -20,5 +25,7 @@ private:
     int fontSize;
     int currentBackgroundOpacity = 0;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // TEXTCOMPONENT_H

@@ -3,14 +3,18 @@
 
 #include "hitboxreactorcomponent.h"
 #include "interactivecomponent.h"
-#include "debugcomponent.h"
 #include "input.h"
 
-//belongs to an interactible objet
+/**
+ * Asks the player for an input on intersection, and acts appropriately when the input is provided
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class InteractiveReactorComponent : public HitboxReactorComponent
 {
 public:
-    InteractiveReactorComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = "InteractiveHitboxComponent", QString requiredButtons = "");
+    InteractiveReactorComponent(Input::Key key_, QString name_ = "InteractiveComponent", QString targetHitboxName = InteractiveComponent::HITBOX_NAME, QString requiredButtons = "");
 
     void update() override;
     void init() override;
@@ -18,6 +22,7 @@ public:
 
     virtual void showPrompt() const;
     virtual void action(Entity* target) = 0;
+
 
 protected:
     Input::Key key;
@@ -28,5 +33,8 @@ protected:
 
     Entity* commandPrompt;
 };
+
+#include "gamebuttoncomponent.h"
+#include "animationfactory.h"
 
 #endif // INTERACTIVECOMPONENT_H

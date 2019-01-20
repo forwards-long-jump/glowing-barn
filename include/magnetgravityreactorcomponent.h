@@ -7,6 +7,12 @@
 #include "magnetgravitycomponent.h"
 #include "playerinputcomponent.h"
 
+/**
+ * Allows its entity to react to MagnetGravityComponents
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class MagnetGravityReactorComponent : public HitboxReactorComponent
 {
 public:

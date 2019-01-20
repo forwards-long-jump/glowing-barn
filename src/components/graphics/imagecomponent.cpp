@@ -1,11 +1,22 @@
 #include "imagecomponent.h"
 
-ImageComponent::ImageComponent(const QString resourcePath, const QString name, const QString& buttons) : GraphicsComponent(name)
+/**
+ * @brief ImageComponent::ImageComponent
+ * @param resourcePath
+ * @param name
+ * @param buttons
+ */
+ImageComponent::ImageComponent(const QString resourcePath, const QString name, const QString& buttons)
+    : GraphicsComponent(name)
 {
     requiredButtons = GameButtonComponent::getButtonVectorFromString(buttons);
     image = QPixmap(resourcePath);
 }
 
+/**
+ * @brief ImageComponent::render
+ * @param painter
+ */
 void ImageComponent::render(QPainter* painter)
 {
     if(requiredButtons.length() > 0 && !GameButtonComponent::areButtonsPressed(requiredButtons))
@@ -40,11 +51,19 @@ void ImageComponent::render(QPainter* painter)
     }
 }
 
+/**
+ * @brief ImageComponent::setMirrored
+ * @param mirrored
+ */
 void ImageComponent::setMirrored(bool value)
 {
     mirrored = value;
 }
 
+/**
+ * @brief ImageComponent::setRotation
+ * @param mirrored
+ */
 void ImageComponent::setRotation(int value)
 {
     rotation = value;

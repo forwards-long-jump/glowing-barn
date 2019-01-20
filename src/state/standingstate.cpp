@@ -1,5 +1,9 @@
 #include "playerstate.h"
 
+/**
+ * @brief StandingState::handleInput
+ * @param playerInputComponent
+ */
 void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
 {
     ticksSinceEntering++;
@@ -17,6 +21,10 @@ void StandingState::handleInput(PlayerInputComponent* playerInputComponent)
     }
 }
 
+/**
+ * @brief StandingState::enter
+ * @param playerInputComponent
+ */
 void StandingState::enter(PlayerInputComponent* playerInputComponent) const
 {
     ticksSinceEntering = 0;
@@ -27,9 +35,4 @@ void StandingState::enter(PlayerInputComponent* playerInputComponent) const
     {
         ac->setCurrentAnimation("standing");
     }
-}
-
-void StandingState::setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent)
-{
-    PlayerState::setHeadingRight(headingRight_, playerInputComponent);
 }

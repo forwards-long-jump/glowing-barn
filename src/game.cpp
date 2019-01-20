@@ -2,6 +2,10 @@
 
 Input Game::input;
 
+/**
+ * @brief Game::Game
+ * @param parent
+ */
 Game::Game(QWidget* parent)
     : QGraphicsView(parent)
 {
@@ -57,6 +61,9 @@ Game::Game(QWidget* parent)
     updateTimer->start();
 }
 
+/**
+ * @brief Game::~Game
+ */
 Game::~Game()
 {
     qDeleteAll(scenes);
@@ -112,6 +119,9 @@ void Game::update() {
     }
 }
 
+/**
+ * @brief Game::handleToggleMute
+ */
 void Game::handleToggleMute()
 {
     if(input.isKeyDown(Input::Key::MUTE_GAME))
@@ -154,21 +164,37 @@ void Game::switchScene(QString nameScene)
     this->setScene(currentScene);
 }
 
+/**
+ * @brief Game::addEntityLater
+ * @param entityToAdd
+ * @param parentEntity
+ */
 void Game::addEntityLater(Entity *entityToAdd, Entity *parentEntity)
 {
     entitiesToAddLater.append(QPair<Entity*, Entity*>(entityToAdd, parentEntity));
 }
 
+/**
+ * @brief Game::getTick
+ * @return
+ */
 unsigned int Game::getTick() const
 {
     return tick;
 }
 
+/**
+ * @brief Game::togglePaused
+ */
 void Game::togglePaused()
 {
     paused = !paused;
 }
 
+/**
+ * @brief Game::isPaused
+ * @return
+ */
 bool Game::isPaused() const
 {
     return paused;

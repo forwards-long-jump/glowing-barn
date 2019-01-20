@@ -1,21 +1,42 @@
 #include "debugtextcomponent.h"
 
-DebugTextComponent::DebugTextComponent(QString name_, QString str, bool hasHitboxComponent) : GraphicsComponent(name_)
+/**
+ * @brief DebugTextComponent::DebugTextComponent
+ * @param name_
+ * @param str Text to display
+ * @param hasHitboxComponent
+ */
+DebugTextComponent::DebugTextComponent(QString name_, QString str, bool hasHitboxComponent)
+    : GraphicsComponent(name_)
 {
     debugText = str;
     parentHasHitboxComponent = hasHitboxComponent;
 }
 
-DebugTextComponent::DebugTextComponent(QString str,  bool hasHitboxComponent) : DebugTextComponent("DebugTextComponent", str, hasHitboxComponent)
+/**
+ * @brief DebugTextComponent::DebugTextComponent
+ * @param str Text to display
+ * @param hasHitboxComponent
+ */
+DebugTextComponent::DebugTextComponent(QString str,  bool hasHitboxComponent)
+    : DebugTextComponent("DebugTextComponent", str, hasHitboxComponent)
 {
 
 }
 
-void DebugTextComponent::setText(const QString &text_)
+/**
+ * @brief DebugTextComponent::setText
+ * @param text Text to display
+ */
+void DebugTextComponent::setText(const QString& text)
 {
-    debugText = text_;
+    debugText = text;
 }
 
+/**
+ * @brief DebugTextComponent::render
+ * @param painter
+ */
 void DebugTextComponent::render(QPainter* painter)
 {
     int currentLineHeight = 0;
@@ -61,6 +82,9 @@ void DebugTextComponent::render(QPainter* painter)
                      );
 }
 
+/**
+ * @brief DebugTextComponent::update
+ */
 void DebugTextComponent::update()
 {
 

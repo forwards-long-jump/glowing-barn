@@ -4,6 +4,12 @@
 #include "component.h"
 #include "hitboxcomponent.h"
 
+/**
+ * Hitbox which reacts to intersection with a specified type of hitboxes
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class HitboxReactorComponent : public Component
 {
 public:
@@ -12,7 +18,6 @@ public:
         targetName(targetName_) {}
 
     void update() override;
-    void init() override;
 
     void setHitbox(HitboxComponent* hb);
 

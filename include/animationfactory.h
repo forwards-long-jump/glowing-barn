@@ -3,6 +3,12 @@
 
 #include "animationcomponent.h"
 
+/**
+ * Creates AnimationComponents
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class AnimationFactory
 {
 public:

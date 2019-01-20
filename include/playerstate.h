@@ -15,6 +15,12 @@ class FallingState;
 class ZippingState;
 class DeadState;
 
+/**
+ * Abstract class which handles the input
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class PlayerState
 {
 public:
@@ -43,54 +49,70 @@ protected:
     static int ticksSinceEntering;
 };
 
+/**
+ * Handles input for a running player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class RunningState : public PlayerState
 {
 public:
     RunningState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a skidding player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class SkiddingState : public PlayerState
 {
 public:
     SkiddingState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a standing player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class StandingState : public PlayerState
 {
 public:
     StandingState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a jumping player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class JumpingState : public PlayerState
 {
 public:
     JumpingState()
-        :PlayerState() {}
+        : PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 
@@ -98,6 +120,11 @@ public:
     const int nbTicksJumping = 7;
 };
 
+/**
+ * Handles input for a falling player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class FallingState : public PlayerState
 {
@@ -106,7 +133,6 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 
@@ -117,18 +143,29 @@ private:
     bool canBeLenient = false;
 };
 
+/**
+ * Handles input for a dead player
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class DeadState : public PlayerState
 {
 public:
     DeadState()
         :PlayerState() {}
 
-    void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
+    void handleInput(PlayerInputComponent* playerInputComponent) override {}
+    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override {}
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };
 
+/**
+ * Handles input for a player zipping to a magnet
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class ZippingState : public PlayerState
 {
@@ -137,7 +174,6 @@ public:
         :PlayerState() {}
 
     void handleInput(PlayerInputComponent* playerInputComponent) override;
-    void setHeadingRight(bool headingRight_, PlayerInputComponent* playerInputComponent) override;
 
     void enter(PlayerInputComponent* playerInputComponent) const override;
 };

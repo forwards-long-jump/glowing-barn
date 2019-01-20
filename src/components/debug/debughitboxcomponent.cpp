@@ -1,11 +1,20 @@
 #include "debughitboxcomponent.h"
 
-
-DebugHitboxComponent::DebugHitboxComponent(const QColor &c, const QString &name) : GraphicsComponent(name)
+/**
+ * @brief DebugHitboxComponent::DebugHitboxComponent
+ * @param c
+ * @param name
+ */
+DebugHitboxComponent::DebugHitboxComponent(const QColor &c, const QString &name)
+    : GraphicsComponent(name)
 {
     color = c;
 }
 
+/**
+ * @brief DebugHitboxComponent::render
+ * @param painter
+ */
 void DebugHitboxComponent::render(QPainter* painter)
 {
     Entity* e = nullptr;
@@ -33,6 +42,9 @@ void DebugHitboxComponent::render(QPainter* painter)
     }
 }
 
+/**
+ * @brief DebugHitboxComponent::update
+ */
 void DebugHitboxComponent::update()
 {
 

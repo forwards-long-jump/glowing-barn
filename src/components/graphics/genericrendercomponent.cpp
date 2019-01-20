@@ -1,15 +1,39 @@
 #include "genericrendercomponent.h"
 
+/**
+ * @brief GenericRenderComponent::GenericRenderComponent
+ * @param functionToRender lambda rendering function
+ */
+GenericRenderComponent::GenericRenderComponent(void (*functionToRender)(QPainter *, Entity *, int))
+    : functionToRender(functionToRender)
+{
+
+}
+
+/**
+ * @brief GenericRenderComponent::update
+ */
 void GenericRenderComponent::update()
 {
     tick++;
 }
 
+/**
+ * @brief GenericRenderComponent::render
+ * @param painter
+ */
 void GenericRenderComponent::render(QPainter* painter)
 {
     functionToRender(painter, parent, tick);
 }
 
+/**
+ * @brief GenericRenderComponent::circleMagnetHitbox
+ * Rendering function for gravity magnets
+ * @param painter
+ * @param entity
+ * @param tick
+ */
 void GenericRenderComponent::circleMagnetHitbox(QPainter* p, Entity* e, int tick)
 {
     int diameter = e->getSize().width();
@@ -39,6 +63,13 @@ void GenericRenderComponent::circleMagnetHitbox(QPainter* p, Entity* e, int tick
 
 }
 
+/**
+ * @brief GenericRenderComponent::magnetEnabledEffect
+ * Rendering function for jumper magnets
+ * @param painter
+ * @param entity
+ * @param tick
+ */
 void GenericRenderComponent::magnetEnabledEffect(QPainter *p, Entity *e, int tick)
 {
     QBrush redBrush();

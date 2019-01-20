@@ -1,10 +1,15 @@
 #ifndef STORYMAGNETCOMPONENT_H
 #define STORYMAGNETCOMPONENT_H
 
-#include "gamebuttoncomponent.h"
+#include "interactivecomponent.h"
 #include "physicscomponent.h"
-#include "gamescene.h"
 #include "sounds.h"
+
+/**
+ * Unique component for the magnet in the prologue of the game.
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class StoryMagnetComponent : public HitboxReactorComponent
 {
@@ -23,5 +28,8 @@ private:
 
     QString targetMap;
 };
+
+#include "gamebuttoncomponent.h"
+#include "gamescene.h"
 
 #endif // STORYMAGNETCOMPONENT_H

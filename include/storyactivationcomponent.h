@@ -4,6 +4,12 @@
 #include "gamebuttoncomponent.h"
 #include "animationcomponent.h"
 
+/**
+ * GameButtonComponent which locks the player in place on intersect
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class StoryActivationComponent : public GameButtonComponent
 {
 public:

@@ -5,18 +5,17 @@
 #include "mapreader.h"
 #include "map.h"
 #include "orthogonalrenderer.h"
-#include "mapitem.h"
+#include "mapentity.h"
 
-#include "hitboxcomponent.h"
-#include "transitioncomponent.h"
-#include "sounds.h"
-#include "genericrendercomponent.h"
-#include "guiitemcomponent.h"
-
-#include <QDebug>
 #include <QFileSystemWatcher>
 #include <QInputDialog>
 #include <QDir>
+
+/**
+ * Scene which features a playable character
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class GameScene : public Scene
 {
@@ -37,7 +36,7 @@ private:
 
     // Tiled
     Tiled::Map* map;
-    MapItem* mapItem;
+    MapEntity* mapItem;
     Tiled::MapRenderer* mapRenderer;
 
     bool changeMapScheduled = false;
@@ -50,5 +49,13 @@ private:
     bool canPressPauseKey = true;
     bool canPressMuteKey = true;
 };
+
+#include "hitboxcomponent.h"
+#include "transitioncomponent.h"
+#include "sounds.h"
+#include "genericrendercomponent.h"
+#include "guiitemcomponent.h"
+
+#include <QDebug>
 
 #endif // GAMESCENE_H

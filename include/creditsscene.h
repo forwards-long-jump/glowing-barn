@@ -4,6 +4,12 @@
 #include "scene.h"
 #include "transitioncomponent.h"
 
+/**
+ * Scene for the staff roll and credits
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class CreditsScene : public Scene
 {
 public:

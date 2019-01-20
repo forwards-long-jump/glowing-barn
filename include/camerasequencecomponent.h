@@ -2,7 +2,12 @@
 #define CAMERASEQUENCECOMPONENT_H
 
 #include "scene.h"
-#include "gamebuttoncomponent.h"
+
+/**
+ * Detaches the camera off of the player in order to play cinematic sequences
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class CameraSequenceComponent : public Component
 {
@@ -22,5 +27,7 @@ private:
     bool playOnce = true;
     bool playedOnce = false;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // CAMERASEQUENCECOMPONENT_H

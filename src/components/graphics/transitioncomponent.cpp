@@ -1,5 +1,12 @@
 #include "transitioncomponent.h"
 
+/**
+ * @brief TransitionComponent::TransitionComponent
+ * @param onFinished
+ * @param transition
+ * @param duration
+ * @param autoplay
+ */
 TransitionComponent::TransitionComponent(std::function<void()> onFinished,
                                          std::function<void(QPainter* , const Entity* , int, int)> transition,
                                          int duration, bool autoplay)
@@ -11,12 +18,19 @@ TransitionComponent::TransitionComponent(std::function<void()> onFinished,
     done = !autoplay;
 }
 
+/**
+ * @brief TransitionComponent::render
+ * @param painter
+ */
 void TransitionComponent::render(QPainter* painter)
 {
     if(done) return;
     renderTransitionAnimation(painter, parent, duration, ticksPassed);
 }
 
+/**
+ * @brief TransitionComponent::update
+ */
 void TransitionComponent::update()
 {
     if(done) return;
@@ -28,6 +42,9 @@ void TransitionComponent::update()
     }
 }
 
+/**
+ * @brief TransitionComponent::restart
+ */
 void TransitionComponent::restart()
 {
     ticksPassed = 0;

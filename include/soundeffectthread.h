@@ -5,6 +5,12 @@
 #include <QSoundEffect>
 #include <QCoreApplication>
 
+/**
+ * Thread whose purpose is to play a sound.
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
+
 class SoundEffectThread : public QThread
 {
 

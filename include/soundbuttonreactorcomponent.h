@@ -2,8 +2,13 @@
 #define SOUNDBUTTONREACTORCOMPONENT_H
 
 #include "component.h"
-#include "gamebuttoncomponent.h"
 #include "sounds.h"
+
+/**
+ * Plays sounds depending on the state of its associated buttons
+ *
+ * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
+ */
 
 class SoundButtonReactorComponent : public Component
 {
@@ -28,5 +33,7 @@ private:
     QVector<QString> requiredButtons;
     SoundButtonState currentState = SoundButtonState::IDLE;
 };
+
+#include "gamebuttoncomponent.h"
 
 #endif // SOUNDBUTTONREACTORCOMPONENT_H

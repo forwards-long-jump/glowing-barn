@@ -1,5 +1,8 @@
 #include "input.h"
 
+/**
+ * @brief Input::Input
+ */
 Input::Input()
 {
     bindings[LEFT]       = Qt::Key_Left;
@@ -15,6 +18,11 @@ Input::Input()
     bindings[LOAD_LEVEL] = Qt::Key_F8;
 }
 
+/**
+ * @brief Input::isDebugKeyDown
+ * @param key
+ * @return
+ */
 bool Input::isDebugKeyDown(Qt::Key key)
 {
     return keys.value(key, false);
@@ -25,17 +33,30 @@ void Input::setKeyDown(Key key)
     keys.insert(bindings[key], false);
 }
 
+/**
+ * @brief Input::isKeyDown
+ * @param key
+ * @return
+ */
 bool Input::isKeyDown(Key key)
 {
     return key == Input::Key::NONE || keys.value(bindings[key], false);
 }
 
+/**
+ * @brief Input::handleKeyDown
+ * @param event
+ */
 void Input::handleKeyDown(QKeyEvent* event)
 {
     int key = event->key();
     keys.insert(key, true);
 }
 
+/**
+ * @brief Input::handleKeyUp
+ * @param event
+ */
 void Input::handleKeyUp(QKeyEvent* event)
 {
     int key = event->key();
