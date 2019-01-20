@@ -116,8 +116,8 @@ void Sounds::loadSounds()
 {
     magnetOn->init("/assets/sounds/magnet-on.wav");
     magnetOff->init("/assets/sounds/magnet-off.wav");
-    leverOn->init("/assets/sounds/lever-on.wav");
-    leverOff->init("/assets/sounds/lever-on.wav");
+    leverOn->init("/assets/sounds/lever.wav");
+    leverOff->init("/assets/sounds/lever.wav");
     crash->init("/assets/sounds/slap.wav");
     demag->init("/assets/sounds/demag-sound.wav");
 }
