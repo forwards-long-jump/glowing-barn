@@ -1,0 +1,619 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="70" height="15" tilewidth="16" tileheight="16" infinite="0" nextlayerid="20" nextobjectid="321">
+ <properties>
+  <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler-2.mp3"/>
+  <property name="zoom" type="float" value="4.5"/>
+ </properties>
+ <tileset firstgid="1" source="tilemap.tsx"/>
+ <layer id="17" name="back" width="70" height="15">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACcAAAAAAAAAAAAAAAAAAAAnAAAAAAAAAAAAAAAAAAAAJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <layer id="18" name="middle" width="70" height="15">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAAAIAAAACAAAAAgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAAEgAAABIAAAASAAAA
+  </data>
+ </layer>
+ <layer id="19" name="front" width="70" height="15">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <objectgroup id="5" name="object">
+  <object id="240" name="button" x="224" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="interact"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="246" name="text" x="224" y="64" width="22.75" height="20.75">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="interact"/>
+   </properties>
+  </object>
+  <object id="247" gid="249" x="128" y="96" width="16" height="16">
+   <properties>
+    <property name="animationName" value="player"/>
+    <property name="h" type="float" value="32"/>
+    <property name="spawnName" value="default"/>
+    <property name="w" type="float" value="16"/>
+   </properties>
+  </object>
+  <object id="248" name="door" x="128" y="112" width="16" height="32">
+   <properties>
+    <property name="animation" value="door"/>
+    <property name="buttons" value=""/>
+    <property name="targetMap" value=":/maps/test-hub.tmx"/>
+    <property name="targetSpawn" value="default"/>
+   </properties>
+  </object>
+  <object id="249" name="graphic" x="224" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="interact"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="252" name="button" x="272" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="jump"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="JUMP"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="253" name="button" x="320" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="left"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="LEFT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="254" name="button" x="368" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="right"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="RIGHT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="255" name="graphic" x="272" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="jump"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="256" name="graphic" x="320" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="left"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="257" name="graphic" x="368" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="right"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="258" name="text" x="272" y="64" width="22.75" height="20.75">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="jump"/>
+   </properties>
+  </object>
+  <object id="259" name="text" x="320" y="64" width="22.75" height="20.75">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="left"/>
+   </properties>
+  </object>
+  <object id="260" name="text" x="368" y="64" width="22.75" height="20.75">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="right"/>
+   </properties>
+  </object>
+  <object id="261" name="text" x="448" y="80" width="47.5" height="20.75">
+   <properties>
+    <property name="buttons" value="text1"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="toggle"/>
+   </properties>
+  </object>
+  <object id="262" name="button" x="464" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="text1"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="263" name="text" x="512" y="80" width="47.5" height="20.75">
+   <properties>
+    <property name="buttons" value="text2"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="stay"/>
+   </properties>
+  </object>
+  <object id="264" name="button" x="528" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="text2"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="266" name="text" x="16" y="112" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="1"/>
+    <property name="text" value="ahahah"/>
+   </properties>
+  </object>
+  <object id="267" name="text" x="16" y="80" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="2"/>
+    <property name="text" value="ahahah"/>
+   </properties>
+  </object>
+  <object id="268" name="text" x="16" y="48" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="ahahah"/>
+   </properties>
+  </object>
+  <object id="269" name="text" x="16" y="16" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="4"/>
+    <property name="text" value="ahahah"/>
+   </properties>
+  </object>
+  <object id="270" name="text" x="64" y="16" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="4"/>
+    <property name="text" value="this is a super long test that will probably not fit :("/>
+   </properties>
+  </object>
+  <object id="271" name="text" x="64" y="48" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="this is a super long test that will probably not fit :("/>
+   </properties>
+  </object>
+  <object id="272" name="text" x="64" y="80" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="2"/>
+    <property name="text" value="this is a super long test that will probably not fit :("/>
+   </properties>
+  </object>
+  <object id="273" name="text" x="64" y="112" width="48" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="1"/>
+    <property name="text" value="this is a super long test that will probably not fit :("/>
+   </properties>
+  </object>
+  <object id="274" name="text" x="112" y="16" width="79.5" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="4"/>
+    <property name="text" value="happy centered text"/>
+   </properties>
+  </object>
+  <object id="275" name="text" x="112" y="48" width="79.5" height="32">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="8"/>
+    <property name="text" value="VERY HAPPY"/>
+   </properties>
+  </object>
+  <object id="276" name="text" x="267.5" y="18.1684" width="79.25" height="34.0816">
+   <properties>
+    <property name="buttons" value="interact jump left right"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="interact jump left right"/>
+   </properties>
+  </object>
+  <object id="277" name="text" x="267.5" y="18.1684" width="79.25" height="34.0816">
+   <properties>
+    <property name="buttons" value="!interact !jump !left !right"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="!interact !jump !left !right"/>
+   </properties>
+  </object>
+  <object id="278" name="text" x="267.5" y="18.1684" width="79.25" height="34.0816">
+   <properties>
+    <property name="buttons" value="interact jump !left !right"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="interact jump !left !right"/>
+   </properties>
+  </object>
+  <object id="279" name="text" x="576" y="80" width="47.5" height="20.75">
+   <properties>
+    <property name="buttons" value="text3"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="stay pressed a while"/>
+   </properties>
+  </object>
+  <object id="280" name="button" x="592" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="text3"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="30"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="283" name="text" x="640" y="80" width="47.5" height="20.75">
+   <properties>
+    <property name="buttons" value="text5"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="toggle"/>
+   </properties>
+  </object>
+  <object id="284" name="button" x="656" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="true"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="text5"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="287" name="text" x="704" y="80" width="47.5" height="20.75">
+   <properties>
+    <property name="buttons" value="text6"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="stay"/>
+   </properties>
+  </object>
+  <object id="288" name="button" x="720" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="true"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="text6"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="289" name="text" x="768" y="80" width="47.5" height="20.75">
+   <properties>
+    <property name="buttons" value="text7"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="stay pressed a while"/>
+   </properties>
+  </object>
+  <object id="290" name="button" x="784" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="true"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="text7"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="30"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="291" name="text" x="640" y="48" width="175.5" height="20.75">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="4"/>
+    <property name="text" value="invertOnOff checked"/>
+   </properties>
+  </object>
+  <object id="292" name="button" x="896" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="a"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value="!b"/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="293" name="button" x="912" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="b"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value="a"/>
+    <property name="requiredButtonsToRelease" value="!c"/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="294" name="button" x="928" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="c"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value="b"/>
+    <property name="requiredButtonsToRelease" value="!d"/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="295" name="button" x="944" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="d"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value="c"/>
+    <property name="requiredButtonsToRelease" value="!e"/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="296" name="button" x="960" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="e"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value="d"/>
+    <property name="requiredButtonsToRelease" value="!f"/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="297" name="button" x="976" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="f"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value="e"/>
+    <property name="requiredButtonsToRelease" value="!g"/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="298" name="button" x="992" y="128" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="g"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="10"/>
+    <property name="requiredButtonsToPress" value="f"/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="299" name="text" x="896" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="a"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="a"/>
+   </properties>
+  </object>
+  <object id="300" name="text" x="912" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="b"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="b"/>
+   </properties>
+  </object>
+  <object id="301" name="text" x="928" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="c"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="c"/>
+   </properties>
+  </object>
+  <object id="302" name="text" x="944" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="d"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="d"/>
+   </properties>
+  </object>
+  <object id="303" name="text" x="960" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="e"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="e"/>
+   </properties>
+  </object>
+  <object id="304" name="text" x="976" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="f"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="f"/>
+   </properties>
+  </object>
+  <object id="305" name="text" x="992" y="80" width="16" height="16">
+   <properties>
+    <property name="buttons" value="g"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="g"/>
+   </properties>
+  </object>
+  <object id="306" name="graphic" x="992" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="g"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="307" name="graphic" x="896" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="a"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="308" name="graphic" x="912" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="b"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="309" name="graphic" x="928" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="c"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="310" name="graphic" x="944" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="d"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="311" name="graphic" x="960" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="e"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="312" name="graphic" x="976" y="128" width="16" height="16">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="f"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="313" name="text" x="896" y="64" width="112.333" height="16">
+   <properties>
+    <property name="buttons" value=""/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="electric rail"/>
+   </properties>
+  </object>
+  <object id="315" name="graphic" x="-64" y="-32" width="776.676" height="403.005">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="1"/>
+    <property name="texture" value=":/decorations/sky.png"/>
+   </properties>
+  </object>
+  <object id="316" name="graphic" x="1056" y="128" width="26" height="16">
+   <properties>
+    <property name="animationName" value="boxContainer"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="bbb"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="317" name="button" x="1061.33" y="127.667" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="bbb"/>
+    <property name="pressableBy" value="Box"/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="318" gid="236" x="1062.67" y="102" width="16" height="16"/>
+  <object id="319" name="invisible-wall" x="1120" y="-128" width="16" height="436"/>
+  <object id="320" name="invisible-wall" x="-16" y="-144" width="16" height="436"/>
+ </objectgroup>
+</map>

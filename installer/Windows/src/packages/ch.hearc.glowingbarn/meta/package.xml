@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package>
+    <DisplayName>The awesome game Magn &amp; Cie</DisplayName>
+    <Description>The game</Description>
+    <Version>0.1.0-1</Version>
+    <ReleaseDate>2019-01-17</ReleaseDate>
+	<Name>ch.hearc.glowingbarn</Name>
+    <Default>true</Default>
+	<Script>installscript.qs</Script>
+</Package>

@@ -1,0 +1,350 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="34" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="209">
+ <properties>
+  <property name="musicPath" value="/assets/sounds/Puzzle-Dreams.mp3"/>
+  <property name="zoom" type="float" value="3.8"/>
+ </properties>
+ <tileset firstgid="1" source="tilemap.tsx"/>
+ <layer id="16" name="back" width="34" height="21">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAnAAAAAAAAAAkAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAFwAAABgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <layer id="17" name="middle" width="34" height="21">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAACEAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAACEAAAAAAAAAIQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAACEAAAAAAAAAAAAAAAAAAAAhAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAIQAAACEAAAAAAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAACEAAAAhAAAAIQAAAAAAAAAAAAAAIQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAAAAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAAAAAAAAhAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACEAAAAAAAAAIQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAhAAAAIQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAJEAAACSAAAAkgAAAJIAAACSAAAAkgAAAJIAAACTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAChAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAowAAAJEAAACSAAAAkgAAAJIAAACSAAAAkgAAAJIAAACSAAAAkgAAAJIAAACSAAAAkgAAAJIAAACTAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoQAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKMAAAChAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAowAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKEAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACjAAAAoQAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAChAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAowAAAKEAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACjAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAoQAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKMAAAChAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACiAAAAowAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAIQAAACEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKEAAACiAAAAogAAAKIAAACiAAAAogAAAKIAAACjAAAA
+  </data>
+ </layer>
+ <layer id="18" name="front" width="34" height="21">
+  <data encoding="base64">
+   AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACwAAAAwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA
+  </data>
+ </layer>
+ <objectgroup id="5" name="object">
+  <object id="68" gid="249" x="144" y="224" width="16" height="16">
+   <properties>
+    <property name="animationName" value="player"/>
+    <property name="h" type="float" value="32"/>
+    <property name="spawnName" value="default"/>
+    <property name="w" type="float" value="16"/>
+   </properties>
+  </object>
+  <object id="140" name="graphic" x="-36" y="-11.6667" width="678.098" height="357.37">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.5"/>
+    <property name="texture" value=":/decorations/factory-wall.png"/>
+   </properties>
+  </object>
+  <object id="150" name="door" x="448" y="192" width="16" height="32">
+   <properties>
+    <property name="animation" value="insideDoor"/>
+    <property name="buttons" value=""/>
+    <property name="targetMap" value=":maps/map-gravity-1.tmx"/>
+    <property name="targetSpawn" value="default"/>
+   </properties>
+  </object>
+  <object id="162" gid="241" x="80" y="112" width="16" height="16">
+   <properties>
+    <property name="buttons" value="button1"/>
+    <property name="direction" value="down"/>
+    <property name="h" type="float" value="1"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="w" type="float" value="6"/>
+   </properties>
+  </object>
+  <object id="163" gid="241" x="336" y="144" width="16" height="16">
+   <properties>
+    <property name="buttons" value="button2"/>
+    <property name="direction" value="left"/>
+    <property name="h" type="float" value="1"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="w" type="float" value="18"/>
+   </properties>
+  </object>
+  <object id="164" gid="236" x="80" y="208" width="16" height="16"/>
+  <object id="165" name="button" x="80" y="240" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="button1"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="166" name="button" x="112" y="240" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="button2"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="167" gid="241" x="48" y="144" width="16" height="16">
+   <properties>
+    <property name="buttons" value="button3"/>
+    <property name="direction" value="right"/>
+    <property name="h" type="float" value="1"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="w" type="float" value="18"/>
+   </properties>
+  </object>
+  <object id="168" name="button" x="48" y="240" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="true"/>
+    <property name="name" value="button3"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="169" name="button" x="304" y="304" width="32" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="buttonFinal"/>
+    <property name="pressableBy" value="Box"/>
+    <property name="pressedDurationInTick" type="int" value="1"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="170" gid="241" x="432" y="192" width="16" height="16">
+   <properties>
+    <property name="buttons" value="buttonFinal"/>
+    <property name="direction" value="left"/>
+    <property name="h" type="float" value="1"/>
+    <property name="speed" type="float" value="5"/>
+    <property name="w" type="float" value="15"/>
+   </properties>
+  </object>
+  <object id="171" name="hurt" x="-223.667" y="384.667" width="968.333" height="190.667"/>
+  <object id="172" name="graphic" x="48" y="240" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="button3"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=":/"/>
+   </properties>
+  </object>
+  <object id="173" name="graphic" x="80" y="240" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="button1"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=":/"/>
+   </properties>
+  </object>
+  <object id="174" name="graphic" x="112" y="240" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="button2"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=":/"/>
+   </properties>
+  </object>
+  <object id="175" name="graphic" x="304" y="296.318" width="32" height="24.1818">
+   <properties>
+    <property name="animationName" value="boxContainer"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="buttonFinal"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=":/"/>
+   </properties>
+  </object>
+  <object id="176" name="invisible-wall" x="-16" y="144" width="16" height="117.5"/>
+  <object id="179" name="sound" x="112" y="256" width="16" height="16">
+   <properties>
+    <property name="active" value=""/>
+    <property name="buttons" value="button3"/>
+    <property name="end" value="leverOff"/>
+    <property name="idle" value=""/>
+    <property name="start" value="leverOn"/>
+   </properties>
+  </object>
+  <object id="180" name="graphic" x="-79" y="-38" width="734.765" height="410.037">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.8"/>
+    <property name="texture" value=":/decorations/sky.png"/>
+   </properties>
+  </object>
+  <object id="182" name="door" x="144" y="224" width="16" height="32">
+   <properties>
+    <property name="animation" value="insideDoor"/>
+    <property name="buttons" value="neverEnabled"/>
+    <property name="targetMap" value=":maps/map-zipper-final.tmx"/>
+    <property name="targetSpawn" value="door1"/>
+   </properties>
+  </object>
+  <object id="183" name="sound" x="80" y="256" width="16" height="16">
+   <properties>
+    <property name="active" value=""/>
+    <property name="buttons" value="button2"/>
+    <property name="end" value="leverOff"/>
+    <property name="idle" value=""/>
+    <property name="start" value="leverOn"/>
+   </properties>
+  </object>
+  <object id="184" name="sound" x="48" y="256" width="16" height="16">
+   <properties>
+    <property name="active" value=""/>
+    <property name="buttons" value="button1"/>
+    <property name="end" value="leverOff"/>
+    <property name="idle" value=""/>
+    <property name="start" value="leverOn"/>
+   </properties>
+  </object>
+  <object id="185" name="graphic" x="224" y="80" width="653.765" height="336.037">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.6"/>
+    <property name="texture" value=":/decorations/clouds.png"/>
+   </properties>
+  </object>
+  <object id="187" name="graphic" x="44.9583" y="126.212" width="307.417" height="19.9093">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.001"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="188" name="graphic" x="63.9582" y="95.0453" width="48.0837" height="116.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.001"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="189" name="graphic" x="300.958" y="144.045" width="36.417" height="15.2427">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.001"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="191" name="graphic" x="344.667" y="-76" width="22.2517" height="190.506">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.0001"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="192" name="graphic" x="128.874" y="-76.5863" width="22.2517" height="190.506">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.0001"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="193" name="graphic" x="-195.5" y="281.167" width="881.417" height="61.2426">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="194" name="graphic" x="0.833317" y="263.5" width="60.9576" height="18.576">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="195" name="graphic" x="436.792" y="-19.4547" width="7.417" height="200.909">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.001"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="197" name="graphic" x="362.667" y="264" width="59.3168" height="18.076">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="idle"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="198" name="graphic" x="7.37415" y="152.247" width="11.7517" height="108.506">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="199" name="graphic" x="9.2915" y="-68.4545" width="7.417" height="227.409">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.4"/>
+    <property name="texture" value=":/decorations/black-square.png"/>
+   </properties>
+  </object>
+  <object id="200" name="invisible-wall" x="544" y="28.6667" width="16" height="200.833"/>
+  <object id="205" name="button" x="176" y="240" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="signEaster"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="150"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="206" name="text" x="144" y="192" width="80" height="32.6667">
+   <properties>
+    <property name="buttons" value="signEaster"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="Warning! Magn &amp; Cie isn't responsible if you fall in the pit!"/>
+   </properties>
+  </object>
+ </objectgroup>
+</map>
