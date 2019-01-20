@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Installer>
+    <Name>Magn &amp; Cie</Name>
+    <Version>1.0.0</Version>
+    <Title>Magn &amp; Cie Installer</Title>
+    <Publisher>Your vendor</Publisher>
+    <StartMenuDir>Magn &amp; Cie</StartMenuDir>
+    <TargetDir>@HomeDir@/MagnAndCie</TargetDir>
+	<AllowSpaceInPath>true</AllowSpaceInPath>
+</Installer>

@@ -1,0 +1,10 @@
+Note: This has only been tested with Ubuntu 18.04.1 LTS
+Note: This is not an installer, you have to keep this folder if you want to play the game
+
+1. Extract the content of "MagnAndCie.tar.gz" and open the terminal inside the extracted folder
+
+2. Make the script executable
+chmod +x MagnAndCie.sh
+
+3. Run the script when you want to start the game
+./MagnAndCie.sh
