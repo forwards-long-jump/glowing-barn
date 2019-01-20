@@ -4,12 +4,11 @@
 #include "maprenderer.h"
 #include "objectgroup.h"
 #include "entity.h"
-//#include "magnetzippercomponent.h"
 
 #include <QDebug>
 
 /**
- * lel
+ * Represents an object's layer in Tiled and call the EntityFactory to create the level
  *
  * @authors Alexandre Bianchi, Pierre Bürki, Loïck Jeanneret
  */
@@ -18,8 +17,6 @@ class ObjectLayerEntity : public Entity
 {
 public:
     ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, Entity* parent, QString spawnName);
-
-    //MagnetZipperComponent::DIRECTION convertToDirection(const QString& str);
 
     QRectF boundingRect() const override;
     void paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* ) override;
