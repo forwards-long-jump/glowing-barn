@@ -8,14 +8,7 @@
 GameScene::GameScene(QString name, Game* game)
     : Scene(name, game)
 {
-    // If a dev map is set, adds a file watcher to reload the map automatically every time it is changed on disk
-    if(DEV_MAP_PATH != "") {
-        mapReloadWatcher.addPath(DEV_MAP_PATH);
-        connect(&mapReloadWatcher, &QFileSystemWatcher::fileChanged, this, [=] () {
-            mapReloadWatcher.addPath(DEV_MAP_PATH);
-            loadMap(DEV_MAP_PATH);
-        });
-    }
+
 }
 
 /**
@@ -108,6 +101,21 @@ void GameScene::onKeyChange(Input&)
     if(Game::input.isKeyDown(Input::Key::QUIT_GAME) && game->isPaused())
     {
         game->switchScene("menu");
+    }
+
+    if(Game::input.isKeyDown(Input::Key::LOAD_LEVEL))
+    {
+        Game::input.setKeyDown(Input::Key::LOAD_LEVEL);
+        bool ok;
+        QString path = QInputDialog::getText(nullptr, "Load external map", "Current map path: " + newMapPath, QLineEdit::Normal, QCoreApplication::applicationDirPath() + "/assets/maps/", &ok);
+        if (ok && !path.isEmpty()) {
+            loadMap(path);
+            mapReloadWatcher.addPath(path);
+            connect(&mapReloadWatcher, &QFileSystemWatcher::fileChanged, this, [=] (const QString& mapPath) {
+                mapReloadWatcher.addPath(mapPath);
+                loadMap(mapPath);
+            });
+        }
     }
 }
 

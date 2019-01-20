@@ -31,7 +31,7 @@ Game::Game(QWidget* parent)
     this->setCacheMode(QGraphicsView::CacheBackground);
     this->setViewportUpdateMode( QGraphicsView::FullViewportUpdate);
 
-    this->switchScene("game");
+    this->switchScene("menu");
 
     // Connections
     connect(this, &Game::keyPressEvent,
@@ -39,7 +39,6 @@ Game::Game(QWidget* parent)
                 {
                     input.handleKeyDown(event);
                     static_cast<Scene*>(scene())->onKeyChange(input);
-                    handleToggleMute();
                 }
             );
     connect(this, &Game::keyReleaseEvent,
@@ -113,6 +112,7 @@ void Game::update() {
 
         static_cast<Scene*>(scene())->update();
         Sounds::update();
+        handleToggleMute();
 
         lag -= MS_PER_UPDATE;
         lastUpdateTime->start();

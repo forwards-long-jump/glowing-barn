@@ -10,6 +10,10 @@ QString Sounds::nextMusic = "";
 
 SoundEffectThread* Sounds::magnetOn = new SoundEffectThread();
 SoundEffectThread* Sounds::magnetOff = new SoundEffectThread();
+SoundEffectThread* Sounds::leverOn = new SoundEffectThread();
+SoundEffectThread* Sounds::leverOff = new SoundEffectThread();
+SoundEffectThread* Sounds::crash = new SoundEffectThread();
+SoundEffectThread* Sounds::demag = new SoundEffectThread();
 
 /**
  * @brief Sounds::playMusic
@@ -37,6 +41,22 @@ void Sounds::playSound(QString name)
         else if (name == "magnetOff")
         {
             magnetOff->start();
+        }
+        else if (name == "leverOn")
+        {
+            leverOn->start();
+        }
+        else if (name == "leverOff")
+        {
+            leverOff->start();
+        }
+        else if (name == "crash")
+        {
+            crash->start();
+        }
+        else if (name == "demag")
+        {
+            demag->start();
         }
     }
 }
@@ -94,30 +114,12 @@ void Sounds::update()
  */
 void Sounds::loadSounds()
 {
-    // TODO: Load and unload sounds when they are required
-    // TODO: Better loading system
-    // Loading sounds multiple time will cause a memory leak
-    magnetOn->init("/assets/sounds/magnetON.wav");
-    magnetOff->init("/assets/sounds/magnetOFF.wav");
-    /*QSoundEffect* sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnetON.wav"));
-    sounds.insert("magnetOn", sfx);
-
-    sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/magnetOFF.wav"));
-    sounds.insert("magnetOff", sfx);
-
-    sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever-on.wav"));
-    sounds.insert("leverOn", sfx);
-
-    sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/lever-on.wav"));
-    sounds.insert("leverOff", sfx);
-
-    sfx = new QSoundEffect();
-    sfx->setSource(QUrl::fromLocalFile(QCoreApplication::applicationDirPath() + "/assets/sounds/slap.wav"));
-    sounds.insert("crash", sfx);*/
+    magnetOn->init("/assets/sounds/magnet-on.wav");
+    magnetOff->init("/assets/sounds/magnet-off.wav");
+    leverOn->init("/assets/sounds/lever-on.wav");
+    leverOff->init("/assets/sounds/lever-on.wav");
+    crash->init("/assets/sounds/slap.wav");
+    demag->init("/assets/sounds/demag-sound.wav");
 }
 
 /**

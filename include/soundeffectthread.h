@@ -26,7 +26,7 @@ private:
     void run() override;
 
 private:
-    QSoundEffect *sfx;
+    QSoundEffect* sfx;
 };
 
 #endif // SOUNDEFFECTTHREAD_H

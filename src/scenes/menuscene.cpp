@@ -91,6 +91,7 @@ MenuScene::~MenuScene()
  */
 void MenuScene::onEnter()
 {
+    Sounds::fadeOut(20, "/assets/sounds/menu.mp3");
     if(!game->isPaused())
         static_cast<TransitionComponent*>(enterFader->getComponent("TransitionComponent"))->restart();
     else
@@ -127,5 +128,10 @@ void MenuScene::onKeyChange(Input&)
     if(Game::input.isKeyDown(Input::Key::START_GAME) || Game::input.isKeyDown(Input::Key::START_GAME2))
     {
         static_cast<TransitionComponent*>(leaveFader->getComponent("TransitionComponent"))->restart();
+    }
+
+    if(Game::input.isKeyDown(Input::Key::PAUSE_MENU))
+    {
+        QApplication::quit();
     }
 }

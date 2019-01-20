@@ -8,6 +8,8 @@
 #include "mapentity.h"
 
 #include <QFileSystemWatcher>
+#include <QInputDialog>
+#include <QDir>
 
 /**
  * Scene which features a playable character
@@ -26,9 +28,6 @@ public:
 
     Entity* getPlayer() const;
 private:
-    // NOTE: Set this using absolute path to allow live map-reloading automatically when the file is changed on disk
-    const QString DEV_MAP_PATH = "";
-
     void onEnter() override;
     void onKeyChange(Input&) override;
     void update() override;
@@ -46,6 +45,7 @@ private:
 
     // Development related
     QFileSystemWatcher mapReloadWatcher;
+    QString devMapPath = "";
     bool canPressPauseKey = true;
     bool canPressMuteKey = true;
 };

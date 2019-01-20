@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="34" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="230">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="34" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="19" nextobjectid="232">
  <properties>
   <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler.mp3"/>
   <property name="zoom" type="float" value="4.5"/>
@@ -278,7 +278,7 @@
    <properties>
     <property name="buttons" value="sign3"/>
     <property name="fontSize" type="int" value="3"/>
-    <property name="text" value="Urgh. I'm stuck between these buildings. Maybe I can continue further?"/>
+    <property name="text" value="&quot;Urgh. I'm stuck between these buildings. Maybe I can continue further?&quot;"/>
    </properties>
   </object>
   <object id="204" name="button" x="96" y="208" width="80" height="63.6667">
@@ -318,7 +318,7 @@
    </properties>
   </object>
   <object id="219" name="invisible-wall" x="-16" y="-64" width="16" height="220"/>
-  <object id="220" name="invisible-wall" x="-20.5" y="255.75" width="99.75" height="19.25"/>
+  <object id="220" name="invisible-wall" x="0.5" y="255.75" width="78.75" height="19.25"/>
   <object id="221" name="invisible-wall" x="83.2727" y="160" width="18" height="111.5"/>
   <object id="222" gid="236" x="64" y="176" width="16" height="16"/>
   <object id="223" gid="241" x="-32" y="208" width="16" height="16">
@@ -328,7 +328,7 @@
     <property name="h" type="float" value="1"/>
     <property name="noAnimations" type="bool" value="true"/>
     <property name="speed" type="float" value="5"/>
-    <property name="w" type="float" value="5"/>
+    <property name="w" type="float" value="11"/>
    </properties>
   </object>
   <object id="224" gid="241" x="48" y="192" width="16" height="16">
@@ -343,6 +343,29 @@
   </object>
   <object id="225" gid="236" x="-32" y="224" width="16" height="16"/>
   <object id="226" gid="236" x="64" y="256" width="16" height="16"/>
-  <object id="229" name="hurt" x="-133" y="374.5" width="858.333" height="29.6667"/>
+  <object id="229" name="hurt" x="-138.5" y="404.5" width="858.333" height="29.6667"/>
+  <object id="230" gid="241" x="-10" y="384" width="16" height="16">
+   <properties>
+    <property name="buttons" value="easterEgg"/>
+    <property name="direction" value="right"/>
+    <property name="h" type="float" value="1"/>
+    <property name="noAnimations" type="bool" value="false"/>
+    <property name="speed" type="float" value="4"/>
+    <property name="w" type="float" value="17"/>
+   </properties>
+  </object>
+  <object id="231" name="button" x="511.25" y="0" width="32.75" height="47.125">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="easterEgg"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="300"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
  </objectgroup>
 </map>

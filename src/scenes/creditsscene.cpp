@@ -74,6 +74,7 @@ void CreditsScene::onEnter()
     this->addItem(cameraLock);
     this->addItem(fader);
 
+    Sounds::fadeOut(20, "/assets/sounds/credits.mp3");
     camera->attachTo(cameraLock);
 }
 
@@ -113,14 +114,14 @@ void CreditsScene::update()
                         this->game->switchScene("menu");
                     },
                     [](QPainter* painter, const Entity* entity, int duration, int ticksPassed) {
-                        if(ticksPassed < 60)
+                        if(ticksPassed < 100)
                         {
                                 painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(), Qt::transparent);
                         }
                         else
                         {
                                 painter->fillRect(0, 0, entity->getSize().width(), entity->getSize().height(),
-                                    QColor(255, 255, 255, (255 * static_cast<float>(ticksPassed - 60) / (duration - 60))));
+                                    QColor(255, 255, 255, (255 * static_cast<float>(ticksPassed - 100) / (duration - 100))));
                         }
                     }, 150
         ));

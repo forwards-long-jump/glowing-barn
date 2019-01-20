@@ -1,6 +1,8 @@
 #ifndef MENUSCENE_H
 #define MENUSCENE_H
 
+#include <QApplication>
+
 #include "scene.h"
 #include "entity.h"
 
