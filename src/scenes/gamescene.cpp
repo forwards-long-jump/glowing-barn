@@ -103,6 +103,10 @@ void GameScene::onKeyChange(Input&)
         game->switchScene("menu");
     }
 
+    if(Game::input.isKeyDown(Input::Key::RELOAD_LEVEL)) {
+        loadMap(newMapPath);
+    }
+
     if(Game::input.isKeyDown(Input::Key::LOAD_LEVEL))
     {
         Game::input.setKeyDown(Input::Key::LOAD_LEVEL);
