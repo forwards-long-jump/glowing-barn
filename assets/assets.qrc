@@ -1,71 +1,71 @@
-<!DOCTYPE RCC><RCC version="1.0">
-<qresource prefix="/maps">
-    <file alias="tilemap.png" >maps/tilemap.png</file>
-    <file alias="tilemap.tsx" >maps/tilemap.tsx</file>
-    <file alias="test-boxes.tmx" >maps/test-boxes.tmx</file>
-    <file alias="test-buttons.tmx" >maps/test-buttons.tmx</file>
-    <file alias="test-graphics.tmx" >maps/test-graphics.tmx</file>
-    <file alias="test-magnets.tmx" >maps/test-magnets.tmx</file>
-    <file alias="test-misc.tmx" >maps/test-misc.tmx</file>
-    <file alias="test-zipper.tmx" >maps/test-zipper.tmx</file>
-    <file alias="test-hub.tmx" >maps/test-hub.tmx</file>
-    
-    <file alias="map-factory-1.tmx" >maps/map-factory-1.tmx</file>
-    <file alias="map-outside-factory.tmx" >maps/map-outside-factory.tmx</file>
-    <file alias="map-zipper-1.tmx" >maps/map-zipper-1.tmx</file>
-    <file alias="map-jumper-1.tmx" >maps/map-jumper-1.tmx</file>
-    <file alias="map-jumper-3.tmx" >maps/map-jumper-3.tmx</file>
-    <file alias="map-lever-1.tmx" >maps/map-lever-1.tmx</file>
-    <file alias="map-jumper-2.tmx" >maps/map-jumper-2.tmx</file>
-    <file alias="map-zipper-final.tmx" >maps/map-zipper-final.tmx</file>
-    <file alias="map-zipper-buttons.tmx" >maps/map-zipper-buttons.tmx</file>
-    <file alias="map-buttons-zipper.tmx" >maps/map-buttons-zipper.tmx</file>
-    <file alias="map-gravity-1.tmx" >maps/map-gravity-1.tmx</file>
-    <file alias="map-gravity-2.tmx" >maps/map-gravity-2.tmx</file>
-    <file alias="map-final-countdown.tmx" >maps/map-final-countdown.tmx</file>
-</qresource>
-<qresource prefix="/entities">
-    <file alias="door.png" >graphics/entities/door.png</file>
-    <file alias="inside-door.png" >graphics/entities/inside-door.png</file>
-    <file alias="player.png" >graphics/entities/player.png</file>
-    <file alias="box-container.png" >graphics/entities/box-container.png</file>
-	<file alias="playerStory.png" >graphics/entities/playerStory.png</file>
-    <file alias="magnet-wave.png" >graphics/entities/magnet-wave.png</file>
-    <file alias="lever.png" >graphics/entities/lever.png</file>
-    <file alias="plate.png" >graphics/entities/plate.png</file>
-    <file alias="magnet-zipper.png" >graphics/entities/magnet-zipper.png</file>
-    <file alias="magnet-jumper.png" >graphics/entities/magnet-jumper.png</file>
-    <file alias="magnet-grappling.png" >graphics/entities/magnet-grappling.png</file>
-    <file alias="magnet-box.png" >graphics/entities/magnet-box.png</file>
-    <file alias="magnet-gravity.png" >graphics/entities/magnet-gravity.png</file>
-    <file alias="player-static.png" >graphics/entities/player-static.png</file>
-	<file alias="spark.png" >graphics/entities/spark.png</file>
-</qresource>
-<qresource prefix="/decorations">
-    <file alias="schaffre.png" >graphics/decorations/schaffre.png</file>
-    <file alias="sky.png" >graphics/decorations/sky.png</file>
-    <file alias="sun.png" >graphics/decorations/sun.png</file>
-    <file alias="trees.png" >graphics/decorations/trees.png</file>
-    <file alias="mountains.png" >graphics/decorations/mountains.png</file>
-    <file alias="clouds.png" >graphics/decorations/clouds.png</file>
-    <file alias="factory-sign.png" >graphics/decorations/factory-sign.png</file>
-    <file alias="factory-wall.png" >graphics/decorations/factory-wall.png</file>
-    <file alias="factory-grip-1.png" >graphics/decorations/factory-grip-1.png</file>
-    <file alias="factory-grip-2.png" >graphics/decorations/factory-grip-2.png</file>
-    <file alias="factory-belt.png" >graphics/decorations/factory-belt.png</file>
-    <file alias="black-square.png" >graphics/decorations/black-square.png</file>
-</qresource>
-<qresource prefix="/interface">
-    <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
-    <file alias="spacebar.png">graphics/interface/spacebar.png</file>
-</qresource>
-<qresource prefix="/credits">
-    <file alias="background.png">graphics/credits/background.png</file>
-	<file alias="credits.png">graphics/credits/credits.png</file>
-	<file alias="thanks.png">graphics/credits/thanks.png</file>
-</qresource>
-<qresource prefix="/menu">
-    <file alias="title.png">graphics/menu/title.png</file>
-	<file alias="start.png">graphics/menu/start.png</file>
-</qresource>
+<RCC>
+    <qresource prefix="/maps">
+        <file alias="tilemap.png">maps/tilemap.png</file>
+        <file alias="tilemap.tsx">maps/tilemap.tsx</file>
+        <file alias="test-boxes.tmx">maps/test-boxes.tmx</file>
+        <file alias="test-buttons.tmx">maps/test-buttons.tmx</file>
+        <file alias="test-graphics.tmx">maps/test-graphics.tmx</file>
+        <file alias="test-magnets.tmx">maps/test-magnets.tmx</file>
+        <file alias="test-misc.tmx">maps/test-misc.tmx</file>
+        <file alias="test-zipper.tmx">maps/test-zipper.tmx</file>
+        <file alias="test-hub.tmx">maps/test-hub.tmx</file>
+        <file alias="map-factory-1.tmx">maps/map-factory-1.tmx</file>
+        <file alias="map-outside-factory.tmx">maps/map-outside-factory.tmx</file>
+        <file alias="map-zipper-1.tmx">maps/map-zipper-1.tmx</file>
+        <file alias="map-jumper-1.tmx">maps/map-jumper-1.tmx</file>
+        <file alias="map-jumper-3.tmx">maps/map-jumper-3.tmx</file>
+        <file alias="map-lever-1.tmx">maps/map-lever-1.tmx</file>
+        <file alias="map-jumper-2.tmx">maps/map-jumper-2.tmx</file>
+        <file alias="map-zipper-final.tmx">maps/map-zipper-final.tmx</file>
+        <file alias="map-zipper-buttons.tmx">maps/map-zipper-buttons.tmx</file>
+        <file alias="map-buttons-zipper.tmx">maps/map-buttons-zipper.tmx</file>
+        <file alias="map-gravity-1.tmx">maps/map-gravity-1.tmx</file>
+        <file alias="map-gravity-2.tmx">maps/map-gravity-2.tmx</file>
+        <file alias="map-final-countdown.tmx">maps/map-final-countdown.tmx</file>
+    </qresource>
+    <qresource prefix="/entities">
+        <file alias="door.png">graphics/entities/door.png</file>
+        <file alias="inside-door.png">graphics/entities/inside-door.png</file>
+        <file alias="player.png">graphics/entities/player.png</file>
+        <file alias="box-container.png">graphics/entities/box-container.png</file>
+        <file alias="playerStory.png">graphics/entities/playerStory.png</file>
+        <file alias="magnet-wave.png">graphics/entities/magnet-wave.png</file>
+        <file alias="lever.png">graphics/entities/lever.png</file>
+        <file alias="plate.png">graphics/entities/plate.png</file>
+        <file alias="magnet-zipper.png">graphics/entities/magnet-zipper.png</file>
+        <file alias="magnet-jumper.png">graphics/entities/magnet-jumper.png</file>
+        <file alias="magnet-grappling.png">graphics/entities/magnet-grappling.png</file>
+        <file alias="magnet-box.png">graphics/entities/magnet-box.png</file>
+        <file alias="magnet-gravity.png">graphics/entities/magnet-gravity.png</file>
+        <file alias="player-static.png">graphics/entities/player-static.png</file>
+        <file alias="spark.png">graphics/entities/spark.png</file>
+    </qresource>
+    <qresource prefix="/decorations">
+        <file alias="schaffre.png">graphics/decorations/schaffre.png</file>
+        <file alias="sky.png">graphics/decorations/sky.png</file>
+        <file alias="sun.png">graphics/decorations/sun.png</file>
+        <file alias="trees.png">graphics/decorations/trees.png</file>
+        <file alias="mountains.png">graphics/decorations/mountains.png</file>
+        <file alias="clouds.png">graphics/decorations/clouds.png</file>
+        <file alias="factory-sign.png">graphics/decorations/factory-sign.png</file>
+        <file alias="factory-wall.png">graphics/decorations/factory-wall.png</file>
+        <file alias="factory-grip-1.png">graphics/decorations/factory-grip-1.png</file>
+        <file alias="factory-grip-2.png">graphics/decorations/factory-grip-2.png</file>
+        <file alias="factory-belt.png">graphics/decorations/factory-belt.png</file>
+        <file alias="black-square.png">graphics/decorations/black-square.png</file>
+        <file alias="gradient-1.png">graphics/decorations/gradient-1.png</file>
+    </qresource>
+    <qresource prefix="/interface">
+        <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
+        <file alias="spacebar.png">graphics/interface/spacebar.png</file>
+    </qresource>
+    <qresource prefix="/credits">
+        <file alias="background.png">graphics/credits/background.png</file>
+        <file alias="credits.png">graphics/credits/credits.png</file>
+        <file alias="thanks.png">graphics/credits/thanks.png</file>
+    </qresource>
+    <qresource prefix="/menu">
+        <file alias="title.png">graphics/menu/title.png</file>
+        <file alias="start.png">graphics/menu/start.png</file>
+    </qresource>
 </RCC>
