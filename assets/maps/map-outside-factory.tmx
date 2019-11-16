@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="262">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="284">
  <properties>
   <property name="musicPath" value="/assets/sounds/Circling-the-Barn.mp3"/>
   <property name="zoom" type="float" value="4.5"/>
@@ -62,11 +62,12 @@
     <property name="texture" value=":/decorations/trees.png"/>
    </properties>
   </object>
-  <object id="143" name="graphic" x="0" y="16" width="623.098" height="288.37">
+  <object id="143" name="graphic" x="234" y="67" width="282.098" height="104.37">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="false"/>
     <property name="parallax" type="float" value="0.9"/>
     <property name="texture" value=":/decorations/clouds.png"/>
    </properties>
@@ -202,16 +203,17 @@
     <property name="texture" value=":/decorations/mountains.png"/>
    </properties>
   </object>
-  <object id="187" name="graphic" x="192" y="48" width="623.098" height="288.37">
+  <object id="187" name="graphic" x="32" y="17" width="623.098" height="288.37">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="true"/>
     <property name="parallax" type="float" value="0.5"/>
     <property name="texture" value=":/decorations/clouds.png"/>
    </properties>
   </object>
-  <object id="188" name="graphic" x="-160" y="0" width="560.431" height="428.37">
+  <object id="188" name="graphic" x="-113" y="0" width="560.431" height="428.37">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -266,51 +268,18 @@
   <object id="211" name="invisible-wall" x="672.5" y="213.75" width="5" height="5"/>
   <object id="212" name="invisible-wall" x="679.625" y="217" width="5" height="5"/>
   <object id="213" name="invisible-wall" x="686.375" y="220.375" width="5" height="5"/>
-  <object id="214" name="invisible-wall" x="574" y="220.5" width="112.5" height="5"/>
-  <object id="215" name="invisible-wall" x="799.955" y="181.136" width="5" height="5"/>
-  <object id="216" name="invisible-wall" x="805.136" y="179.318" width="5" height="5"/>
-  <object id="217" name="invisible-wall" x="810.409" y="176.591" width="5" height="5"/>
-  <object id="218" name="invisible-wall" x="815.5" y="174.5" width="5" height="5"/>
-  <object id="219" name="invisible-wall" x="820.682" y="171.955" width="5" height="5"/>
-  <object id="220" name="invisible-wall" x="825.773" y="168.591" width="5" height="5"/>
-  <object id="221" name="invisible-wall" x="831.955" y="179.682" width="5" height="5"/>
-  <object id="222" name="invisible-wall" x="837.136" y="177.864" width="5" height="5"/>
-  <object id="223" name="invisible-wall" x="842.409" y="175.137" width="5" height="5"/>
-  <object id="224" name="invisible-wall" x="847.5" y="173.046" width="5" height="5"/>
-  <object id="225" name="invisible-wall" x="852.682" y="170.501" width="5" height="5"/>
-  <object id="226" name="invisible-wall" x="857.773" y="167.137" width="5" height="5"/>
-  <object id="227" name="invisible-wall" x="863.955" y="180.136" width="5" height="5"/>
-  <object id="228" name="invisible-wall" x="869.136" y="178.318" width="5" height="5"/>
-  <object id="229" name="invisible-wall" x="874.409" y="175.591" width="5" height="5"/>
-  <object id="230" name="invisible-wall" x="879.5" y="173.5" width="5" height="5"/>
-  <object id="231" name="invisible-wall" x="884.682" y="170.955" width="5" height="5"/>
-  <object id="232" name="invisible-wall" x="889.773" y="167.591" width="5" height="5"/>
-  <object id="239" name="invisible-wall" x="896.046" y="179.591" width="5" height="5"/>
-  <object id="240" name="invisible-wall" x="901.227" y="177.773" width="5" height="5"/>
-  <object id="241" name="invisible-wall" x="906.5" y="175.046" width="5" height="5"/>
-  <object id="242" name="invisible-wall" x="911.591" y="172.955" width="5" height="5"/>
-  <object id="243" name="invisible-wall" x="916.773" y="170.41" width="5" height="5"/>
-  <object id="244" name="invisible-wall" x="921.864" y="167.046" width="5" height="5"/>
-  <object id="245" name="invisible-wall" x="928.046" y="180.136" width="5" height="5"/>
-  <object id="246" name="invisible-wall" x="933.227" y="178.318" width="5" height="5"/>
-  <object id="247" name="invisible-wall" x="938.5" y="175.591" width="5" height="5"/>
-  <object id="248" name="invisible-wall" x="943.591" y="173.5" width="5" height="5"/>
-  <object id="249" name="invisible-wall" x="948.773" y="170.955" width="5" height="5"/>
-  <object id="250" name="invisible-wall" x="953.864" y="167.591" width="5" height="5"/>
-  <object id="251" name="invisible-wall" x="891.136" y="167.227" width="4.63636" height="17.1818"/>
-  <object id="252" name="invisible-wall" x="923.045" y="166.136" width="4.63636" height="17.1818"/>
-  <object id="253" name="invisible-wall" x="859.227" y="166.682" width="4.63636" height="17.1818"/>
-  <object id="254" name="invisible-wall" x="827.136" y="167.409" width="4.63636" height="17.1818"/>
-  <object id="255" name="graphic" x="817.388" y="70.3" width="497.224" height="259.4">
+  <object id="214" name="invisible-wall" x="606.5" y="215.25" width="50.25" height="5"/>
+  <object id="251" name="invisible-wall" x="815.928" y="191.678" width="80.3939" height="24.8485"/>
+  <object id="255" name="graphic" x="693.388" y="98.3" width="497.224" height="259.4">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
-    <property name="parallax" type="float" value="0.001"/>
+    <property name="parallax" type="float" value="0.3"/>
     <property name="texture" value=":/decorations/clouds.png"/>
    </properties>
   </object>
-  <object id="256" name="graphic" x="-632.88" y="23.1485" width="1129.76" height="389.703">
+  <object id="256" name="graphic" x="-630.88" y="39.1485" width="1225.76" height="389.703">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -363,6 +332,33 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.65"/>
     <property name="texture" value=":/decorations/trees.png"/>
+   </properties>
+  </object>
+  <object id="263" name="graphic" x="-5.50717" y="318.815" width="1021.26" height="54.37">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.05"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="264" name="graphic" x="-175.001" y="394.724" width="2005.76" height="251.097">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.51"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="265" name="graphic" x="-173.882" y="166.149" width="1495.76" height="90.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.69"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
    </properties>
   </object>
  </objectgroup>
