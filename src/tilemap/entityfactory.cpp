@@ -606,6 +606,11 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
         ImageComponent* ic = new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons"));
         ic->setRotation(object->rotation());
         e->addComponent(ic);
+
+        if(object->property("mirrorX").toBool())
+        {
+            ic->setMirrored(true);
+        }
     }
     if(object->propertyAsString("parallax") != "")
     {

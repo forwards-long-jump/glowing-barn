@@ -25,7 +25,7 @@ void ImageComponent::render(QPainter* painter)
     }
 
     if(mirrored) {
-        painter->translate(image.width(), 0);
+        painter->translate(parent->getSize().width(), 0);
         painter->scale(-1, 1);
     }
 
@@ -47,7 +47,7 @@ void ImageComponent::render(QPainter* painter)
 
     if(mirrored) {
         painter->scale(-1, 1);
-        painter->translate(-image.width(), 0);
+        painter->translate(-parent->getSize().width(), 0);
     }
 }
 
