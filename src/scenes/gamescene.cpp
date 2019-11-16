@@ -109,7 +109,6 @@ void GameScene::onKeyChange(Input&)
 
     if(Game::input.isKeyDown(Input::Key::LOAD_LEVEL))
     {
-        Game::input.setKeyDown(Input::Key::LOAD_LEVEL);
         bool ok;
         QString path = QInputDialog::getText(nullptr, "Load external map", "Current map path: " + newMapPath, QLineEdit::Normal, QCoreApplication::applicationDirPath() + "/assets/maps/", &ok);
         if (ok && !path.isEmpty()) {
@@ -120,6 +119,8 @@ void GameScene::onKeyChange(Input&)
                 loadMap(mapPath);
             });
         }
+
+        Game::input.setKeyDown(Input::Key::LOAD_LEVEL);
     }
 }
 

@@ -30,7 +30,9 @@ bool Input::isDebugKeyDown(Qt::Key key)
 
 void Input::setKeyDown(Key key)
 {
-    keys.insert(key, false);
+    for(int qtKey : bindings[key]) {
+        keys.insert(qtKey, false);
+    }
 }
 
 /**
