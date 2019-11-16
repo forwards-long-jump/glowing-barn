@@ -183,11 +183,19 @@ Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
  * @param parent
  * @return
  */
-Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent)
+Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent, Game* game)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
+
+    QString text = object->propertyAsString("text");
+
+    QString language = game->getLanguage();
+    if(language == "FR" && object->propertyAsString("textFR") != "") {
+        text = object->propertyAsString("textFR");
+    }
+
     e->addComponent(new TextComponent(
-                        object->propertyAsString("text"),
+                        text,
                         object->propertyAsString("buttons"),
                         object->propertyAsString("fontSize").toInt()
                         )

@@ -10,6 +10,7 @@
 #include <QMap>
 
 class TileLayerEntity;
+class Game;
 
 /**
  * Accesses, creates and contains TiledLayerItems
@@ -20,7 +21,7 @@ class TileLayerEntity;
 class MapEntity : public Entity
 {
 public:
-    MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent = nullptr, QString spawnName = "default");
+    MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent = nullptr, QString spawnName = "default", Game* game = nullptr);
 
     QRectF boundingRect() const override;
     void paint(QPainter* p, const QStyleOptionGraphicsItem* , QWidget* ) override;

@@ -150,7 +150,7 @@ bool GameScene::loadMap(QString filename, QString spawnName)
     Sounds::playMusic(map->propertyAsString("musicPath"));
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
-    mapItem = new MapEntity(map, mapRenderer, nullptr, spawnName);
+    mapItem = new MapEntity(map, mapRenderer, nullptr, spawnName, game);
     mapItem->getLayer("middle")->createCollisions();
 
     mapItem->getLayer("front")->setZValue(1);

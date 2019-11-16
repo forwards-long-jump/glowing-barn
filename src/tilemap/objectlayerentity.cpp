@@ -7,7 +7,7 @@
  * @param parent
  * @param spawnName
  */
-ObjectLayerEntity::ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer*, Entity* parent, QString spawnName)
+ObjectLayerEntity::ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer*, Entity* parent, QString spawnName, Game* game)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -69,7 +69,7 @@ ObjectLayerEntity::ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::Map
                 EntityFactory::cameraSequence(object, parent);
             }
             else if(object->name() == "text") {
-                EntityFactory::text(object, parent);
+                EntityFactory::text(object, parent, game);
             }
             else {
                 qWarning() << "unknown object " << object->name();
