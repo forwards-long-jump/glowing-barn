@@ -103,10 +103,9 @@ void MagnetZipperComponent::addAnimations()
         break;
     case DIRECTION::UP: {
         zipperAnimation->setRotation(-90);
-        Entity* e = new Entity(parent->parentItem(), parent->x() - (w - 2) * WAVE_ANIMATION_SIZE / 2, parent->y() - w * WAVE_ANIMATION_SIZE / 2,
-                               (w - 1) * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
-        ac->setRotation(90);
+        Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() - (w - 1) * WAVE_ANIMATION_SIZE,
+                               WAVE_ANIMATION_SIZE, (w - 1) *  WAVE_ANIMATION_SIZE);
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave-vertical");
         ac->setTiled(true);
         ac->setButtons(requiredButtons);
         ac->setSpeedMultiplier(speed / 3);
@@ -115,11 +114,11 @@ void MagnetZipperComponent::addAnimations()
         break;
     case DIRECTION::DOWN: {
         zipperAnimation->setRotation(90);
-        Entity* e = new Entity(parent->parentItem(), parent->x() - (w - 2) * WAVE_ANIMATION_SIZE / 2, parent->y() + w * WAVE_ANIMATION_SIZE / 2,
-                               (w - 1) * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
-        ac->setRotation(-90);
+        Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() + WAVE_ANIMATION_SIZE,
+                               WAVE_ANIMATION_SIZE, (w - 1) *  WAVE_ANIMATION_SIZE);
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave-vertical");
         ac->setTiled(true);
+        ac->setMirroredY(true);
         ac->setButtons(requiredButtons);
         ac->setSpeedMultiplier(speed / 3);
         e->addComponent(ac);

@@ -30,6 +30,7 @@
         <file alias="box-container.png">graphics/entities/box-container.png</file>
         <file alias="playerStory.png">graphics/entities/playerStory.png</file>
         <file alias="magnet-wave.png">graphics/entities/magnet-wave.png</file>
+        <file alias="magnet-wave-vertical.png">graphics/entities/magnet-wave-vertical.png</file>
         <file alias="lever.png">graphics/entities/lever.png</file>
         <file alias="plate.png">graphics/entities/plate.png</file>
         <file alias="magnet-zipper.png">graphics/entities/magnet-zipper.png</file>
