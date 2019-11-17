@@ -624,6 +624,20 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
     {
         e->addComponent(new ParallaxComponent(object->propertyAsString("parallax").toFloat()));
     }
+
+    if(object->propertyAsString("speedX") != "" || object->propertyAsString("speedY") != "")
+    {
+        PhysicsComponent* pc = new PhysicsComponent(object->propertyAsString("speedX").toFloat(), object->propertyAsString("speedX").toFloat(), 0.0f,
+                                                    object->propertyAsString("speedY").toFloat(), 0.0f,
+                                                    object->propertyAsString("speedY").toFloat(), true);
+
+        // Left/right does not matter, we just set a negative acceleration speed
+        pc->setLeft(true);
+        pc->jump();
+
+        e->addComponent(pc);
+    }
+    // float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, QString name_
     return e;
 }
 
