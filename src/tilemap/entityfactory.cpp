@@ -158,7 +158,7 @@ Entity* EntityFactory::playerStory(QPointF pos, QSizeF size, Entity* parent)
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
-    player->addComponent(new PhysicsComponent());
+    player->addComponent(new PhysicsComponent(0.5, 4.0, 0.8));
     player->addComponent(new HurtReactorComponent());
 
     return player;
