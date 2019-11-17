@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="284">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="286">
  <properties>
   <property name="musicPath" value="/assets/sounds/Circling-the-Barn.mp3"/>
   <property name="zoom" type="float" value="4.5"/>
@@ -116,9 +116,10 @@
     <property name="buttons" value="sign1"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="This is Magnus. A renowned contractor."/>
+    <property name="textFR" value="Voici Magnus, un fameux vendeur d'aimant."/>
    </properties>
   </object>
-  <object id="173" name="button" x="400" y="160" width="111.5" height="112">
+  <object id="173" name="button" x="400" y="160" width="159.5" height="112">
    <properties>
     <property name="invertOnOff" type="bool" value="false"/>
     <property name="isTogglable" type="bool" value="false"/>
@@ -136,6 +137,7 @@
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="He was invited by his rival Mr. Samarium to discover their latest invention"/>
+    <property name="textFR" value="Il a été invité par son rival, M. Samarium, pour découvrir sa dernière invention."/>
    </properties>
   </object>
   <object id="179" name="graphic" x="-112" y="96" width="1129.76" height="389.703">
@@ -173,7 +175,8 @@
    <properties>
     <property name="buttons" value="sign4"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="Magn &amp; Cie"/>
+    <property name="text" value="Magn &amp; Co"/>
+    <property name="textFR" value="Magn &amp; Cie"/>
    </properties>
   </object>
   <object id="183" name="graphic" x="0" y="-21" width="959.76" height="294.703">
@@ -288,7 +291,7 @@
     <property name="texture" value=":/decorations/trees.png"/>
    </properties>
   </object>
-  <object id="257" name="button" x="848" y="64" width="111.5" height="112">
+  <object id="257" name="button" x="822" y="76.6667" width="70.5" height="114.667">
    <properties>
     <property name="invertOnOff" type="bool" value="false"/>
     <property name="isTogglable" type="bool" value="false"/>
@@ -301,11 +304,12 @@
     <property name="stayPressed" type="bool" value="false"/>
    </properties>
   </object>
-  <object id="258" name="text" x="862.583" y="114.333" width="80" height="32.6667">
+  <object id="258" name="text" x="816" y="112" width="80" height="32.6667">
    <properties>
     <property name="buttons" value="signE"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Apparently, Mr Magnus was very curious..."/>
+    <property name="textFR" value="M. Magnus était apparement très curieux."/>
    </properties>
   </object>
   <object id="259" gid="249" x="896" y="240" width="16" height="16">
@@ -359,6 +363,26 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="0.69"/>
     <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="284" name="graphic" x="262.951" y="13.815" width="350.098" height="162.37">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="false"/>
+    <property name="speedX" value="-0.5"/>
+    <property name="texture" value=":/decorations/clouds.png"/>
+   </properties>
+  </object>
+  <object id="285" name="graphic" x="746.951" y="-3.185" width="350.098" height="162.37">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="true"/>
+    <property name="speedX" value="-0.5"/>
+    <property name="texture" value=":/decorations/clouds.png"/>
    </properties>
   </object>
  </objectgroup>
