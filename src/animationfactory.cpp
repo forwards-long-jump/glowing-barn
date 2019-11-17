@@ -21,6 +21,18 @@ AnimationComponent* AnimationFactory::getAnimationComponent(QString animationNam
         AnimationComponent::addAnimationToVector("death", 6, 1, animations);
         return new AnimationComponent(":/entities/player.png", 16, animations);
     }
+    else if(animationName == "player-deactivated")
+    {
+        AnimationComponent::addAnimationToVector("running", 8, 2, animations);
+        AnimationComponent::addAnimationToVector("standing", 2, 15, animations);
+        AnimationComponent::addAnimationToVector("skidding", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("jumping", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("zipping", 3, 10, animations);
+        AnimationComponent::addAnimationToVector("falling", 1, 1, animations);
+        AnimationComponent::addAnimationToVector("door", 9, 3, animations);
+        AnimationComponent::addAnimationToVector("death", 6, 1, animations);
+        return new AnimationComponent(":/entities/player-deactivated.png", 16, animations);
+    }
     else if(animationName == "playerStory")
     {
         AnimationComponent::addAnimationToVector("running", 8, 2, animations);

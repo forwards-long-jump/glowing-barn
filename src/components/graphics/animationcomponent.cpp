@@ -293,6 +293,11 @@ void AnimationComponent::setMirroredY(bool value)
     mirroredY = value;
 }
 
+void AnimationComponent::setImage(const QPixmap &value)
+{
+    image = value;
+}
+
 /**
  * @brief AnimationComponent::setRotation
  * @param value

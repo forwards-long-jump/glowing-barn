@@ -71,7 +71,12 @@ void PlayerInputComponent::handleMagnetActivation()
             // NOTE: We mostly use the magnetZipper to check if any magnet is enabled
             if(!parent->disableComponent("MagnetZipperReactorComponent"))
             {
-                parent->enableComponent("MagnetZipperReactorComponent");
+                if(parent->enableComponent("MagnetZipperReactorComponent")) {
+                    static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->setImage(QPixmap(":/entities/player.png"));
+                }
+            }
+            else {
+                static_cast<AnimationComponent*>(parent->getComponent("AnimationComponent"))->setImage(QPixmap(":/entities/player-deactivated.png"));
             }
 
             if(!parent->disableComponent("MagnetJumperReactorComponent")) parent->enableComponent("MagnetJumperReactorComponent");

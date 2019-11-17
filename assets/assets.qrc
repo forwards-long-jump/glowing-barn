@@ -27,6 +27,7 @@
         <file alias="door.png">graphics/entities/door.png</file>
         <file alias="inside-door.png">graphics/entities/inside-door.png</file>
         <file alias="player.png">graphics/entities/player.png</file>
+        <file alias="player-deactivated.png">graphics/entities/player-deactivated.png</file>
         <file alias="box-container.png">graphics/entities/box-container.png</file>
         <file alias="playerStory.png">graphics/entities/playerStory.png</file>
         <file alias="magnet-wave.png">graphics/entities/magnet-wave.png</file>

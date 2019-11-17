@@ -43,6 +43,8 @@ public:
     bool getMirroredY() const;
     void setMirroredY(bool value);
 
+    void setImage(const QPixmap &value);
+
 private:
     QPixmap image;
 
