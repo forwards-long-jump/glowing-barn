@@ -40,6 +40,9 @@ public:
     bool getTiled() const;
     void setTiled(bool value);
 
+    bool getMirroredY() const;
+    void setMirroredY(bool value);
+
 private:
     QPixmap image;
 
@@ -61,6 +64,7 @@ private:
 
     bool loopingDisabled = false;
     bool mirrored = false;
+    bool mirroredY = false;
     ButtonAnimationState currentButtonAnimationState = ButtonAnimationState::IDLE;
 
     QVector<QString> requiredButtons;

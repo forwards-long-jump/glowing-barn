@@ -124,6 +124,12 @@ void AnimationComponent::render(QPainter* painter)
         painter->scale(-1, 1);
     }
 
+    if(mirroredY)
+    {
+        painter->translate(0, entityHeight);
+        painter->scale(1, -1);
+    }
+
     if(rotation != 0)
     {
         painter->translate(entityWidth / 2, entityHeight / 2);
@@ -154,11 +160,18 @@ void AnimationComponent::render(QPainter* painter)
         }
     }
 
+    if(mirroredY)
+    {
+        painter->scale(1, -1);
+        painter->translate(0, -entityHeight);
+    }
+
     if(mirrored)
     {
         painter->scale(-1, 1);
         painter->translate(-entityWidth, 0);
     }
+
 }
 
 /**
@@ -268,6 +281,16 @@ bool AnimationComponent::getTiled() const
 void AnimationComponent::setTiled(bool value)
 {
     tiled = value;
+}
+
+bool AnimationComponent::getMirroredY() const
+{
+    return mirroredY;
+}
+
+void AnimationComponent::setMirroredY(bool value)
+{
+    mirroredY = value;
 }
 
 /**
