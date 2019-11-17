@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="183">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="193">
  <properties>
   <property name="musicPath" value="/assets/sounds/Puzzle-Dreams-2.mp3"/>
   <property name="zoom" type="float" value="4"/>
@@ -60,7 +60,7 @@
     <property name="force" type="float" value="20"/>
    </properties>
   </object>
-  <object id="140" name="graphic" x="-48.6667" y="-42.6667" width="932.765" height="494.037">
+  <object id="140" name="graphic" x="-46" y="-1.33337" width="781.721" height="414.037">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -71,7 +71,7 @@
   </object>
   <object id="141" gid="241" x="128" y="80" width="16" height="16">
    <properties>
-    <property name="buttons" value=""/>
+    <property name="buttons" value="mainButton"/>
     <property name="direction" value="down"/>
     <property name="h" type="float" value="1"/>
     <property name="speed" type="float" value="5"/>
@@ -89,7 +89,7 @@
    </properties>
   </object>
   <object id="147" name="hurt" x="248.885" y="29.5246" width="22.9807" height="22.2008"/>
-  <object id="148" name="graphic" x="71.2311" y="69.8181" width="60.75" height="5.576">
+  <object id="148" name="graphic" x="134.856" y="-31.7236" width="3.75" height="98.576">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -230,6 +230,7 @@
     <property name="buttons" value="sign1"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Jumper Magnet™ test facility. Our latest invention: The Spikes™ will test the restistance of any magnet!"/>
+    <property name="textFR" value="Zone de test des trampo-aimant™. Introduisant: Les Piques™, permettant de tester leurs résistance!"/>
    </properties>
   </object>
   <object id="168" name="text" x="160" y="320" width="80" height="32.6667">
@@ -237,13 +238,15 @@
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Urgh. That was painful"/>
+    <property name="textFR" value="&quot;Est-ce que ce levier peut m'aider à remonter?&quot;"/>
    </properties>
   </object>
   <object id="169" name="text" x="160" y="208" width="80" height="32.6667">
    <properties>
     <property name="buttons" value="sign3"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="Weeeh!"/>
+    <property name="text" value="&quot;Weeeh!&quot;"/>
+    <property name="textFR" value="&quot;Youhou!&quot;"/>
    </properties>
   </object>
   <object id="170" name="button" x="160.333" y="304" width="143" height="80">
@@ -290,9 +293,10 @@
     <property name="buttons" value="sign4"/>
     <property name="fontSize" type="int" value="3"/>
     <property name="text" value="&quot;This door is going outside! I'm free!&quot;"/>
+    <property name="textFR" value="&quot;Cette porte mène dehors, je suis libre!&quot;"/>
    </properties>
   </object>
-  <object id="174" name="graphic" x="154.707" y="-49.288" width="12.585" height="89.2427">
+  <object id="174" name="graphic" x="154.707" y="-49.288" width="12.585" height="97.2427">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -319,12 +323,13 @@
     <property name="texture" value=":/decorations/factory-grip-2.png"/>
    </properties>
   </object>
-  <object id="177" name="graphic" x="306.733" y="-75.2882" width="28.7318" height="203.743">
+  <object id="177" name="graphic" x="292.066" y="-47.2882" width="26.7318" height="203.743">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
-    <property name="parallax" type="float" value="-0.5"/>
+    <property name="speedX" type="float" value="1"/>
+    <property name="speedY" type="float" value="-1"/>
     <property name="texture" value=":/decorations/factory-grip-1.png"/>
    </properties>
   </object>
@@ -371,6 +376,96 @@
     <property name="buttons" value=""/>
     <property name="parallax" type="float" value="-0.3"/>
     <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="183" name="graphic" x="-373.445" y="-21.906" width="651.103" height="271.115" rotation="90">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="false"/>
+    <property name="parallax" type="float" value="-0.01"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="184" name="graphic" x="-42.4165" y="-59.7401" width="1033.1" height="128.115" rotation="180">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="false"/>
+    <property name="mirrorY" type="bool" value="true"/>
+    <property name="parallax" type="float" value="-0.01"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="185" name="graphic" x="508.448" y="-35.5575" width="717.103" height="193.115" rotation="90">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="true"/>
+    <property name="parallax" type="float" value="-0.01"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="186" name="graphic" x="-175.375" y="428.212" width="1082.75" height="111.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.31"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="187" name="graphic" x="-161.375" y="309.545" width="1082.75" height="111.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.2"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="188" name="button" x="256" y="368" width="16" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="mainButton"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="120"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="189" name="graphic" x="256" y="368" width="16" height="16">
+   <properties>
+    <property name="animationName" value="lever"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="mainButton"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=":/"/>
+   </properties>
+  </object>
+  <object id="190" name="sound" x="256" y="352" width="16" height="16">
+   <properties>
+    <property name="active" value=""/>
+    <property name="buttons" value="mainButton"/>
+    <property name="end" value="leverOff"/>
+    <property name="idle" value=""/>
+    <property name="start" value="leverOn"/>
+   </properties>
+  </object>
+  <object id="192" name="graphic" x="288.089" y="154.462" width="34.2318" height="18.743">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="speedX" type="float" value="1"/>
+    <property name="speedY" type="float" value="-1"/>
+    <property name="texture" value=":/entities/spark.png"/>
    </properties>
   </object>
  </objectgroup>
