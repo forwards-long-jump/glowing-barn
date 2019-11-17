@@ -627,12 +627,17 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
 
     if(object->propertyAsString("speedX") != "" || object->propertyAsString("speedY") != "")
     {
-        PhysicsComponent* pc = new PhysicsComponent(object->propertyAsString("speedX").toFloat(), object->propertyAsString("speedX").toFloat(), 0.0f,
+        PhysicsComponent* pc = new PhysicsComponent(abs(object->propertyAsString("speedX").toFloat()), abs(object->propertyAsString("speedX").toFloat()), 0.0f,
                                                     object->propertyAsString("speedY").toFloat(), 0.0f,
-                                                    object->propertyAsString("speedY").toFloat(), true);
+                                                    abs(object->propertyAsString("speedY").toFloat()), true);
 
         // Left/right does not matter, we just set a negative acceleration speed
-        pc->setLeft(true);
+        if(object->propertyAsString("speedX").toFloat() > 0) {
+            pc->setRight(true);
+        }
+        else {
+            pc->setLeft(true);
+        }
         pc->jump();
 
         e->addComponent(pc);
