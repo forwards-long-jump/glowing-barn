@@ -37,6 +37,9 @@ public:
 
     bool getMirrored() const;
 
+    bool getTiled() const;
+    void setTiled(bool value);
+
 private:
     QPixmap image;
 
@@ -54,6 +57,7 @@ private:
     int frameWidth = 0;
     int rotation = 0;
     int speedMultiplier = 1;
+    bool tiled = false;
 
     bool loopingDisabled = false;
     bool mirrored = false;

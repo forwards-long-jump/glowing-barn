@@ -53,8 +53,15 @@ void PhysicsComponent::update()
     // Collisions
 
     if(!noClip) {
+        if(hitboxes.size() == 0) {
+            // Get hitboxes from the map only once
+            // because checking the size of a list is probably faster than
+            // calculating a string hash to find its pos in a map
+            hitboxes = HitboxComponent::getInstancesOf("WallComponent");
+        }
+
         onGround = false;
-        for (HitboxComponent* hitbox : HitboxComponent::getInstancesOf("WallComponent"))
+        for (HitboxComponent* hitbox : hitboxes)
         {
             handleCollision(static_cast<SquareHitboxComponent*>(hitbox));
         }
@@ -83,7 +90,12 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent* hitbox)
     QRectF theirHB = hitbox->getHitbox();
 
     QRectF ourHB;
-    for (auto physicsHitbox : HitboxComponent::getInstancesOf("PhysicsHitboxComponent"))
+
+    if(physicHitboxes.size() == 0) {
+        physicHitboxes = HitboxComponent::getInstancesOf("PhysicsHitboxComponent");
+    }
+
+    for (HitboxComponent* physicsHitbox : physicHitboxes)
     {
         if (physicsHitbox->getParent() == parent)
         {

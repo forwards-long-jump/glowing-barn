@@ -58,6 +58,8 @@ private:
     bool right;
     bool ignorePhysicsForTick;
     bool noClip = false;
+    QList<HitboxComponent*> hitboxes;
+    QList<HitboxComponent*> physicHitboxes;
 };
 
 #include "playerinputcomponent.h"

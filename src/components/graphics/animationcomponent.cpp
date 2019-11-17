@@ -129,19 +129,29 @@ void AnimationComponent::render(QPainter* painter)
         painter->translate(entityWidth / 2, entityHeight / 2);
         painter->rotate(rotation);
 
-        painter->drawPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
-                            image,
-                            frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
-
+       if(tiled) {
+            painter->drawTiledPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
+                                image.copy(frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height()));
+        }
+        else {
+            painter->drawPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
+                                image,
+                                frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+        }
         painter->translate(-entityWidth / 2, -entityHeight / 2);
         painter->rotate(-rotation);
     }
     else
     {
-
-        painter->drawPixmap(0, 0, entityWidth, entityHeight,
+        if(tiled) {
+            painter->drawTiledPixmap(0, 0, entityWidth, entityHeight,
+                            image.copy(frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height()));
+        }
+        else {
+            painter->drawPixmap(0, 0, entityWidth, entityHeight,
                             image,
                             frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+        }
     }
 
     if(mirrored)
@@ -248,6 +258,16 @@ int AnimationComponent::getRotation() const
 bool AnimationComponent::getMirrored() const
 {
     return mirrored;
+}
+
+bool AnimationComponent::getTiled() const
+{
+    return tiled;
+}
+
+void AnimationComponent::setTiled(bool value)
+{
+    tiled = value;
 }
 
 /**
