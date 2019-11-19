@@ -104,7 +104,7 @@ void GameScene::onKeyChange(Input&)
     }
 
     if(Game::input.isKeyDown(Input::Key::RELOAD_LEVEL)) {
-        loadMap(newMapPath);
+        loadMap(newMapPath, newMapSpawn);
     }
 
     if(Game::input.isKeyDown(Input::Key::LEVEL_SELECT)) {
