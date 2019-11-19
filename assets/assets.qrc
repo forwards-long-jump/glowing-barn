@@ -56,6 +56,7 @@
         <file alias="factory-belt.png">graphics/decorations/factory-belt.png</file>
         <file alias="black-square.png">graphics/decorations/black-square.png</file>
         <file alias="gradient-1.png">graphics/decorations/gradient-1.png</file>
+        <file alias="fog.png">graphics/decorations/fog.png</file>
     </qresource>
     <qresource prefix="/interface">
         <file alias="arrowkeys.png">graphics/interface/arrowkeys.png</file>
