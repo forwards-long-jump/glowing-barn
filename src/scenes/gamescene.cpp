@@ -111,6 +111,18 @@ void GameScene::onKeyChange(Input&)
         loadMap(":maps/level-select.tmx");
     }
 
+    if(Game::input.isKeyDown(Input::Key::CHANGE_LANGUAGE)) {
+        if(game->getLanguage() == "FR") {
+            game->setLanguage("EN");
+        }
+        else {
+            game->setLanguage("FR");
+        }
+
+        loadMap(newMapPath, newMapSpawn);
+    }
+
+
 
     if(Game::input.isKeyDown(Input::Key::LOAD_LEVEL))
     {

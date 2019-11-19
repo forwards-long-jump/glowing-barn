@@ -30,7 +30,8 @@ public:
         QUIT_GAME, // q
         LOAD_LEVEL, // f4
         RELOAD_LEVEL, // f5
-        LEVEL_SELECT // home
+        LEVEL_SELECT, // home
+        CHANGE_LANGUAGE // f2
     };
 
     bool isKeyDown(Key key);

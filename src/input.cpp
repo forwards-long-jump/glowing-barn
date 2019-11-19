@@ -17,6 +17,7 @@ Input::Input()
     bindings[LOAD_LEVEL] = {Qt::Key_F8};
     bindings[RELOAD_LEVEL] = {Qt::Key_F5};
     bindings[LEVEL_SELECT] = {Qt::Key_Home};
+    bindings[CHANGE_LANGUAGE] = {Qt::Key_F2};
 }
 
 /**
