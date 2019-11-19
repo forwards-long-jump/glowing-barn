@@ -297,6 +297,7 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     {
         ac->setMirrored(true);
     }
+
     e->addComponent(ac);
     e->addComponent(new ParallaxComponent(0.0001));
     return e;
@@ -618,6 +619,10 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
         if(object->property("mirrorX").toBool())
         {
             ic->setMirrored(true);
+        }
+        if(object->property("mirrorY").toBool())
+        {
+            ic->setMirroredY(true);
         }
     }
     if(object->propertyAsString("parallax") != "")

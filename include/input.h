@@ -29,7 +29,8 @@ public:
         MUTE_GAME, // m
         QUIT_GAME, // q
         LOAD_LEVEL, // f4
-        RELOAD_LEVEL // f5
+        RELOAD_LEVEL, // f5
+        LEVEL_SELECT // home
     };
 
     bool isKeyDown(Key key);

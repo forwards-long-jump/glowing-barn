@@ -16,6 +16,7 @@ Input::Input()
     bindings[QUIT_GAME]  = {Qt::Key_Q};
     bindings[LOAD_LEVEL] = {Qt::Key_F8};
     bindings[RELOAD_LEVEL] = {Qt::Key_F5};
+    bindings[LEVEL_SELECT] = {Qt::Key_Home};
 }
 
 /**

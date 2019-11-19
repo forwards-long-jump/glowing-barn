@@ -22,6 +22,8 @@
         <file alias="map-gravity-1.tmx">maps/map-gravity-1.tmx</file>
         <file alias="map-gravity-2.tmx">maps/map-gravity-2.tmx</file>
         <file alias="map-final-countdown.tmx">maps/map-final-countdown.tmx</file>
+        <file alias="level-select.tmx">maps/level-select.tmx</file>
+        <file alias="level-select-inside.tmx">maps/level-select-inside.tmx</file>
     </qresource>
     <qresource prefix="/entities">
         <file alias="door.png">graphics/entities/door.png</file>
