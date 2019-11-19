@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="left-up" compressionlevel="0" width="100" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="326">
+<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="left-up" compressionlevel="0" width="100" height="50" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="329">
  <properties>
   <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler-2.mp3"/>
   <property name="zoom" type="float" value="4"/>
@@ -16,7 +16,7 @@
   </data>
  </layer>
  <objectgroup id="5" name="object">
-  <object id="241" gid="249" x="800" y="320" width="16" height="16">
+  <object id="241" gid="249" x="832" y="320" width="16" height="16">
    <properties>
     <property name="animationName" value="playerStory"/>
     <property name="h" type="float" value="32"/>
@@ -95,7 +95,7 @@
     <property name="texture" value=":/menu/title.png"/>
    </properties>
   </object>
-  <object id="287" name="graphic" x="624" y="304" width="575.085" height="247.689">
+  <object id="287" name="graphic" x="624" y="308" width="575.085" height="247.689">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -104,7 +104,7 @@
     <property name="texture" value=":/decorations/trees.png"/>
    </properties>
   </object>
-  <object id="289" name="graphic" x="80" y="304" width="575.085" height="247.689">
+  <object id="289" name="graphic" x="80" y="308" width="575.085" height="247.689">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -211,7 +211,7 @@
     <property name="texture" value=":/decorations/fog.png"/>
    </properties>
   </object>
-  <object id="310" name="graphic" x="123.099" y="78.042" width="618.302" height="233.916">
+  <object id="310" name="graphic" x="114.432" y="78.042" width="626.969" height="233.916">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -270,7 +270,7 @@
     <property name="texture" value=":/decorations/facto.png"/>
    </properties>
   </object>
-  <object id="321" name="graphic" x="1182.46" y="305.489" width="575.085" height="247.689">
+  <object id="321" name="graphic" x="1182.46" y="309.489" width="575.085" height="247.689">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -311,6 +311,37 @@
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="s3"/>
     <property name="w" type="float" value="16"/>
+   </properties>
+  </object>
+  <object id="326" name="text" x="760" y="290.727" width="48.125" height="19.3711">
+   <properties>
+    <property name="buttons" value="dialog1"/>
+    <property name="fontSize" type="int" value="3"/>
+    <property name="text" value="Take the door on my left to start the game!"/>
+   </properties>
+  </object>
+  <object id="327" name="graphic" x="775.182" y="320" width="16" height="32">
+   <properties>
+    <property name="animationName" value="player"/>
+    <property name="animationToPlay" value="standing"/>
+    <property name="buttons" value=""/>
+    <property name="mirror" type="bool" value="true"/>
+    <property name="mirrorY" type="bool" value="true"/>
+    <property name="parallax" type="float" value="0"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="328" name="button" x="768" y="328" width="32.1818" height="16">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="dialog1"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="100"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value="INTERACT"/>
+    <property name="stayPressed" type="bool" value="false"/>
    </properties>
   </object>
  </objectgroup>
