@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="286">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="60" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="293">
  <properties>
   <property name="musicPath" value="/assets/sounds/Circling-the-Barn.mp3"/>
   <property name="zoom" type="float" value="4.5"/>
@@ -115,8 +115,8 @@
    <properties>
     <property name="buttons" value="sign1"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="This is Magnus. A renowned contractor."/>
-    <property name="textFR" value="Voici Magnus, un fameux vendeur d'aimant."/>
+    <property name="text" value="This is Magnus. A renowned magnet contractor."/>
+    <property name="textFR" value="Voici Magnus, un célèbre vendeur d'aimant."/>
    </properties>
   </object>
   <object id="173" name="button" x="400" y="160" width="159.5" height="112">
@@ -149,7 +149,7 @@
     <property name="texture" value=":/decorations/trees.png"/>
    </properties>
   </object>
-  <object id="180" name="graphic" x="80" y="16" width="452.431" height="225.703">
+  <object id="180" name="graphic" x="82" y="23.3333" width="452.431" height="225.703">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -202,7 +202,7 @@
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
-    <property name="parallax" type="float" value="0.7"/>
+    <property name="parallax" type="float" value="0.8"/>
     <property name="texture" value=":/decorations/mountains.png"/>
    </properties>
   </object>
@@ -320,15 +320,6 @@
     <property name="w" type="float" value="16"/>
    </properties>
   </object>
-  <object id="260" name="graphic" x="273.388" y="-2.7" width="706.224" height="385.4">
-   <properties>
-    <property name="animationName" value=""/>
-    <property name="animationToPlay" value=""/>
-    <property name="buttons" value=""/>
-    <property name="parallax" type="float" value="0.01"/>
-    <property name="texture" value=":/decorations/trees.png"/>
-   </properties>
-  </object>
   <object id="261" name="graphic" x="168.721" y="32.9667" width="497.224" height="259.4">
    <properties>
     <property name="animationName" value=""/>
@@ -371,7 +362,7 @@
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
     <property name="mirrorX" type="bool" value="false"/>
-    <property name="speedX" value="-0.5"/>
+    <property name="speedX" value="-1"/>
     <property name="texture" value=":/decorations/clouds.png"/>
    </properties>
   </object>
@@ -381,8 +372,53 @@
     <property name="animationToPlay" value=""/>
     <property name="buttons" value=""/>
     <property name="mirrorX" type="bool" value="true"/>
-    <property name="speedX" value="-0.5"/>
+    <property name="speedX" value="-1"/>
     <property name="texture" value=":/decorations/clouds.png"/>
+   </properties>
+  </object>
+  <object id="287" name="graphic" x="-31.88" y="-92.3515" width="1008.76" height="589.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.1"/>
+    <property name="texture" value=":/decorations/fog.png"/>
+   </properties>
+  </object>
+  <object id="288" name="graphic" x="-38.38" y="-103.851" width="1037.76" height="589.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.5"/>
+    <property name="texture" value=":/decorations/fog.png"/>
+   </properties>
+  </object>
+  <object id="289" name="graphic" x="-39.88" y="-107.851" width="1037.76" height="589.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.69"/>
+    <property name="texture" value=":/decorations/fog.png"/>
+   </properties>
+  </object>
+  <object id="291" name="graphic" x="210.451" y="47.8152" width="401.765" height="225.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.8"/>
+    <property name="texture" value=":/decorations/mountains.png"/>
+   </properties>
+  </object>
+  <object id="292" name="graphic" x="-30.88" y="-117.518" width="1037.76" height="589.703">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.75"/>
+    <property name="texture" value=":/decorations/fog.png"/>
    </properties>
   </object>
  </objectgroup>

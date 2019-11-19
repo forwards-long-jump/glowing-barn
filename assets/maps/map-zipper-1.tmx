@@ -85,8 +85,10 @@
    <properties>
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="3"/>
-    <property name="text" value="To the cleaning personnel: Please remove the Magnet before cleaning the remains of Mr. Magnus."/>
-    <property name="textFR" value="Au personnel d'entretien: veuillez enlever l'aimant avant de nettoyer les restes de M. Magnus."/>
+    <property name="text">To the cleaning personnel:
+Please remove the Magnet before cleaning the remains of Mr. Magnus.</property>
+    <property name="textFR">Au personnel d'entretien:
+Veuillez enlever l'aimant avant de vous débarasser M. Magnus.</property>
    </properties>
   </object>
   <object id="237" name="button" x="296.733" y="140.032" width="32.0929" height="4">

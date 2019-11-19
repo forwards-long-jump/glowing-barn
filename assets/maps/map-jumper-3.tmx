@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="193">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="50" height="30" tilewidth="16" tileheight="16" infinite="0" nextlayerid="13" nextobjectid="195">
  <properties>
   <property name="musicPath" value="/assets/sounds/Puzzle-Dreams-2.mp3"/>
   <property name="zoom" type="float" value="4"/>
@@ -233,12 +233,12 @@
     <property name="textFR" value="Zone de test des trampo-aimant™. Introduisant: Les Piques™, permettant de tester leurs résistance!"/>
    </properties>
   </object>
-  <object id="168" name="text" x="160" y="320" width="80" height="32.6667">
+  <object id="168" name="text" x="128" y="320" width="80" height="32.6667">
    <properties>
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="Urgh. That was painful"/>
-    <property name="textFR" value="&quot;Est-ce que ce levier peut m'aider à remonter?&quot;"/>
+    <property name="text" value="&quot;I think I can try again from here.&quot;"/>
+    <property name="textFR" value="&quot;Je crois que je peux remonter par ici.&quot;"/>
    </properties>
   </object>
   <object id="169" name="text" x="160" y="208" width="80" height="32.6667">
@@ -388,7 +388,7 @@
     <property name="texture" value=":/decorations/gradient-1.png"/>
    </properties>
   </object>
-  <object id="184" name="graphic" x="-42.4165" y="-59.7401" width="1033.1" height="128.115" rotation="180">
+  <object id="184" name="graphic" x="-42.4165" y="-59.7401" width="1033.1" height="128.115">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -427,37 +427,6 @@
     <property name="texture" value=":/decorations/gradient-1.png"/>
    </properties>
   </object>
-  <object id="188" name="button" x="256" y="368" width="16" height="16">
-   <properties>
-    <property name="invertOnOff" type="bool" value="false"/>
-    <property name="isTogglable" type="bool" value="false"/>
-    <property name="name" value="mainButton"/>
-    <property name="pressableBy" value=""/>
-    <property name="pressedDurationInTick" type="int" value="120"/>
-    <property name="requiredButtonsToPress" value=""/>
-    <property name="requiredButtonsToRelease" value=""/>
-    <property name="requiredKey" value="INTERACT"/>
-    <property name="stayPressed" type="bool" value="false"/>
-   </properties>
-  </object>
-  <object id="189" name="graphic" x="256" y="368" width="16" height="16">
-   <properties>
-    <property name="animationName" value="lever"/>
-    <property name="animationToPlay" value=""/>
-    <property name="buttons" value="mainButton"/>
-    <property name="parallax" type="float" value="0"/>
-    <property name="texture" value=":/"/>
-   </properties>
-  </object>
-  <object id="190" name="sound" x="256" y="352" width="16" height="16">
-   <properties>
-    <property name="active" value=""/>
-    <property name="buttons" value="mainButton"/>
-    <property name="end" value="leverOff"/>
-    <property name="idle" value=""/>
-    <property name="start" value="leverOn"/>
-   </properties>
-  </object>
   <object id="192" name="graphic" x="288.089" y="154.462" width="34.2318" height="18.743">
    <properties>
     <property name="animationName" value=""/>
@@ -466,6 +435,28 @@
     <property name="speedX" type="float" value="1"/>
     <property name="speedY" type="float" value="-1"/>
     <property name="texture" value=":/entities/spark.png"/>
+   </properties>
+  </object>
+  <object id="193" name="button" x="120" y="352" width="30.9091" height="32">
+   <properties>
+    <property name="invertOnOff" type="bool" value="false"/>
+    <property name="isTogglable" type="bool" value="false"/>
+    <property name="name" value="mainButton"/>
+    <property name="pressableBy" value=""/>
+    <property name="pressedDurationInTick" type="int" value="70"/>
+    <property name="requiredButtonsToPress" value=""/>
+    <property name="requiredButtonsToRelease" value=""/>
+    <property name="requiredKey" value=""/>
+    <property name="stayPressed" type="bool" value="false"/>
+   </properties>
+  </object>
+  <object id="194" name="graphic" x="120" y="352" width="32" height="32">
+   <properties>
+    <property name="animationName" value="plate"/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value="mainButton"/>
+    <property name="parallax" type="float" value="0.001"/>
+    <property name="texture" value=""/>
    </properties>
   </object>
  </objectgroup>

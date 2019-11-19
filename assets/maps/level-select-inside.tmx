@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.3.0" orientation="orthogonal" renderorder="left-up" compressionlevel="0" width="100" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="406">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="100" height="24" tilewidth="16" tileheight="16" infinite="0" nextlayerid="16" nextobjectid="407">
  <properties>
-  <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler-2.mp3"/>
-  <property name="zoom" type="float" value="4"/>
+  <property name="musicPath" value="/assets/sounds/Sunrise_Looping.mp3"/>
+  <property name="zoom" type="float" value="5"/>
  </properties>
  <tileset firstgid="1" source="tilemap.tsx"/>
  <layer id="13" name="back" width="100" height="24">
@@ -115,6 +115,7 @@
     <property name="buttons" value="lvl1"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Learning to jump"/>
+    <property name="textFR" value="Apprendre à sauter"/>
    </properties>
   </object>
   <object id="336" name="button" x="144" y="224" width="16" height="16">
@@ -135,6 +136,7 @@
     <property name="buttons" value="lvl2"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Challenging jumps"/>
+    <property name="textFR" value="Expert en sauts"/>
    </properties>
   </object>
   <object id="338" name="text" x="272" y="160" width="79.5" height="32">
@@ -142,6 +144,7 @@
     <property name="buttons" value="lvl3"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Going outside"/>
+    <property name="textFR" value="Visite extérieure"/>
    </properties>
   </object>
   <object id="339" name="button" x="224" y="224" width="16" height="16">
@@ -203,6 +206,7 @@
     <property name="buttons" value="lvl4"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Running with a box"/>
+    <property name="textFR" value="Course contre la boîte"/>
    </properties>
   </object>
   <object id="348" name="button" x="688" y="224" width="16" height="16">
@@ -222,7 +226,8 @@
    <properties>
     <property name="buttons" value="lvl5"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="Thinking with a box"/>
+    <property name="text" value="Thinking with the box"/>
+    <property name="textFR" value="Pense-boîte"/>
    </properties>
   </object>
   <object id="350" name="text" x="816" y="160" width="79.5" height="32">
@@ -230,6 +235,7 @@
     <property name="buttons" value="lvl6"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Controlling a box"/>
+    <property name="textFR" value="Boîte télécommandée"/>
    </properties>
   </object>
   <object id="351" name="button" x="768" y="224" width="16" height="16">
@@ -325,6 +331,7 @@
     <property name="buttons" value="lvl7"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Learning gravity"/>
+    <property name="textFR" value="Cours sur la gravitation"/>
    </properties>
   </object>
   <object id="362" name="text" x="1296" y="160" width="79.5" height="32">
@@ -332,6 +339,7 @@
     <property name="buttons" value="lvl8"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Controlling gravity"/>
+    <property name="textFR" value="Contrôle de la gravité"/>
    </properties>
   </object>
   <object id="363" name="text" x="1376" y="160" width="79.5" height="32">
@@ -339,6 +347,7 @@
     <property name="buttons" value="lvl9"/>
     <property name="fontSize" type="int" value="4"/>
     <property name="text" value="Running for freedom"/>
+    <property name="textFR" value="Libéré, délivré"/>
    </properties>
   </object>
   <object id="364" name="button" x="1248" y="224" width="16" height="16">
@@ -528,7 +537,7 @@
     <property name="texture" value=":/decorations/factory-grip-1.png"/>
    </properties>
   </object>
-  <object id="403" name="graphic" x="351.513" y="295.205" width="224.64" height="163.923">
+  <object id="403" name="graphic" x="320.333" y="295.5" width="1366.64" height="163.923">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -537,7 +546,7 @@
     <property name="texture" value=":/decorations/black-square.png"/>
    </properties>
   </object>
-  <object id="404" name="graphic" x="351.18" y="255.705" width="225.973" height="40.2563">
+  <object id="404" name="graphic" x="320" y="256" width="1368.47" height="40.2563">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
