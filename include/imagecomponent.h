@@ -21,10 +21,13 @@ public:
 
     void setRotation(int value);
 
+    void setMirroredY(bool value);
+
 private:
     QPixmap image;
     QVector<QString> requiredButtons;
     bool mirrored = false;
+    bool mirroredY = false;
     int rotation = 0;
 };
 
