@@ -147,5 +147,14 @@ void CreditsScene::update()
  */
 void CreditsScene::onKeyChange(Input &input)
 {
+        // Handle going back to main menu
+        if(Game::input.isKeyDown(Input::Key::QUIT_GAME))
+        {
+            game->switchScene("menu");
+        }
 
+
+        if(Game::input.isKeyDown(Input::Key::LEVEL_SELECT)) {
+            game->switchScene("game");
+        }
 }
