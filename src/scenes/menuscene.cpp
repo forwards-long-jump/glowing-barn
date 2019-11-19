@@ -130,6 +130,11 @@ void MenuScene::onKeyChange(Input&)
         static_cast<TransitionComponent*>(leaveFader->getComponent("TransitionComponent"))->restart();
     }
 
+    if(Game::input.isKeyDown(Input::Key::LEVEL_SELECT)) {
+        game->switchScene("game");
+    }
+
+
     if(Game::input.isKeyDown(Input::Key::PAUSE_MENU))
     {
         QApplication::quit();

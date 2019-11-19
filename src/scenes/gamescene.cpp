@@ -107,6 +107,11 @@ void GameScene::onKeyChange(Input&)
         loadMap(newMapPath);
     }
 
+    if(Game::input.isKeyDown(Input::Key::LEVEL_SELECT)) {
+        loadMap(":maps/level-select.tmx");
+    }
+
+
     if(Game::input.isKeyDown(Input::Key::LOAD_LEVEL))
     {
         bool ok;
