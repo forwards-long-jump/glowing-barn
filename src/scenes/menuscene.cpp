@@ -32,6 +32,11 @@ MenuScene::MenuScene(QString name, Game* game)
         painter->setOpacity(qAbs(qSin(static_cast<double>(tick)/30)));
     }));
 
+    Entity* credits = new Entity(nullptr, 60, 68, 130, 5.25);
+    credits->addComponent(new ImageComponent(":menu/credits.png"));
+
+    bushes->addComponent(new ImageComponent(":/decorations/trees.png"));
+
     Entity* cameraLock = new Entity(nullptr, -8, -38, 16, 16);
 
     leaveFader = new Entity(nullptr, -1000, -1000, 2000, 2000);
@@ -74,6 +79,7 @@ MenuScene::MenuScene(QString name, Game* game)
     this->addItem(start);
     this->addItem(enterFader);
     this->addItem(leaveFader);
+    this->addItem(credits);
 
     camera->attachTo(cameraLock);
 }

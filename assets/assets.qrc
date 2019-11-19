@@ -72,5 +72,6 @@
     <qresource prefix="/menu">
         <file alias="title.png">graphics/menu/title.png</file>
         <file alias="start.png">graphics/menu/start.png</file>
+        <file alias="credits.png">graphics/menu/credits.png</file>
     </qresource>
 </RCC>
