@@ -8,8 +8,8 @@ Input::Input()
     bindings[LEFT]       = {Qt::Key_Left, Qt::Key_A};
     bindings[RIGHT]      = {Qt::Key_Right, Qt::Key_D};
     bindings[JUMP]       = {Qt::Key_Up, Qt::Key_W, Qt::Key_Space};
-    bindings[INTERACT]   = {Qt::Key_Down, Qt::Key_S, Qt::Key_F};
-    bindings[ZIP]        = {Qt::Key_Shift};
+    bindings[INTERACT]   = {Qt::Key_Down, Qt::Key_S, Qt::Key_F, Qt::Key_E};
+    bindings[ZIP]        = {Qt::Key_Shift, Qt::Key_Q};
     bindings[PAUSE_MENU] = {Qt::Key_Escape};
     bindings[START_GAME] = {Qt::Key_Enter, Qt::Key_Return, Qt::Key_Space};
     bindings[MUTE_GAME]  = {Qt::Key_M};
