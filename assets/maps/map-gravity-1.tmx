@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="70" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="224">
+<map version="1.2" tiledversion="1.2.1" orientation="orthogonal" renderorder="left-up" width="70" height="21" tilewidth="16" tileheight="16" infinite="0" nextlayerid="22" nextobjectid="253">
  <properties>
   <property name="musicPath" value="/assets/sounds/Bubble-Gum-Puzzler-2.mp3"/>
   <property name="zoom" type="float" value="3.5"/>
@@ -21,7 +21,7 @@
   </data>
  </layer>
  <objectgroup id="5" name="object">
-  <object id="140" name="graphic" x="-47.6667" y="-40.6667" width="870.77" height="439.037">
+  <object id="140" name="graphic" x="-8" y="63.6568" width="428.963" height="215.38">
    <properties>
     <property name="animationName" value=""/>
     <property name="animationToPlay" value=""/>
@@ -71,21 +71,14 @@
    </properties>
   </object>
   <object id="185" name="invisible-wall" x="1120" y="-157" width="16" height="331"/>
-  <object id="187" name="spark" x="160" y="304" width="24" height="24">
+  <object id="188" name="spark" x="536.833" y="290.333" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
     <property name="speed" type="float" value="5"/>
    </properties>
   </object>
-  <object id="188" name="spark" x="537.5" y="311" width="24" height="24">
-   <properties>
-    <property name="hitboxName" value=""/>
-    <property name="radius" type="float" value="100"/>
-    <property name="speed" type="float" value="5"/>
-   </properties>
-  </object>
-  <object id="189" name="spark" x="631" y="311" width="24" height="24">
+  <object id="189" name="spark" x="639.667" y="288.333" width="24" height="24">
    <properties>
     <property name="hitboxName" value=""/>
     <property name="radius" type="float" value="100"/>
@@ -197,7 +190,7 @@
     <property name="w" type="float" value="16"/>
    </properties>
   </object>
-  <object id="209" name="graphic" x="455.967" y="242.83" width="71.0664" height="18.6727">
+  <object id="209" name="graphic" x="437.967" y="243.497" width="71.0664" height="18.6727">
    <properties>
     <property name="animationName" value="belt"/>
     <property name="animationToPlay" value="active"/>
@@ -251,16 +244,20 @@
     <property name="buttons" value="sign1"/>
     <property name="fontSize" type="int" value="3"/>
     <property name="text" value="Attractive magnet ahead. Don't fall in love... or in the pit."/>
+    <property name="textFR">Attention!
+
+Force attractive droit devant.</property>
    </properties>
   </object>
   <object id="215" name="text" x="512" y="112" width="160.5" height="32.6667">
    <properties>
     <property name="buttons" value="sign2"/>
     <property name="fontSize" type="int" value="4"/>
-    <property name="text" value="&quot;Weeeeeeeh!&quot;"/>
+    <property name="text" value="&quot;Yipeee!&quot;"/>
+    <property name="textFR" value="&quot;Yahou!&quot;"/>
    </properties>
   </object>
-  <object id="216" name="button" x="479.5" y="32" width="240.5" height="112.5">
+  <object id="216" name="button" x="479.5" y="65" width="240.5" height="79.5">
    <properties>
     <property name="invertOnOff" type="bool" value="false"/>
     <property name="isTogglable" type="bool" value="false"/>
@@ -291,13 +288,15 @@
     <property name="buttons" value="sign3"/>
     <property name="fontSize" type="int" value="3"/>
     <property name="text" value="&quot;Oh crap, I'm stuck!&quot;"/>
+    <property name="textFR" value="&quot;Oh oh... Je crois que ça va mal finir&quot;"/>
    </properties>
   </object>
   <object id="219" name="text" x="528" y="240" width="143.5" height="32.6667">
    <properties>
     <property name="buttons" value="sign4"/>
     <property name="fontSize" type="int" value="5"/>
-    <property name="text" value="&quot;AAAAAAAAAAAAAH!&quot;"/>
+    <property name="text" value="&quot;Aaaah!&quot;"/>
+    <property name="textFR" value="&quot;Aaaah!&quot;"/>
    </properties>
   </object>
   <object id="220" name="button" x="480" y="214.5" width="239.5" height="121">
@@ -317,7 +316,8 @@
    <properties>
     <property name="buttons" value="signDoor"/>
     <property name="fontSize" type="int" value="3"/>
-    <property name="text" value="&quot;Okay, that was actually fun&quot;"/>
+    <property name="text" value="&quot;That was actually fun!&quot;"/>
+    <property name="textFR" value="&quot;Ces aimants sont vraiment pas mal.&quot;"/>
    </properties>
   </object>
   <object id="222" name="button" x="928" y="64" width="65.5" height="33">
@@ -339,6 +339,152 @@
     <property name="h" type="float" value="32"/>
     <property name="spawnName" value="door"/>
     <property name="w" type="float" value="16"/>
+   </properties>
+  </object>
+  <object id="224" name="graphic" x="-34.2085" y="261.212" width="1162.42" height="79.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="-0.01"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="225" name="graphic" x="-10.7085" y="245.712" width="776.417" height="27.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.6"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="226" name="graphic" x="-29.8752" y="-2.62133" width="1183.42" height="79.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="mirrorY" type="bool" value="true"/>
+    <property name="parallax" type="float" value="0.1"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
+   </properties>
+  </object>
+  <object id="227" name="graphic" x="451.115" y="-279.019" width="549.77" height="276.037">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.7"/>
+    <property name="texture" value=":/decorations/factory-wall.png"/>
+   </properties>
+  </object>
+  <object id="235" name="graphic" x="-7.81483" y="-144.357" width="428.963" height="215.38">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.7"/>
+    <property name="texture" value=":/decorations/factory-wall.png"/>
+   </properties>
+  </object>
+  <object id="236" name="graphic" x="412.093" y="63.66" width="428.963" height="215.38">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.7"/>
+    <property name="texture" value=":/decorations/factory-wall.png"/>
+   </properties>
+  </object>
+  <object id="237" name="graphic" x="412.278" y="-144.36" width="428.963" height="215.38">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.7"/>
+    <property name="texture" value=":/decorations/factory-wall.png"/>
+   </properties>
+  </object>
+  <object id="238" name="graphic" x="431.541" y="-60.6697" width="21.8013" height="171.339">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="241" name="graphic" x="197.854" y="-66.7515" width="19.7655" height="155.339">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="speedX" value="3"/>
+    <property name="texture" value=":/decorations/factory-grip-1.png"/>
+   </properties>
+  </object>
+  <object id="243" name="graphic" x="90.8518" y="112.977" width="306.296" height="215.38">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.9"/>
+    <property name="texture" value=":/decorations/mountains.png"/>
+   </properties>
+  </object>
+  <object id="244" name="graphic" x="274.185" y="111.643" width="306.296" height="215.38">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.9"/>
+    <property name="texture" value=":/decorations/mountains.png"/>
+   </properties>
+  </object>
+  <object id="246" name="graphic" x="492.967" y="287.407" width="133.733" height="35.1384">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="idle"/>
+    <property name="buttons" value=""/>
+    <property name="mirrorX" type="bool" value="true"/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="247" name="graphic" x="120.8" y="263.33" width="99.3997" height="26.1173">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="idle"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.55"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="248" name="graphic" x="138.633" y="284.409" width="144.983" height="38.0943">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.3"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="250" name="graphic" x="326.8" y="261.941" width="99.3997" height="26.1173">
+   <properties>
+    <property name="animationName" value="belt"/>
+    <property name="animationToPlay" value="active"/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.55"/>
+    <property name="texture" value=""/>
+   </properties>
+  </object>
+  <object id="251" name="graphic" x="-294.209" y="274.462" width="776.417" height="27.576">
+   <properties>
+    <property name="animationName" value=""/>
+    <property name="animationToPlay" value=""/>
+    <property name="buttons" value=""/>
+    <property name="parallax" type="float" value="0.5"/>
+    <property name="texture" value=":/decorations/gradient-1.png"/>
    </properties>
   </object>
  </objectgroup>
