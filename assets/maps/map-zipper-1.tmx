@@ -88,7 +88,7 @@
     <property name="text">To the cleaning personnel:
 Please remove the Magnet before cleaning the remains of Mr. Magnus.</property>
     <property name="textFR">Au personnel d'entretien:
-Veuillez enlever l'aimant avant de vous débarasser M. Magnus.</property>
+Veuillez enlever l'aimant avant de vous débarasser de M. Magnus.</property>
    </properties>
   </object>
   <object id="237" name="button" x="296.733" y="140.032" width="32.0929" height="4">
