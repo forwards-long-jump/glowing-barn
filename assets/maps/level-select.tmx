@@ -54,8 +54,8 @@
     <property name="animation" value="insideDoor"/>
     <property name="buttons" value=""/>
     <property name="mirrorX" type="bool" value="true"/>
-    <property name="targetMap" value=":maps/map-factory-1.tmx"/>
-    <property name="targetSpawn" value="door2"/>
+    <property name="targetMap" value=":maps/map-outside-factory.tmx"/>
+    <property name="targetSpawn" value="default"/>
    </properties>
   </object>
   <object id="284" name="door" x="640" y="320" width="16" height="32">
