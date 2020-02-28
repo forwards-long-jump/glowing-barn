@@ -13,7 +13,7 @@
 class PhysicsComponent : public Component
 {
 public:
-    PhysicsComponent(float accSpeed_ = 1.0, float maxHSpeed_ = 4.5, float friction_ = 0.8, float jumpSpeed_ = -7.2, float g_ = 0.7, float maxVSpeed_ = 10., QString name_ = "PhysicsComponent");
+    PhysicsComponent(float accSpeed_ = 1.0, float maxHSpeed_ = 4.5, float friction_ = 0.8, float jumpSpeed_ = -7.2, float g_ = 0.7, float maxVSpeed_ = 10., bool noClip = false, QString name_ = "PhysicsComponent");
 
     void update() override;
     void handleCollision(SquareHitboxComponent* hitbox);
@@ -57,6 +57,9 @@ private:
     bool left;
     bool right;
     bool ignorePhysicsForTick;
+    bool noClip = false;
+    QList<HitboxComponent*> hitboxes;
+    QList<HitboxComponent*> physicHitboxes;
 };
 
 #include "playerinputcomponent.h"

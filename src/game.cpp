@@ -199,3 +199,13 @@ bool Game::isPaused() const
 {
     return paused;
 }
+
+QString Game::getLanguage() const
+{
+    return language;
+}
+
+void Game::setLanguage(const QString &value)
+{
+    language = value;
+}

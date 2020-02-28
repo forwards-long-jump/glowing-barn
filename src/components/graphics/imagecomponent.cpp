@@ -25,8 +25,13 @@ void ImageComponent::render(QPainter* painter)
     }
 
     if(mirrored) {
-        painter->translate(image.width(), 0);
+        painter->translate(parent->getSize().width(), 0);
         painter->scale(-1, 1);
+    }
+
+    if(mirroredY) {
+        painter->translate(0, parent->getSize().height());
+        painter->scale(1, -1);
     }
 
     if(rotation != 0)
@@ -44,10 +49,14 @@ void ImageComponent::render(QPainter* painter)
         painter->drawPixmap(0, 0, parent->getSize().width(), parent->getSize().height(), image);
     }
 
+    if(mirroredY) {
+        painter->translate(0, -parent->getSize().height());
+        painter->scale(1, -1);
+    }
 
     if(mirrored) {
         painter->scale(-1, 1);
-        painter->translate(-image.width(), 0);
+        painter->translate(-parent->getSize().width(), 0);
     }
 }
 
@@ -67,4 +76,9 @@ void ImageComponent::setMirrored(bool value)
 void ImageComponent::setRotation(int value)
 {
     rotation = value;
+}
+
+void ImageComponent::setMirroredY(bool value)
+{
+    mirroredY = value;
 }

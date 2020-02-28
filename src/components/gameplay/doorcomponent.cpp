@@ -31,6 +31,8 @@ void DoorComponent::action(Entity* target)
 
     static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->setCurrentAnimation("door");
     static_cast<AnimationComponent*>(target->getComponent("AnimationComponent"))->disableLooping();
+    static_cast<PhysicsComponent*>(target->getComponent("PhysicsComponent"))->setSpeed(0, 0);
+
     target->disableComponent("PlayerInputComponent");
 
     if (isFinalDoor)

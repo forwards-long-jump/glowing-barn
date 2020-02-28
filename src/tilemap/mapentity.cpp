@@ -7,7 +7,7 @@
  * @param parent
  * @param spawnName
  */
-MapEntity::MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent, QString spawnName)
+MapEntity::MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsItem* parent, QString spawnName, Game *game)
     : Entity(parent)
 {
     setFlag(QGraphicsItem::ItemHasNoContents);
@@ -20,7 +20,7 @@ MapEntity::MapEntity(Tiled::Map* map, Tiled::MapRenderer* renderer, QGraphicsIte
         }
         else if (Tiled::ObjectGroup* objectGroup = layer->asObjectGroup())
         {
-            new ObjectLayerEntity(objectGroup, renderer, this, spawnName);
+            new ObjectLayerEntity(objectGroup, renderer, this, spawnName, game);
         }
     }
 }

@@ -19,17 +19,19 @@ public:
     enum Key
     {
         NONE,
-        LEFT,
-        RIGHT,
-        JUMP,
-        INTERACT,
-        ZIP,
-        PAUSE_MENU,
-        START_GAME,
-        START_GAME2,
-        MUTE_GAME,
-        QUIT_GAME,
-        LOAD_LEVEL
+        LEFT, // left, a
+        RIGHT, // right, d
+        JUMP, // up, w, space
+        INTERACT, // down, f, s
+        ZIP, // shift
+        PAUSE_MENU, // esc
+        START_GAME, // enter, return, space
+        MUTE_GAME, // m
+        QUIT_GAME, // q
+        LOAD_LEVEL, // f4
+        RELOAD_LEVEL, // f5
+        LEVEL_SELECT, // home
+        CHANGE_LANGUAGE // f2
     };
 
     bool isKeyDown(Key key);
@@ -42,7 +44,7 @@ public slots:
 
 private:
     QHash<int, bool> keys;
-    QHash<Key, int> bindings;
+    QHash<Key, QList<int>> bindings;
 };
 
 #endif // INPUT_H

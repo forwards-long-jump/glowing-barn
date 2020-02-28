@@ -124,24 +124,46 @@ void AnimationComponent::render(QPainter* painter)
         painter->scale(-1, 1);
     }
 
+    if(mirroredY)
+    {
+        painter->translate(0, entityHeight);
+        painter->scale(1, -1);
+    }
+
     if(rotation != 0)
     {
         painter->translate(entityWidth / 2, entityHeight / 2);
         painter->rotate(rotation);
 
-        painter->drawPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
-                            image,
-                            frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
-
+       if(tiled) {
+            painter->drawTiledPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
+                                image.copy(frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height()));
+        }
+        else {
+            painter->drawPixmap(-entityWidth / 2, -entityHeight / 2, entityWidth, entityHeight,
+                                image,
+                                frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+        }
         painter->translate(-entityWidth / 2, -entityHeight / 2);
         painter->rotate(-rotation);
     }
     else
     {
-
-        painter->drawPixmap(0, 0, entityWidth, entityHeight,
+        if(tiled) {
+            painter->drawTiledPixmap(0, 0, entityWidth, entityHeight,
+                            image.copy(frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height()));
+        }
+        else {
+            painter->drawPixmap(0, 0, entityWidth, entityHeight,
                             image,
                             frameWidth * (currentFrameIndex + currentAnimationStartingIndex), 0, frameWidth, image.height());
+        }
+    }
+
+    if(mirroredY)
+    {
+        painter->scale(1, -1);
+        painter->translate(0, -entityHeight);
     }
 
     if(mirrored)
@@ -149,6 +171,7 @@ void AnimationComponent::render(QPainter* painter)
         painter->scale(-1, 1);
         painter->translate(-entityWidth, 0);
     }
+
 }
 
 /**
@@ -248,6 +271,31 @@ int AnimationComponent::getRotation() const
 bool AnimationComponent::getMirrored() const
 {
     return mirrored;
+}
+
+bool AnimationComponent::getTiled() const
+{
+    return tiled;
+}
+
+void AnimationComponent::setTiled(bool value)
+{
+    tiled = value;
+}
+
+bool AnimationComponent::getMirroredY() const
+{
+    return mirroredY;
+}
+
+void AnimationComponent::setMirroredY(bool value)
+{
+    mirroredY = value;
+}
+
+void AnimationComponent::setImage(const QPixmap &value)
+{
+    image = value;
 }
 
 /**

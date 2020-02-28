@@ -40,7 +40,7 @@ public:
     static Entity* collision(QPointF, QSizeF, Entity* = nullptr);
     static Entity* box(Tiled::MapObject* object, Entity* parent);
     static Entity* cameraSequence(Tiled::MapObject* object, Entity*  parent = nullptr);
-    static Entity* text(Tiled::MapObject* object, Entity* parent);
+    static Entity* text(Tiled::MapObject* object, Entity* parent, Game *game);
 
     static MagnetZipperComponent::DIRECTION convertToDirection(const QString &);
     static Input::Key convertToKey(const QString &str);

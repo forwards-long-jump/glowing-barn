@@ -158,7 +158,7 @@ Entity* EntityFactory::playerStory(QPointF pos, QSizeF size, Entity* parent)
     player->addComponent(new SquareHitboxComponent(GameButtonComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new SquareHitboxComponent(SparkComponent::HITBOX_REACTOR_NAME));
     player->addComponent(new PlayerInputComponent());
-    player->addComponent(new PhysicsComponent());
+    player->addComponent(new PhysicsComponent(0.5, 4.0, 0.8));
     player->addComponent(new HurtReactorComponent());
 
     return player;
@@ -183,11 +183,19 @@ Entity* EntityFactory::hurt(Tiled::MapObject* object, Entity* parent)
  * @param parent
  * @return
  */
-Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent)
+Entity* EntityFactory::text(Tiled::MapObject* object, Entity* parent, Game* game)
 {
     Entity* e = new Entity(parent, object->position(), object->size());
+
+    QString text = object->propertyAsString("text");
+
+    QString language = game->getLanguage();
+    if(language == "FR" && object->propertyAsString("textFR") != "") {
+        text = object->propertyAsString("textFR");
+    }
+
     e->addComponent(new TextComponent(
-                        object->propertyAsString("text"),
+                        text,
                         object->propertyAsString("buttons"),
                         object->propertyAsString("fontSize").toInt()
                         )
@@ -289,6 +297,7 @@ Entity* EntityFactory::door(Tiled::MapObject* object, Entity* parent)
     {
         ac->setMirrored(true);
     }
+
     e->addComponent(ac);
     e->addComponent(new ParallaxComponent(0.0001));
     return e;
@@ -606,11 +615,39 @@ Entity* EntityFactory::graphic(Tiled::MapObject* object, Entity* parent)
         ImageComponent* ic = new ImageComponent(object->propertyAsString("texture"), "ImageComponent", object->propertyAsString("buttons"));
         ic->setRotation(object->rotation());
         e->addComponent(ic);
+
+        if(object->property("mirrorX").toBool())
+        {
+            ic->setMirrored(true);
+        }
+        if(object->property("mirrorY").toBool())
+        {
+            ic->setMirroredY(true);
+        }
     }
     if(object->propertyAsString("parallax") != "")
     {
         e->addComponent(new ParallaxComponent(object->propertyAsString("parallax").toFloat()));
     }
+
+    if(object->propertyAsString("speedX") != "" || object->propertyAsString("speedY") != "")
+    {
+        PhysicsComponent* pc = new PhysicsComponent(abs(object->propertyAsString("speedX").toFloat()), abs(object->propertyAsString("speedX").toFloat()), 0.0f,
+                                                    object->propertyAsString("speedY").toFloat(), 0.0f,
+                                                    abs(object->propertyAsString("speedY").toFloat()), true);
+
+        // Left/right does not matter, we just set a negative acceleration speed
+        if(object->propertyAsString("speedX").toFloat() > 0) {
+            pc->setRight(true);
+        }
+        else {
+            pc->setLeft(true);
+        }
+        pc->jump();
+
+        e->addComponent(pc);
+    }
+    // float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, QString name_
     return e;
 }
 

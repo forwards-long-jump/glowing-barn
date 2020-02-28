@@ -43,6 +43,9 @@ public:
 
     bool isPaused() const;
 
+    QString getLanguage() const;
+    void setLanguage(const QString &value);
+
 signals:
     void keyPressEvent(QKeyEvent* event);
     void keyReleaseEvent(QKeyEvent* event);
@@ -62,6 +65,7 @@ private:
     unsigned int tick;
     bool paused = false;
     bool canPressMuteKey = true;
+    QString language = "FR";
 
     void handleToggleMute();
 private slots:

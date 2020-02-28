@@ -81,51 +81,48 @@ void MagnetZipperComponent::addAnimations()
 
     switch(direction)
     {
-    case DIRECTION::RIGHT:
-        for(int i = 1; i < w; ++i)
-        {
-            Entity* e = new Entity(parent->parentItem(), parent->x() + i * WAVE_ANIMATION_SIZE, parent->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
-            ac->setButtons(requiredButtons);
-            ac->setMirrored(true);
-            ac->setSpeedMultiplier(speed / 3);
-            e->addComponent(ac);
-        }
+    case DIRECTION::RIGHT: {
+        Entity* e = new Entity(parent->parentItem(), parent->x() + WAVE_ANIMATION_SIZE, parent->y(), (w - 1) * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
+        ac->setTiled(true);
+        ac->setButtons(requiredButtons);
+        ac->setMirrored(true);
+        ac->setSpeedMultiplier(speed / 3);
+        e->addComponent(ac);
+    }
         break;
-    case DIRECTION::LEFT:
+    case DIRECTION::LEFT: {
         zipperAnimation->setMirrored(true);
-        for(int i = 1; i < w; ++i)
-        {
-            Entity* e = new Entity(parent->parentItem(), parent->x() - i * WAVE_ANIMATION_SIZE, parent->y(), WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
-            ac->setButtons(requiredButtons);
-            ac->setSpeedMultiplier(speed / 3);
-            e->addComponent(ac);
-        }
+        Entity* e = new Entity(parent->parentItem(), parent->x() - (w - 1) * WAVE_ANIMATION_SIZE, parent->y(), (w - 1) * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
+        ac->setTiled(true);
+        ac->setButtons(requiredButtons);
+        ac->setSpeedMultiplier(speed / 3);
+        e->addComponent(ac);
+    }
         break;
-    case DIRECTION::UP:
+    case DIRECTION::UP: {
         zipperAnimation->setRotation(-90);
-        for(int i = 1; i < w; ++i)
-        {
-            Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() - i * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
-            ac->setRotation(90);
-            ac->setButtons(requiredButtons);
-            ac->setSpeedMultiplier(speed / 3);
-            e->addComponent(ac);
-        }
+        Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() - (w - 1) * WAVE_ANIMATION_SIZE,
+                               WAVE_ANIMATION_SIZE, (w - 1) *  WAVE_ANIMATION_SIZE);
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave-vertical");
+        ac->setTiled(true);
+        ac->setButtons(requiredButtons);
+        ac->setSpeedMultiplier(speed / 3);
+        e->addComponent(ac);
+    }
         break;
-    case DIRECTION::DOWN:
+    case DIRECTION::DOWN: {
         zipperAnimation->setRotation(90);
-        for(int i = 1; i < w; ++i)
-        {
-            Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() + i * WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE, WAVE_ANIMATION_SIZE);
-            AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave");
-            ac->setRotation(-90);
-            ac->setButtons(requiredButtons);
-            ac->setSpeedMultiplier(speed / 3);
-            e->addComponent(ac);
-        }
+        Entity* e = new Entity(parent->parentItem(), parent->x(), parent->y() + WAVE_ANIMATION_SIZE,
+                               WAVE_ANIMATION_SIZE, (w - 1) *  WAVE_ANIMATION_SIZE);
+        AnimationComponent* ac = AnimationFactory::getAnimationComponent("magnet-wave-vertical");
+        ac->setTiled(true);
+        ac->setMirroredY(true);
+        ac->setButtons(requiredButtons);
+        ac->setSpeedMultiplier(speed / 3);
+        e->addComponent(ac);
+    }
         break;
     }
 }

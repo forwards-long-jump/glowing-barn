@@ -103,9 +103,29 @@ void GameScene::onKeyChange(Input&)
         game->switchScene("menu");
     }
 
+    if(Game::input.isKeyDown(Input::Key::RELOAD_LEVEL)) {
+        loadMap(newMapPath, newMapSpawn);
+    }
+
+    if(Game::input.isKeyDown(Input::Key::LEVEL_SELECT)) {
+        loadMap(":maps/level-select.tmx");
+    }
+
+    if(Game::input.isKeyDown(Input::Key::CHANGE_LANGUAGE)) {
+        if(game->getLanguage() == "FR") {
+            game->setLanguage("EN");
+        }
+        else {
+            game->setLanguage("FR");
+        }
+
+        loadMap(newMapPath, newMapSpawn);
+    }
+
+
+
     if(Game::input.isKeyDown(Input::Key::LOAD_LEVEL))
     {
-        Game::input.setKeyDown(Input::Key::LOAD_LEVEL);
         bool ok;
         QString path = QInputDialog::getText(nullptr, "Load external map", "Current map path: " + newMapPath, QLineEdit::Normal, QCoreApplication::applicationDirPath() + "/assets/maps/", &ok);
         if (ok && !path.isEmpty()) {
@@ -116,6 +136,8 @@ void GameScene::onKeyChange(Input&)
                 loadMap(mapPath);
             });
         }
+
+        Game::input.setKeyDown(Input::Key::LOAD_LEVEL);
     }
 }
 
@@ -145,7 +167,7 @@ bool GameScene::loadMap(QString filename, QString spawnName)
     Sounds::playMusic(map->propertyAsString("musicPath"));
 
     mapRenderer = new Tiled::OrthogonalRenderer(map);
-    mapItem = new MapEntity(map, mapRenderer, nullptr, spawnName);
+    mapItem = new MapEntity(map, mapRenderer, nullptr, spawnName, game);
     mapItem->getLayer("middle")->createCollisions();
 
     mapItem->getLayer("front")->setZValue(1);

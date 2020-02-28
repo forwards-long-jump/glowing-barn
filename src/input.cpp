@@ -5,17 +5,19 @@
  */
 Input::Input()
 {
-    bindings[LEFT]       = Qt::Key_Left;
-    bindings[RIGHT]      = Qt::Key_Right;
-    bindings[JUMP]       = Qt::Key_Up;
-    bindings[INTERACT]   = Qt::Key_Down;
-    bindings[ZIP]        = Qt::Key_Space;
-    bindings[PAUSE_MENU] = Qt::Key_Escape;
-    bindings[START_GAME] = Qt::Key_Enter;
-    bindings[START_GAME2] = Qt::Key_Return;
-    bindings[MUTE_GAME]  = Qt::Key_M;
-    bindings[QUIT_GAME]  = Qt::Key_Q;
-    bindings[LOAD_LEVEL] = Qt::Key_F8;
+    bindings[LEFT]       = {Qt::Key_Left, Qt::Key_A};
+    bindings[RIGHT]      = {Qt::Key_Right, Qt::Key_D};
+    bindings[JUMP]       = {Qt::Key_Up, Qt::Key_W, Qt::Key_Space};
+    bindings[INTERACT]   = {Qt::Key_Down, Qt::Key_S, Qt::Key_F, Qt::Key_E};
+    bindings[ZIP]        = {Qt::Key_Shift, Qt::Key_Q};
+    bindings[PAUSE_MENU] = {Qt::Key_Escape};
+    bindings[START_GAME] = {Qt::Key_Enter, Qt::Key_Return, Qt::Key_Space};
+    bindings[MUTE_GAME]  = {Qt::Key_M};
+    bindings[QUIT_GAME]  = {Qt::Key_Q};
+    bindings[LOAD_LEVEL] = {Qt::Key_F8};
+    bindings[RELOAD_LEVEL] = {Qt::Key_F5};
+    bindings[LEVEL_SELECT] = {Qt::Key_Home};
+    bindings[CHANGE_LANGUAGE] = {Qt::Key_F2};
 }
 
 /**
@@ -30,7 +32,9 @@ bool Input::isDebugKeyDown(Qt::Key key)
 
 void Input::setKeyDown(Key key)
 {
-    keys.insert(bindings[key], false);
+    for(int qtKey : bindings[key]) {
+        keys.insert(qtKey, false);
+    }
 }
 
 /**
@@ -40,9 +44,14 @@ void Input::setKeyDown(Key key)
  */
 bool Input::isKeyDown(Key key)
 {
-    return key == Input::Key::NONE || keys.value(bindings[key], false);
-}
+    for(int qtKey : bindings[key]) {
+        if(keys.value(qtKey, false)) {
+            return true;
+        }
+    }
 
+    return key == Input::Key::NONE;
+}
 /**
  * @brief Input::handleKeyDown
  * @param event

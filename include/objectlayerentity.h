@@ -7,6 +7,8 @@
 
 #include <QDebug>
 
+class Game;
+
 /**
  * Represents an object's layer in Tiled and call the EntityFactory to create the level
  *
@@ -16,7 +18,7 @@
 class ObjectLayerEntity : public Entity
 {
 public:
-    ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, Entity* parent, QString spawnName);
+    ObjectLayerEntity(Tiled::ObjectGroup* objectGroup, Tiled::MapRenderer* renderer, Entity* parent, QString spawnName, Game *game);
 
     QRectF boundingRect() const override;
     void paint(QPainter* p, const QStyleOptionGraphicsItem* option, QWidget* ) override;

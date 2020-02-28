@@ -10,13 +10,14 @@
  * @param maxVSpeed_ Vertical speed will be trimmed down to this at every update
  * @param name_
  */
-PhysicsComponent::PhysicsComponent(float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, QString name_)
+PhysicsComponent::PhysicsComponent(float accSpeed_, float maxHSpeed_, float friction_, float jumpSpeed_, float g_, float maxVSpeed_, bool noClip, QString name_)
     :Component(name_),
       accSpeed(accSpeed_),
       maxHSpeed(maxHSpeed_),
       friction(friction_),
       jumpSpeed(jumpSpeed_),
       g(g_),
+      noClip(noClip),
       maxVSpeed(maxVSpeed_)
 {
     dx = dy = 0;
@@ -50,13 +51,24 @@ void PhysicsComponent::update()
     fdy *= forcedFrictionY;
 
     // Collisions
-    onGround = false;
-    for (HitboxComponent* hitbox : HitboxComponent::getInstancesOf("WallComponent"))
-    {
-        handleCollision(static_cast<SquareHitboxComponent*>(hitbox));
+
+    if(!noClip) {
+        if(hitboxes.size() == 0) {
+            // Get hitboxes from the map only once
+            // because checking the size of a list is probably faster than
+            // calculating a string hash to find its pos in a map
+            hitboxes = HitboxComponent::getInstancesOf("WallComponent");
+        }
+
+        onGround = false;
+        for (HitboxComponent* hitbox : hitboxes)
+        {
+            handleCollision(static_cast<SquareHitboxComponent*>(hitbox));
+        }
     }
 
     QPointF pos = getParent()->pos();
+
     if (!ignorePhysicsForTick)
     {
         getParent()->setPos(pos.x() + dx + fdx, pos.y() + dy + fdy);
@@ -78,7 +90,12 @@ void PhysicsComponent::handleCollision(SquareHitboxComponent* hitbox)
     QRectF theirHB = hitbox->getHitbox();
 
     QRectF ourHB;
-    for (auto physicsHitbox : HitboxComponent::getInstancesOf("PhysicsHitboxComponent"))
+
+    if(physicHitboxes.size() == 0) {
+        physicHitboxes = HitboxComponent::getInstancesOf("PhysicsHitboxComponent");
+    }
+
+    for (HitboxComponent* physicsHitbox : physicHitboxes)
     {
         if (physicsHitbox->getParent() == parent)
         {
